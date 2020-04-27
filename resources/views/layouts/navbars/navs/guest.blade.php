@@ -19,7 +19,7 @@
         </li>
         <li class="nav-item{{ $activePage == 'register' ? ' active' : '' }}">
           <a href="{{ route('register') }}" class="nav-link">
-            <i class="material-icons">person_add</i> {{ __('Register') }}
+            <i class="material-icons">person_add</i> {{ __('Registrar') }}
           </a>
         </li>
         <li class="nav-item{{ $activePage == 'login' ? ' active' : '' }}">
@@ -29,7 +29,7 @@
         </li>
         <li class="nav-item ">
           <a href="{{ route('profile.edit') }}" class="nav-link">
-            <i class="material-icons">face</i> {{ __('Profile') }}
+            <i class="material-icons">face</i> {{ __('Perfil') }}
           </a>
         </li>
       </ul>
