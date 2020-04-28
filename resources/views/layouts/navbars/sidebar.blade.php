@@ -65,7 +65,7 @@
           </ul>
         </div>
       </li>
-      @if (App::environment() == 'local')
+      @if (App::environment() == 'develop')
         <li class="nav-item{{ $activePage == 'table' ? ' active' : '' }}">
           <a class="nav-link" href="{{ route('table') }}">
             <i class="material-icons">content_paste</i>

@@ -1,4 +1,4 @@
-@extends('layouts.app', ['activePage' => 'profile', 'titlePage' => __('Listado usuarios')])
+@extends('layouts.app', ['activePage' => 'user-management', 'titlePage' => __('Listado usuarios')])
 
 @section('content')
   <div class="content">
@@ -7,13 +7,13 @@
         <div class="col-md-12">
           <div class="card">
             <div class="card-header card-header-primary">
-              <h4 class="card-title ">Users</h4>
-              <p class="card-category"> Here you can manage users</p>
+              <h4 class="card-title ">Usuarios</h4>
+              <p class="card-category">Listado de usuarios</p>
             </div>
             <div class="card-body">
               <div class="row">
                 <div class="col-12 text-right">
-                  <a href="#" class="btn btn-sm btn-primary">Add user</a>
+                  <a href="{{ route('user/create') }}" class="btn btn-sm btn-primary">Crear usuario</a>
                 </div>
               </div>
               <div class="table-responsive">
@@ -21,37 +21,39 @@
                   <thead class=" text-primary">
                     <tr>
                       <th>
-                        Name
+                        Nombre
                       </th>
                       <th>
                         Email
                       </th>
                       <th>
-                        Creation date
+                        Fecha de creación
                       </th>
                       <th class="text-right">
-                        Actions
+                        Editar
                       </th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>
-                        Admin Admin
-                      </td>
-                      <td>
-                        admin@material.com
-                      </td>
-                      <td>
-                        2020-02-24
-                      </td>
-                      <td class="td-actions text-right">
-                        <a rel="tooltip" class="btn btn-success btn-link" href="#" data-original-title="" title="">
-                          <i class="material-icons">edit</i>
-                          <div class="ripple-container"></div>
-                        </a>
-                      </td>
-                    </tr>
+                    @foreach ($users as $user)
+                      <tr>
+                        <td>
+                          {{ $user->name }}
+                        </td>
+                        <td>
+                          {{ $user->email }}
+                        </td>
+                        <td>
+                          {{ $user->created_at->format('d-m-Y') }}
+                        </td>
+                        <td class="td-actions text-right">
+                          <a rel="tooltip" class="btn btn-success btn-link" href="{{ route('user.show', ['id' => $user->id]) }}" data-original-title="" title="">
+                            <i class="material-icons">edit</i>
+                            <div class="ripple-container"></div>
+                          </a>
+                        </td>
+                      </tr>
+                    @endforeach
                   </tbody>
                 </table>
               </div>

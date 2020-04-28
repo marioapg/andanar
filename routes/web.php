@@ -54,6 +54,12 @@ Route::group(['middleware' => 'auth'], function () {
 
 	// USER
 	Route::resource('user', 'UserController', ['except' => ['show']]);
+	Route::get('user/{id}', ['as' => 'user.show', 'uses' => 'UserController@show']);
+	Route::put('user/profile/{id}', ['as' => 'user.update', 'uses' => 'UserController@update']);
+	Route::put('user/password/{id}', ['as' => 'user.updatepass', 'uses' => 'UserController@updatePass']);
+	Route::get('user/create', 'UserController@create')->name('user/create');
+	Route::post('user/store', ['as' => 'user.create', 'uses' => 'UserController@store']);
+
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
