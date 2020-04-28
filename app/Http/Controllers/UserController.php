@@ -66,10 +66,13 @@ class UserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
+
         if (is_null($user)) {
             return back()->withErrors(['create' => 'No se pudo guardar, intenta más tarde']);
         }
 
+        $user->roles()->attach(Role::where('name', 'user')->first());
+        
         return redirect()->route('user.index');
     }
 }

@@ -60,6 +60,10 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('user/create', 'UserController@create')->name('user/create');
 	Route::post('user/store', ['as' => 'user.create', 'uses' => 'UserController@store']);
 
+	// CLIENTS
+	Route::get('clients', 'ClientsController@index');
+
+	// PROFILE (self owner))
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);

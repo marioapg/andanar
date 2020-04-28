@@ -18,13 +18,13 @@
         </a>
       </li>
       <li class="nav-item {{ ($activePage == 'profile' || $activePage == 'user-management') ? ' active' : '' }}">
-        <a class="nav-link" data-toggle="collapse" href="#laravelExample" aria-expanded="true">
-          <i class="material-icons">assignment_ind</i>
+        <a class="nav-link" data-toggle="collapse" href="#laravelExample" aria-expanded="false">
+          <i class="material-icons">account_circle</i>
           <p>{{ __('Usuarios') }}
             <b class="caret"></b>
           </p>
         </a>
-        <div class="collapse show" id="laravelExample">
+        <div class="collapse {{ ($activePage == 'profile' || $activePage == 'user-management') ? 'show' : '' }}" id="laravelExample">
           <ul class="nav">
             <li class="nav-item{{ $activePage == 'profile' ? ' active' : '' }}">
               <a class="nav-link" href="{{ route('profile.edit') }}">
@@ -42,13 +42,13 @@
         </div>
       </li>
       <li class="nav-item {{ ($activePage == 'invoice-send' || $activePage == 'invoice-received') ? ' active' : '' }}">
-        <a class="nav-link" data-toggle="collapse" href="#invoices" aria-expanded="true">
+        <a class="nav-link" data-toggle="collapse" href="#invoices" aria-expanded="false">
           <i class="material-icons">content_paste</i>
           <p>{{ __('Facturas') }}
             <b class="caret"></b>
           </p>
         </a>
-        <div class="collapse show" id="invoices">
+        <div class="collapse {{ ($activePage == 'invoice-send' || $activePage == 'invoice-received') ? 'show' : '' }}" id="invoices">
           <ul class="nav">
             <li class="nav-item{{ $activePage == 'invoice-send' ? ' active' : '' }}">
               <a class="nav-link" href="#">
@@ -60,6 +60,24 @@
               <a class="nav-link" href="#">
                 <i class="material-icons">call_received</i>
                 <span class="sidebar-normal"> {{ __('Recibidas') }} </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-item {{ ($activePage == 'clients') ? ' active' : '' }}">
+        <a class="nav-link" data-toggle="collapse" href="#clients" aria-expanded="false">
+          <i class="material-icons">assignment_ind</i>
+          <p>{{ __('Clientes') }}
+            <b class="caret"></b>
+          </p>
+        </a>
+        <div class="collapse {{ ($activePage == 'clients') ? 'show' : '' }}" id="clients">
+          <ul class="nav">
+            <li class="nav-item{{ $activePage == 'clients' ? ' active' : '' }}">
+              <a class="nav-link" href="{{ route('user.index') }}">
+                <i class="material-icons">supervisor_account</i>
+                <span class="sidebar-normal"> {{ __('Listado de clientes') }} </span>
               </a>
             </li>
           </ul>
