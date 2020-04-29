@@ -61,7 +61,11 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('user/store', ['as' => 'user.create', 'uses' => 'UserController@store']);
 
 	// CLIENTS
-	Route::get('clients', 'ClientsController@index');
+	Route::get('clients', 'ClientController@index')->name('clients.index');
+	Route::get('client/{id}/show', 'ClientController@show')->name('client.show');
+	Route::get('client/create', 'ClientController@create')->name('client.create');
+	Route::post('client', 'ClientController@store')->name('client.store');
+	Route::put('client', 'ClientController@update')->name('client.update');
 
 	// PROFILE (self owner))
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);

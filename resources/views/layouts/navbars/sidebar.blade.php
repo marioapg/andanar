@@ -18,7 +18,7 @@
         </a>
       </li>
       <li class="nav-item {{ ($activePage == 'profile' || $activePage == 'user-management') ? ' active' : '' }}">
-        <a class="nav-link" data-toggle="collapse" href="#laravelExample" aria-expanded="false">
+        <a class="nav-link" data-toggle="collapse" href="#laravelExample" aria-expanded="{{ ($activePage == 'profile' || $activePage == 'user-management') ? 'true' : 'false' }}">
           <i class="material-icons">account_circle</i>
           <p>{{ __('Usuarios') }}
             <b class="caret"></b>
@@ -42,7 +42,7 @@
         </div>
       </li>
       <li class="nav-item {{ ($activePage == 'invoice-send' || $activePage == 'invoice-received') ? ' active' : '' }}">
-        <a class="nav-link" data-toggle="collapse" href="#invoices" aria-expanded="false">
+        <a class="nav-link" data-toggle="collapse" href="#invoices" aria-expanded="{{ ($activePage == 'invoice-send' || $activePage == 'invoice-received') ? 'true' : 'false' }}">
           <i class="material-icons">content_paste</i>
           <p>{{ __('Facturas') }}
             <b class="caret"></b>
@@ -66,7 +66,7 @@
         </div>
       </li>
       <li class="nav-item {{ ($activePage == 'clients') ? ' active' : '' }}">
-        <a class="nav-link" data-toggle="collapse" href="#clients" aria-expanded="false">
+        <a class="nav-link" data-toggle="collapse" href="#clients" aria-expanded="{{ ($activePage == 'clients') ? 'true' : 'false' }}">
           <i class="material-icons">assignment_ind</i>
           <p>{{ __('Clientes') }}
             <b class="caret"></b>
@@ -75,7 +75,7 @@
         <div class="collapse {{ ($activePage == 'clients') ? 'show' : '' }}" id="clients">
           <ul class="nav">
             <li class="nav-item{{ $activePage == 'clients' ? ' active' : '' }}">
-              <a class="nav-link" href="{{ route('user.index') }}">
+              <a class="nav-link" href="{{ route('clients.index') }}">
                 <i class="material-icons">supervisor_account</i>
                 <span class="sidebar-normal"> {{ __('Listado de clientes') }} </span>
               </a>
