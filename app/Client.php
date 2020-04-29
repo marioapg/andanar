@@ -24,4 +24,9 @@ class Client extends Model
 		"celphone",
 		"website",
     ];
+
+    public function invoices()
+    {
+    	return $this->hasMany('App\Invoice', 'client_id', 'id');
+    }
 }

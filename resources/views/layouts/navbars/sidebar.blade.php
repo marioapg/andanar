@@ -41,25 +41,19 @@
           </ul>
         </div>
       </li>
-      <li class="nav-item {{ ($activePage == 'invoice-send' || $activePage == 'invoice-received') ? ' active' : '' }}">
-        <a class="nav-link" data-toggle="collapse" href="#invoices" aria-expanded="{{ ($activePage == 'invoice-send' || $activePage == 'invoice-received') ? 'true' : 'false' }}">
+      <li class="nav-item {{ ($activePage == 'invoice-list') ? ' active' : '' }}">
+        <a class="nav-link" data-toggle="collapse" href="#invoices" aria-expanded="{{ ($activePage == 'invoice-list') ? 'true' : 'false' }}">
           <i class="material-icons">content_paste</i>
           <p>{{ __('Facturas') }}
             <b class="caret"></b>
           </p>
         </a>
-        <div class="collapse {{ ($activePage == 'invoice-send' || $activePage == 'invoice-received') ? 'show' : '' }}" id="invoices">
+        <div class="collapse {{ ($activePage == 'invoice-list') ? 'show' : '' }}" id="invoices">
           <ul class="nav">
-            <li class="nav-item{{ $activePage == 'invoice-send' ? ' active' : '' }}">
-              <a class="nav-link" href="#">
-                <i class="material-icons">call_made</i>
-                <span class="sidebar-normal">{{ __('Emitidas') }} </span>
-              </a>
-            </li>
-            <li class="nav-item{{ $activePage == 'invoice-received' ? ' active' : '' }}">
-              <a class="nav-link" href="#">
-                <i class="material-icons">call_received</i>
-                <span class="sidebar-normal"> {{ __('Recibidas') }} </span>
+            <li class="nav-item{{ $activePage == 'invoice-list' ? ' active' : '' }}">
+              <a class="nav-link" href="{{ route('invoices.index') }}">
+                <i class="material-icons">receipt</i>
+                <span class="sidebar-normal">{{ __('Ver facturas') }} </span>
               </a>
             </li>
           </ul>
