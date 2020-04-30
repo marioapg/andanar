@@ -20,9 +20,6 @@ $(document).ready(function() {
                             <div class="col">
                                 <input class="form-control" type="number" step="0.01" name="itemprice[]" placeholder="Precio"/>
                             </div>
-                            <div class="col">
-                                <input class="form-control" type="number" step="0.01" name="itemtaxrate[]" placeholder="% Impuesto" value="21"/>
-                            </div>
                             <a href="#" class="delete">
                                 <i class="material-icons">delete</i>
                             </a>

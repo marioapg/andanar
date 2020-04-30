@@ -61,31 +61,37 @@
                             <th class="text-left">Descripción</th>
                             <th class="text-right">Cantidad</th>
                             <th class="text-right">Precio</th>
+                            <th class="text-right">Monto</th>
+                            <th class="text-right">Iva</th>
                             <th class="text-right">Total</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach( $invoice->items as $key => $item)
                         <tr>
-                          <td class="no">02</td>
-                            <td class="text-left"><h3>Website Development</h3>Developing a Content Management System-based Website</td>
-                            <td class="unit">$40.00</td>
-                            <td class="qty">80</td>
-                            <td class="total">$3,200.00</td>
+                          <td class="no">{{ $key }}</td>
+                            <td class="text-left"><h3>{{ $item->name }}</h3>{{ $item->description }}</td>
+                            <td class="qty">{{ $item->quantity }}</td>
+                            <td class="unit">{{ $item->price }}</td>
+                            <td class="unit">{{ $item->total }}</td>
+                            <td class="unit">{{ $item->tax }}</td>
+                            <td class="total">{{ $item->grand_total }}</td>
                         </tr>
+                        @endforeach
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td colspan="2"></td>
+                            <td colspan="4"></td>
                             <td colspan="2">SUBTOTAL</td>
                             <td>{{ $invoice->total }}</td>
                         </tr>
                         <tr>
-                            <td colspan="2"></td>
+                            <td colspan="4"></td>
                             <td colspan="2">IVA {{ $invoice->iva_rate }}%</td>
                             <td>{{ $invoice->iva }}</td>
                         </tr>
                         <tr>
-                            <td colspan="2"></td>
+                            <td colspan="4"></td>
                             <td colspan="2">TOTAL</td>
                             <td>{{ $invoice->grand_total }}</td>
                         </tr>

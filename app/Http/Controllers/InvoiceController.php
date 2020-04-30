@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Invoice;
+use App\Client;
+use App\Item;
 
 class InvoiceController extends Controller
 {
@@ -42,11 +44,50 @@ class InvoiceController extends Controller
             return back()->withErrors($validator)->withInput();
         }
 
+        $total = floatval(0);
+        $iva = floatval(0);
+        $grand_total = floatval(0);
+
+        // Calcular total de la factura
+        foreach ($request->itemname as $key => $value) {
+            $amount = floatval($request->itemprice[$key]) * intval($request->itemqty[$key]);
+            $tax_rate = floatval($request->iva_rate / 100);
+            $iva += floatval($amount * $tax_rate);
+            $total +=  $amount;
+        }
+
+        $grand_total =  $total + $iva;
+
         $invoice_args = $request->only(['client', 'date', 'due_date', 'iva_rate','status', 'type', 'comment', 'pay_way']);
         $invoice_args['doc_number'] = '123';
-        $invoice_args['client_id'] = $request->clientid;
+        $invoice_args['client_id'] = Client::where('name', $request->client)->first()->id;
+        $invoice_args['total'] = $total;
+        $invoice_args['iva'] = $iva;
+        $invoice_args['grand_total'] = $grand_total;
+
         $invoice = Invoice::create($invoice_args);
 
-        return $invoice;
+        // Agregar items de la factura
+        foreach ($request->itemname as $key => $value) {
+            $amount = floatval($request->itemprice[$key]) * intval($request->itemqty[$key]);
+            $tax_rate = floatval($request->iva_rate / 100);
+            $iva = floatval($amount * $tax_rate);
+
+            Item::create(
+                    array(
+                            'invoice_id' => $invoice->id,
+                            'name' => $value,
+                            'description' => $request->itemdescription[$key],
+                            'quantity' => $request->itemqty[$key],
+                            'price' => $request->itemprice[$key],
+                            'tax_rate' => $request->iva_rate,
+                            'total' => $amount,
+                            'tax' => $iva,
+                            'grand_total' => ($amount + $iva),
+                        )
+                    );
+        }
+
+        return redirect()->route('invoices.index');
     }
 }

@@ -15,7 +15,7 @@ class CreateItemsTable extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('invoices_id')->unsigned();
+            $table->bigInteger('invoice_id')->unsigned();
             $table->string('name');
             $table->string('description');
             $table->string('quantity');
@@ -24,7 +24,7 @@ class CreateItemsTable extends Migration
             $table->double('total');
             $table->double('tax');
             $table->double('grand_total');
-            $table->foreign('invoices_id')->references('id')->on('invoices');
+            $table->foreign('invoice_id')->references('id')->on('invoices');
             $table->softDeletes();
             $table->timestamps();
         });

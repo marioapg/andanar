@@ -20,7 +20,7 @@ class CreateInvoicesTable extends Migration
             $table->date('date');
             $table->date('due_date');
             $table->string('type')->default('sell');
-            $table->string('comment');
+            $table->string('comment')->nullable();
             $table->string('pay_way');
             $table->string('status')->default('pending');
             $table->double('iva_rate')->default(21);

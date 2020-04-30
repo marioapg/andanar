@@ -29,4 +29,9 @@ class Invoice extends Model
     {
     	return $this->hasOne('App\Client', 'id', 'client_id');
     }
+
+    public function items()
+    {
+    	return $this->hasMany('App\Item', 'invoice_id', 'id');
+    }
 }
