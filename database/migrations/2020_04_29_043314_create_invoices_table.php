@@ -22,6 +22,7 @@ class CreateInvoicesTable extends Migration
             $table->string('type')->default('sell');
             $table->string('comment');
             $table->string('pay_way');
+            $table->string('status')->default('pending');
             $table->double('iva_rate')->default(21);
             $table->double('total');
             $table->double('iva');

@@ -71,6 +71,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('invoices', 'InvoiceController@index')->name('invoices.index');
 	Route::get('invoice/create', 'InvoiceController@create')->name('invoice.create');
 	Route::get('invoice/{id}', 'InvoiceController@show')->name('invoice.show');
+	Route::post('invoice', 'InvoiceController@store')->name('invoice.store');
 
 	// PROFILE (self owner))
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);

@@ -163,3 +163,12 @@
         page-break-before: always
     }
 }
+
+.add-item-to-invoice {
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.add-item-to-invoice:hover {
+    background-color: rgb(174, 171, 171);
+}
