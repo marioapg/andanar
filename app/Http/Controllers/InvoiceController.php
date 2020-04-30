@@ -44,6 +44,7 @@ class InvoiceController extends Controller
 
         $invoice_args = $request->only(['client', 'date', 'due_date', 'iva_rate','status', 'type', 'comment', 'pay_way']);
         $invoice_args['doc_number'] = '123';
+        $invoice_args['client_id'] = $request->clientid;
         $invoice = Invoice::create($invoice_args);
 
         return $invoice;

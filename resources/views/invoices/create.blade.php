@@ -18,6 +18,12 @@
                     <div class="col">
                       <label for="client">Cliente</label>
                       <input type="text" class="form-control" placeholder="@" id="client" name="client" value="{{ old('client') }}" required>
+                      <input type="hidden" id="clientid" name="clientid" value="1">
+                      @if ($errors->has('clientid'))
+                        <div id="clientid-error" class="error text-danger pl-3" for="clientid" style="display: block;">
+                          <strong>{{ $errors->first('clientid') }}</strong>
+                        </div>
+                      @endif
                       @if ($errors->has('client'))
                         <div id="client-error" class="error text-danger pl-3" for="client" style="display: block;">
                           <strong>{{ $errors->first('client') }}</strong>
