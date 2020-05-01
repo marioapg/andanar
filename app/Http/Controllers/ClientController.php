@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Client;
+use Session;
 
 class ClientController extends Controller
 {
@@ -43,11 +44,15 @@ class ClientController extends Controller
         ]);
 
         if ( $validator->fails() ) {
+            Session::flash('flash_message', __('- Error en los datos, por favor verifique e intente de nuevo.'));
+            Session::flash('flash_type', 'alert-danger');
             return back()->withErrors($validator)->withInput();
         }
 
         Client::create($request->all());
 
+        Session::flash('flash_message', __('+ Datos actualizados'));
+        Session::flash('flash_type', 'alert-success');
         return redirect()->route('clients.index');
     }
 
@@ -68,11 +73,15 @@ class ClientController extends Controller
         ]);
 
         if ( $validator->fails() ) {
+            Session::flash('flash_message', __('- Error en los datos, por favor verifique e intente de nuevo.'));
+            Session::flash('flash_type', 'alert-danger');
             return back()->withErrors($validator)->withInput();
         }
 
         Client::where('email', $request->email)->update($request->except(['email', 'country', '_token', '_method']));
 
+        Session::flash('flash_message', __('+ Datos actualizados'));
+        Session::flash('flash_type', 'alert-success');
         return redirect()->route('clients.index');
     }
 }

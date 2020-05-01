@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ProfileRequest;
 use App\Http\Requests\PasswordRequest;
 use Illuminate\Support\Facades\Hash;
+use Session;
 
 class ProfileController extends Controller
 {
@@ -28,6 +29,8 @@ class ProfileController extends Controller
     {
         auth()->user()->update($request->all());
 
+        Session::flash('flash_message', __('+ Actualización exitosa.'));
+        Session::flash('flash_type', 'alert-success');
         return back()->withStatus(__('Actualización exitosa.'));
     }
 
@@ -41,6 +44,8 @@ class ProfileController extends Controller
     {
         auth()->user()->update(['password' => Hash::make($request->get('password'))]);
 
+        Session::flash('flash_message', __('+ Password cambiada con éxito.'));
+        Session::flash('flash_type', 'alert-success');
         return back()->withStatusPassword(__('Password cambiada con éxito.'));
     }
 }

@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\UserRequest;
 use Illuminate\Http\Request;
 use App\User;
+use App\Role;
+use Session;
 
 class UserController extends Controller
 {
@@ -33,6 +35,8 @@ class UserController extends Controller
     {
         User::find($request->id)->update($request->only('name'));
 
+        Session::flash('flash_message', __('+ Actualización exitosa.'));
+        Session::flash('flash_type', 'alert-success');
         return back()->withStatus(__('Actualización exitosa.'));
     }
 
@@ -40,6 +44,8 @@ class UserController extends Controller
     {
         User::find($request->id)->update(['password' => Hash::make($request->get('password'))]);
 
+        Session::flash('flash_message', __('+ Password cambiada con éxito.'));
+        Session::flash('flash_type', 'alert-success');
         return back()->withStatusPassword(__('Password cambiada con éxito.'));
     }
 
@@ -57,6 +63,8 @@ class UserController extends Controller
         ]);
 
         if ( $validator->fails() ) {
+            Session::flash('flash_message', __('- Error en los datos, por favor verifique e intente de nuevo.'));
+            Session::flash('flash_type', 'alert-danger');
             return back()->withErrors($validator)->withInput();
         }
 
@@ -68,11 +76,15 @@ class UserController extends Controller
 
 
         if (is_null($user)) {
+            Session::flash('flash_message', __('- Error en los datos, por favor verifique e intente de nuevo.'));
+            Session::flash('flash_type', 'alert-danger');
             return back()->withErrors(['create' => 'No se pudo guardar, intenta más tarde']);
         }
 
         $user->roles()->attach(Role::where('name', 'user')->first());
-        
+
+        Session::flash('flash_message', __('+ Usuario creado con éxito.'));
+        Session::flash('flash_type', 'alert-success');
         return redirect()->route('user.index');
     }
 }

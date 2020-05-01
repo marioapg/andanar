@@ -1,5 +1,4 @@
 $(document).ready(function() {
-    var max_fields = 10;
     var wrapper = $(".add-items");
     var add_button = $(".add-item-to-invoice");
 
@@ -30,5 +29,12 @@ $(document).ready(function() {
         e.preventDefault();
         $(this).parent('div').remove();
         x--;
-    })
+    });
+
+    $(document).ready(function(){
+        $('.alert-success').fadeIn().delay(5000).fadeOut();
+        $('.alert-danger').fadeIn().delay(5000).fadeOut();
+    });
+
+    // PUT YOUR CUSTOM CODE HERE
 });

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Invoice;
 use App\Client;
 use App\Item;
+use Session;
 
 class InvoiceController extends Controller
 {
@@ -41,6 +42,8 @@ class InvoiceController extends Controller
         ]);
 
         if ( $validator->fails() ) {
+            Session::flash('flash_message', __('+ Por favor, revise los datos e intente nuevamente.'));
+            Session::flash('flash_type', 'alert-danger');
             return back()->withErrors($validator)->withInput();
         }
 
@@ -88,6 +91,8 @@ class InvoiceController extends Controller
                     );
         }
 
+        Session::flash('flash_message', __('+ Factura registrada.'));
+        Session::flash('flash_type', 'alert-success');
         return redirect()->route('invoices.index');
     }
 }
