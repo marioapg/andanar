@@ -1,4 +1,4 @@
-@extends('layouts.app', ['activePage' => 'invoice-list', 'titlePage' => __('Listado facturas')])
+@extends('layouts.app', ['activePage' => 'invoice-list-'.$type, 'titlePage' => __('Listado facturas')])
 
 @section('content')
   <div class="content">

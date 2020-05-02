@@ -13,7 +13,15 @@ class InvoiceController extends Controller
 {
     public function index(Request $request)
     {
-    	return view('invoices.index', ['invoices' => Invoice::all()]);
+        if (!isset($request->type)) {
+            $invoices = Invoice::all();
+        }elseif ($request->type == 'all') {
+            $invoices = Invoice::all();
+        } else {
+            $invoices = Invoice::where('type', $request->type)->get();
+        }
+
+    	return view('invoices.index', ['invoices' => $invoices, 'type' => $request->type]);
     }
 
     public function show(Request $request)

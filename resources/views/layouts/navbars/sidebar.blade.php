@@ -41,19 +41,25 @@
           </ul>
         </div>
       </li>
-      <li class="nav-item {{ ($activePage == 'invoice-list') ? ' active' : '' }}">
+      <li class="nav-item {{ ($activePage == 'invoice-list-buy' || $activePage == 'invoice-list-sell' || $activePage == 'invoice-list-all' || $activePage == 'invoice-list-') ? ' active' : '' }}">
         <a class="nav-link" data-toggle="collapse" href="#invoices" aria-expanded="{{ ($activePage == 'invoice-list') ? 'true' : 'false' }}">
           <i class="material-icons">content_paste</i>
           <p>{{ __('Facturas') }}
             <b class="caret"></b>
           </p>
         </a>
-        <div class="collapse {{ ($activePage == 'invoice-list') ? 'show' : '' }}" id="invoices">
+        <div class="collapse {{ ($activePage == 'invoice-list-buy' || $activePage == 'invoice-list-sell' || $activePage == 'invoice-list-all' || $activePage == 'invoice-list-') ? 'show' : '' }}" id="invoices">
           <ul class="nav">
-            <li class="nav-item{{ $activePage == 'invoice-list' ? ' active' : '' }}">
-              <a class="nav-link" href="{{ route('invoices.index') }}">
+            <li class="nav-item{{ $activePage == 'invoice-list-sell' ? ' active' : '' }}">
+              <a class="nav-link" href="{{ route('invoices.index', ['type' => 'sell']) }}">
                 <i class="material-icons">receipt</i>
-                <span class="sidebar-normal">{{ __('Ver facturas') }} </span>
+                <span class="sidebar-normal">{{ __('Ventas') }} </span>
+              </a>
+            </li>
+            <li class="nav-item{{ $activePage == 'invoice-list-buy' ? ' active' : '' }}">
+              <a class="nav-link" href="{{ route('invoices.index', ['type' => 'buy']) }}">
+                <i class="material-icons">receipt</i>
+                <span class="sidebar-normal">{{ __('Gastos') }} </span>
               </a>
             </li>
           </ul>
