@@ -42,7 +42,7 @@ class InvoiceController extends Controller
         ]);
 
         if ( $validator->fails() ) {
-            Session::flash('flash_message', __('+ Por favor, revise los datos e intente nuevamente.'));
+            Session::flash('flash_message', __('- Por favor, revise los datos e intente nuevamente.'));
             Session::flash('flash_type', 'alert-danger');
             return back()->withErrors($validator)->withInput();
         }
@@ -68,27 +68,42 @@ class InvoiceController extends Controller
         $invoice_args['iva'] = $iva;
         $invoice_args['grand_total'] = $grand_total;
 
-        $invoice = Invoice::create($invoice_args);
+        try {
+            $invoice = Invoice::create($invoice_args);
 
-        // Agregar items de la factura
-        foreach ($request->itemname as $key => $value) {
-            $amount = floatval($request->itemprice[$key]) * intval($request->itemqty[$key]);
-            $tax_rate = floatval($request->iva_rate / 100);
-            $iva = floatval($amount * $tax_rate);
+            // Agregar items de la factura
+            foreach ($request->itemname as $key => $value) {
+                if ($request->itemqty[$key] == null || $request->itemprice[$key] == null) {
+                    Item::where('invoice_id', $invoice->id)->delete();
+                    $invoice->delete();
+                    Session::flash('flash_message', __('- Por favor, complete todos los datos e intente nuevamente.'));
+                    Session::flash('flash_type', 'alert-danger');
+                    return back()->withErrors($validator)->withInput();
+                }
 
-            Item::create(
-                    array(
-                            'invoice_id' => $invoice->id,
-                            'name' => $value,
-                            'description' => $request->itemdescription[$key],
-                            'quantity' => $request->itemqty[$key],
-                            'price' => $request->itemprice[$key],
-                            'tax_rate' => $request->iva_rate,
-                            'total' => $amount,
-                            'tax' => $iva,
-                            'grand_total' => ($amount + $iva),
-                        )
-                    );
+                $amount = floatval($request->itemprice[$key]) * intval($request->itemqty[$key]);
+                $tax_rate = floatval($request->iva_rate / 100);
+                $iva = floatval($amount * $tax_rate);
+
+
+                Item::create(
+                        array(
+                                'invoice_id' => $invoice->id,
+                                'name' => $value,
+                                'description' => $request->itemdescription[$key],
+                                'quantity' => $request->itemqty[$key],
+                                'price' => $request->itemprice[$key],
+                                'tax_rate' => $request->iva_rate,
+                                'total' => $amount,
+                                'tax' => $iva,
+                                'grand_total' => ($amount + $iva),
+                            )
+                        );
+            }
+        } catch (Exception $e) {
+            Session::flash('flash_message', __('+ Por favor, revise los datos e intente nuevamente.'));
+            Session::flash('flash_type', 'alert-danger');
+            return back()->withErrors(['error' => 'Try later']);
         }
 
         Session::flash('flash_message', __('+ Factura registrada.'));
