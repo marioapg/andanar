@@ -116,7 +116,7 @@ class InvoiceController extends Controller
 
         Session::flash('flash_message', __('+ Factura registrada.'));
         Session::flash('flash_type', 'alert-success');
-        return redirect()->route('invoices.index');
+        return redirect()->route('invoices.index', ['type' => $invoice->type]);
     }
 
     public function status(Request $request)

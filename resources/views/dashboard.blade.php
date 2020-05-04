@@ -22,6 +22,7 @@
             </div>
           </div>
         </div>
+
         <div class="col-lg-3 col-md-6 col-sm-6">
           <div class="card card-stats">
             <div class="card-header card-header-success card-header-icon">
@@ -38,40 +39,64 @@
             </div>
           </div>
         </div>
-        {{--
+        
         <div class="col-lg-3 col-md-6 col-sm-6">
           <div class="card card-stats">
             <div class="card-header card-header-danger card-header-icon">
               <div class="card-icon">
-                <i class="material-icons">info_outline</i>
+                <i class="material-icons">euro_symbol</i>
               </div>
-              <p class="card-category">Fixed Issues</p>
-              <h3 class="card-title">75</h3>
+              <p class="card-category">Ingresos</p>
+              <h3 class="card-title">{{ $ingresos }}</h3>
             </div>
             <div class="card-footer">
               <div class="stats">
-                <i class="material-icons">local_offer</i> Tracked from Github
+                <i class="material-icons">local_offer</i> Facturas cobradas
               </div>
             </div>
           </div>
         </div>
+
         <div class="col-lg-3 col-md-6 col-sm-6">
           <div class="card card-stats">
             <div class="card-header card-header-info card-header-icon">
               <div class="card-icon">
-                <i class="fa fa-twitter"></i>
+                <i class="material-icons">payment</i>
               </div>
-              <p class="card-category">Followers</p>
-              <h3 class="card-title">+245</h3>
+              <p class="card-category">Gastos</p>
+              <h3 class="card-title">{{ $gastos }}
+              </h3>
             </div>
             <div class="card-footer">
               <div class="stats">
-                <i class="material-icons">update</i> Just Updated
+                <i class="material-icons">assignment</i> Facturas recibidas
               </div>
             </div>
           </div>
         </div>
-        --}}
+        
+      </div>
+
+
+      <div class="row">
+        <div class="col-lg-3 col-md-6 col-sm-6">
+          <div class="card card-stats">
+            <div class="card-header card-header-primary card-header-icon">
+              <div class="card-icon">
+                <i class="material-icons">shopping_cart</i>
+              </div>
+              <p class="card-category">Beneficios</p>
+              <h3 class="card-title">{{ $ingresos -$gastos }}
+              </h3>
+            </div>
+            <div class="card-footer">
+              <div class="stats">
+                <i class="material-icons">assignment</i> Ventas - Gastos
+              </div>
+            </div>
+          </div>
+        </div>
+        
       </div>
       {{--
       <div class="row">
