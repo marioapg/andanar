@@ -84,4 +84,31 @@ class ClientController extends Controller
         Session::flash('flash_type', 'alert-success');
         return redirect()->route('clients.index');
     }
+/*
+    public function search(Request $request)
+    {
+        $data = Client::select("name")
+        ->where("name","LIKE","%{$request->input('query')}%")
+        ->get();
+
+        return response()->json($data);
+    }
+    */
+    public function search(Request $request)
+    {
+        if($request->get('query'))
+        {
+            $query = $request->get('query');
+            $data = Client::select("name")
+                    ->where("name","LIKE","%{$request->input('query')}%")
+                    ->get();
+            $output = '<ul class="" style="display:block; position:relative">';
+            foreach($data as $row) {
+                $output .= '<li><a href="#">'.$row->name.'</a></li>';
+            }
+            $output .= '</ul>';
+            
+            echo $output;
+        }
+    }
 }

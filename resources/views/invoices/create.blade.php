@@ -23,9 +23,12 @@
                 <div class="card-body">
 
                   <div class="form-row">
-                    <div class="col">
+                    <div class="col form-group">
                       <label for="client">Cliente</label>
-                      <input type="text" class="form-control" placeholder="@" id="client" name="client" value="{{ old('client') }}" required>
+                      <input type="text" class="form-control typeahead" placeholder="@" id="client" name="client" value="{{ old('client') }}" required autocomplete="off">
+                      <div id="clientList">
+                        
+                      </div>
                       <input type="hidden" id="clientid" name="clientid" value="1">
                       @if ($errors->has('clientid'))
                         <div id="clientid-error" class="error text-danger pl-3" for="clientid" style="display: block;">

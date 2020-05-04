@@ -172,3 +172,23 @@
 .add-item-to-invoice:hover {
     background-color: rgb(174, 171, 171);
 }
+
+.payed-invoice {
+    background-color: darkseagreen;
+}
+
+.pending-invoice {
+    background-color: burlywood;
+}
+
+.sell-invoice-color {
+    color: green;
+}
+
+.buy-invoice-color {
+    color: red;
+}
+
+.pending-invoice-eye-icon {
+    color: orange;
+}

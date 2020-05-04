@@ -57,14 +57,14 @@
                         </td>
                         <td>
                           @if($invoice->type == 'sell')
-                            <i class="material-icons" style="color: green;">call_made</i>
+                            <i class="material-icons sell-invoice-color">call_made</i>
                           @elseif($invoice->type == 'buy')
-                            <i class="material-icons" style="color: red;">call_received</i>
+                            <i class="material-icons buy-invoice-color">call_received</i>
                           @endif
                         </td>
                         <td class="td-actions text-right">
                           <a rel="tooltip" class="btn btn-success btn-link" href="{{ route('invoice.show', ['id' => $invoice->id]) }}" data-original-title="" title="">
-                            <i class="material-icons">remove_red_eye</i>
+                            <i class="material-icons @if($invoice->status == 'pending') pending-invoice-eye-icon @endif">remove_red_eye</i>
                             <div class="ripple-container"></div>
                           </a>
                         </td>

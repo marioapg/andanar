@@ -14,15 +14,29 @@
               <!--Author      : @arboshiki-->
 <div id="invoice">
 
-    {{--
+    
       <div class="toolbar hidden-print">
+        <div class="col-md-8">
+            
+        </div>
+        <div class="col-md-4">
+            
         <div class="text-right">
-            <button id="printInvoice" class="btn btn-info"><i class="fa fa-print"></i> Print</button>
-            <button class="btn btn-info"><i class="fa fa-file-pdf-o"></i> Export as PDF</button>
+            {{--<button id="printInvoice" class="btn btn-info"><i class="fa fa-print"></i> Print</button>
+            <button class="btn btn-info"><i class="fa fa-file-pdf-o"></i> Export as PDF</button>--}}
+            <form action="{{ route('invoice.status', ['id' => $invoice->id]) }}" id="invoice-status" method="post">
+                @csrf
+                @method('put')
+                <select class="form-control mdb-select @if ($invoice->status == 'payed') payed-invoice @elseif($invoice->status == 'pending') pending-invoice @endif change-invoice-select" name="status" id="status" required>
+                    <option value="pending" {{ ($invoice->status == 'pending') ? ' selected' : '' }}>Pendiente</option>
+                    <option value="payed" {{ ($invoice->status == 'payed') ? ' selected' : '' }}>Pagada</option>
+                </select>
+            </form>
+        </div>
         </div>
         <hr>
     </div>
-    --}}
+    
     <div class="invoice overflow-auto">
       <div style="min-width: 600px">
         <header>

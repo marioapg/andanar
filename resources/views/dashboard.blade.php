@@ -11,13 +11,13 @@
                 <i class="material-icons">content_copy</i>
               </div>
               <p class="card-category">Facturas</p>
-              <h3 class="card-title">49/50
+              <h3 class="card-title">{{ $sell_invoices_count }}/{{ $buy_invoices_count }}
                 {{--<small>GB</small>--}}
               </h3>
             </div>
             <div class="card-footer">
               <div class="stats">
-                <i class="material-icons">assignment</i> Emitidas/Recibidas
+                <i class="material-icons">assignment</i> Ventas/Gastos
               </div>
             </div>
           </div>
@@ -29,7 +29,7 @@
                 <i class="material-icons">face</i>
               </div>
               <p class="card-category">Clientes</p>
-              <h3 class="card-title">123</h3>
+              <h3 class="card-title">{{ $clients_count }}</h3>
             </div>
             <div class="card-footer">
               <div class="stats">

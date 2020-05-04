@@ -66,12 +66,14 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('client/create', 'ClientController@create')->name('client.create');
 	Route::post('client', 'ClientController@store')->name('client.store');
 	Route::put('client', 'ClientController@update')->name('client.update');
+	Route::post('client/search', 'ClientController@search')->name('client.search');
 
 	// INVOICES
 	Route::get('invoices', 'InvoiceController@index')->name('invoices.index');
 	Route::get('invoices/{type}', 'InvoiceController@index')->name('invoices.index');
 	Route::get('invoice/create', 'InvoiceController@create')->name('invoice.create');
 	Route::get('invoice/{id}', 'InvoiceController@show')->name('invoice.show');
+	Route::put('invoice/{id}/status', 'InvoiceController@status')->name('invoice.status');
 	Route::post('invoice', 'InvoiceController@store')->name('invoice.store');
 
 	// PROFILE (self owner))

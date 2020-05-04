@@ -37,7 +37,7 @@ class InvoiceController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'client' => ['required', 'string', 'min:4'],
+            'client' => ['required', 'string', 'min:4', 'exists:clients,name'],
             'date' => ['required', 'date'],
             'due_date' => ['required', 'date'],
             'status' => ['required', 'string', 'in:pending,payed'],
@@ -117,5 +117,12 @@ class InvoiceController extends Controller
         Session::flash('flash_message', __('+ Factura registrada.'));
         Session::flash('flash_type', 'alert-success');
         return redirect()->route('invoices.index');
+    }
+
+    public function status(Request $request)
+    {
+        Invoice::where('id', $request->id)->update(['status' => $request->status]);
+
+        return redirect()->route('invoice.show', ['id' => $request->id]);
     }
 }

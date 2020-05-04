@@ -36,5 +36,33 @@ $(document).ready(function() {
         $('.alert-danger').fadeIn().delay(5000).fadeOut();
     });
 
+    $('.change-invoice-select').on('change', function (e) {
+        $('#invoice-status').submit();
+    });
+
+    // Client autocomplete code in create invoice view
+    $('input.typeahead').keyup(function(){ 
+        var query = $(this).val();
+        console.log(query);
+        if(query != '') {
+            var _token = $('input[name="_token"]').val();
+            $.ajax({
+            url:"/client/search",
+            method:"POST",
+            data:{query:query, _token:_token},
+            success:function(data) {
+                $('#clientList').html(data);
+                $('#clientList').fadeIn();
+            }
+            });
+        }
+    });
+
+    $(document).on('click', 'li', function(){  
+        $('#client').val($(this).text());  
+        $('#clientList').fadeOut();  
+    });  
+    //
+
     // PUT YOUR CUSTOM CODE HERE
 });
