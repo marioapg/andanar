@@ -22,8 +22,8 @@
                 </div>
                 <div class="card-body">
 
-                  <div class="form-row">
-                    <div class="col form-group">
+                  <div class="form-row invoice-row-input">
+                    <div class="col input-box">
                       <label for="client">Cliente</label>
                       <input type="text" class="form-control typeahead" placeholder="@" id="client" name="client" value="{{ old('client') }}" required autocomplete="off">
                       <div id="clientList">
@@ -41,15 +41,15 @@
                         </div>
                       @endif
                     </div>
-                    <div class="col">
+                    <div class="col input-box">
                       <label for="date">Fecha</label>
                       <input type="date" id="date" name="date" class="form-control" placeholder="Fecha" value="{{ old('date') }}" required>
                     </div>
-                    <div class="col">
+                    <div class="col input-box">
                       <label for="due_date">Vencimiento</label>
                       <input type="date" id="due_date" name="due_date" class="form-control" placeholder="Vencimiento" value="{{ old('due_date') }}" required>
                     </div>
-                    <div class="col">
+                    <div class="col input-box">
                       <label for="status">Estatus</label>
                       <select class="form-control mdb-select" name="status" id="status" required>
                         <option value="pending" selected="">Pendiente</option>
@@ -58,23 +58,23 @@
                     </div>
                   </div>
 
-                  <div class="form-row">
-                    <div class="col">
+                  <div class="form-row invoice-row-input">
+                    <div class="col input-box">
                       <label for="comment">Mensaje visible en factura</label>
                       <textarea class="form-control" name="comment" id="comment" value="{{ old('comment') }}" rows="2"></textarea>
                     </div>
-                    <div class="col">
+                    <div class="col input-box">
                       <label for="iva_rate">Iva rate %</label>
                       <input type="number" step="0.1" class="form-control" placeholder="Rate impuestos" id="iva_rate" name="iva_rate" value="{{ old('iva_rate') }}" required>
                     </div>
-                    <div class="col">
+                    <div class="col input-box">
                       <label for="type">Tipo</label>
                       <select class="form-control mdb-select" name="type" id="type" required>
                         <option value="sell" selected="">Venta</option>
                         <option value="buy">Gasto</option>
                       </select>
                     </div>
-                    <div class="col">
+                    <div class="col input-box">
                       <label for="pay_way">Forma de pago</label>
                       <select class="form-control mdb-select" name="pay_way" id="pay_way" required>
                         <option value="efectivo">Efectivo</option>
