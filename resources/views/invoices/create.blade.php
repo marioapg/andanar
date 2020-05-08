@@ -42,6 +42,10 @@
                       @endif
                     </div>
                     <div class="col input-box">
+                      <label for="doc_number">Número documentos</label>
+                      <input type="text" class="form-control" id="doc_number" name="doc_number" value="{{ \Carbon\Carbon::now()->format('Ymd') }}-{{ $newNumDoc }}" required>
+                    </div>
+                    <div class="col input-box">
                       <label for="date">Fecha</label>
                       <input type="date" id="date" name="date" class="form-control" placeholder="Fecha" value="{{ old('date') }}" required>
                     </div>
@@ -49,13 +53,7 @@
                       <label for="due_date">Vencimiento</label>
                       <input type="date" id="due_date" name="due_date" class="form-control" placeholder="Vencimiento" value="{{ old('due_date') }}" required>
                     </div>
-                    <div class="col input-box">
-                      <label for="status">Estatus</label>
-                      <select class="form-control mdb-select" name="status" id="status" required>
-                        <option value="pending" selected="">Pendiente</option>
-                        <option value="payed">Pagada</option>
-                      </select>
-                    </div>
+                    
                   </div>
 
                   <div class="form-row invoice-row-input">
@@ -64,8 +62,11 @@
                       <textarea class="form-control" name="comment" id="comment" value="{{ old('comment') }}" rows="2"></textarea>
                     </div>
                     <div class="col input-box">
-                      <label for="iva_rate">Iva rate %</label>
-                      <input type="number" step="0.1" class="form-control" placeholder="Rate impuestos" id="iva_rate" name="iva_rate" value="{{ old('iva_rate') }}" required>
+                      <label for="status">Estatus</label>
+                      <select class="form-control mdb-select" name="status" id="status" required>
+                        <option value="pending" selected="">Pendiente</option>
+                        <option value="payed">Pagada</option>
+                      </select>
                     </div>
                     <div class="col input-box">
                       <label for="type">Tipo</label>
@@ -86,7 +87,7 @@
 
                   <div class="card form-row" style="display: flex;flex-direction: column;align-items: center;">
                     <div class="card-body">
-                      <h3 class="card-title">Items</h3>
+                      <h3 class="card-title">Nueva linea</h3>
                     </div>
                   </div>
 
@@ -109,6 +110,26 @@
 
                   <div class="container add-items">
                     
+                  </div>
+
+                  <div class="form-row">
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col">
+                      <label for="grandSubTotal">Subtotal</label>
+                      <input id="grandSubTotal" class="form-control" type="text" disabled="" value="0">
+                    </div>
+                    <div class="col">
+                      <label for="grandIva">Iva</label>
+                      <input id="grandIva" class="form-control" type="text" disabled="" value="0">
+                    </div>
+                    <div class="col">
+                      <label for="grandTotal">Total</label>
+                      <input id="grandTotal" class="form-control" type="text" disabled="" value="0">
+                    </div>
                   </div>
 
                   <div class="card-footer ml-auto mr-auto">
