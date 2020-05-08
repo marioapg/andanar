@@ -42,7 +42,7 @@
         <header>
           <div class="row">
             <div class="col">
-              {{--<img src="http://lobianijs.com/lobiadmin/version/1.0/ajax/img/logo/lobiadmin-logo-text-64.png" data-holder-rendered="true" />--}}
+              <img src="{{ asset('images/logo.png') }}" data-holder-rendered="true" width="150"/>
             </div>
             <div class="col company-details">
               <h2 class="name">
