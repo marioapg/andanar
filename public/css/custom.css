@@ -205,3 +205,7 @@
     background-color: rgba(204, 141, 215, 0.4);
     padding: 5px;
 }
+
+.sidebar[data-color="orange"] li.active > a {
+    
+}

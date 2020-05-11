@@ -14,19 +14,19 @@
             </div>
           @endif
           <div class="card">
-            <div class="card-header card-header-warning">
+            <div class="card-header card-header-info">
               <h4 class="card-title ">{{ __('Facturas') }}</h4>
               <p class="card-category">{{ __('Listado facturas') }}</p>
             </div>
             <div class="card-body">
               <div class="row">
                 <div class="col-12 text-right">
-                  <a href="{{ route('invoice.create') }}" class="btn btn-sm btn-warning">Nueva factura</a>
+                  <a href="{{ route('invoice.create') }}" class="btn btn-sm btn-info">Nueva factura</a>
                 </div>
               </div>
               <div class="table-responsive">
                 <table class="table">
-                  <thead class=" text-warning">
+                  <thead class=" text-info">
                     <tr>
                       <th>Número</th>
                       <th>Documento</th>

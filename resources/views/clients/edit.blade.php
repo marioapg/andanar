@@ -19,7 +19,7 @@
             @endif
 
             <div class="card ">
-              <div class="card-header card-header-warning">
+              <div class="card-header card-header-info">
                 <h4 class="card-title">{{ __('Cliente') }}</h4>
                 <p class="card-category">{{ __('Información de cliente') }}</p>
               </div>
@@ -243,7 +243,7 @@
 
           </div>
               <div class="card-footer ml-auto mr-auto">
-                <button type="submit" class="btn btn-warning">{{ __('Actualizar') }}</button>
+                <button type="submit" class="btn btn-info">{{ __('Actualizar') }}</button>
               </div>
             </div>
           </form>
