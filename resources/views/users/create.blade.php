@@ -18,7 +18,7 @@
             @endif
 
             <div class="card ">
-              <div class="card-header card-header-primary">
+              <div class="card-header card-header-warning">
                 <h4 class="card-title">{{ __('Crear usuario') }}</h4>
                 <p class="card-category">{{ __('Información de usuario') }}</p>
               </div>
@@ -99,7 +99,7 @@
           </div>
 
               <div class="card-footer ml-auto mr-auto">
-                <button type="submit" class="btn btn-primary">{{ __('Crear') }}</button>
+                <button type="submit" class="btn btn-warning">{{ __('Crear') }}</button>
               </div>
             </div>
           </form>

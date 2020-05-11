@@ -14,19 +14,19 @@
             </div>
           @endif
           <div class="card">
-            <div class="card-header card-header-primary">
+            <div class="card-header card-header-warning">
               <h4 class="card-title ">Usuarios</h4>
               <p class="card-category">Listado de usuarios</p>
             </div>
             <div class="card-body">
               <div class="row">
                 <div class="col-12 text-right">
-                  <a href="{{ route('user/create') }}" class="btn btn-sm btn-primary">Crear usuario</a>
+                  <a href="{{ route('user/create') }}" class="btn btn-sm btn-warning">Crear usuario</a>
                 </div>
               </div>
               <div class="table-responsive">
                 <table class="table">
-                  <thead class=" text-primary">
+                  <thead class=" text-warning">
                     <tr>
                       <th>
                         Nombre
