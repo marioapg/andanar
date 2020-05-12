@@ -47,11 +47,11 @@
                     </div>
                     <div class="col input-box">
                       <label for="date">Fecha</label>
-                      <input type="date" id="date" name="date" class="form-control" placeholder="Fecha" value="{{ old('date') }}" required>
+                      <input type="date" id="date" name="date" class="form-control" placeholder="Fecha" value="{{ \Carbon\Carbon::now()->format('Y-m-d') }}" required>
                     </div>
                     <div class="col input-box">
                       <label for="due_date">Vencimiento</label>
-                      <input type="date" id="due_date" name="due_date" class="form-control" placeholder="Vencimiento" value="{{ old('due_date') }}" required>
+                      <input type="date" id="due_date" name="due_date" class="form-control" placeholder="Vencimiento" value="{{ \Carbon\Carbon::now()->format('Y-m-d') }}" required>
                     </div>
                     
                   </div>
