@@ -71,8 +71,8 @@
                     <div class="col input-box">
                       <label for="type">Tipo</label>
                       <select class="form-control mdb-select" name="type" id="type" required>
-                        <option value="sell" selected="">Venta</option>
-                        <option value="buy">Gasto</option>
+                        <option value="sell" {{ $type == 'sell' ? ' selected' : ' disabled' }}>Venta</option>
+                        <option value="buy" {{ $type == 'buy' ? ' selected' : ' disabled ' }}>Gasto</option>
                       </select>
                     </div>
                     <div class="col input-box">

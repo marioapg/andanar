@@ -21,7 +21,7 @@
             <div class="card-body">
               <div class="row">
                 <div class="col-12 text-right">
-                  <a href="{{ route('invoice.create') }}" class="btn btn-sm btn-info">Nueva factura</a>
+                  <a href="{{ route('invoice.create', ['type' => $type]) }}" class="btn btn-sm btn-info">Nueva factura</a>
                 </div>
               </div>
               <div class="table-responsive">

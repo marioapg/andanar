@@ -30,8 +30,7 @@
         &copy;
         <script>
             document.write(new Date().getFullYear())
-        </script>, Template made with <i class="material-icons">favorite</i> by
-        <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> and <a href="https://www.updivision.com" target="_blank">UPDIVISION</a> and System created by <a href="mailto:mperez.392@gmail.com">Mario Pérez Dev</a> for a better web.
+        </script>, "Pensado en Còbreces, Creado para el mundo" <a href="#" style="color: #dbe60d !important;">TelcoGes</a>. Sistema elaborado por <a href="mailto:mperez.392@gmail.com" style="color: #dbe60d !important;">Mario Pérez Dev</a>.
         </div>
     </div>
 </footer>

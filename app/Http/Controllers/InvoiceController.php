@@ -29,7 +29,7 @@ class InvoiceController extends Controller
     	return view('invoices.show', ['invoice' => Invoice::find($request->id)]);
     }
 
-    public function create()
+    public function create(Request $request)
     {
         $newNumDoc = 1;
         $lastInvoice = Invoice::orderBy('id','desc')->first();
@@ -37,7 +37,7 @@ class InvoiceController extends Controller
             $newNumDoc += $lastInvoice->id;
         }
 
-    	return view('invoices.create', ['newNumDoc' => $newNumDoc]);
+    	return view('invoices.create', ['newNumDoc' => $newNumDoc, 'type' => $request->type]);
     }
 
     public function store(Request $request)
