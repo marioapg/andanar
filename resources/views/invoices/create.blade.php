@@ -25,7 +25,7 @@
                   <div class="form-row invoice-row-input">
                     <div class="col input-box">
                       <label for="client">Cliente</label>
-                      <input type="text" class="form-control typeahead" placeholder="@" id="client" name="client" value="{{ old('client') }}" required autocomplete="off">
+                      <input type="text" class="form-control typeahead" placeholder="" id="client" name="client" value="{{ old('client') }}" required autocomplete="off">
                       <div id="clientList">
                         
                       </div>
