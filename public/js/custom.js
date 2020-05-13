@@ -59,7 +59,7 @@ $(document).ready(function() {
         if(query != '') {
             var _token = $('input[name="_token"]').val();
             $.ajax({
-            url:"/public/client/search",
+            url:"/admin/public/client/search",
             method:"POST",
             data:{query:query, _token:_token},
             success:function(data) {
