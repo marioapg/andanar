@@ -17,22 +17,22 @@
     
       <div class="toolbar hidden-print">
         <div class="col-md-8">
-            
+            <a href="{{ route('invoice.edit', ['id' => $invoice->id]) }}" class="btn btn-success btn-link">
+              <i class="material-icons" style="color: orange;">edit</i>Editar
+            </a>
         </div>
+
         <div class="col-md-4">
-            
-        <div class="text-right">
-            {{--<button id="printInvoice" class="btn btn-info"><i class="fa fa-print"></i> Print</button>
-            <button class="btn btn-info"><i class="fa fa-file-pdf-o"></i> Export as PDF</button>--}}
-            <form action="{{ route('invoice.status', ['id' => $invoice->id]) }}" id="invoice-status" method="post">
-                @csrf
-                @method('put')
-                <select class="form-control mdb-select @if ($invoice->status == 'payed') payed-invoice @elseif($invoice->status == 'pending') pending-invoice @endif change-invoice-select" name="status" id="status" required>
-                    <option value="pending" {{ ($invoice->status == 'pending') ? ' selected' : '' }}>Pendiente</option>
-                    <option value="payed" {{ ($invoice->status == 'payed') ? ' selected' : '' }}>Pagada</option>
-                </select>
-            </form>
-        </div>
+            <div class="text-right">
+                <form action="{{ route('invoice.status', ['id' => $invoice->id]) }}" id="invoice-status" method="post">
+                    @csrf
+                    @method('put')
+                    <select class="form-control mdb-select @if ($invoice->status == 'payed') payed-invoice @elseif($invoice->status == 'pending') pending-invoice @endif change-invoice-select" name="status" id="status" required>
+                        <option value="pending" {{ ($invoice->status == 'pending') ? ' selected' : '' }}>Pendiente</option>
+                        <option value="payed" {{ ($invoice->status == 'payed') ? ' selected' : '' }}>Pagada</option>
+                    </select>
+                </form>
+            </div>
         </div>
         <hr>
     </div>

@@ -77,5 +77,8 @@
         <script src="{{ asset('material') }}/js/settings.js"></script>
         <script src="{{ asset('js/custom.js') }}"></script>
         @stack('js')
+        
+        @section('inlinejs')
+        @show
     </body>
 </html>

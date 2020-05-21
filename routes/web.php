@@ -75,6 +75,9 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('invoice/{id}', 'InvoiceController@show')->name('invoice.show');
 	Route::put('invoice/{id}/status', 'InvoiceController@status')->name('invoice.status');
 	Route::post('invoice', 'InvoiceController@store')->name('invoice.store');
+	Route::delete('invoice', 'InvoiceController@delete')->name('invoice.delete');
+	Route::get('invoice/{id}/edit', 'InvoiceController@edit')->name('invoice.edit');
+	Route::put('invoice/{id}', 'InvoiceController@update')->name('invoice.update');
 
 	// PROFILE (self owner))
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);

@@ -1,0 +1,175 @@
+@extends('layouts.app', ['activePage' => 'invoice-list', 'titlePage' => __('Editar factura')])
+
+@section('content')
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <form class="form" method="POST" action="{{ route('invoice.update', ['id' => $invoice->id]) }}">
+            @csrf
+            @method('put')
+            @if( Session::has('flash_message') )
+              <div class="alert {{ Session::get('flash_type') }} alert-dismissible fade show" role="alert">
+                {{ Session::get('flash_message') }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            @endif
+              <div class="card">
+                <div class="card-header card-header-info">
+                  <h4 class="card-title ">{{ __('Facturas') }}</h4>
+                  <p class="card-category">{{ __('Editar factura') }}</p>
+                </div>
+                <div class="card-body">
+
+                  <div class="form-row invoice-row-input">
+                    <div class="col input-box">
+                      <label for="client">Cliente</label>
+                      <input type="text" class="form-control typeahead" placeholder="" id="client" name="client" value="{{ $invoice->client->name }}" required autocomplete="off">
+                      <div id="clientList">
+                        
+                      </div>
+                      <input type="hidden" id="clientid" name="clientid" value="1">
+                      @if ($errors->has('clientid'))
+                        <div id="clientid-error" class="error text-danger pl-3" for="clientid" style="display: block;">
+                          <strong>{{ $errors->first('clientid') }}</strong>
+                        </div>
+                      @endif
+                      @if ($errors->has('client'))
+                        <div id="client-error" class="error text-danger pl-3" for="client" style="display: block;">
+                          <strong>{{ $errors->first('client') }}</strong>
+                        </div>
+                      @endif
+                    </div>
+                    <div class="col input-box">
+                      <label for="doc_number">Número documentos</label>
+                      <input type="text" class="form-control" id="doc_number" name="doc_number" value="{{ $invoice->doc_number }}" readonly required>
+                    </div>
+                    <div class="col input-box">
+                      <label for="date">Fecha</label>
+                      <input type="date" id="date" name="date" class="form-control" placeholder="Fecha" value="{{ $invoice->date }}" required>
+                    </div>
+                    <div class="col input-box">
+                      <label for="due_date">Vencimiento</label>
+                      <input type="date" id="due_date" name="due_date" class="form-control" placeholder="Vencimiento" value="{{ $invoice->due_date }}" required>
+                    </div>
+                    
+                  </div>
+
+                  <div class="form-row invoice-row-input">
+                    <div class="col input-box">
+                      <label for="comment">Mensaje visible en factura</label>
+                      <textarea class="form-control" name="comment" id="comment" value="{{ $invoice->comment }}" rows="2"></textarea>
+                    </div>
+                    <div class="col input-box">
+                      <label for="status">Estatus</label>
+                      <select class="form-control mdb-select" name="status" id="status" required>
+                        <option value="pending" @if($invoice->status =='pending') ' selected=""' @endif>Pendiente</option>
+                        <option value="payed" @if($invoice->status =='payed') ' selected=""' @endif>Pagada</option>
+                      </select>
+                    </div>
+                    <div class="col input-box">
+                      <label for="type">Tipo</label>
+                      <select class="form-control mdb-select" name="type" id="type" required>
+                        <option value="sell" {{ $invoice->type == 'sell' ? ' selected' : ' disabled' }}>Venta</option>
+                        <option value="buy" {{ $invoice->type == 'buy' ? ' selected' : ' disabled ' }}>Gasto</option>
+                      </select>
+                    </div>
+                    <div class="col input-box">
+                      <label for="pay_way">Forma de pago</label>
+                      <select class="form-control mdb-select" name="pay_way" id="pay_way" required>
+                        <option value="efectivo">Efectivo</option>
+                        <option value="tdcredito">Tarjeta de Credito</option>
+                        <option value="tddebito">Tarjeta de debido</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="card form-row" style="display: flex;flex-direction: column;align-items: center;">
+                    <div class="card-body">
+                      <h3 class="card-title">Nueva linea</h3>
+                    </div>
+                  </div>
+
+                  @if ($errors->has('itemname'))
+                    <div id="itemname-error" class="error text-danger pl-3" for="itemname" style="display: block;">
+                      <strong>{{ $errors->first('itemname') }}</strong>
+                    </div>
+                  @endif
+                  @if ($errors->has('itemname.*'))
+                    <div id="itemname.*-error" class="error text-danger pl-3" for="itemname.*" style="display: block;">
+                      <strong>{{ $errors->first('itemname.*') }}</strong>
+                    </div>
+                  @endif
+
+                  <div class="form-row add-item-to-invoice">
+                    <div class="col" style="display: flex;flex-direction: column;align-items: center;">
+                      <i class="material-icons">add_circle</i>
+                    </div>
+                  </div>
+
+                  <div class="container add-items">
+                    @forelse($invoice->items as $key => $item)
+                      <div class="form-row">
+                        <div class="col">
+                          <input class="form-control" type="text" name="itemname[]" placeholder="Nombre" value="{{ $item->name }}" />
+                        </div>
+                        <div class="col">
+                          <input class="form-control" type="text" name="itemdescription[]" placeholder="Descripción" value="{{ $item->description }}"/>
+                        </div>
+                        <div class="col">
+                          <input id="qty{{$key}}" class="form-control invoice-item-input" line="{{$key}}" type="number" min="1" step="1" name="itemqty[]" placeholder="Cantidad" value="{{ $item->quantity }}"/>
+                        </div>
+                        <div class="col">
+                          <input id="price{{$key}}" class="form-control invoice-item-input" line="{{$key}}" type="number" step="0.01" name="itemprice[]" placeholder="Precio" value="{{ $item->price }}"/>
+                        </div>
+                        <div class="col">
+                          <input id="taxrate{{$key}}" class="form-control invoice-item-input" line="{{$key}}" type="number" name="taxrate[]" value="{{ $item->tax_rate * 100 }}"/>
+                        </div>
+                        <div class="col">
+                          %
+                        </div>
+                        <div class="col">
+                          <input class="form-control total" id="total{{$key}}" type="text" placeholder="total" readonly value="{{ $item->total }}"/>
+                        </div>
+                        <input id="subtotal{{$key}}" type="hidden" value="{{ ($item->price * $item->quantity) + (($item->price * $item->quantity) * ($item->tax_rate)) }}">
+                        <input id="iva{{$key}}" type="hidden" value="{{ (($item->price * $item->quantity) * ($item->tax_rate / 100)) }}">
+                        <a href="#" class="delete">
+                          <i class="material-icons">delete</i>
+                        </a>
+                      </div>
+                    @empty
+                    @endforelse
+                  </div>
+
+                  <div class="form-row">
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col">
+                      <label for="grandSubTotal">Subtotal</label>
+                      <input id="grandSubTotal" class="form-control" type="text" disabled="" value="{{$invoice->total}}">
+                    </div>
+                    <div class="col">
+                      <label for="grandIva">Iva</label>
+                      <input id="grandIva" class="form-control" type="text" disabled="" value="{{$invoice->iva}}">
+                    </div>
+                    <div class="col">
+                      <label for="grandTotal">Total</label>
+                      <input id="grandTotal" class="form-control" type="text" disabled="" value="{{$invoice->grand_total}}">
+                    </div>
+                  </div>
+
+                  <div class="card-footer ml-auto mr-auto">
+                    <button type="submit" class="btn btn-info">{{ __('Guardar') }}</button>
+                  </div>
+                </div>
+              </div>
+          </form>
+        </div>
+      </div>
+    </div>
+@endsection

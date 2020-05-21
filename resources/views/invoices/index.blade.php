@@ -35,6 +35,7 @@
                       <th>Total</th>
                       <th>Tipo</th>
                       <th class="text-right">Ver</th>
+                      <th class="text-right">Eliminar</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -67,6 +68,15 @@
                             <i class="material-icons @if($invoice->status == 'pending') pending-invoice-eye-icon @endif">remove_red_eye</i>
                             <div class="ripple-container"></div>
                           </a>
+                        </td>
+                        <td class="td-actions text-right">
+                          <form action="{{ route('invoice.delete', ['id' => $invoice->id]) }}" method="POST">
+                            @method('DELETE')
+                            @csrf
+                            <button type="submit" class="btn btn-success btn-link">
+                              <i class="material-icons" style="color: red;">delete_forever</i>
+                            </button>
+                          </form>
                         </td>
                       </tr>
                     @endforeach

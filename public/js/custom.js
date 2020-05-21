@@ -2,6 +2,9 @@ $(document).ready(function() {
     var wrapper = $(".add-items");
     var add_button = $(".add-item-to-invoice");
 
+    $('.invoice-item-input').off('input', calculateTotalRow);
+    $('.invoice-item-input').on('input', calculateTotalRow);
+    
     var x = 1;
     $(add_button).on('click', function(e) {
         e.preventDefault();
@@ -59,7 +62,8 @@ $(document).ready(function() {
         if(query != '') {
             var _token = $('input[name="_token"]').val();
             $.ajax({
-            url:"/admin/public/client/search",
+            //url:"/admin/public/client/search", // URL Producción
+            url:"/client/search", // URL Local
             method:"POST",
             data:{query:query, _token:_token},
             success:function(data) {
