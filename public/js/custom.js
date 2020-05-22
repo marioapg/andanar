@@ -86,10 +86,10 @@ $(document).ready(function() {
         if ( $('#price'+row).val() === '') { var price = 0; } else { var price = $('#price'+row).val(); }
         if ( $('#taxrate'+row).val() === '') { var taxrate = 0; } else { var taxrate = $('#taxrate'+row).val(); }
         var total = qty * price; 
-        $('#subtotal'+row).val(total);
-        $('#iva'+row).val(total * (taxrate/100));
+        $('#subtotal'+row).val(total.toFixed(2));
+        $('#iva'+row).val((total * (taxrate/100)).toFixed(2));
         var totalWIva = total + (total * (taxrate/100));
-        $('#total'+row).val(totalWIva);
+        $('#total'+row).val(totalWIva.toFixed(2));
 
         calculateInvoiceTotals();
     }
@@ -105,9 +105,9 @@ $(document).ready(function() {
             total = parseFloat(total) + parseFloat($('#total'+i).val());
             }
         }
-        $('#grandSubTotal').val(subtotal);
-        $('#grandIva').val(iva);
-        $('#grandTotal').val(total);
+        $('#grandSubTotal').val(subtotal.toFixed(2));
+        $('#grandIva').val(iva.toFixed(2));
+        $('#grandTotal').val(total.toFixed(2));
     }
 
     // PUT YOUR CUSTOM CODE HERE
