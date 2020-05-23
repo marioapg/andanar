@@ -77,9 +77,9 @@ class InvoiceController extends Controller
 
         $invoice_args = $request->only(['client', 'date', 'doc_number', 'due_date','status', 'type', 'comment', 'pay_way']);
         $invoice_args['client_id'] = Client::where('name', $request->client)->first()->id;
-        $invoice_args['total'] = $total;
-        $invoice_args['iva'] = $iva;
-        $invoice_args['grand_total'] = $grand_total;
+        $invoice_args['total'] = round($total, 2);
+        $invoice_args['iva'] = round($iva, 2);
+        $invoice_args['grand_total'] = round($grand_total, 2);
 
         try {
             $invoice = Invoice::create($invoice_args);
@@ -106,10 +106,10 @@ class InvoiceController extends Controller
                                 'description' => $request->itemdescription[$key],
                                 'quantity' => $request->itemqty[$key],
                                 'price' => $request->itemprice[$key],
-                                'tax_rate' => $tax_rate,
-                                'total' => $amount,
-                                'tax' => $iva,
-                                'grand_total' => ($amount + $iva),
+                                'tax_rate' => round($tax_rate, 2),
+                                'total' => round($amount, 2),
+                                'tax' => round($iva, 2),
+                                'grand_total' => round(($amount + $iva), 2),
                             )
                         );
             }
