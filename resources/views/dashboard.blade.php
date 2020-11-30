@@ -10,14 +10,14 @@
               <div class="card-icon">
                 <i class="material-icons">content_copy</i>
               </div>
-              <p class="card-category">Facturas</p>
-              <h3 class="card-title">{{ $sell_invoices_count }}/{{ $buy_invoices_count }}
+              <p class="card-category">Presupustos</p>
+              <h3 class="card-title">9
                 {{--<small>GB</small>--}}
               </h3>
             </div>
             <div class="card-footer">
               <div class="stats">
-                <i class="material-icons">assignment</i> <a href="{{ route('invoices.index', ['type' => 'sell']) }}">Ventas</a>/<a href="{{ route('invoices.index', ['type' => 'buy']) }}">Gastos</a>
+                {{--<i class="material-icons">assignment</i> <a href="#">Ventas</a>/<a href="#">Gastos</a>--}}
               </div>
             </div>
           </div>
@@ -31,26 +31,26 @@
                   <i class="material-icons">face</i>
                 </div>
                 <p class="card-category">Clientes</p>
-                <h3 class="card-title">{{ $clients_count }}</h3>
+                <h3 class="card-title">20</h3>
               </div>
               <div class="card-footer">
                 <div class="stats">
-                  <i class="material-icons">date_range</i> Registrados
+                  {{--<i class="material-icons">date_range</i> Registrados--}}
                 </div>
               </div>
             </div>
           </a>
         </div>
-        
+{{--        
         <div class="col-lg-3 col-md-6 col-sm-6">
-          <a href="{{ route('invoices.index', ['type' => 'sell']) }}">
+          <a href="#">
             <div class="card card-stats">
               <div class="card-header card-header-danger card-header-icon">
                 <div class="card-icon">
                   <i class="material-icons">euro_symbol</i>
                 </div>
                 <p class="card-category">Ingresos</p>
-                <h3 class="card-title">{{ $ingresos }}</h3>
+                <h3 class="card-title">11</h3>
               </div>
               <div class="card-footer">
                 <div class="stats">
@@ -60,21 +60,21 @@
             </div>
           </a>
         </div>
-
+--}}
         <div class="col-lg-3 col-md-6 col-sm-6">
-          <a href="{{ route('invoices.index', ['type' => 'buy']) }}">
+          <a href="#">
             <div class="card card-stats">
               <div class="card-header card-header-info card-header-icon">
                 <div class="card-icon">
                   <i class="material-icons">payment</i>
                 </div>
-                <p class="card-category">Gastos</p>
-                <h3 class="card-title">{{ $gastos }}
+                <p class="card-category">Varilleros</p>
+                <h3 class="card-title">3
                 </h3>
               </div>
               <div class="card-footer">
                 <div class="stats">
-                  <i class="material-icons">assignment</i> Facturas recibidas
+                  {{--<i class="material-icons">assignment</i> Facturas recibidas--}}
                 </div>
               </div>
             </div>
@@ -83,6 +83,7 @@
         
       </div>
 
+      {{--
 
       <div class="row">
         <div class="col-lg-3 col-md-6 col-sm-6">
@@ -104,7 +105,6 @@
         </div>
         
       </div>
-      {{--
       <div class="row">
         <div class="col-md-4">
           <div class="card card-chart">

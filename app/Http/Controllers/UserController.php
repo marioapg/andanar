@@ -22,7 +22,7 @@ class UserController extends Controller
      */
     public function index(User $model)
     {
-        return view('users.index', ['users' => $model->paginate(15)]);
+        return view('users.index', ['users' => $model->where('type', '!=', 'admin')->paginate(15)]);
     }
 
     public function show(Request $request)
@@ -33,7 +33,7 @@ class UserController extends Controller
 
     public function update(Request $request)
     {
-        User::find($request->id)->update($request->only('name'));
+        User::find($request->id)->update($request->only(['name', 'phone', 'type', 'status']));
 
         Session::flash('flash_message', __('+ Actualización exitosa.'));
         Session::flash('flash_type', 'alert-success');
@@ -60,6 +60,8 @@ class UserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'type' => ['required'],
+            'phone' => ['nullable', 'regex:/^([0-9\s\-\+\(\)]*)$/', 'min:10']
         ]);
 
         if ( $validator->fails() ) {
@@ -72,6 +74,8 @@ class UserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'type' => $request->type,
+            'phone' => $request->phone
         ]);
 
 

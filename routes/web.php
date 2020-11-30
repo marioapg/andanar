@@ -14,12 +14,65 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('login');
 });
 
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
+	Route::get('/home', 'HomeController@index')->name('home');
+
+	// USER
+	Route::resource('user', 'UserController', ['except' => ['show']]);
+	Route::get('user/{id}', ['as' => 'user.show', 'uses' => 'UserController@show']);
+	Route::put('user/profile/{id}', ['as' => 'user.update', 'uses' => 'UserController@update']);
+	Route::put('user/password/{id}', ['as' => 'user.updatepass', 'uses' => 'UserController@updatePass']);
+	Route::get('user/create', 'UserController@create')->name('user/create');
+	Route::post('user/store', ['as' => 'user.create', 'uses' => 'UserController@store']);
+
+	// CLIENTS
+	Route::get('clients', 'ClientController@index')->name('clients.index');
+	Route::get('client/{id}/show', 'ClientController@show')->name('client.show');
+	Route::get('client/create', 'ClientController@create')->name('client.create');
+	Route::post('client', 'ClientController@store')->name('client.store');
+	Route::put('client', 'ClientController@update')->name('client.update');
+	Route::post('client/search', 'ClientController@search')->name('client.search');
+
+	// BUDGETS
+	Route::get('budget', 'BudgetController@index')->name('budget.index');
+	Route::get('budget/create/step-1', 'BudgetController@createStepOne')->name('budget.create.step.one');
+	Route::post('budget/create/step-1', 'BudgetController@storeStepOne')->name('budget.create.step.one');
+	
+	Route::get('budget/create/step-2', 'BudgetController@createStepTwo')->name('budget.create.step.two');
+	Route::post('budget/create/step-2', 'BudgetController@storeStepTwo')->name('budget.create.step.two');
+
+	Route::get('budget/create/step-3', 'BudgetController@createStepThree')->name('budget.create.step.three');
+	Route::post('budget/create/step-3', 'BudgetController@storeStepThree')->name('budget.create.step.three');
+
+	Route::get('budget/create/step-4', 'BudgetController@createStepFour')->name('budget.create.step.four');
+	Route::post('budget/create/step-4', 'BudgetController@storeStepFour')->name('budget.create.step.four');
+
+	Route::get('budget/{id}', 'BudgetController@show')->name('budget.show');
+	Route::put('budget/{id}/status', 'BudgetController@status')->name('budget.status');
+	Route::post('budget', 'BudgetController@store')->name('budget.store');
+	Route::delete('budget', 'BudgetController@delete')->name('budget.delete');
+	Route::get('budget/{id}/edit', 'BudgetController@edit')->name('budget.edit');
+	Route::put('budget/{id}', 'BudgetController@update')->name('budget.update');
+
+	// PROFILE (self owner))
+	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
+	Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
+	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
+
+	// CAR
+	Route::get('cars', ['as' => 'cars.index', 'uses' => 'CarController@index']);
+	Route::get('cars/{id}', ['as' => 'car.show', 'uses' => 'CarController@show']);
+	Route::put('cars/{id}', ['as' => 'car.update', 'uses' => 'CarController@update']);
+	Route::get('car/create', ['as' => 'car.create', 'uses' => 'CarController@create']);
+	Route::post('car/store', ['as' => 'car.store', 'uses' => 'CarController@store']);
+
+	Route::get('cars/{brand}/models', ['as' => 'car.models.by.brand', 'uses' => 'DBModelController@index']);
+
 	Route::get('table-list', function () {
 		return view('pages.table_list');
 	})->name('table');
@@ -48,40 +101,3 @@ Route::group(['middleware' => 'auth'], function () {
 		return view('pages.upgrade');
 	})->name('upgrade');
 });
-
-Route::group(['middleware' => 'auth'], function () {
-	Route::get('/home', 'HomeController@index')->name('home');
-
-	// USER
-	Route::resource('user', 'UserController', ['except' => ['show']]);
-	Route::get('user/{id}', ['as' => 'user.show', 'uses' => 'UserController@show']);
-	Route::put('user/profile/{id}', ['as' => 'user.update', 'uses' => 'UserController@update']);
-	Route::put('user/password/{id}', ['as' => 'user.updatepass', 'uses' => 'UserController@updatePass']);
-	Route::get('user/create', 'UserController@create')->name('user/create');
-	Route::post('user/store', ['as' => 'user.create', 'uses' => 'UserController@store']);
-
-	// CLIENTS
-	Route::get('clients', 'ClientController@index')->name('clients.index');
-	Route::get('client/{id}/show', 'ClientController@show')->name('client.show');
-	Route::get('client/create', 'ClientController@create')->name('client.create');
-	Route::post('client', 'ClientController@store')->name('client.store');
-	Route::put('client', 'ClientController@update')->name('client.update');
-	Route::post('client/search', 'ClientController@search')->name('client.search');
-
-	// INVOICES
-	Route::get('invoices', 'InvoiceController@index')->name('invoices.index');
-	Route::get('invoices/{type}', 'InvoiceController@index')->name('invoices.index');
-	Route::get('invoice/create', 'InvoiceController@create')->name('invoice.create');
-	Route::get('invoice/{id}', 'InvoiceController@show')->name('invoice.show');
-	Route::put('invoice/{id}/status', 'InvoiceController@status')->name('invoice.status');
-	Route::post('invoice', 'InvoiceController@store')->name('invoice.store');
-	Route::delete('invoice', 'InvoiceController@delete')->name('invoice.delete');
-	Route::get('invoice/{id}/edit', 'InvoiceController@edit')->name('invoice.edit');
-	Route::put('invoice/{id}', 'InvoiceController@update')->name('invoice.update');
-
-	// PROFILE (self owner))
-	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
-	Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
-	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
-});
-

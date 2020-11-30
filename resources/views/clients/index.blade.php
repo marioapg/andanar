@@ -35,6 +35,9 @@
                         Email
                       </th>
                       <th>
+                        Teléfono
+                      </th>
+                      <th>
                         Fecha de creación
                       </th>
                       <th class="text-right">
@@ -50,6 +53,9 @@
                         </td>
                         <td>
                           {{ $client->email }}
+                        </td>
+                        <td>
+                          {{ $client->phone }}
                         </td>
                         <td>
                           {{ $client->created_at->format('d-m-Y') }}

@@ -30,7 +30,7 @@
         &copy;
         <script>
             document.write(new Date().getFullYear())
-        </script>, "Pensado en Còbreces, Creado para el mundo" <a href="#" style="color: #dbe60d !important;">TelcoGes</a>. Sistema elaborado por <a href="mailto:mperez.392@gmail.com" style="color: #dbe60d !important;">Mario Pérez Dev</a>.
+        </script>, Sistema de gestion <a href="#">Andanar.</a> Elaborado por <a href="mailto:mperez.392@gmail.com">Mario Pérez Dev</a>.
         </div>
     </div>
 </footer>

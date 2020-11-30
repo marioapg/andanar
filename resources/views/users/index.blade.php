@@ -35,7 +35,16 @@
                         Email
                       </th>
                       <th>
+                        Teléfono
+                      </th>
+                      <th>
                         Fecha de creación
+                      </th>
+                      <th>
+                        Tipo
+                      </th>
+                      <th>
+                        Estatus
                       </th>
                       <th class="text-right">
                         Editar
@@ -52,7 +61,20 @@
                           {{ $user->email }}
                         </td>
                         <td>
+                          {{ $user->phone }}
+                        </td>
+                        <td>
                           {{ $user->created_at->format('d-m-Y') }}
+                        </td>
+                        <td>
+                          @if($user->type == 'technical') Tecnico
+                          @elseif($user->type == 'proficient') Perito
+                          @endif
+                        </td>
+                        <td>
+                          @if($user->status == 1) Activo <i class="material-icons" style="color: green;">assignment_turned_in</i>
+                          @elseif($user->status == 0) Inactivo <i class="material-icons" style="color: red;">assignment_late</i>
+                          @endif
                         </td>
                         <td class="td-actions text-right">
                           <a rel="tooltip" class="btn btn-success btn-link" href="{{ route('user.show', ['id' => $user->id]) }}" data-original-title="" title="">

@@ -1,4 +1,4 @@
-@extends('layouts.app', ['activePage' => 'invoice-list-'.$type, 'titlePage' => __('Listado facturas')])
+@extends('layouts.app', ['activePage' => 'budgets', 'titlePage' => __('Presupuestos')])
 
 @section('content')
   <div class="content">
@@ -15,13 +15,13 @@
           @endif
           <div class="card">
             <div class="card-header card-header-info">
-              <h4 class="card-title ">{{ __('Facturas') }}</h4>
-              <p class="card-category">{{ __('Listado facturas') }}</p>
+              <h4 class="card-title ">{{ __('Presupuestos') }}</h4>
+              <p class="card-category">{{ __('Listado presupuestos') }}</p>
             </div>
             <div class="card-body">
               <div class="row">
                 <div class="col-12 text-right">
-                  <a href="{{ route('invoice.create', ['type' => $type]) }}" class="btn btn-sm btn-info">Nueva factura</a>
+                  <a href="{{ route('budget.create.step.one') }}" class="btn btn-sm btn-info">Nuevo presupuesto</a>
                 </div>
               </div>
               <div class="table-responsive">
@@ -29,48 +29,35 @@
                   <thead class=" text-info">
                     <tr>
                       <th>Número</th>
-                      <th>Documento</th>
                       <th>Fecha</th>
-                      <th>IVA</th>
                       <th>Total</th>
-                      <th>Tipo</th>
                       <th class="text-right">Ver</th>
                       <th class="text-right">Eliminar</th>
                     </tr>
                   </thead>
                   <tbody>
-                    @foreach ($invoices as $invoice)
+                    @foreach ($budgets as $budget)
                       <tr>
                         <td>
-                          {{ $invoice->id }}
+                          {{ $budget->id }}
                         </td>
                         <td>
-                          {{ $invoice->doc_number }}
+                          {{ $budget->doc_number }}
                         </td>
                         <td>
-                          {{ \Carbon\Carbon::create($invoice->date)->format('d-m-Y') }}
+                          {{ \Carbon\Carbon::create($budget->date)->format('d-m-Y') }}
                         </td>
                         <td>
-                          {{ $invoice->iva }}
-                        </td>
-                        <td>
-                          {{ $invoice->total }}
-                        </td>
-                        <td>
-                          @if($invoice->type == 'sell')
-                            <i class="material-icons sell-invoice-color">call_made</i>
-                          @elseif($invoice->type == 'buy')
-                            <i class="material-icons buy-invoice-color">call_received</i>
-                          @endif
+                          {{ $budget->total }}
                         </td>
                         <td class="td-actions text-right">
-                          <a rel="tooltip" class="btn btn-success btn-link" href="{{ route('invoice.show', ['id' => $invoice->id]) }}" data-original-title="" title="">
-                            <i class="material-icons @if($invoice->status == 'pending') pending-invoice-eye-icon @endif">remove_red_eye</i>
+                          <a rel="tooltip" class="btn btn-success btn-link" href="{{ route('budget.show') }}" data-original-title="" title="">
+                            <i class="material-icons @if($budget->status == 'pending') pending-budget-eye-icon @endif">remove_red_eye</i>
                             <div class="ripple-container"></div>
                           </a>
                         </td>
                         <td class="td-actions text-right">
-                          <form action="{{ route('invoice.delete', ['id' => $invoice->id]) }}" method="POST">
+                          <form action="{{ route('budget.delete', ['id' => $budget->id]) }}" method="POST">
                             @method('DELETE')
                             @csrf
                             <button type="submit" class="btn btn-success btn-link">

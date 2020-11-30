@@ -30,17 +30,13 @@ class ClientController extends Controller
     	$validator = Validator::make($request->all(), [
             'name' => ['required', 'string', 'max:80'],
             'email' => ['required', 'string', 'email', 'max:50', 'unique:clients'],
-			"nif" => ['required', 'string', 'max:15'],
-			"type" => ['required', 'string','in:person,business'],
+			"document" => ['required', 'string', 'max:15'],
 			"address" => ['required', 'string', 'max:100'],
-			"population" => ['required', 'string', 'max:100'],
-			"postal_code" => ['required', 'integer', 'digits_between:1,10'],
-			"province" => ['required', 'string', 'max:100'],
-			"country" => ['required', 'string', 'max:100', 'in:españa'],
-			"commercial_name" => ['nullable', 'string', 'max:100'],
+			"city" => ['required', 'string', 'max:100'],
+			"postal_code" => ['required', 'numeric', 'digits_between:1,10'],
+			"state" => ['required', 'string', 'max:100'],
+			"country" => ['required', 'string', 'max:100'],
 			"phone" => ['nullable', 'string', 'max:100'],
-			"celphone" => ['nullable', 'string', 'max:100'],
-			"website" => ['nullable', 'string', 'max:100'],
         ]);
 
         if ( $validator->fails() ) {
@@ -58,18 +54,15 @@ class ClientController extends Controller
 
     public function update(Request $request)
     {
-    	$validator = Validator::make($request->except(['email', 'country']), [
+    	$validator = Validator::make($request->except(['email']), [
             'name' => ['required', 'string', 'max:80'],
-			"nif" => ['required', 'string', 'max:15'],
-			"type" => ['required', 'string','in:person,business'],
+			"document" => ['required', 'string', 'max:15'],
 			"address" => ['required', 'string', 'max:100'],
-			"population" => ['required', 'string', 'max:100'],
-			"postal_code" => ['required', 'integer', 'digits_between:1,10'],
-			"province" => ['required', 'string', 'max:100'],
-			"commercial_name" => ['nullable', 'string', 'max:100'],
-			"phone" => ['nullable', 'string', 'max:100'],
-			"celphone" => ['nullable', 'string', 'max:100'],
-			"website" => ['nullable', 'string', 'max:100'],
+			"city" => ['required', 'string', 'max:100'],
+			"postal_code" => ['required', 'numeric', 'digits_between:1,10'],
+			"state" => ['required', 'string', 'max:100'],
+            "country" => ['required', 'string', 'max:100'],
+			"phone" => ['nullable', 'string', 'max:100']
         ]);
 
         if ( $validator->fails() ) {
@@ -78,7 +71,7 @@ class ClientController extends Controller
             return back()->withErrors($validator)->withInput();
         }
 
-        Client::where('email', $request->email)->update($request->except(['email', 'country', '_token', '_method']));
+        Client::where('email', $request->email)->update($request->except(['email', '_token', '_method']));
 
         Session::flash('flash_message', __('+ Datos actualizados'));
         Session::flash('flash_type', 'alert-success');

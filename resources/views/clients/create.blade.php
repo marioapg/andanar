@@ -1,4 +1,4 @@
-@extends('layouts.app', ['activePage' => 'create-client', 'titlePage' => __('Nuevo cliente')])
+@extends('layouts.app', ['activePage' => 'clients', 'titlePage' => __('Nuevo cliente')])
 
 @section('content')
   <div class="content">
@@ -55,50 +55,18 @@
                 </div>
               @endif
             </div>
-            <div class="bmd-form-group{{ $errors->has('nif') ? ' has-danger' : '' }} mt-3">
+            <div class="bmd-form-group{{ $errors->has('document') ? ' has-danger' : '' }} mt-3">
               <div class="input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text">
                     <i class="material-icons">fingerprint</i>
                   </span>
                 </div>
-                <input type="text" name="nif" id="nif" class="form-control" placeholder="{{ __('NIF...') }}" required>
+                <input type="text" name="document" id="document" class="form-control" placeholder="{{ __('CIF/NIF/DNI...') }}" required>
               </div>
-              @if ($errors->has('nif'))
-                <div id="nif-error" class="error text-danger pl-3" for="nif" style="display: block;">
-                  <strong>{{ $errors->first('nif') }}</strong>
-                </div>
-              @endif
-            </div>
-            <div class="bmd-form-group{{ $errors->has('type') ? ' has-danger' : '' }} mt-3">
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">
-                    <i class="material-icons">gavel</i>
-                  </span>
-                </div>
-                
-                <div class="form-check form-check-radio form-check-inline">
-                  <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="type" id="radioperson" value="person"> Persona
-                    <span class="circle">
-                        <span class="check"></span>
-                    </span>
-                  </label>
-                </div>
-                <div class="form-check form-check-radio form-check-inline">
-                  <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="type" id="radiobussiness" value="business"> Empresa
-                    <span class="circle">
-                        <span class="check"></span>
-                    </span>
-                  </label>
-                </div>
-
-              </div>
-              @if ($errors->has('type'))
-                <div id="type-error" class="error text-danger pl-3" for="type" style="display: block;">
-                  <strong>{{ $errors->first('type') }}</strong>
+              @if ($errors->has('document'))
+                <div id="document-error" class="error text-danger pl-3" for="document" style="display: block;">
+                  <strong>{{ $errors->first('document') }}</strong>
                 </div>
               @endif
             </div>
@@ -117,21 +85,6 @@
                 </div>
               @endif
             </div>
-            <div class="bmd-form-group{{ $errors->has('population') ? ' has-danger' : '' }} mt-3">
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">
-                    <i class="material-icons">room</i>
-                  </span>
-                </div>
-                <input type="text" name="population" id="population" class="form-control" placeholder="{{ __('Población...') }}" required>
-              </div>
-              @if ($errors->has('population'))
-                <div id="population-error" class="error text-danger pl-3" for="population" style="display: block;">
-                  <strong>{{ $errors->first('population') }}</strong>
-                </div>
-              @endif
-            </div>
             <div class="bmd-form-group{{ $errors->has('postal_code') ? ' has-danger' : '' }} mt-3">
               <div class="input-group">
                 <div class="input-group-prepend">
@@ -147,18 +100,33 @@
                 </div>
               @endif
             </div>
-            <div class="bmd-form-group{{ $errors->has('province') ? ' has-danger' : '' }} mt-3">
+            <div class="bmd-form-group{{ $errors->has('city') ? ' has-danger' : '' }} mt-3">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="material-icons">room</i>
+                  </span>
+                </div>
+                <input type="text" name="city" id="city" class="form-control" placeholder="{{ __('Ciudad...') }}" required>
+              </div>
+              @if ($errors->has('city'))
+                <div id="city-error" class="error text-danger pl-3" for="city" style="display: block;">
+                  <strong>{{ $errors->first('city') }}</strong>
+                </div>
+              @endif
+            </div>
+            <div class="bmd-form-group{{ $errors->has('state') ? ' has-danger' : '' }} mt-3">
               <div class="input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text">
                     <i class="material-icons">map</i>
                   </span>
                 </div>
-                <input type="text" name="province" id="province" class="form-control" placeholder="{{ __('Provincia...') }}" required>
+                <input type="text" name="state" id="state" class="form-control" placeholder="{{ __('Estado...') }}" required>
               </div>
-              @if ($errors->has('province'))
-                <div id="province-error" class="error text-danger pl-3" for="province" style="display: block;">
-                  <strong>{{ $errors->first('province') }}</strong>
+              @if ($errors->has('state'))
+                <div id="state-error" class="error text-danger pl-3" for="state" style="display: block;">
+                  <strong>{{ $errors->first('state') }}</strong>
                 </div>
               @endif
             </div>
@@ -169,7 +137,7 @@
                     <i class="material-icons">outlined_flag</i>
                   </span>
                 </div>
-                <input type="text" name="country" id="country" class="form-control" placeholder="{{ __('España') }}" value='españa' readonly="" required>
+                <input type="text" name="country" id="country" class="form-control" placeholder="{{ __('Pais') }}" required>
               </div>
               @if ($errors->has('country'))
                 <div id="country-error" class="error text-danger pl-3" for="country" style="display: block;">
@@ -178,21 +146,6 @@
               @endif
             </div>
 
-            <div class="bmd-form-group{{ $errors->has('commercial_name') ? ' has-danger' : '' }} mt-3">
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">
-                    <i class="material-icons">business</i>
-                  </span>
-                </div>
-                <input type="text" name="commercial_name" id="commercial_name" class="form-control" placeholder="{{ __('Nombre comercial...') }}">
-              </div>
-              @if ($errors->has('commercial_name'))
-                <div id="commercial_name-error" class="error text-danger pl-3" for="commercial_name" style="display: block;">
-                  <strong>{{ $errors->first('commercial_name') }}</strong>
-                </div>
-              @endif
-            </div>
             <div class="bmd-form-group{{ $errors->has('phone') ? ' has-danger' : '' }} mt-3">
               <div class="input-group">
                 <div class="input-group-prepend">
@@ -208,38 +161,6 @@
                 </div>
               @endif
             </div>
-            <div class="bmd-form-group{{ $errors->has('celphone') ? ' has-danger' : '' }} mt-3">
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">
-                    <i class="material-icons">mobile_screen_share</i>
-                  </span>
-                </div>
-                <input type="text" name="celphone" id="celphone" class="form-control" placeholder="{{ __('Celular...') }}">
-              </div>
-              @if ($errors->has('celphone'))
-                <div id="celphone-error" class="error text-danger pl-3" for="celphone" style="display: block;">
-                  <strong>{{ $errors->first('celphone') }}</strong>
-                </div>
-              @endif
-            </div>
-            <div class="bmd-form-group{{ $errors->has('website') ? ' has-danger' : '' }} mt-3">
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">
-                    <i class="material-icons">web</i>
-                  </span>
-                </div>
-                <input type="text" name="website" id="website" class="form-control" placeholder="{{ __('Web...') }}">
-              </div>
-              @if ($errors->has('website'))
-                <div id="website-error" class="error text-danger pl-3" for="website" style="display: block;">
-                  <strong>{{ $errors->first('website') }}</strong>
-                </div>
-              @endif
-            </div>
-
-
           </div>
               <div class="card-footer ml-auto mr-auto">
                 <button type="submit" class="btn btn-info">{{ __('Crear') }}</button>

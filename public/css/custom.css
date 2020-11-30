@@ -209,3 +209,11 @@
 .sidebar[data-color="orange"] li.active > a {
     
 }
+
+.hover-custom {
+    /*border: 1px solid;*/
+}
+
+.hover-custom:hover {
+    border: 1px solid orange !important;
+}

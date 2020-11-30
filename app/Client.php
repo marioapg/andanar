@@ -12,21 +12,17 @@ class Client extends Model
     protected $fillable = [
     	'name',
         'email',
-		"nif",
-		"type",
+		"document",
 		"address",
-		"population",
+		"city",
 		"postal_code",
-		"province",
+		"state",
 		"country",
-		"commercial_name",
-		"phone",
-		"celphone",
-		"website",
+		"phone"
     ];
 
-    public function invoices()
+    public function budgets()
     {
-    	return $this->hasMany('App\Invoice', 'client_id', 'id');
+    	return $this->hasMany('App\Budget', 'client_id', 'id');
     }
 }

@@ -1,4 +1,4 @@
-@extends('layouts.app', ['activePage' => 'profile', 'titlePage' => __('Perfil usuario')])
+@extends('layouts.app', ['activePage' => 'user-management', 'titlePage' => __('Perfil usuario')])
 
 @section('content')
   <div class="content">
@@ -52,6 +52,39 @@
               @if ($errors->has('email'))
                 <div id="email-error" class="error text-danger pl-3" for="email" style="display: block;">
                   <strong>{{ $errors->first('email') }}</strong>
+                </div>
+              @endif
+            </div>
+            <div class="bmd-form-group{{ $errors->has('phone') ? ' has-danger' : '' }} mt-3">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="material-icons">phone</i>
+                  </span>
+                </div>
+                <input type="phone" name="phone" class="form-control" placeholder="{{ __('Teléfono...') }}" value="{{ old('phone') }}" required>
+              </div>
+              @if ($errors->has('phone'))
+                <div id="phone-error" class="error text-danger pl-3" for="phone" style="display: block;">
+                  <strong>{{ $errors->first('phone') }}</strong>
+                </div>
+              @endif
+            </div>
+            <div class="bmd-form-group{{ $errors->has('type') ? ' has-danger' : '' }} mt-3">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="material-icons">add_task</i>
+                  </span>
+                </div>
+                <select name="type" class="form-control mdb-select" placeholder="{{ __('Tipo...') }}" value="{{ old('type') }}" required>
+                  <option value="technical">Técnico</option>
+                  <option value="proficient">Perito</option>
+                </select>
+              </div>
+              @if ($errors->has('type'))
+                <div id="type-error" class="error text-danger pl-3" for="type" style="display: block;">
+                  <strong>{{ $errors->first('type') }}</strong>
                 </div>
               @endif
             </div>
