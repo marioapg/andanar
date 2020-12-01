@@ -46,4 +46,9 @@ class Budget extends Model
     {
         return $this->hasOne('App\User', 'id', 'perito_id');
     }
+
+    public function items()
+    {
+        return $this->hasMany('App\BudgetItem');
+    }
 }
