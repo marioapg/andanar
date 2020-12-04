@@ -226,3 +226,12 @@
 .hover-rows:hover > div:hover > span:hover > input:hover{
     cursor: pointer;
 }
+
+table.head-budget td {
+    border: 1px solid;
+    width: 25%;
+}
+
+table.body-budget td {
+    border: 1px solid;
+}

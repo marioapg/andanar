@@ -51,4 +51,9 @@ class Budget extends Model
     {
         return $this->hasMany('App\BudgetItem');
     }
+
+    public function car()
+    {
+        return $this->hasOne('App\Car', 'id', 'car_id');
+    }
 }
