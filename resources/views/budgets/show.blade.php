@@ -18,24 +18,31 @@
                            <div class="col">
                               <a href="#">
                                  <button class="btn btn-primay">
-                                    <i class="material-icons" style="color: orange;">edit</i>Editar
+                                    <i class="material-icons">edit</i>
+                                    Editar
                                  </button>
                               </a>
                            </div>
 
                            <div class="col">
                               <button class="btn btn-success">
+                                 <i class="material-icons">email</i>
                                  Enviar email
                               </button>
                            </div>
 
                            <div class="col">
-                              <form action="#" id="invoice-status" method="post" style="padding: 8px;">
+                              <form action="{{ route('budget.status', $budget->id) }}" id="invoice-status" method="post" style="padding: 8px;">
                                  @csrf
                                  @method('put')
-                                 <select class="form-control mdb-select @if ($budget->status == 'payed') payed-invoice @elseif($budget->status == 'pending') pending-invoice @endif change-invoice-select" name="status" id="status" required style="border-radius: 3px; color: white;">
-                                    <option value="pending" {{ ($budget->status == 'pending') ? ' selected' : '' }}>Pendiente</option>
-                                    <option value="payed" {{ ($budget->status == 'payed') ? ' selected' : '' }}>Pagada</option>
+                                 <select class="form-control mdb-select change-invoice-select {{$budget->status}}-class" name="status" id="status" required style="border-radius: 3px; color: white;">
+                                    <option value="presupuestado" {{ ($budget->status == 'presupuestado') ? ' selected' : '' }}>Presupuestado</option>
+                                    <option value="rechazado" {{ ($budget->status == 'rechazado') ? ' selected' : '' }}>Rechazado</option>
+                                    <option value="aceptado" {{ ($budget->status == 'aceptado') ? ' selected' : '' }}>Aceptado</option>
+                                    <option value="proceso" {{ ($budget->status == 'proceso') ? ' selected' : '' }}>Proceso</option>
+                                    <option value="terminado" {{ ($budget->status == 'terminado') ? ' selected' : '' }}>Terminado</option>
+                                    <option value="facturado" {{ ($budget->status == 'facturado') ? ' selected' : '' }}>Facturado</option>
+                                    <option value="cobrado" {{ ($budget->status == 'cobrado') ? ' selected' : '' }}>Cobrado</option>
                                  </select>
                               </form>
                            </div>

@@ -173,12 +173,67 @@
     background-color: rgb(174, 171, 171);
 }
 
-.payed-invoice {
-    background-color: darkseagreen;
+.aceptado-class {
+    background-color: #01924ed1;
 }
 
-.pending-invoice {
+.presupuestado-class {
     background-color: burlywood;
+}
+
+.rechazado-class {
+    background-color: #C4321D;
+}
+
+.proceso-class {
+    background-color: #4292E2;
+}
+
+.terminado-class {
+    background-color: #49A42C;
+}
+
+.facturado-class {
+    background-color: #B1BB33;
+}
+
+.cobrado-class {
+    background-color: #DF1285;
+}
+
+.border-aceptado {
+    border-radius: 3px;
+    border: 1px solid #01924ed1 !important;
+}
+
+.border-presupuestado {
+    border-radius: 3px;
+    border: 1px solid burlywood !important;
+}
+
+.border-rechazado {
+    border-radius: 3px;
+    border: 1px solid #C4321D !important;
+}
+
+.border-proceso {
+    border-radius: 3px;
+    border: 1px solid #4292E2 !important;
+}
+
+.border-terminado {
+    border-radius: 3px;
+    border: 1px solid #49A42C !important;
+}
+
+.border-facturado {
+    border-radius: 3px;
+    border: 1px solid #B1BB33 !important;
+}
+
+.border-cobrado {
+	border-radius: 3px;
+    border: 1px solid #DF1285 !important;
 }
 
 .sell-invoice-color {

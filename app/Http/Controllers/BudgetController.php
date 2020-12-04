@@ -251,7 +251,7 @@ class BudgetController extends Controller
     {
         Budget::where('id', $request->id)->update(['status' => $request->status]);
 
-        return redirect()->route('invoice.show', ['id' => $request->id]);
+        return redirect()->route('budget.show', ['id' => $request->id]);
     }
 
     public function delete(Request $request)
