@@ -14,30 +14,35 @@
 
                   <div class="card-body">
                      <div id="invoice">
-                        <div class="toolbar hidden-print">
-                           <div class="col-md-8">
-                              <a href="#" class="btn btn-success btn-link">
-                                 <i class="material-icons" style="color: orange;">edit</i>Editar
+                        <div class="toolbar hidden-print row">
+                           <div class="col">
+                              <a href="#">
+                                 <button class="btn btn-primay">
+                                    <i class="material-icons" style="color: orange;">edit</i>Editar
+                                 </button>
                               </a>
                            </div>
 
-                           <div class="col-md-4">
-                              <div class="text-right">
-                                 <form action="#" id="invoice-status" method="post">
-                                    @csrf
-                                    @method('put')
-                                    <select class="form-control mdb-select @if ($budget->status == 'payed') payed-invoice @elseif($budget->status == 'pending') pending-invoice @endif change-invoice-select" name="status" id="status" required>
-                                       <option value="pending" {{ ($budget->status == 'pending') ? ' selected' : '' }}>Pendiente</option>
-                                       <option value="payed" {{ ($budget->status == 'payed') ? ' selected' : '' }}>Pagada</option>
-                                    </select>
-                                 </form>
-                              </div>
+                           <div class="col">
+                              <button class="btn btn-success">
+                                 Enviar email
+                              </button>
                            </div>
-                           <hr>
+
+                           <div class="col">
+                              <form action="#" id="invoice-status" method="post" style="padding: 8px;">
+                                 @csrf
+                                 @method('put')
+                                 <select class="form-control mdb-select @if ($budget->status == 'payed') payed-invoice @elseif($budget->status == 'pending') pending-invoice @endif change-invoice-select" name="status" id="status" required style="border-radius: 3px; color: white;">
+                                    <option value="pending" {{ ($budget->status == 'pending') ? ' selected' : '' }}>Pendiente</option>
+                                    <option value="payed" {{ ($budget->status == 'payed') ? ' selected' : '' }}>Pagada</option>
+                                 </select>
+                              </form>
+                           </div>
                         </div>
 
                         <!-- <div class="invoice overflow-auto"> -->
-                        <div class="overflow-auto">
+                        <div class="overflow-auto mt-3">
                            <div style="min-width: 600px">
                               <table class="head-budget" style="width:100%;">
                                  <tr>

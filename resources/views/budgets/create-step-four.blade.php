@@ -120,10 +120,12 @@
                     <div class="col hover-custom add-item-budget" part="Capot" abpart="CAPOT" style="float: left;width: 19%">
                       <img src="{{ asset('images/car_graph/mid 1.png') }}" alt="">
                     </div>
-                    <div class="col hover-custom add-item-budget" part="Techo" abpart="TECHO" style="float: left;width: 20%">
-                      <img src="{{ asset('images/car_graph/mid 2.png') }}" alt="">
+                    <div class="col" style="float: left;width: 20%">
+                      <img class="hover-custom add-item-budget" part="Montante derecho" abpart="MD" src="{{ asset('images/car_graph/mid 4.png') }}" alt="">
+                      <img class="hover-custom add-item-budget" part="Techo" abpart="TECHO" src="{{ asset('images/car_graph/mid 2.png') }}" alt="">
+                      <img class="hover-custom add-item-budget" part="Montante izquierdo" abpart="MI" src="{{ asset('images/car_graph/mid 5.png') }}" alt="">
                     </div>
-                    <div class="col hover-custom add-item-budget" part="Maletero" abpart="MALET" style="float: left;width: 16%">
+                    <div class="col hover-custom add-item-budget" part="Maletero" abpart="MALETERO" style="float: left;width: 16%">
                       <img src="{{ asset('images/car_graph/mid 3.png') }}" alt="">
                     </div>
                     <!-- <div class="col hover-custom" style="float: left;width: 9%">
@@ -143,7 +145,7 @@
                     <div class="col hover-custom add-item-budget" part="Puerta tra izq" abpart="PTI" style="float: left;width: 14%">
                       <img src="{{ asset('images/car_graph/bot 3.png') }}" alt="">
                     </div>
-                    <div class="col hover-custom add-item-budget" part="Aleta del izq" abpart="ADI" style="float: left;width: 19%">
+                    <div class="col hover-custom add-item-budget" part="Aleta del izq" abpart="ATI" style="float: left;width: 19%">
                       <img src="{{ asset('images/car_graph/bot 4.png') }}" alt="">
                     </div>
                   </div>
