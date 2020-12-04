@@ -38,7 +38,7 @@
       </li>
       @endif
       <li class="nav-item {{ ($activePage == 'budgets') ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('budget.index') }}">
+        <a class="nav-link" href="{{ route('budgets.index') }}">
           <i class="material-icons">content_paste</i>
           <p>{{ __('Presupuestos') }}
           </p>

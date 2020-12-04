@@ -51,7 +51,7 @@
 
                 <div class="row">
                   <div class="col">
-                    <label for="plate">Cliente</label>
+                    <label for="client_id">Cliente</label>
                     <input type="hidden" name="client_id" class="form-control" value="{{ $params->client_id }}">
                     <input type="text" name="client" class="form-control" value="{{ \App\Client::where('id',$params->client_id)->first()->name }}" readonly="">
                   </div>
@@ -74,17 +74,21 @@
                     <input id="cia" type="text" name="cia" class="form-control">
                   </div>
                 </div>
+                <div class="row">
+                  <div class="col">
+                    <label for="iva">Porcentaje de IVA</label>
+                    <input id="iva_rate" type="text" name="iva" class="form-control" value="21">
+                  </div>
+                </div>
 
                 <div class="row">
                   <div class="col">
-                    <label for="public_comment">Comentario</label>
-                    <textarea id="public_comment" type="number" name="public_comment" class="form-control">
-                    </textarea>
+                    <label for="public_comment">Comentario para cliente</label>
+                    <textarea id="public_comment" type="number" name="public_comment" class="form-control"></textarea>
                   </div>
                   <div class="col">
-                    <label for="private_comment">Comentario</label>
-                    <textarea id="private_comment" type="number" name="private_comment" class="form-control">
-                    </textarea>
+                    <label for="private_comment">Comentario para Andanar</label>
+                    <textarea id="private_comment" type="number" name="private_comment" class="form-control"></textarea>
                   </div>
                 </div>
 
@@ -176,7 +180,7 @@
                       </div>
                       <div class="col-md-1 text-center btn-success">
                         <strong>
-                          Totales
+                          Total EUR
                         </strong>
                       </div>
                     </div>
@@ -194,6 +198,46 @@
                     </div>
                   </div>
                 </div>
+
+                <div class="row">
+                  <div class="col-md-12" id="items-budget">
+                    <div class="form-row text-center mt-3">
+                      <div class="col-md-2">IVA:</div>
+                      <div class="col-md-1"></div>
+                      <div class="col-md-1"></div>
+                      <div class="col-md-1"></div>
+                      <div class="col-md-1"></div>
+                      <div class="col-md-1"></div>
+                      <div class="col-md-1"></div>
+                      <div class="col-md-1"></div>
+                      <div class="col-md-1"></div>
+                      <div class="col-md-1"></div>
+                      <div class="col-md-1 btn-success total_iva">
+                      </div>
+                      <input id="iva_total" name="iva_total" type="hidden" value="0">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12" id="items-budget">
+                    <div class="form-row text-center">
+                      <div class="col-md-2">Totales:</div>
+                      <div class="col-md-1 btn-info totalDS"></div>
+                      <div class="col-md-1 btn-info totalDM"></div>
+                      <div class="col-md-1 btn-info totalDB"></div>
+                      <div class="col-md-1 btn-info totalDP"></div>
+                      <div class="col-md-1 btn-success totalVDS"></div>
+                      <div class="col-md-1 btn-success totalVDM"></div>
+                      <div class="col-md-1 btn-success totalVDB"></div>
+                      <div class="col-md-1 btn-success totalVDP"></div>
+                      <div class="col-md-1 btn-danger totalVD"></div>
+                      <div class="col-md-1 btn-success totalEUR">
+                      </div>
+                      <input id="grand_total" name="grand_total" type="hidden" value="0">
+                    </div>
+                  </div>
+                </div>
+
               </div>
 
               <div class="card-footer ml-auto mr-auto">
@@ -345,48 +389,55 @@
         else if ( (p >= 81) && (p <= 100) ) { pVD = 88;}
         else if ( p > 100 )                 { pVD = 105;}
 
+        if ( $('#materialcheck').attr('material') == 'Aluminio') {
+          sVD = parseInt(sVD + (sVD * 0.2));
+          mVD = parseInt(mVD + (mVD * 0.2));
+          bVD = parseInt(bVD + (bVD * 0.2));
+          pVD = parseInt(pVD + (pVD * 0.2));
+        }
+
         let totalVDs = sVD+mVD+bVD+pVD;
         let totalEur = totalVDs * parseInt($('#tarifa_pdr').val());
 
         var row;
         row = `
-              <div class="form-row mt-1">
+              <div class="form-row mt-1 hover-rows" numrow="`+rows+`">
                 <div class="col-md-1">
-                  <input class="form-control" type="text" name="part[]" value="`+$('#add-part').val()+`" readonly>
+                  <input class="form-control" type="text" name="part[]" value="`+$('#add-part').val()+`" readonly></input>
                 </div>
                 <div class="col-md-1">
                   <input class="form-control" type="text" name="material[]" value="`+$('#materialcheck').attr('material')+`" readonly>
                 </div>
                 <div class="col-md-1">
-                  <input class="form-control" type="text" name="small_damage[]" value="`+$('#small_size').val()+`" readonly>
+                  <input class="form-control sumDS" type="text" name="small_damage[]" value="`+$('#small_size').val()+`" readonly>
                 </div>
 
                 <div class="col-md-1">
-                  <input class="form-control" type="text" name="medium_damage[]" value="`+$('#medium_size').val()+`" readonly>
+                  <input class="form-control sumDM" type="text" name="medium_damage[]" value="`+$('#medium_size').val()+`" readonly>
                 </div>
 
                 <div class="col-md-1">
-                  <input class="form-control" type="text" name="big_damage[]" value="`+$('#big_size').val()+`" readonly>
+                  <input class="form-control sumDB" type="text" name="big_damage[]" value="`+$('#big_size').val()+`" readonly>
                 </div>
 
                 <div class="col-md-1">
-                  <input class="form-control" type="text" name="topaint_damage[]" value="`+$('#to_paint').val()+`" readonly>
+                  <input class="form-control sumDP" type="text" name="topaint_damage[]" value="`+$('#to_paint').val()+`" readonly>
                 </div>
 
                 <div class="col-md-1">
-                  <input class="form-control" type="text" name="small_vd[]" value="`+sVD+`" readonly>
+                  <input class="form-control sumVDS" type="text" name="small_vd[]" value="`+sVD+`" readonly>
                 </div>
 
                 <div class="col-md-1">
-                  <input class="form-control" type="text" name="medium_vd[]" value="`+mVD+`" readonly>
+                  <input class="form-control sumVDM" type="text" name="medium_vd[]" value="`+mVD+`" readonly>
                 </div>
 
                 <div class="col-md-1">
-                  <input class="form-control" type="text" name="big_vd[]" value="`+bVD+`" readonly>
+                  <input class="form-control sumVDB" type="text" name="big_vd[]" value="`+bVD+`" readonly>
                 </div>
 
                 <div class="col-md-1">
-                  <input class="form-control" type="text" name="topaint_vd[]" value="`+pVD+`" readonly>
+                  <input class="form-control sumVDP" type="text" name="topaint_vd[]" value="`+pVD+`" readonly>
                 </div>
 
                 <div class="col-md-1">
@@ -394,7 +445,7 @@
                 </div>
 
                 <div class="col-md-1">
-                  <input class="form-control totalrow" type="text" name="totalrow[]" value="`+totalEur+`" readonly>
+                  <input class="form-control totalMoneyRow" type="text" name="totalMoneyRow[]" value="`+totalEur+`" readonly>
                 </div>
               </div>`;
 
@@ -405,8 +456,96 @@
         $('#medium_size').val(0);
         $('#big_size').val(0);
         $('#to_paint').val(0);
+        calculateTotals();
         $('#myModal').modal('hide');
       });
+      
+      $(document).on('click', '.hover-rows', function(e){
+        $(this).remove();
+        calculateTotals();
+      });
+
+      function calculateTotals(){
+        var X = 0;
+        $('.sumDS').each(function(){
+          X += parseInt($(this).val());
+        });
+        $('.totalDS').html('');
+        $('.totalDS').html(parseInt(X));
+
+        X = 0;
+        $('.sumDM').each(function(){
+          X += parseInt($(this).val());
+        });
+        $('.totalDM').html('');
+        $('.totalDM').html(parseInt(X));
+
+        X = 0;
+        $('.sumDB').each(function(){
+          X += parseInt($(this).val());
+        });
+        $('.totalDB').html('');
+        $('.totalDB').html(parseInt(X));
+
+        X = 0;
+        $('.sumDP').each(function(){
+          X += parseInt($(this).val());
+        });
+        $('.totalDP').html('');
+        $('.totalDP').html(parseInt(X));
+
+        X = 0;
+        $('.sumVDS').each(function(){
+          X += parseInt($(this).val());
+        });
+        $('.totalVDS').html('');
+        $('.totalVDS').html(parseInt(X));
+
+        X = 0;
+        $('.sumVDM').each(function(){
+          X += parseInt($(this).val());
+        });
+        $('.totalVDM').html('');
+        $('.totalVDM').html(parseInt(X));
+
+        X = 0;
+        $('.sumVDB').each(function(){
+          X += parseInt($(this).val());
+        });
+        $('.totalVDB').html('');
+        $('.totalVDB').html(parseInt(X));
+
+        X = 0;
+        $('.sumVDP').each(function(){
+          X += parseInt($(this).val());
+        });
+        $('.totalVDP').html('');
+        $('.totalVDP').html(parseInt(X));
+
+        X = 0;
+        $('.totalrow').each(function(){
+          X += parseInt($(this).val());
+        });
+        $('.totalVD').html('');
+        $('.totalVD').html(parseInt(X));
+
+        X = 0;
+        $('.totalMoneyRow').each(function(){
+          X += parseInt($(this).val());
+        });
+        $('.totalEUR').html('');
+        var iva = parseFloat($('#iva_rate').val()) / 100;
+
+        var iva_total = X * iva;
+        var total_con_iva = X + iva_total;
+
+        var result_iva = parseFloat(iva_total).toFixed(2);
+        var result_total = parseFloat(total_con_iva).toFixed(2);
+        $('#iva_total').val( result_iva );
+        $('.total_iva').html( result_iva );
+        $('#grand_total').val( result_total );
+        $('.totalEUR').html( result_total );
+      }
 
       // Iniciacion del toogle de los mataeriales
       $('#materialcheck').bootstrapSwitch({

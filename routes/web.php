@@ -39,7 +39,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('client/search', 'ClientController@search')->name('client.search');
 
 	// BUDGETS
-	Route::get('budget', 'BudgetController@index')->name('budget.index');
+	Route::get('budgets', 'BudgetController@index')->name('budgets.index');
 	Route::get('budget/create/step-1', 'BudgetController@createStepOne')->name('budget.create.step.one');
 	Route::post('budget/create/step-1', 'BudgetController@storeStepOne')->name('budget.create.step.one');
 	

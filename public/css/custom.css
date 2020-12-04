@@ -217,3 +217,12 @@
 .hover-custom:hover {
     border: 1px solid orange !important;
 }
+
+.hover-rows:hover {
+    border: 1px solid red !important;
+    cursor: pointer;
+}
+
+.hover-rows:hover > div:hover > span:hover > input:hover{
+    cursor: pointer;
+}

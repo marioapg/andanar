@@ -29,7 +29,9 @@
                   <thead class=" text-info">
                     <tr>
                       <th>Número</th>
+                      <th>Cliente</th>
                       <th>Fecha</th>
+                      <th>IVA</th>
                       <th>Total</th>
                       <th class="text-right">Ver</th>
                       <th class="text-right">Eliminar</th>
@@ -42,16 +44,19 @@
                           {{ $budget->id }}
                         </td>
                         <td>
-                          {{ $budget->doc_number }}
+                          {{ $budget->client->name }}
                         </td>
                         <td>
                           {{ \Carbon\Carbon::create($budget->date)->format('d-m-Y') }}
                         </td>
                         <td>
-                          {{ $budget->total }}
+                          {{ $budget->iva }}
+                        </td>
+                        <td>
+                          {{ $budget->grand_total }}
                         </td>
                         <td class="td-actions text-right">
-                          <a rel="tooltip" class="btn btn-success btn-link" href="{{ route('budget.show') }}" data-original-title="" title="">
+                          <a rel="tooltip" class="btn btn-success btn-link" href="{{ route('budget.show',$budget->id) }}" data-original-title="" title="">
                             <i class="material-icons @if($budget->status == 'pending') pending-budget-eye-icon @endif">remove_red_eye</i>
                             <div class="ripple-container"></div>
                           </a>

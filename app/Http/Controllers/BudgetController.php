@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use App\BudgetItem;
 use App\Budget;
 use App\Client;
 use App\Car;
@@ -29,7 +30,7 @@ class BudgetController extends Controller
 
     public function show(Request $request)
     {
-    	return view('budgets.show', ['invoice' => Budget::find($request->id)]);
+    	return view('budgets.show', ['budget' => Budget::find($request->id)]);
     }
 
     public function createStepOne(Request $request)
@@ -54,26 +55,19 @@ class BudgetController extends Controller
 
         if ( $searchCar->count() ) {
             $car = $searchCar->first();
-        } else {
-            $car = new Car();
-            $car->plate = strtoupper($request->plate);
-            $car->client_id = null;
-            $car->brand = null;
-            $car->model = null;
-            $car->year = null;
-            $car->color = null;
-            // $car->save();
+            $request->session()->put('car', $car);
+            return redirect()->route('budget.create.step.three');
         }
 
-        $request->session()->put('car', $car);
+        $car = new Car();
+        $car->plate = strtoupper($request->plate);
+        $car->client_id = null;
+        $car->brand = null;
+        $car->model = null;
+        $car->year = null;
+        $car->color = null;
 
-        // if ( empty($request->session()->get('budget')) ){
-        //     $request->session()->put('budget', $budget);
-        // }else{
-        //     $budget = $request->session()->get('budget');
-        //     $budget->fill($request->only(['plate']));
-        //     $request->session()->put('budget', $budget);
-        // }
+        $request->session()->put('car', $car);
 
         return redirect()->route('budget.create.step.two');
     }
@@ -167,31 +161,90 @@ class BudgetController extends Controller
 
     public function storeStepFour(Request $request)
     {
-        dd($request->all());
-        // $validator = Validator::make($request->all(), [
-        //     'client_id' => ['required'],
-        //     'proficient_id' => ['nullable', 'exists:users,id'],
-        //     'technical_id' => ['nullable','exists:users,id'],
-        // ]);
+        $validator = Validator::make($request->all(), [
+            'client_id' => ['required'],
+            'proficient_id' => ['nullable', 'exists:users,id'],
+            'technical_id' => ['nullable','exists:users,id'],
+            "plate" => ['required'],
+            "brand" => ['required'],
+            "model" => ['required'],
+            "color" => ['required'],
+            "year" => ['required'],
+            "client_id" => ['required', 'exists:users,id'],
+            "perito_id" => ['nullable', 'exists:users,id'],
+            "technical_id" => ['nullable', 'exists:users,id'],
+            "tarifa" => ['numeric']
+        ]);
 
-        // if ( $validator->fails() ) {
-        //     Session::flash('flash_message', __('- Todos los campos son requeridos.'));
-        //     Session::flash('flash_type', 'alert-danger');
-        //     return back()->withErrors($validator)->withInput();
-        // }
+        if ( $validator->fails() ) {
+            dd($validator);
+            Session::flash('flash_message', __('- Todos los campos son requeridos.'));
+            Session::flash('flash_type', 'alert-danger');
+            return back()->withErrors($validator)->withInput();
+        }
 
-        // $car = $request->session()->get('car');
-        // if (empty($car)) {
-        //     return redirect()->route('budget.create.step.one');
-        // }
-        // $params = new \stdClass();
-        // $params->client_id = $request->client_id;
-        // $params->perito_id = is_null($request->proficient_id) ? '' : $request->proficient_id;
-        // $params->technical_id = is_null($request->technical_id) ? '' : $request->technical_id;
+        $validator = Validator::make($request->all(), [
+            'part' => ['required', 'array', 'min:1'],
+            'part.*' => ['required'],
+        ]);
 
-        // $request->session()->put('params', $params);
+        if ( $validator->fails() ) {
+            Session::flash('flash_message', __('- Debe agregar al menos 1 bollo.'));
+            Session::flash('flash_type', 'alert-danger');
+            return back()->withErrors($validator)->withInput();
+        }
 
-        // return redirect()->route('budget.create.step.four');
+        $car = Car::where('plate', $request->plate)->first();
+
+        if (!$car) {
+            dump('se crea carro porque no existe');
+            $car = Car::create([
+                'client_id' => $request->client_id,
+                'plate' => $request->plate,
+                'brand' => $request->brand,
+                'model' => $request->model,
+                'year' => $request->year,
+                'color' => $request->color,
+            ]);
+        }
+
+        $budget = Budget::create([
+                    'client_id' => $request->client_id,
+                    'technical_id' => $request->technical_id,
+                    'perito_id' => $request->perito_id,
+                    'date' => now(),
+                    'car_id' => $car->id,
+                    'public_comment' => $request->public_comment,
+                    'private_comment' => $request->private_comment,
+                    'cia_sure' => $request->cia,
+                    'iva_rate' => $request->iva,
+                    'total' => ($request->grand_total - $request->iva_total),
+                    'iva' => $request->iva_total,
+                    'grand_total' => $request->grand_total,
+                    'tarifa_pdr' => $request->tarifa,
+                ]);
+        foreach ($request->part as $key => $value) {
+            BudgetItem::create([
+                                'budget_id' => $budget->id,
+                                'part' => $request->part[$key],
+                                'material' => $request->material[$key],
+                                'small' => $request->small_damage[$key],
+                                'medium' => $request->medium_damage[$key],
+                                'big' => $request->big_damage[$key],
+                                'paint' => $request->topaint_damage[$key],
+                                'small_vds' => $request->small_vd[$key],
+                                'medium_vds' => $request->medium_vd[$key],
+                                'big_vds' => $request->big_vd[$key],
+                                'paint_vds' => $request->topaint_vd[$key],
+                                'total_vds' => $request->totalrow[$key],
+                                'total_money' => $request->totalMoneyRow[$key],
+                            ]);
+        }
+        $request->session()->forget('car');
+        $request->session()->forget('params');
+        Session::flash('flash_message', __('- Presupuesto creado con éxito.'));
+        Session::flash('flash_type', 'alert-success');
+        return redirect()->route('budgets.index');
     }
 
     public function status(Request $request)
@@ -203,10 +256,12 @@ class BudgetController extends Controller
 
     public function delete(Request $request)
     {
-        $invoice = Budget::find($request->id);        
-        $type = $invoice->type;
-        if ( $invoice->items()->delete() && $invoice->delete() ) {
-            return redirect()->route('budgets.index', ['type' => $type]);
+        $budget = Budget::find($request->id);
+        $num = $budget->id;
+        if ( $budget->items()->delete() && $budget->delete() ) {
+            Session::flash('flash_message', __('- Presupuesto #'.$num.' eliminado.'));
+            Session::flash('flash_type', 'alert-success');
+            return redirect()->route('budgets.index');
         }
 
         return back()->withErrors(['error' => __('Por favor intente más tarde')]);
