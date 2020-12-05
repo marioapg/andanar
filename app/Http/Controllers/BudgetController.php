@@ -177,7 +177,6 @@ class BudgetController extends Controller
         ]);
 
         if ( $validator->fails() ) {
-            dd($validator);
             Session::flash('flash_message', __('- Todos los campos son requeridos.'));
             Session::flash('flash_type', 'alert-danger');
             return back()->withErrors($validator)->withInput();

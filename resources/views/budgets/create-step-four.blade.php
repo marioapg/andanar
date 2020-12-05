@@ -282,6 +282,7 @@
             <div class="col text-center">
               <span>P/P</span>
             </div>
+          </div>
           <div class="form-row">
             <div class="col">
               <input id="small_size" type="number" class="form-control" value="0">

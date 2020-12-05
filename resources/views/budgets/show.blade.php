@@ -5,10 +5,18 @@
       <div class="container-fluid">
          <div class="row">
             <div class="col-md-12">
+               @if( Session::has('flash_message') )
+                  <div class="alert {{ Session::get('flash_type') }} alert-dismissible fade show" role="alert">
+                     {{ Session::get('flash_message') }}
+                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                     </button>
+                  </div>
+               @endif
                <div class="card">
                   
                   <div class="card-header card-header-info">
-                     <h4 class="card-title ">{{ __('Factura') }}</h4>
+                     <h4 class="card-title ">{{ __('Presupuesto') }}</h4>
                      <p class="card-category">{{ $budget->id }}</p>
                   </div>
 
@@ -25,7 +33,7 @@
                            </div>
 
                            <div class="col">
-                              <button class="btn btn-success">
+                              <button class="btn btn-success send-mail-popup">
                                  <i class="material-icons">email</i>
                                  Enviar email
                               </button>
@@ -428,4 +436,83 @@
          </div>
       </div>
    </div>
+
+   <div id="myModal" class="modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+         <div class="modal-content">
+            <form action="{{ route('budget.send.mail', $budget->id) }}" method="POST">
+               @csrf
+               <div class="modal-header">
+                  <h5 class="modal-title">
+                     Enviar emails
+                  </h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                  </button>
+               </div>
+               <div class="modal-body">
+                  <div class="form-row">
+                     <div class="col text-left">
+                        <span>Perito</span>
+                     </div>
+                     <div class="col text-left">
+                        <input name="peritomail" type="text" value="{{ $budget->perito ? $budget->perito->email : '' }}" readonly="">
+                     </div>
+                     <div class="col text-left">
+                        <input name="peritocheck" type="checkbox" {{ $budget->perito ? '' : 'disabled' }}>
+                     </div>
+                  </div>
+                  <div class="form-row">
+                     <div class="col text-left">
+                        <span>Técnico</span>
+                     </div>
+                     <div class="col text-left">
+                        <input name="tecnicomail" type="text" value="{{ $budget->technical ? $budget->technical->email : '' }}" readonly="">
+                     </div>
+                     <div class="col text-left">
+                        <input name="tecnicocheck" type="checkbox" {{ $budget->technical ? '' : 'disabled' }}>
+                     </div>
+                  </div>
+                  <div class="form-row">
+                     <div class="col text-left">
+                        <span>Cliente</span>
+                     </div>
+                     <div class="col text-left">
+                        <input name="clientemail" type="text" value="{{ $budget->client ? $budget->client->email : '' }}" readonly="">
+                     </div>
+                     <div class="col text-left">
+                        <input name="clientecheck" type="checkbox" {{ $budget->client ? '' : 'disabled' }}>
+                     </div>
+                  </div>
+                  <div class="form-row">
+                     <div class="col text-left">
+                        <span>Otros</span>
+                     </div>
+                     <div class="col text-left">
+                        <input name="otrosmails" type="text" value="" placeholder="separe los emails con ,">
+                     </div>
+                     <div class="col text-left">
+                        <input name="otroscheck" type="checkbox">
+                     </div>
+                  </div>
+               </div>
+
+               <div class="modal-footer">
+                  <button type="submit" class="btn btn-primary">Enviar</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+               </div>
+            </form>
+         </div>
+      </div>
+   </div>
+@endsection
+
+@section('inlinejs')
+   <script>
+      $(document).ready(function(){
+         $('.send-mail-popup').on('click', function(e){
+            $('#myModal').modal('show');
+         });
+      });
+   </script>
 @endsection
