@@ -196,7 +196,6 @@ class BudgetController extends Controller
         $car = Car::where('plate', $request->plate)->first();
 
         if (!$car) {
-            dump('se crea carro porque no existe');
             $car = Car::create([
                 'client_id' => $request->client_id,
                 'plate' => $request->plate,
@@ -274,86 +273,93 @@ class BudgetController extends Controller
     public function update(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'client' => ['required', 'string', 'min:4', 'exists:clients,name'],
-            'date' => ['required', 'date'],
-            'due_date' => ['required', 'date'],
-            'status' => ['required', 'string', 'in:pending,payed'],
-            'type' => ['required', 'string', 'in:sell,buy'],
-            'comment' => ['nullable', 'string', 'min:1'],
-            'pay_way' => ['required', 'string'],
-            'itemname' => ['required', 'array', 'min:1'],
-            'itemname.*' => ['required'],
+            'client_id' => ['required'],
+            'proficient_id' => ['nullable', 'exists:users,id'],
+            'technical_id' => ['nullable','exists:users,id'],
+            "plate" => ['required'],
+            "brand" => ['required'],
+            "model" => ['required'],
+            "color" => ['required'],
+            "year" => ['required'],
+            "client_id" => ['required', 'exists:users,id'],
+            "perito_id" => ['nullable', 'exists:users,id'],
+            "technical_id" => ['nullable', 'exists:users,id'],
+            "tarifa" => ['numeric']
         ]);
 
         if ( $validator->fails() ) {
-            Session::flash('flash_message', __('- Por favor, revise los datos e intente nuevamente 1.'));
+            Session::flash('flash_message', __('- Todos los campos son requeridos.'));
             Session::flash('flash_type', 'alert-danger');
             return back()->withErrors($validator)->withInput();
         }
 
-        $total = floatval(0);
-        $iva = floatval(0);
-        $grand_total = floatval(0);
+        $validator = Validator::make($request->all(), [
+            'part' => ['required', 'array', 'min:1'],
+            'part.*' => ['required'],
+        ]);
 
-        // Calcular total de la factura
-        foreach ($request->itemname as $key => $value) {
-            $amount = floatval($request->itemprice[$key]) * intval($request->itemqty[$key]);
-            $tax_rate = floatval($request->taxrate[$key] / 100);
-            $iva += floatval($amount * $tax_rate);
-            $total +=  $amount;
-        }
-
-        $grand_total =  $total + $iva;
-
-        $invoice_args = $request->only(['client', 'date', 'due_date','status', 'type', 'comment', 'pay_way']);
-        $invoice_args['client_id'] = Client::where('name', $request->client)->first()->id;
-        $invoice_args['total'] = round($total, 2);
-        $invoice_args['iva'] = round($iva, 2);
-        $invoice_args['grand_total'] = round($grand_total, 2);
-
-        $invoice = Budget::find($request->id);
-        try {
-            $invoice->update($invoice_args);
-
-            // Agregar items de la factura
-            foreach ($request->itemname as $key => $value) {
-                if ($request->itemqty[$key] == null || $request->itemprice[$key] == null) {
-                    $invoice->items()->delete();
-                    $invoice->delete();
-                    Session::flash('flash_message', __('- Por favor, complete todos los datos e intente nuevamente.'));
-                    Session::flash('flash_type', 'alert-danger');
-                    return back()->withErrors($validator)->withInput();
-                } elseif ($key == 0) {
-                    $invoice->items()->delete();
-                }
-
-                $amount = floatval($request->itemprice[$key]) * intval($request->itemqty[$key]);
-                $tax_rate = floatval($request->taxrate[$key] / 100);
-                $iva = floatval($amount * $tax_rate);
-
-
-                Item::create(
-                        array(
-                                'invoice_id' => $invoice->id,
-                                'name' => $value,
-                                'description' => $request->itemdescription[$key],
-                                'quantity' => $request->itemqty[$key],
-                                'price' => round($request->itemprice[$key], 2),
-                                'tax_rate' => round($tax_rate, 2),
-                                'total' => round($amount, 2),
-                                'tax' => round($iva, 2),
-                                'grand_total' => round(($amount + $iva), 2),
-                            )
-                        );
-            }
-        } catch (Exception $e) {
-            Session::flash('flash_message', __('+ Por favor, revise los datos e intente nuevamente 2.'));
+        if ( $validator->fails() ) {
+            Session::flash('flash_message', __('- Debe agregar al menos 1 bollo.'));
             Session::flash('flash_type', 'alert-danger');
-            return back()->withErrors(['error' => 'Try later']);
+            return back()->withErrors($validator)->withInput();
         }
 
-        Session::flash('flash_message', __('+ Factura registrada.'));
+        $budget = Budget::where('id', $request->budget_id)->first();
+        if ( !$budget ) {
+            Session::flash('flash_message', __('- No existe el presupuesto.'));
+            Session::flash('flash_type', 'alert-danger');
+            return back();
+        }
+
+        $car = Car::where('plate', $request->plate)->first();
+
+        if (!$car) {
+            $car = Car::create([
+                'client_id' => $request->client_id,
+                'plate' => $request->plate,
+                'brand' => $request->brand,
+                'model' => $request->model,
+                'year' => $request->year,
+                'color' => $request->color,
+            ]);
+        }
+
+        $flag = $budget->update([
+                    'client_id' => $request->client_id,
+                    'technical_id' => $request->technical_id,
+                    'perito_id' => $request->perito_id,
+                    'date' => now(),
+                    'car_id' => $car->id,
+                    'public_comment' => $request->public_comment,
+                    'private_comment' => $request->private_comment,
+                    'cia_sure' => $request->cia,
+                    'iva_rate' => $request->iva,
+                    'total' => ($request->grand_total - $request->iva_total),
+                    'iva' => $request->iva_total,
+                    'grand_total' => $request->grand_total,
+                    'tarifa_pdr' => $request->tarifa,
+                ]);
+        
+        $budget->items()->delete();
+        foreach ($request->part as $key => $value) {
+            BudgetItem::create([
+                                'budget_id' => $budget->id,
+                                'part' => $request->part[$key],
+                                'material' => $request->material[$key],
+                                'small' => $request->small_damage[$key],
+                                'medium' => $request->medium_damage[$key],
+                                'big' => $request->big_damage[$key],
+                                'paint' => $request->topaint_damage[$key],
+                                'small_vds' => $request->small_vd[$key],
+                                'medium_vds' => $request->medium_vd[$key],
+                                'big_vds' => $request->big_vd[$key],
+                                'paint_vds' => $request->topaint_vd[$key],
+                                'total_vds' => $request->totalrow[$key],
+                                'total_money' => $request->totalMoneyRow[$key],
+                            ]);
+        }
+        Session::flash('flash_message', __('- Presupuesto actualizado con éxito.'));
         Session::flash('flash_type', 'alert-success');
-        return redirect()->route('budgets.index', ['type' => $invoice->type]);
+        return redirect()->route('budget.show', ['id' => $budget->id]);
     }
 }

@@ -9,8 +9,10 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
-          <form class="form" method="POST" action="{{ route('budget.create.step.four') }}">
+          <form class="form" method="POST" action="{{ route('budget.update', $budget->id) }}" method="POST">
+            @method('PUT')
             @csrf
+
             @if( Session::has('flash_message') )
               <div class="alert {{ Session::get('flash_type') }} alert-dismissible fade show" role="alert">
                 {{ Session::get('flash_message') }}
@@ -219,6 +221,55 @@
 
                 <div class="row">
                   <div class="col-md-12" id="items-budget">
+                    @foreach($budget->items as $key => $item)
+                      <div class="form-row mt-1 hover-rows" numrow="{{ $key }}">
+                        <div class="col-md-1">
+                          <input class="form-control" type="text" name="part[]" value="{{ $item->part }}" readonly></input>
+                        </div>
+                        <div class="col-md-1">
+                          <input class="form-control" type="text" name="material[]" value="{{ $item->material }}" readonly>
+                        </div>
+                        <div class="col-md-1">
+                          <input class="form-control sumDS" type="text" name="small_damage[]" value="{{ $item->small }}" readonly>
+                        </div>
+
+                        <div class="col-md-1">
+                          <input class="form-control sumDM" type="text" name="medium_damage[]" value="{{ $item->medium }}" readonly>
+                        </div>
+
+                        <div class="col-md-1">
+                          <input class="form-control sumDB" type="text" name="big_damage[]" value="{{ $item->big }}" readonly>
+                        </div>
+
+                        <div class="col-md-1">
+                          <input class="form-control sumDP" type="text" name="topaint_damage[]" value="{{ $item->paint }}" readonly>
+                        </div>
+
+                        <div class="col-md-1">
+                          <input class="form-control sumVDS" type="text" name="small_vd[]" value="{{ $item->small_vds }}" readonly>
+                        </div>
+
+                        <div class="col-md-1">
+                          <input class="form-control sumVDM" type="text" name="medium_vd[]" value="{{ $item->medium_vds }}" readonly>
+                        </div>
+
+                        <div class="col-md-1">
+                          <input class="form-control sumVDB" type="text" name="big_vd[]" value="{{ $item->big_vds }}" readonly>
+                        </div>
+
+                        <div class="col-md-1">
+                          <input class="form-control sumVDP" type="text" name="topaint_vd[]" value="{{ $item->paint_vds }}" readonly>
+                        </div>
+
+                        <div class="col-md-1">
+                          <input class="form-control totalrow" type="text" name="totalrow[]" value="{{ $item->total_vds }}" readonly>
+                        </div>
+
+                        <div class="col-md-1">
+                          <input class="form-control totalMoneyRow" type="text" name="totalMoneyRow[]" value="{{ $item->total_money }}" readonly>
+                        </div>
+                      </div>
+                    @endforeach
                     <div class="form-row text-center mt-3">
                       <div class="col-md-2">IVA:</div>
                       <div class="col-md-1"></div>
@@ -322,6 +373,8 @@
       </div>
     </div>
   </div>
+
+  <input type="hidden" id="count-rows" value="{{ $budget->items->count() + 1 }}">
 @endsection
 
 @section('inlinejs')
@@ -352,7 +405,7 @@
         }
       });
 
-      var rows = 0;
+      var rows = parseInt($('#count-rows').val());
 
       // Funcion cuando cambia el toogle del material Aluminio/Hierro
       $('#materialcheck').change(function() {

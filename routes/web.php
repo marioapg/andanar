@@ -57,7 +57,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('budget', 'BudgetController@store')->name('budget.store');
 	Route::delete('budget', 'BudgetController@delete')->name('budget.delete');
 	Route::get('budget/{id}/edit', 'BudgetController@edit')->name('budget.edit');
-	Route::put('budget/{id}', 'BudgetController@update')->name('budget.update');
+	Route::put('budget/{budget_id}', 'BudgetController@update')->name('budget.update');
 	
 	Route::post('budget/{budgetid}/mail/send', 'BudgetMailsController@send')->name('budget.send.mail');
 
