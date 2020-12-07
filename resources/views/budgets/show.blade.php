@@ -24,7 +24,7 @@
                      <div id="invoice">
                         <div class="toolbar hidden-print row">
                            <div class="col">
-                              <a href="#">
+                              <a href="{{ route('budget.edit', $budget->id) }}">
                                  <button class="btn btn-primay">
                                     <i class="material-icons">edit</i>
                                     Editar

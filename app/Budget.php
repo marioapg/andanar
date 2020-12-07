@@ -56,4 +56,43 @@ class Budget extends Model
     {
         return $this->hasOne('App\Car', 'id', 'car_id');
     }
+
+    public function isClient($client_id)
+    {
+        if (is_null($this->client)) {
+            return false;
+        }
+
+        if ($this->client->id == $client_id) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public function isPerito($perito_id)
+    {
+        if (is_null($this->perito)) {
+            return false;
+        }
+
+        if ($this->perito->id == $perito_id) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public function isTechnical($technical_id)
+    {
+        if (is_null($this->technical)) {
+            return false;
+        }
+
+        if ($this->technical->id == $technical_id) {
+            return true;
+        }
+
+        return false;
+    }
 }

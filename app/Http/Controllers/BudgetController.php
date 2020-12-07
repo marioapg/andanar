@@ -268,7 +268,7 @@ class BudgetController extends Controller
 
     public function edit(Request $request)
     {
-        return view('budgets.edit', [ 'invoice' => Budget::where('id', $request->id)->first() ]);
+        return view('budgets.edit', [ 'budget' => Budget::where('id', $request->id)->first() ]);
     }
 
     public function update(Request $request)
