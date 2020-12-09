@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Mail\BudgetCreated;
 use Session;
 use Mail;
+use PDF;
 
 class BudgetMailsController extends Controller
 {
@@ -35,9 +36,9 @@ class BudgetMailsController extends Controller
 				}
     		}
     	}
-    	if(count($emails)) {
+    	if(count($emails)) {            
     		foreach ($emails as $recipient) {
-    			Mail::to($recipient)->send(new BudgetCreated());
+    			Mail::to($recipient)->send(new BudgetCreated($request->budgetid));
 			}
     		Session::flash('flash_message', __('- Emails enviados'));
 	        Session::flash('flash_type', 'alert-success');
