@@ -25,7 +25,7 @@
                 </div>
               </div>
               <div class="table-responsive">
-                <table class="table">
+                <table class="table" id="cars-table">
                   <thead class=" text-info">
                     <tr>
                       <th>
@@ -82,4 +82,46 @@
         </div>
       </div>
     </div>
+@endsection
+
+@section('inlinejs')
+  <!--  DataTables.net Plugin, full documentation here: https://datatables.net/  -->
+  <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
+
+  <script>
+    $(document).ready(function() {
+      $('#cars-table').DataTable({
+        // dom:"Blfrtip",
+        dom:"lfrtip",
+        scrollX: false,
+        paging: true,
+        pageLength: 20,
+        lengthMenu: [[20, 50, 100, -1], [20, 50, 100, "Todas"]],
+        aaSorting: [],
+        language: {
+                processing:     "Procesando...",
+                search:         "",
+                searchPlaceholder: "Buscar",
+                info:           "",
+                lengthMenu:     "Mostrar _MENU_",
+                infoEmpty:      "Vacío",
+                infoFiltered:   "Información refinada",
+                infoPostFix:    "",
+                loadingRecords: "Procesando...",
+                zeroRecords:    "Vacio",
+                emptyTable:     "Vacio",
+                paginate: {
+                    first:      "Primero",
+                    previous:   "<",
+                    next:       ">",
+                    last:       "Último"
+                },
+                aria: {
+                    sortAscending:  ": Ordenar ascendente",
+                    sortDescending: ": Ordenar descendente"
+                }
+            }
+      });
+    })
+  </script>
 @endsection
