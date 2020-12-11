@@ -12,7 +12,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+use App\Budget;
+Route::get('/view', function () {
+	$budget = Budget::where('id',8)->first();
+    return view('mails.budget_mail_pdf', ['budget'=>$budget]);
+});
 Route::get('/', function () {
     return redirect()->route('login');
 });

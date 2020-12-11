@@ -1,8 +1,11 @@
+<head>
+	<link rel="stylesheet" href="{{ asset('css/custom.css') }}">
+</head>
 <div id="invoice">
     <!-- <div class="invoice overflow-auto"> -->
     <div class="overflow-auto mt-3">
        <div style="min-width: 600px">
-          <table class="head-budget" style="width:100%;">
+          <table class="head-budget" style="width:100%;border-collapse: collapse;">
              <tr>
                 <td>Coche Nro</td>
                 <td>{{ $budget->car->id ?? '' }}</td>
@@ -71,7 +74,7 @@
              </tr>
           </table>
 
-          <table class="body-budget mt-3" style="width: 100%; text-align: center;">
+          <table class="body-budget mt-3" style="margin-top: 5px; width: 100%; border-collapse: collapse;text-align: center;">
              <tr style="background-color: #C5C5C5; font-weight: bold;">
                 <td style="width: 20%;">DETALLE COMPONENTE</td>
                 <td style="width: 7%;">MATERIAL</td>
