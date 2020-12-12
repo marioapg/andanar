@@ -4,7 +4,7 @@
   <link rel="stylesheet" href="{{ asset('css/selectize.bootstrap2.css') }}">
 @endsection
 
-@section('content')aaaa
+@section('content')
   <div class="content">
     <div class="container-fluid">
       <div class="row">
