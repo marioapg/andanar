@@ -15,5 +15,10 @@ class DatabaseSeeder extends Seeder
         	UsersTableSeeder::class,
         	RoleTableSeeder::class
         ]);
+        //path to sql file
+        $sql = base_path('/database/sql/db_cars.sql');
+
+        //collect contents and pass to DB::unprepared
+        DB::unprepared(file_get_contents($sql));
     }
 }
