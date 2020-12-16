@@ -221,5 +221,10 @@
         });
       }
     });
+
+    document.getElementById('select-model').setCustomValidity('Requerido!');
+    document.getElementById('select-brand').setCustomValidity('Requerido!');
+    document.getElementById('select-color').setCustomValidity('Requerido!');
+    document.getElementById('select-year').setCustomValidity('Requerido!');
   </script>
 @endsection

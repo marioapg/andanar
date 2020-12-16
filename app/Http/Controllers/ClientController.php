@@ -30,7 +30,7 @@ class ClientController extends Controller
     	$validator = Validator::make($request->all(), [
             'name' => ['required', 'string', 'max:80'],
             'email' => ['required', 'string', 'email', 'max:50', 'unique:clients'],
-			"document" => ['required', 'string', 'max:15'],
+			"document" => ['required', 'string', 'max:30'],
 			"address" => ['required', 'string', 'max:100'],
 			"city" => ['required', 'string', 'max:100'],
 			"postal_code" => ['required', 'numeric', 'digits_between:1,10'],
@@ -56,7 +56,7 @@ class ClientController extends Controller
     {
     	$validator = Validator::make($request->except(['email']), [
             'name' => ['required', 'string', 'max:80'],
-			"document" => ['required', 'string', 'max:15'],
+			"document" => ['required', 'string', 'max:100'],
 			"address" => ['required', 'string', 'max:100'],
 			"city" => ['required', 'string', 'max:100'],
 			"postal_code" => ['required', 'numeric', 'digits_between:1,10'],

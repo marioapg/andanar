@@ -69,6 +69,7 @@
                         <td>
                           @if($user->type == 'technical') Tecnico
                           @elseif($user->type == 'proficient') Perito
+                          @elseif($user->type == 'boss') Encargado
                           @endif
                         </td>
                         <td>

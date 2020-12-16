@@ -62,7 +62,7 @@
                     <i class="material-icons">fingerprint</i>
                   </span>
                 </div>
-                <input type="text" name="document" id="document" class="form-control" placeholder="{{ __('CIF/NIF/DNI...') }}" required>
+                <input type="text" name="document" id="document" class="form-control" value="{{ old('document') }}" placeholder="{{ __('CIF/NIF/DNI...') }}" required>
               </div>
               @if ($errors->has('document'))
                 <div id="document-error" class="error text-danger pl-3" for="document" style="display: block;">
@@ -77,7 +77,7 @@
                     <i class="material-icons">house</i>
                   </span>
                 </div>
-                <input type="text" name="address" id="address" class="form-control" placeholder="{{ __('Dirección...') }}" required>
+                <input type="text" name="address" id="address" class="form-control" value="{{ old('address') }}" placeholder="{{ __('Dirección...') }}" required>
               </div>
               @if ($errors->has('address'))
                 <div id="address-error" class="error text-danger pl-3" for="address" style="display: block;">
@@ -92,7 +92,7 @@
                     <i class="material-icons">post_add</i>
                   </span>
                 </div>
-                <input type="text" name="postal_code" id="postal_code" class="form-control" placeholder="{{ __('Código postal...') }}" required>
+                <input type="text" name="postal_code" id="postal_code" class="form-control" value="{{ old('postal_code') }}" placeholder="{{ __('Código postal...') }}" required>
               </div>
               @if ($errors->has('postal_code'))
                 <div id="postal_code-error" class="error text-danger pl-3" for="postal_code" style="display: block;">
@@ -107,7 +107,7 @@
                     <i class="material-icons">room</i>
                   </span>
                 </div>
-                <input type="text" name="city" id="city" class="form-control" placeholder="{{ __('Ciudad...') }}" required>
+                <input type="text" name="city" id="city" class="form-control" value="{{ old('city') }}" placeholder="{{ __('Ciudad...') }}" required>
               </div>
               @if ($errors->has('city'))
                 <div id="city-error" class="error text-danger pl-3" for="city" style="display: block;">
@@ -122,7 +122,7 @@
                     <i class="material-icons">map</i>
                   </span>
                 </div>
-                <input type="text" name="state" id="state" class="form-control" placeholder="{{ __('Estado...') }}" required>
+                <input type="text" name="state" id="state" class="form-control" value="{{ old('state') }}" placeholder="{{ __('Estado...') }}" required>
               </div>
               @if ($errors->has('state'))
                 <div id="state-error" class="error text-danger pl-3" for="state" style="display: block;">
@@ -137,7 +137,7 @@
                     <i class="material-icons">outlined_flag</i>
                   </span>
                 </div>
-                <input type="text" name="country" id="country" class="form-control" placeholder="{{ __('Pais') }}" required>
+                <input type="text" name="country" id="country" class="form-control" value="{{ old('country') }}" placeholder="{{ __('Pais') }}" required>
               </div>
               @if ($errors->has('country'))
                 <div id="country-error" class="error text-danger pl-3" for="country" style="display: block;">
@@ -153,7 +153,7 @@
                     <i class="material-icons">contact_phone</i>
                   </span>
                 </div>
-                <input type="text" name="phone" id="phone" class="form-control" placeholder="{{ __('Teléfono...') }}">
+                <input type="text" name="phone" id="phone" class="form-control" value="{{ old('phone') }}" placeholder="{{ __('Teléfono...') }}">
               </div>
               @if ($errors->has('phone'))
                 <div id="phone-error" class="error text-danger pl-3" for="phone" style="display: block;">

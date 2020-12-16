@@ -62,7 +62,7 @@
                     <i class="material-icons">phone</i>
                   </span>
                 </div>
-                <input type="phone" name="phone" class="form-control" placeholder="{{ __('Teléfono...') }}" value="{{ old('phone') }}" required>
+                <input type="text" name="phone" class="form-control" placeholder="{{ __('Teléfono...') }}" value="{{ old('phone') }}" required>
               </div>
               @if ($errors->has('phone'))
                 <div id="phone-error" class="error text-danger pl-3" for="phone" style="display: block;">
@@ -80,6 +80,7 @@
                 <select name="type" class="form-control mdb-select" placeholder="{{ __('Tipo...') }}" value="{{ old('type') }}" required>
                   <option value="technical">Técnico</option>
                   <option value="proficient">Perito</option>
+                  <option value="boss">Encargado</option>
                 </select>
               </div>
               @if ($errors->has('type'))
