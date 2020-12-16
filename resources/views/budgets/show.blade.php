@@ -61,7 +61,7 @@
                            <div style="min-width: 600px">
                               <table class="head-budget" style="width:100%;">
                                  <tr>
-                                    <td>Coche Nro</td>
+                                    <td>Presupuesto Nro</td>
                                     <td>{{ $budget->car->id ?? '' }}</td>
                                     <td>Fecha</td>
                                     <td>{{ $budget->date ?? '' }}</td>
@@ -131,7 +131,7 @@
                               <table class="body-budget mt-3" style="width: 100%; text-align: center;">
                                  <tr style="background-color: #C5C5C5; font-weight: bold;">
                                     <td style="width: 20%;">DETALLE COMPONENTE</td>
-                                    <td style="width: 7%;">MATERIAL</td>
+                                    <td style="width: 7%;">AL</td>
                                     <td colspan="4">DIMENSION ABOLLADURAS</td>
                                     <td colspan="3">Nro VD's</td>
                                     <td colspan="2" rowspan="2">P/P</td>
@@ -153,7 +153,7 @@
                                        $capot = $b_items->where('part', 'CAPOT')->first();
                                     @endphp
                                     <td style="width: 20%;">CAPÓ</td>
-                                    <td style="width: 7%;">{{ $capot ? $capot->material : '' }}</td>
+                                    <td style="width: 7%;">{{ !$capot ? '' : ($capot->material == 'Aluminio' ? 'X' : '') }}</td>
                                     <td style="width: 7%;">{{ $capot ? $capot->small : '0' }}</td>
                                     <td style="width: 7%;">{{ $capot ? $capot->medium : '0' }}</td>
                                     <td style="width: 7%;">{{ $capot ? $capot->big : '0' }}</td>
@@ -169,7 +169,7 @@
                                        $techo = $b_items->where('part', 'TECHO')->first();
                                     @endphp
                                     <td style="width: 20%;">TECHO</td>
-                                    <td style="width: 7%;">{{ $techo ? $techo->material : '' }}</td>
+                                    <td style="width: 7%;">{{ !$techo ? '' : ($techo->material == 'Aluminio' ? 'X' : '') }}</td>
                                     <td style="width: 7%;">{{ $techo ? $techo->small : '0' }}</td>
                                     <td style="width: 7%;">{{ $techo ? $techo->medium : '0' }}</td>
                                     <td style="width: 7%;">{{ $techo ? $techo->big : '0' }}</td>
@@ -185,7 +185,7 @@
                                        $maletero = $b_items->where('part', 'MALETERO')->first();
                                     @endphp
                                     <td style="width: 20%;">MALETERO</td>
-                                    <td style="width: 7%;">{{ $maletero ? $maletero->material : '' }}</td>
+                                    <td style="width: 7%;">{{ !$maletero ? '' : ($maletero->material == 'Aluminio' ? 'X' : '') }}</td>
                                     <td style="width: 7%;">{{ $maletero ? $maletero->small : '0' }}</td>
                                     <td style="width: 7%;">{{ $maletero ? $maletero->medium : '0' }}</td>
                                     <td style="width: 7%;">{{ $maletero ? $maletero->big : '0' }}</td>
@@ -204,7 +204,7 @@
                                        $ADIZQ = $b_items->where('part', 'ADI')->first();
                                     @endphp
                                     <td style="width: 20%;">Aleta Delantera</td>
-                                    <td style="width: 7%;">{{ $ADIZQ ? $ADIZQ->material : '' }}</td>
+                                    <td style="width: 7%;">{{ !$ADIZQ ? '' : ($ADIZQ->material == 'Aluminio' ? 'X' : '') }}</td>
                                     <td style="width: 7%;">{{ $ADIZQ ? $ADIZQ->small : '0' }}</td>
                                     <td style="width: 7%;">{{ $ADIZQ ? $ADIZQ->medium : '0' }}</td>
                                     <td style="width: 7%;">{{ $ADIZQ ? $ADIZQ->big : '0' }}</td>
@@ -220,7 +220,7 @@
                                        $PDIZQ = $b_items->where('part', 'PDI')->first();
                                     @endphp
                                     <td style="width: 20%;">Puerta Delantera</td>
-                                    <td style="width: 7%;">{{ $PDIZQ ? $PDIZQ->material : '' }}</td>
+                                    <td style="width: 7%;">{{ !$PDIZQ ? '' : ($PDIZQ->material == 'Aluminio' ? 'X' : '') }}</td>
                                     <td style="width: 7%;">{{ $PDIZQ ? $PDIZQ->small : '0' }}</td>
                                     <td style="width: 7%;">{{ $PDIZQ ? $PDIZQ->medium : '0' }}</td>
                                     <td style="width: 7%;">{{ $PDIZQ ? $PDIZQ->big : '0' }}</td>
@@ -236,7 +236,7 @@
                                        $PTIZQ = $b_items->where('part', 'PTI')->first();
                                     @endphp
                                     <td style="width: 20%;">Puerta Trasera</td>
-                                    <td style="width: 7%;">{{ $PTIZQ ? $PTIZQ->material : '' }}</td>
+                                    <td style="width: 7%;">{{ !$PTIZQ ? '' : ($PTIZQ->material == 'Aluminio' ? 'X' : '') }}</td>
                                     <td style="width: 7%;">{{ $PTIZQ ? $PTIZQ->small : '0' }}</td>
                                     <td style="width: 7%;">{{ $PTIZQ ? $PTIZQ->medium : '0' }}</td>
                                     <td style="width: 7%;">{{ $PTIZQ ? $PTIZQ->big : '0' }}</td>
@@ -252,7 +252,7 @@
                                        $MIZQ = $b_items->where('part', 'MI')->first();
                                     @endphp
                                     <td style="width: 20%;">Montante</td>
-                                    <td style="width: 7%;">{{ $MIZQ ? $MIZQ->material : '' }}</td>
+                                    <td style="width: 7%;">{{ !$MIZQ ? '' : ($MIZQ->material == 'Aluminio' ? 'X' : '') }}</td>
                                     <td style="width: 7%;">{{ $MIZQ ? $MIZQ->small : '0' }}</td>
                                     <td style="width: 7%;">{{ $MIZQ ? $MIZQ->medium : '0' }}</td>
                                     <td style="width: 7%;">{{ $MIZQ ? $MIZQ->big : '0' }}</td>
@@ -268,7 +268,7 @@
                                        $ATIZQ = $b_items->where('part', 'ATI')->first();
                                     @endphp
                                     <td style="width: 20%;">Aleta trasera</td>
-                                    <td style="width: 7%;">{{ $ATIZQ ? $ATIZQ->material : '' }}</td>
+                                    <td style="width: 7%;">{{ !$ATIZQ ? '' : ($ATIZQ->material == 'Aluminio' ? 'X' : '') }}</td>
                                     <td style="width: 7%;">{{ $ATIZQ ? $ATIZQ->small : '0' }}</td>
                                     <td style="width: 7%;">{{ $ATIZQ ? $ATIZQ->medium : '0' }}</td>
                                     <td style="width: 7%;">{{ $ATIZQ ? $ATIZQ->big : '0' }}</td>
@@ -287,7 +287,7 @@
                                        $ADDER = $b_items->where('part', 'ADD')->first();
                                     @endphp
                                     <td style="width: 20%;">Aleta Delantera</td>
-                                    <td style="width: 7%;">{{ $ADDER ? $ADDER->material : '' }}</td>
+                                    <td style="width: 7%;">{{ !$ADDER ? '' : ($ADDER->material == 'Aluminio' ? 'X' : '') }}</td>
                                     <td style="width: 7%;">{{ $ADDER ? $ADDER->small : '0' }}</td>
                                     <td style="width: 7%;">{{ $ADDER ? $ADDER->medium : '0' }}</td>
                                     <td style="width: 7%;">{{ $ADDER ? $ADDER->big : '0' }}</td>
@@ -303,7 +303,7 @@
                                        $PDDER = $b_items->where('part', 'PDD')->first();
                                     @endphp
                                     <td style="width: 20%;">Puerta Delantera</td>
-                                    <td style="width: 7%;">{{ $PDDER ? $PDDER->material : '' }}</td>
+                                    <td style="width: 7%;">{{ !$PDDER ? '' : ($PDDER->material == 'Aluminio' ? 'X' : '') }}</td>
                                     <td style="width: 7%;">{{ $PDDER ? $PDDER->small : '0' }}</td>
                                     <td style="width: 7%;">{{ $PDDER ? $PDDER->medium : '0' }}</td>
                                     <td style="width: 7%;">{{ $PDDER ? $PDDER->big : '0' }}</td>
@@ -319,7 +319,7 @@
                                        $PTDER = $b_items->where('part', 'PTD')->first();
                                     @endphp
                                     <td style="width: 20%;">Puerta Trasera</td>
-                                    <td style="width: 7%;">{{ $PTDER ? $PTDER->material : '' }}</td>
+                                    <td style="width: 7%;">{{ !$PTDER ? '' : ($PTDER->material == 'Aluminio' ? 'X' : '') }}</td>
                                     <td style="width: 7%;">{{ $PTDER ? $PTDER->small : '0' }}</td>
                                     <td style="width: 7%;">{{ $PTDER ? $PTDER->medium : '0' }}</td>
                                     <td style="width: 7%;">{{ $PTDER ? $PTDER->big : '0' }}</td>
@@ -335,7 +335,7 @@
                                        $MDER = $b_items->where('part', 'MD')->first();
                                     @endphp
                                     <td style="width: 20%;">Montante</td>
-                                    <td style="width: 7%;">{{ $MDER ? $MDER->material : '' }}</td>
+                                    <td style="width: 7%;">{{ !$MDER ? '' : ($MDER->material == 'Aluminio' ? 'X' : '') }}</td>
                                     <td style="width: 7%;">{{ $MDER ? $MDER->small : '0' }}</td>
                                     <td style="width: 7%;">{{ $MDER ? $MDER->medium : '0' }}</td>
                                     <td style="width: 7%;">{{ $MDER ? $MDER->big : '0' }}</td>
@@ -351,7 +351,7 @@
                                        $ATDER = $b_items->where('part', 'ATD')->first();
                                     @endphp
                                     <td style="width: 20%;">Aleta trasera</td>
-                                    <td style="width: 7%;">{{ $ATDER ? $ATDER->material : '' }}</td>
+                                    <td style="width: 7%;">{{ !$ATDER ? '' : ($ATDER->material == 'Aluminio' ? 'X' : '') }}</td>
                                     <td style="width: 7%;">{{ $ATDER ? $ATDER->small : '0' }}</td>
                                     <td style="width: 7%;">{{ $ATDER ? $ATDER->medium : '0' }}</td>
                                     <td style="width: 7%;">{{ $ATDER ? $ATDER->big : '0' }}</td>

@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 use App\Budget;
 Route::get('/view', function () {
-	$budget = Budget::where('id',8)->first();
+	$budget = Budget::where('id',1)->first();
     return view('mails.budget_mail_pdf', ['budget'=>$budget]);
 });
 Route::get('/', function () {

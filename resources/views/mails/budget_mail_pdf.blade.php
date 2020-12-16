@@ -93,7 +93,23 @@
                 <td>3 cm</td>
                 <td>5 cm</td>
              </tr>
-             <tr>
+             @foreach($budget->items as $item)
+                 <tr>
+                    <td style="width: 20%;font-size: 12px;">{{ $item->pieceName($item->part) }}</td>
+                    <td style="width: 7%;">{{ $item->material == 'Aluminio' ? 'X' : '' }}</td>
+                    <td style="width: 7%;">{{ $item ? $item->material : '' }}</td>
+                    <td style="width: 7%;">{{ $item ? $item->small : '' }}</td>
+                    <td style="width: 7%;">{{ $item ? $item->medium : '' }}</td>
+                    <td style="width: 7%;">{{ $item ? $item->big : '' }}</td>
+                    <td style="width: 7%;">{{ $item ? $item->paint : '' }}</td>
+                    <td style="width: 7%;">{{ $item ? $item->small_vds : '' }}</td>
+                    <td style="width: 7%;">{{ $item ? $item->medium_vds : '' }}</td>
+                    <td style="width: 7%;">{{ $item ? $item->big_vds : '' }}</td>
+                    <td colspan="2">{{ $item ? $item->paint_vds : '' }}</td>
+                    <td style="width: 10%;">{{ $item ? $item->total_vds : '' }}</td>
+                 </tr>
+             @endforeach
+             <!--<tr>
                 @php
                    $b_items = $budget->items;
                    $capot = $b_items->where('part', 'CAPOT')->first();
@@ -307,7 +323,7 @@
                 <td style="width: 7%;">{{ $ATDER ? $ATDER->big_vds : '' }}</td>
                 <td colspan="2">{{ $ATDER ? $ATDER->paint_vds : '' }}</td>
                 <td style="width: 10%;">{{ $ATDER ? $ATDER->total_vds : '' }}</td>
-             </tr>
+             </tr>-->
              <tr style="background-color: #C5C5C5;font-weight: bold;">
                 <td colspan="12">Otros</td>
              </tr>
@@ -340,7 +356,7 @@
                       $total_p += $item->paint;
                    }
                 @endphp
-                <td rowspan="3">Tarifa PDR</td>
+                <td rowspan="3"></td>
                 <td rowspan="3">{{ $budget->tarifa_pdr }}</td>
                 <td colspan="4" rowspan="3"></td>
                 <td colspan="5">Total VD's</td>

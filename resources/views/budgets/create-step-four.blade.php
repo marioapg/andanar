@@ -162,7 +162,7 @@
                       </div>
                       <div class="col-md-1 text-center btn-warning">
                         <strong>
-                          Material
+                          AL
                         </strong>
                       </div>
                       <div class="col-md-4 text-center btn-info">
@@ -392,7 +392,9 @@
         else if ( (p >= 81) && (p <= 100) ) { pVD = 88;}
         else if ( p > 100 )                 { pVD = 105;}
 
+        mat = '';
         if ( $('#materialcheck').attr('material') == 'Aluminio') {
+          mat = 'X';
           sVD = parseInt(sVD + (sVD * 0.2));
           mVD = parseInt(mVD + (mVD * 0.2));
           bVD = parseInt(bVD + (bVD * 0.2));
@@ -409,7 +411,7 @@
                   <input class="form-control" type="text" name="part[]" value="`+$('#add-part').val()+`" readonly></input>
                 </div>
                 <div class="col-md-1">
-                  <input class="form-control" type="text" name="material[]" value="`+$('#materialcheck').attr('material')+`" readonly>
+                  <input class="form-control text-center" type="text" name="material[]" value="`+mat+`" readonly>
                 </div>
                 <div class="col-md-1">
                   <input class="form-control sumDS" type="text" name="small_damage[]" value="`+$('#small_size').val()+`" readonly>

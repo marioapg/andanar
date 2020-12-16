@@ -63,6 +63,18 @@
                   </div>
                 </div>
 
+                <div class="col">
+                  <div class="form-group">
+                      <label for="description">Encargado:</label>
+                      <select name="boss_id" id="select-boss">
+                        <option value=""></option>
+                        @foreach( \App\User::where('type','boss')->where('status',1)->get() as $boss)
+                          <option value="{{ $boss->id }}">{{ $boss->name }}</option>
+                        @endforeach
+                      </select>
+                  </div>
+                </div>
+
                 </div>
               </div>
               <div class="card-footer ml-auto mr-auto">
@@ -98,6 +110,15 @@
       persist: true
     });
     $('#select-technical').selectize({
+      create: false,
+      sortField: {
+        field: 'text',
+        direction: 'asc'
+      },
+      dropdownParent: 'body',
+      persist: true
+    });
+    $('#select-boss').selectize({
       create: false,
       sortField: {
         field: 'text',
