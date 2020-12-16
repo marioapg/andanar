@@ -100,15 +100,15 @@
                 @endphp
                 <td style="width: 20%;">CAPÓ</td>
                 <td style="width: 7%;">{{ $capot ? $capot->material : '' }}</td>
-                <td style="width: 7%;">{{ $capot ? $capot->small : '0' }}</td>
-                <td style="width: 7%;">{{ $capot ? $capot->medium : '0' }}</td>
-                <td style="width: 7%;">{{ $capot ? $capot->big : '0' }}</td>
-                <td style="width: 7%;">{{ $capot ? $capot->paint : '0' }}</td>
-                <td style="width: 7%;">{{ $capot ? $capot->small_vds : '0' }}</td>
-                <td style="width: 7%;">{{ $capot ? $capot->medium_vds : '0' }}</td>
-                <td style="width: 7%;">{{ $capot ? $capot->big_vds : '0' }}</td>
-                <td colspan="2">{{ $capot ? $capot->paint_vds : '0' }}</td>
-                <td style="width: 10%;">{{ $capot ? $capot->total_vds : '0' }}</td>
+                <td style="width: 7%;">{{ $capot ? $capot->small : '' }}</td>
+                <td style="width: 7%;">{{ $capot ? $capot->medium : '' }}</td>
+                <td style="width: 7%;">{{ $capot ? $capot->big : '' }}</td>
+                <td style="width: 7%;">{{ $capot ? $capot->paint : '' }}</td>
+                <td style="width: 7%;">{{ $capot ? $capot->small_vds : '' }}</td>
+                <td style="width: 7%;">{{ $capot ? $capot->medium_vds : '' }}</td>
+                <td style="width: 7%;">{{ $capot ? $capot->big_vds : '' }}</td>
+                <td colspan="2">{{ $capot ? $capot->paint_vds : '' }}</td>
+                <td style="width: 10%;">{{ $capot ? $capot->total_vds : '' }}</td>
              </tr>
              <tr>
                 @php
@@ -116,15 +116,15 @@
                 @endphp
                 <td style="width: 20%;">TECHO</td>
                 <td style="width: 7%;">{{ $techo ? $techo->material : '' }}</td>
-                <td style="width: 7%;">{{ $techo ? $techo->small : '0' }}</td>
-                <td style="width: 7%;">{{ $techo ? $techo->medium : '0' }}</td>
-                <td style="width: 7%;">{{ $techo ? $techo->big : '0' }}</td>
-                <td style="width: 7%;">{{ $techo ? $techo->paint : '0' }}</td>
-                <td style="width: 7%;">{{ $techo ? $techo->small_vds : '0' }}</td>
-                <td style="width: 7%;">{{ $techo ? $techo->medium_vds : '0' }}</td>
-                <td style="width: 7%;">{{ $techo ? $techo->big_vds : '0' }}</td>
-                <td colspan="2">{{ $techo ? $techo->paint_vds : '0' }}</td>
-                <td style="width: 10%;">{{ $techo ? $techo->total_vds : '0' }}</td>
+                <td style="width: 7%;">{{ $techo ? $techo->small : '' }}</td>
+                <td style="width: 7%;">{{ $techo ? $techo->medium : '' }}</td>
+                <td style="width: 7%;">{{ $techo ? $techo->big : '' }}</td>
+                <td style="width: 7%;">{{ $techo ? $techo->paint : '' }}</td>
+                <td style="width: 7%;">{{ $techo ? $techo->small_vds : '' }}</td>
+                <td style="width: 7%;">{{ $techo ? $techo->medium_vds : '' }}</td>
+                <td style="width: 7%;">{{ $techo ? $techo->big_vds : '' }}</td>
+                <td colspan="2">{{ $techo ? $techo->paint_vds : '' }}</td>
+                <td style="width: 10%;">{{ $techo ? $techo->total_vds : '' }}</td>
              </tr>
              <tr>
                 @php
@@ -132,15 +132,15 @@
                 @endphp
                 <td style="width: 20%;">MALETERO</td>
                 <td style="width: 7%;">{{ $maletero ? $maletero->material : '' }}</td>
-                <td style="width: 7%;">{{ $maletero ? $maletero->small : '0' }}</td>
-                <td style="width: 7%;">{{ $maletero ? $maletero->medium : '0' }}</td>
-                <td style="width: 7%;">{{ $maletero ? $maletero->big : '0' }}</td>
-                <td style="width: 7%;">{{ $maletero ? $maletero->paint : '0' }}</td>
-                <td style="width: 7%;">{{ $maletero ? $maletero->small_vds : '0' }}</td>
-                <td style="width: 7%;">{{ $maletero ? $maletero->medium_vds : '0' }}</td>
-                <td style="width: 7%;">{{ $maletero ? $maletero->big_vds : '0' }}</td>
-                <td colspan="2">{{ $maletero ? $maletero->paint_vds : '0' }}</td>
-                <td style="width: 10%;">{{ $maletero ? $maletero->total_vds : '0' }}</td>
+                <td style="width: 7%;">{{ $maletero ? $maletero->small : '' }}</td>
+                <td style="width: 7%;">{{ $maletero ? $maletero->medium : '' }}</td>
+                <td style="width: 7%;">{{ $maletero ? $maletero->big : '' }}</td>
+                <td style="width: 7%;">{{ $maletero ? $maletero->paint : '' }}</td>
+                <td style="width: 7%;">{{ $maletero ? $maletero->small_vds : '' }}</td>
+                <td style="width: 7%;">{{ $maletero ? $maletero->medium_vds : '' }}</td>
+                <td style="width: 7%;">{{ $maletero ? $maletero->big_vds : '' }}</td>
+                <td colspan="2">{{ $maletero ? $maletero->paint_vds : '' }}</td>
+                <td style="width: 10%;">{{ $maletero ? $maletero->total_vds : '' }}</td>
              </tr>
              <tr style="background-color: #C5C5C5;font-weight: bold;">
                 <td colspan="12">Lateral Izquierdo</td>
@@ -151,15 +151,15 @@
                 @endphp
                 <td style="width: 20%;">Aleta Delantera</td>
                 <td style="width: 7%;">{{ $ADIZQ ? $ADIZQ->material : '' }}</td>
-                <td style="width: 7%;">{{ $ADIZQ ? $ADIZQ->small : '0' }}</td>
-                <td style="width: 7%;">{{ $ADIZQ ? $ADIZQ->medium : '0' }}</td>
-                <td style="width: 7%;">{{ $ADIZQ ? $ADIZQ->big : '0' }}</td>
-                <td style="width: 7%;">{{ $ADIZQ ? $ADIZQ->paint : '0' }}</td>
-                <td style="width: 7%;">{{ $ADIZQ ? $ADIZQ->small_vds : '0' }}</td>
-                <td style="width: 7%;">{{ $ADIZQ ? $ADIZQ->medium_vds : '0' }}</td>
-                <td style="width: 7%;">{{ $ADIZQ ? $ADIZQ->big_vds : '0' }}</td>
-                <td colspan="2">{{ $ADIZQ ? $ADIZQ->paint_vds : '0' }}</td>
-                <td style="width: 10%;">{{ $ADIZQ ? $ADIZQ->total_vds : '0' }}</td>
+                <td style="width: 7%;">{{ $ADIZQ ? $ADIZQ->small : '' }}</td>
+                <td style="width: 7%;">{{ $ADIZQ ? $ADIZQ->medium : '' }}</td>
+                <td style="width: 7%;">{{ $ADIZQ ? $ADIZQ->big : '' }}</td>
+                <td style="width: 7%;">{{ $ADIZQ ? $ADIZQ->paint : '' }}</td>
+                <td style="width: 7%;">{{ $ADIZQ ? $ADIZQ->small_vds : '' }}</td>
+                <td style="width: 7%;">{{ $ADIZQ ? $ADIZQ->medium_vds : '' }}</td>
+                <td style="width: 7%;">{{ $ADIZQ ? $ADIZQ->big_vds : '' }}</td>
+                <td colspan="2">{{ $ADIZQ ? $ADIZQ->paint_vds : '' }}</td>
+                <td style="width: 10%;">{{ $ADIZQ ? $ADIZQ->total_vds : '' }}</td>
              </tr>
              <tr>
                 @php
@@ -167,15 +167,15 @@
                 @endphp
                 <td style="width: 20%;">Puerta Delantera</td>
                 <td style="width: 7%;">{{ $PDIZQ ? $PDIZQ->material : '' }}</td>
-                <td style="width: 7%;">{{ $PDIZQ ? $PDIZQ->small : '0' }}</td>
-                <td style="width: 7%;">{{ $PDIZQ ? $PDIZQ->medium : '0' }}</td>
-                <td style="width: 7%;">{{ $PDIZQ ? $PDIZQ->big : '0' }}</td>
-                <td style="width: 7%;">{{ $PDIZQ ? $PDIZQ->paint : '0' }}</td>
-                <td style="width: 7%;">{{ $PDIZQ ? $PDIZQ->small_vds : '0' }}</td>
-                <td style="width: 7%;">{{ $PDIZQ ? $PDIZQ->medium_vds : '0' }}</td>
-                <td style="width: 7%;">{{ $PDIZQ ? $PDIZQ->big_vds : '0' }}</td>
-                <td colspan="2">{{ $PDIZQ ? $PDIZQ->paint_vds : '0' }}</td>
-                <td style="width: 10%;">{{ $PDIZQ ? $PDIZQ->total_vds : '0' }}</td>
+                <td style="width: 7%;">{{ $PDIZQ ? $PDIZQ->small : '' }}</td>
+                <td style="width: 7%;">{{ $PDIZQ ? $PDIZQ->medium : '' }}</td>
+                <td style="width: 7%;">{{ $PDIZQ ? $PDIZQ->big : '' }}</td>
+                <td style="width: 7%;">{{ $PDIZQ ? $PDIZQ->paint : '' }}</td>
+                <td style="width: 7%;">{{ $PDIZQ ? $PDIZQ->small_vds : '' }}</td>
+                <td style="width: 7%;">{{ $PDIZQ ? $PDIZQ->medium_vds : '' }}</td>
+                <td style="width: 7%;">{{ $PDIZQ ? $PDIZQ->big_vds : '' }}</td>
+                <td colspan="2">{{ $PDIZQ ? $PDIZQ->paint_vds : '' }}</td>
+                <td style="width: 10%;">{{ $PDIZQ ? $PDIZQ->total_vds : '' }}</td>
              </tr>
              <tr>
                 @php
@@ -183,15 +183,15 @@
                 @endphp
                 <td style="width: 20%;">Puerta Trasera</td>
                 <td style="width: 7%;">{{ $PTIZQ ? $PTIZQ->material : '' }}</td>
-                <td style="width: 7%;">{{ $PTIZQ ? $PTIZQ->small : '0' }}</td>
-                <td style="width: 7%;">{{ $PTIZQ ? $PTIZQ->medium : '0' }}</td>
-                <td style="width: 7%;">{{ $PTIZQ ? $PTIZQ->big : '0' }}</td>
-                <td style="width: 7%;">{{ $PTIZQ ? $PTIZQ->paint : '0' }}</td>
-                <td style="width: 7%;">{{ $PTIZQ ? $PTIZQ->small_vds : '0' }}</td>
-                <td style="width: 7%;">{{ $PTIZQ ? $PTIZQ->medium_vds : '0' }}</td>
-                <td style="width: 7%;">{{ $PTIZQ ? $PTIZQ->big_vds : '0' }}</td>
-                <td colspan="2">{{ $PTIZQ ? $PTIZQ->paint_vds : '0' }}</td>
-                <td style="width: 10%;">{{ $PTIZQ ? $PTIZQ->total_vds : '0' }}</td>
+                <td style="width: 7%;">{{ $PTIZQ ? $PTIZQ->small : '' }}</td>
+                <td style="width: 7%;">{{ $PTIZQ ? $PTIZQ->medium : '' }}</td>
+                <td style="width: 7%;">{{ $PTIZQ ? $PTIZQ->big : '' }}</td>
+                <td style="width: 7%;">{{ $PTIZQ ? $PTIZQ->paint : '' }}</td>
+                <td style="width: 7%;">{{ $PTIZQ ? $PTIZQ->small_vds : '' }}</td>
+                <td style="width: 7%;">{{ $PTIZQ ? $PTIZQ->medium_vds : '' }}</td>
+                <td style="width: 7%;">{{ $PTIZQ ? $PTIZQ->big_vds : '' }}</td>
+                <td colspan="2">{{ $PTIZQ ? $PTIZQ->paint_vds : '' }}</td>
+                <td style="width: 10%;">{{ $PTIZQ ? $PTIZQ->total_vds : '' }}</td>
              </tr>
              <tr>
                 @php
@@ -199,15 +199,15 @@
                 @endphp
                 <td style="width: 20%;">Montante</td>
                 <td style="width: 7%;">{{ $MIZQ ? $MIZQ->material : '' }}</td>
-                <td style="width: 7%;">{{ $MIZQ ? $MIZQ->small : '0' }}</td>
-                <td style="width: 7%;">{{ $MIZQ ? $MIZQ->medium : '0' }}</td>
-                <td style="width: 7%;">{{ $MIZQ ? $MIZQ->big : '0' }}</td>
-                <td style="width: 7%;">{{ $MIZQ ? $MIZQ->paint : '0' }}</td>
-                <td style="width: 7%;">{{ $MIZQ ? $MIZQ->small_vds : '0' }}</td>
-                <td style="width: 7%;">{{ $MIZQ ? $MIZQ->medium_vds : '0' }}</td>
-                <td style="width: 7%;">{{ $MIZQ ? $MIZQ->big_vds : '0' }}</td>
-                <td colspan="2">{{ $MIZQ ? $MIZQ->paint_vds : '0' }}</td>
-                <td style="width: 10%;">{{ $MIZQ ? $MIZQ->total_vds : '0' }}</td>
+                <td style="width: 7%;">{{ $MIZQ ? $MIZQ->small : '' }}</td>
+                <td style="width: 7%;">{{ $MIZQ ? $MIZQ->medium : '' }}</td>
+                <td style="width: 7%;">{{ $MIZQ ? $MIZQ->big : '' }}</td>
+                <td style="width: 7%;">{{ $MIZQ ? $MIZQ->paint : '' }}</td>
+                <td style="width: 7%;">{{ $MIZQ ? $MIZQ->small_vds : '' }}</td>
+                <td style="width: 7%;">{{ $MIZQ ? $MIZQ->medium_vds : '' }}</td>
+                <td style="width: 7%;">{{ $MIZQ ? $MIZQ->big_vds : '' }}</td>
+                <td colspan="2">{{ $MIZQ ? $MIZQ->paint_vds : '' }}</td>
+                <td style="width: 10%;">{{ $MIZQ ? $MIZQ->total_vds : '' }}</td>
              </tr>
              <tr>
                 @php
@@ -215,15 +215,15 @@
                 @endphp
                 <td style="width: 20%;">Aleta trasera</td>
                 <td style="width: 7%;">{{ $ATIZQ ? $ATIZQ->material : '' }}</td>
-                <td style="width: 7%;">{{ $ATIZQ ? $ATIZQ->small : '0' }}</td>
-                <td style="width: 7%;">{{ $ATIZQ ? $ATIZQ->medium : '0' }}</td>
-                <td style="width: 7%;">{{ $ATIZQ ? $ATIZQ->big : '0' }}</td>
-                <td style="width: 7%;">{{ $ATIZQ ? $ATIZQ->paint : '0' }}</td>
-                <td style="width: 7%;">{{ $ATIZQ ? $ATIZQ->small_vds : '0' }}</td>
-                <td style="width: 7%;">{{ $ATIZQ ? $ATIZQ->medium_vds : '0' }}</td>
-                <td style="width: 7%;">{{ $ATIZQ ? $ATIZQ->big_vds : '0' }}</td>
-                <td colspan="2">{{ $ATIZQ ? $ATIZQ->paint_vds : '0' }}</td>
-                <td style="width: 10%;">{{ $ATIZQ ? $ATIZQ->total_vds : '0' }}</td>
+                <td style="width: 7%;">{{ $ATIZQ ? $ATIZQ->small : '' }}</td>
+                <td style="width: 7%;">{{ $ATIZQ ? $ATIZQ->medium : '' }}</td>
+                <td style="width: 7%;">{{ $ATIZQ ? $ATIZQ->big : '' }}</td>
+                <td style="width: 7%;">{{ $ATIZQ ? $ATIZQ->paint : '' }}</td>
+                <td style="width: 7%;">{{ $ATIZQ ? $ATIZQ->small_vds : '' }}</td>
+                <td style="width: 7%;">{{ $ATIZQ ? $ATIZQ->medium_vds : '' }}</td>
+                <td style="width: 7%;">{{ $ATIZQ ? $ATIZQ->big_vds : '' }}</td>
+                <td colspan="2">{{ $ATIZQ ? $ATIZQ->paint_vds : '' }}</td>
+                <td style="width: 10%;">{{ $ATIZQ ? $ATIZQ->total_vds : '' }}</td>
              </tr>
              <tr style="background-color: #C5C5C5;font-weight: bold;">
                 <td colspan="12">Lateral Derecho</td>
@@ -234,15 +234,15 @@
                 @endphp
                 <td style="width: 20%;">Aleta Delantera</td>
                 <td style="width: 7%;">{{ $ADDER ? $ADDER->material : '' }}</td>
-                <td style="width: 7%;">{{ $ADDER ? $ADDER->small : '0' }}</td>
-                <td style="width: 7%;">{{ $ADDER ? $ADDER->medium : '0' }}</td>
-                <td style="width: 7%;">{{ $ADDER ? $ADDER->big : '0' }}</td>
-                <td style="width: 7%;">{{ $ADDER ? $ADDER->paint : '0' }}</td>
-                <td style="width: 7%;">{{ $ADDER ? $ADDER->small_vds : '0' }}</td>
-                <td style="width: 7%;">{{ $ADDER ? $ADDER->medium_vds : '0' }}</td>
-                <td style="width: 7%;">{{ $ADDER ? $ADDER->big_vds : '0' }}</td>
-                <td colspan="2">{{ $ADDER ? $ADDER->paint_vds : '0' }}</td>
-                <td style="width: 10%;">{{ $ADDER ? $ADDER->total_vds : '0' }}</td>
+                <td style="width: 7%;">{{ $ADDER ? $ADDER->small : '' }}</td>
+                <td style="width: 7%;">{{ $ADDER ? $ADDER->medium : '' }}</td>
+                <td style="width: 7%;">{{ $ADDER ? $ADDER->big : '' }}</td>
+                <td style="width: 7%;">{{ $ADDER ? $ADDER->paint : '' }}</td>
+                <td style="width: 7%;">{{ $ADDER ? $ADDER->small_vds : '' }}</td>
+                <td style="width: 7%;">{{ $ADDER ? $ADDER->medium_vds : '' }}</td>
+                <td style="width: 7%;">{{ $ADDER ? $ADDER->big_vds : '' }}</td>
+                <td colspan="2">{{ $ADDER ? $ADDER->paint_vds : '' }}</td>
+                <td style="width: 10%;">{{ $ADDER ? $ADDER->total_vds : '' }}</td>
              </tr>
              <tr>
                 @php
@@ -250,15 +250,15 @@
                 @endphp
                 <td style="width: 20%;">Puerta Delantera</td>
                 <td style="width: 7%;">{{ $PDDER ? $PDDER->material : '' }}</td>
-                <td style="width: 7%;">{{ $PDDER ? $PDDER->small : '0' }}</td>
-                <td style="width: 7%;">{{ $PDDER ? $PDDER->medium : '0' }}</td>
-                <td style="width: 7%;">{{ $PDDER ? $PDDER->big : '0' }}</td>
-                <td style="width: 7%;">{{ $PDDER ? $PDDER->paint : '0' }}</td>
-                <td style="width: 7%;">{{ $PDDER ? $PDDER->small_vds : '0' }}</td>
-                <td style="width: 7%;">{{ $PDDER ? $PDDER->medium_vds : '0' }}</td>
-                <td style="width: 7%;">{{ $PDDER ? $PDDER->big_vds : '0' }}</td>
-                <td colspan="2">{{ $PDDER ? $PDDER->paint_vds : '0' }}</td>
-                <td style="width: 10%;">{{ $PDDER ? $PDDER->total_vds : '0' }}</td>
+                <td style="width: 7%;">{{ $PDDER ? $PDDER->small : '' }}</td>
+                <td style="width: 7%;">{{ $PDDER ? $PDDER->medium : '' }}</td>
+                <td style="width: 7%;">{{ $PDDER ? $PDDER->big : '' }}</td>
+                <td style="width: 7%;">{{ $PDDER ? $PDDER->paint : '' }}</td>
+                <td style="width: 7%;">{{ $PDDER ? $PDDER->small_vds : '' }}</td>
+                <td style="width: 7%;">{{ $PDDER ? $PDDER->medium_vds : '' }}</td>
+                <td style="width: 7%;">{{ $PDDER ? $PDDER->big_vds : '' }}</td>
+                <td colspan="2">{{ $PDDER ? $PDDER->paint_vds : '' }}</td>
+                <td style="width: 10%;">{{ $PDDER ? $PDDER->total_vds : '' }}</td>
              </tr>
              <tr>
                 @php
@@ -266,15 +266,15 @@
                 @endphp
                 <td style="width: 20%;">Puerta Trasera</td>
                 <td style="width: 7%;">{{ $PTDER ? $PTDER->material : '' }}</td>
-                <td style="width: 7%;">{{ $PTDER ? $PTDER->small : '0' }}</td>
-                <td style="width: 7%;">{{ $PTDER ? $PTDER->medium : '0' }}</td>
-                <td style="width: 7%;">{{ $PTDER ? $PTDER->big : '0' }}</td>
-                <td style="width: 7%;">{{ $PTDER ? $PTDER->paint : '0' }}</td>
-                <td style="width: 7%;">{{ $PTDER ? $PTDER->small_vds : '0' }}</td>
-                <td style="width: 7%;">{{ $PTDER ? $PTDER->medium_vds : '0' }}</td>
-                <td style="width: 7%;">{{ $PTDER ? $PTDER->big_vds : '0' }}</td>
-                <td colspan="2">{{ $PTDER ? $PTDER->paint_vds : '0' }}</td>
-                <td style="width: 10%;">{{ $PTDER ? $PTDER->total_vds : '0' }}</td>
+                <td style="width: 7%;">{{ $PTDER ? $PTDER->small : '' }}</td>
+                <td style="width: 7%;">{{ $PTDER ? $PTDER->medium : '' }}</td>
+                <td style="width: 7%;">{{ $PTDER ? $PTDER->big : '' }}</td>
+                <td style="width: 7%;">{{ $PTDER ? $PTDER->paint : '' }}</td>
+                <td style="width: 7%;">{{ $PTDER ? $PTDER->small_vds : '' }}</td>
+                <td style="width: 7%;">{{ $PTDER ? $PTDER->medium_vds : '' }}</td>
+                <td style="width: 7%;">{{ $PTDER ? $PTDER->big_vds : '' }}</td>
+                <td colspan="2">{{ $PTDER ? $PTDER->paint_vds : '' }}</td>
+                <td style="width: 10%;">{{ $PTDER ? $PTDER->total_vds : '' }}</td>
              </tr>
              <tr>
                 @php
@@ -282,15 +282,15 @@
                 @endphp
                 <td style="width: 20%;">Montante</td>
                 <td style="width: 7%;">{{ $MDER ? $MDER->material : '' }}</td>
-                <td style="width: 7%;">{{ $MDER ? $MDER->small : '0' }}</td>
-                <td style="width: 7%;">{{ $MDER ? $MDER->medium : '0' }}</td>
-                <td style="width: 7%;">{{ $MDER ? $MDER->big : '0' }}</td>
-                <td style="width: 7%;">{{ $MDER ? $MDER->paint : '0' }}</td>
-                <td style="width: 7%;">{{ $MDER ? $MDER->small_vds : '0' }}</td>
-                <td style="width: 7%;">{{ $MDER ? $MDER->medium_vds : '0' }}</td>
-                <td style="width: 7%;">{{ $MDER ? $MDER->big_vds : '0' }}</td>
-                <td colspan="2">{{ $MDER ? $MDER->paint_vds : '0' }}</td>
-                <td style="width: 10%;">{{ $MDER ? $MDER->total_vds : '0' }}</td>
+                <td style="width: 7%;">{{ $MDER ? $MDER->small : '' }}</td>
+                <td style="width: 7%;">{{ $MDER ? $MDER->medium : '' }}</td>
+                <td style="width: 7%;">{{ $MDER ? $MDER->big : '' }}</td>
+                <td style="width: 7%;">{{ $MDER ? $MDER->paint : '' }}</td>
+                <td style="width: 7%;">{{ $MDER ? $MDER->small_vds : '' }}</td>
+                <td style="width: 7%;">{{ $MDER ? $MDER->medium_vds : '' }}</td>
+                <td style="width: 7%;">{{ $MDER ? $MDER->big_vds : '' }}</td>
+                <td colspan="2">{{ $MDER ? $MDER->paint_vds : '' }}</td>
+                <td style="width: 10%;">{{ $MDER ? $MDER->total_vds : '' }}</td>
              </tr>
              <tr>
                 @php
@@ -298,15 +298,15 @@
                 @endphp
                 <td style="width: 20%;">Aleta trasera</td>
                 <td style="width: 7%;">{{ $ATDER ? $ATDER->material : '' }}</td>
-                <td style="width: 7%;">{{ $ATDER ? $ATDER->small : '0' }}</td>
-                <td style="width: 7%;">{{ $ATDER ? $ATDER->medium : '0' }}</td>
-                <td style="width: 7%;">{{ $ATDER ? $ATDER->big : '0' }}</td>
-                <td style="width: 7%;">{{ $ATDER ? $ATDER->paint : '0' }}</td>
-                <td style="width: 7%;">{{ $ATDER ? $ATDER->small_vds : '0' }}</td>
-                <td style="width: 7%;">{{ $ATDER ? $ATDER->medium_vds : '0' }}</td>
-                <td style="width: 7%;">{{ $ATDER ? $ATDER->big_vds : '0' }}</td>
-                <td colspan="2">{{ $ATDER ? $ATDER->paint_vds : '0' }}</td>
-                <td style="width: 10%;">{{ $ATDER ? $ATDER->total_vds : '0' }}</td>
+                <td style="width: 7%;">{{ $ATDER ? $ATDER->small : '' }}</td>
+                <td style="width: 7%;">{{ $ATDER ? $ATDER->medium : '' }}</td>
+                <td style="width: 7%;">{{ $ATDER ? $ATDER->big : '' }}</td>
+                <td style="width: 7%;">{{ $ATDER ? $ATDER->paint : '' }}</td>
+                <td style="width: 7%;">{{ $ATDER ? $ATDER->small_vds : '' }}</td>
+                <td style="width: 7%;">{{ $ATDER ? $ATDER->medium_vds : '' }}</td>
+                <td style="width: 7%;">{{ $ATDER ? $ATDER->big_vds : '' }}</td>
+                <td colspan="2">{{ $ATDER ? $ATDER->paint_vds : '' }}</td>
+                <td style="width: 10%;">{{ $ATDER ? $ATDER->total_vds : '' }}</td>
              </tr>
              <tr style="background-color: #C5C5C5;font-weight: bold;">
                 <td colspan="12">Otros</td>
