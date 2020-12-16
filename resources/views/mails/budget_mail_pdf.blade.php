@@ -365,12 +365,8 @@
                 <td style="width: 10%;">{{ $budget->grand_total }}</td>
              </tr>
              <tr>
-                <td colspan="2">Comentarios para cliente</td>
+                <td colspan="2">Comentarios</td>
                 <td colspan="10">{{ $budget->public_comment }}</td>
-             </tr>
-             <tr>
-                <td colspan="2">Comentarios para Andanar</td>
-                <td colspan="10">{{ $budget->private_comment }}</td>
              </tr>
           </table>
        </div>
