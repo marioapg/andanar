@@ -76,6 +76,11 @@
                 </div>
                 <div class="row">
                   <div class="col">
+                    <label for="boss_id">Encargado taller</label>
+                    <input type="hidden" name="boss_id" class="form-control" value="{{ $params->boss_id }}">
+                    <input type="text" name="client" class="form-control" value="{{ \App\User::where('id',$params->boss_id)->first()->name }}" readonly="">
+                  </div>
+                  <div class="col">
                     <label for="iva">Porcentaje de IVA</label>
                     <input id="iva_rate" type="text" name="iva" class="form-control" value="21">
                   </div>

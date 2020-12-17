@@ -123,6 +123,7 @@ class BudgetController extends Controller
             'client_id' => ['required'],
             'proficient_id' => ['nullable', 'exists:users,id'],
             'technical_id' => ['nullable','exists:users,id'],
+            'boss_id' => ['nullable','exists:users,id'],
         ]);
 
         if ( $validator->fails() ) {
@@ -139,6 +140,7 @@ class BudgetController extends Controller
         $params->client_id = $request->client_id;
         $params->perito_id = is_null($request->proficient_id) ? '' : $request->proficient_id;
         $params->technical_id = is_null($request->technical_id) ? '' : $request->technical_id;
+        $params->boss_id = is_null($request->boss_id) ? '' : $request->boss_id;
 
         $request->session()->put('params', $params);
 
@@ -209,6 +211,7 @@ class BudgetController extends Controller
         $budget = Budget::create([
                     'client_id' => $request->client_id,
                     'technical_id' => $request->technical_id,
+                    'responsable_id' => $request->boss_id,
                     'perito_id' => $request->perito_id,
                     'date' => now(),
                     'car_id' => $car->id,
@@ -222,10 +225,11 @@ class BudgetController extends Controller
                     'tarifa_pdr' => $request->tarifa,
                 ]);
         foreach ($request->part as $key => $value) {
+            $mat = $request->material[$key] ? 'Aluminio' : 'Hierro';
             BudgetItem::create([
                                 'budget_id' => $budget->id,
                                 'part' => $request->part[$key],
-                                'material' => $request->material[$key],
+                                'material' =>  $mat,
                                 'small' => $request->small_damage[$key],
                                 'medium' => $request->medium_damage[$key],
                                 'big' => $request->big_damage[$key],

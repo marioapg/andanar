@@ -110,7 +110,7 @@
                                  </tr>
                                  <tr>
                                     <td>Mail Perito</td>
-                                    <td>{{ $budget->perito->mail ?? '' }}</td>
+                                    <td>{{ $budget->perito->email ?? '' }}</td>
                                     <td>Responsable</td>
                                     <td>{{ $budget->responsable->name ?? '' }}</td>
                                  </tr>
@@ -118,11 +118,11 @@
                                     <td>Técnico</td>
                                     <td>{{ $budget->technical->name ?? '' }}</td>
                                     <td>Mail Responsable</td>
-                                    <td>{{ $budget->responsable->mail ?? '' }}</td>
+                                    <td>{{ $budget->responsable->email ?? '' }}</td>
                                  </tr>
                                  <tr>
                                     <td>Mail Técnico</td>
-                                    <td>{{ $budget->technical->mail ?? '' }}</td>
+                                    <td>{{ $budget->technical->email ?? '' }}</td>
                                     <td></td>
                                     <td></td>
                                  </tr>
@@ -394,7 +394,7 @@
                                           $total_p += $item->paint;
                                        }
                                     @endphp
-                                    <td rowspan="3">Tarifa PDR</td>
+                                    <td rowspan="3"></td>
                                     <td rowspan="3">{{ $budget->tarifa_pdr }}</td>
                                     <td colspan="4" rowspan="3"></td>
                                     <td colspan="5">Total VD's</td>

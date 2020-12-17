@@ -65,7 +65,7 @@
 
                 <div class="col">
                   <div class="form-group">
-                      <label for="description">Encargado:</label>
+                      <label for="description">Encargado taller:</label>
                       <select name="boss_id" id="select-boss">
                         <option value=""></option>
                         @foreach( \App\User::where('type','boss')->where('status',1)->get() as $boss)

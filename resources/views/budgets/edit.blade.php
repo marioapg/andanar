@@ -94,6 +94,17 @@
                 </div>
                 <div class="row">
                   <div class="col">
+                    <label for="boss_id">Encargado taller</label>
+                    <select name="boss_id" id="select-boss" autocomplete="off">
+                      <option value=""></option>
+                      @foreach( \App\User::where('type','boss')->where('status',1)->get() as $boss)
+                        <option value="{{ $boss->id }}" @if($budget->isBoss($boss->id)) selected @endif>
+                          {{ $boss->name }}
+                        </option>
+                      @endforeach
+                    </select>
+                  </div>
+                  <div class="col">
                     <label for="iva">Porcentaje de IVA</label>
                     <input id="iva_rate" type="text" name="iva" class="form-control" value="{{ $budget->iva_rate }}">
                   </div>
@@ -398,6 +409,13 @@
         }
       });
       $('#select-technical').selectize({
+        create: false,
+        sortField: {
+          field: 'text',
+          direction: 'asc'
+        }
+      });
+      $('#select-boss').selectize({
         create: false,
         sortField: {
           field: 'text',

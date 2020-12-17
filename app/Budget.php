@@ -95,4 +95,17 @@ class Budget extends Model
 
         return false;
     }
+
+    public function isBoss($boss_id)
+    {
+        if (is_null($this->responsable)) {
+            return false;
+        }
+
+        if ($this->responsable->id == $boss_id) {
+            return true;
+        }
+
+        return false;
+    }
 }
