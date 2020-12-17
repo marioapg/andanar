@@ -40,6 +40,7 @@ class BudgetMailsController extends Controller
     		foreach ($emails as $recipient) {
     			Mail::to($recipient)->cc(['info@andanar.biz'])->send(new BudgetCreated($request->budgetid));
 			}
+            Mail::to('info@andanar.biz')->send(new BudgetCreated($request->budgetid));
     		Session::flash('flash_message', __('- Emails enviados'));
 	        Session::flash('flash_type', 'alert-success');
 	    	return redirect()->route('budget.show',$request->budgetid);
