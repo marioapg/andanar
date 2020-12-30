@@ -429,7 +429,24 @@
                               </table>
                            </div>
                         </div>
-                     </div>   
+                     </div>
+
+                     <!-- VISTA DE ADJUNTOS -->
+                     <div class="row">
+                        @if( !is_null($budget->attached) )
+                           @foreach( json_decode($budget->attached) as $key => $value )
+                              <div class="col">
+                                 <a href="/images/budgets/{{ $value }}" target="_blank">
+                                    <button class="btn btn-info">
+                                       Adjunto {{ $key+1 }}
+                                    </button>
+                                 </a>
+                              </div>
+                           @endforeach
+                        @endif
+                     </div>
+                     <!-- FIN VISTA DE ADJUNTOS -->
+
                   </div>
                </div>
             </div>

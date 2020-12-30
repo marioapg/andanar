@@ -97,7 +97,7 @@
                     <textarea id="private_comment" type="number" name="private_comment" class="form-control"></textarea>
                   </div>
                 </div>
-                {{--
+                
                 <div class="row">
                   <div class="col">
                     <label for="files">Adjunto 1</label>
@@ -120,7 +120,6 @@
                     <input id="files" type="file" name="file[]" class="form-control"/>
                   </div>
                 </div>
-                --}}
 
                 <div class="row mt-3">
 

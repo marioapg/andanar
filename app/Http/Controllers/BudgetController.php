@@ -243,31 +243,36 @@ class BudgetController extends Controller
                             ]);
         }
 
-        // if($request->hasFile('file')) {
-        //     // Upload path
-        //     $destinationPath = public_path().'/images/budgets/';
+        if($request->hasFile('file')) {
+            $images = array();
+            // Upload path
+            $destinationPath = public_path().'/images/budgets/';
 
-        //     // Create directory if not exists
-        //     if (!file_exists($destinationPath)) {
-        //         mkdir($destinationPath, 0755, true);
-        //     }
+            // Create directory if not exists
+            if (!file_exists($destinationPath)) {
+                mkdir($destinationPath, 0755, true);
+            }
 
-        //     foreach ($request->file('file') as $key => $value) {
-        //         // Get file extension
-        //         $extension = $value->getClientOriginalExtension();
+            foreach ($request->file('file') as $key => $value) {
+                // Get file extension
+                $extension = $value->getClientOriginalExtension();
 
-        //         // Valid extensions
-        //         $validextensions = array("jpeg","jpg","png","pdf");
+                // Valid extensions
+                $validextensions = array("jpeg","jpg","png","pdf");
 
-        //         // Check extension
-        //         if(in_array(strtolower($extension), $validextensions)){
-        //             // Rename file 
-        //             $fileName = $value->getClientOriginalName().time() .'.' . $extension;
-        //             // Uploading file to given path
-        //             $value->move($destinationPath, $fileName);
-        //         }
-        //     }
-        // }
+                // Check extension
+                if(in_array(strtolower($extension), $validextensions)){
+                    // Rename file 
+                    $fileName = $value->getClientOriginalName().time() .'.' . $extension;
+                    // Uploading file to given path
+                    $value->move($destinationPath, $fileName);
+                    array_push($images, $fileName);
+                }
+            }
+            $images = json_encode($images);
+            $budget->attached = $images;
+            $budget->save();
+        }
 
         $request->session()->forget('car');
         $request->session()->forget('params');
