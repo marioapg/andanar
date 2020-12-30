@@ -9,7 +9,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
-          <form class="form" method="POST" action="{{ route('budget.update', $budget->id) }}" method="POST">
+          <form class="form" method="POST" action="{{ route('budget.update', $budget->id) }}" enctype="multipart/form-data">
             @method('PUT')
             @csrf
 
@@ -118,6 +118,29 @@
                   <div class="col">
                     <label for="private_comment">Comentario para Andanar</label>
                     <textarea id="private_comment" type="number" name="private_comment" class="form-control">{{ $budget->private_comment }}</textarea>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col">
+                    <label for="files">Adjunto 1</label>
+                    <input id="files" type="file" name="file[]" class="form-control"/>
+                  </div>
+                  <div class="col">
+                    <label for="files">Adjunto 2</label>
+                    <input id="files" type="file" name="file[]" class="form-control"/>
+                  </div>
+                  <div class="col">
+                    <label for="files">Adjunto 3</label>
+                    <input id="files" type="file" name="file[]" class="form-control"/>
+                  </div>
+                  <div class="col">
+                    <label for="files">Adjunto 4</label>
+                    <input id="files" type="file" name="file[]" class="form-control"/>
+                  </div>
+                  <div class="col">
+                    <label for="files">Adjunto 5</label>
+                    <input id="files" type="file" name="file[]" class="form-control"/>
                   </div>
                 </div>
 

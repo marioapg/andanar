@@ -394,6 +394,38 @@ class BudgetController extends Controller
                                 'total_money' => $request->totalMoneyRow[$key],
                             ]);
         }
+
+        if($request->hasFile('file')) {
+            $images = array();
+            // Upload path
+            $destinationPath = public_path().'/images/budgets/';
+
+            // Create directory if not exists
+            if (!file_exists($destinationPath)) {
+                mkdir($destinationPath, 0755, true);
+            }
+
+            foreach ($request->file('file') as $key => $value) {
+                // Get file extension
+                $extension = $value->getClientOriginalExtension();
+
+                // Valid extensions
+                $validextensions = array("jpeg","jpg","png","pdf");
+
+                // Check extension
+                if(in_array(strtolower($extension), $validextensions)){
+                    // Rename file 
+                    $fileName = $value->getClientOriginalName().time() .'.' . $extension;
+                    // Uploading file to given path
+                    $value->move($destinationPath, $fileName);
+                    array_push($images, $fileName);
+                }
+            }
+            $images = json_encode($images);
+            $budget->attached = $images;
+            $budget->save();
+        }
+
         Session::flash('flash_message', __('- Presupuesto actualizado con éxito.'));
         Session::flash('flash_type', 'alert-success');
         return redirect()->route('budget.show', ['id' => $budget->id]);
