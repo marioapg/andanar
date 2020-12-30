@@ -25,6 +25,7 @@ class Budget extends Model
         'iva',
         'grand_total',
         'tarifa_pdr',
+        'attached',
 	];
 
     public function client()
