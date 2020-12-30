@@ -242,6 +242,33 @@ class BudgetController extends Controller
                                 'total_money' => $request->totalMoneyRow[$key],
                             ]);
         }
+
+        // if($request->hasFile('file')) {
+        //     // Upload path
+        //     $destinationPath = public_path().'/images/budgets/';
+
+        //     // Create directory if not exists
+        //     if (!file_exists($destinationPath)) {
+        //         mkdir($destinationPath, 0755, true);
+        //     }
+
+        //     foreach ($request->file('file') as $key => $value) {
+        //         // Get file extension
+        //         $extension = $value->getClientOriginalExtension();
+
+        //         // Valid extensions
+        //         $validextensions = array("jpeg","jpg","png","pdf");
+
+        //         // Check extension
+        //         if(in_array(strtolower($extension), $validextensions)){
+        //             // Rename file 
+        //             $fileName = $value->getClientOriginalName().time() .'.' . $extension;
+        //             // Uploading file to given path
+        //             $value->move($destinationPath, $fileName);
+        //         }
+        //     }
+        // }
+
         $request->session()->forget('car');
         $request->session()->forget('params');
         Session::flash('flash_message', __('- Presupuesto creado con éxito.'));

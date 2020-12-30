@@ -9,7 +9,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
-          <form class="form" method="POST" action="{{ route('budget.create.step.four') }}">
+          <form class="form" method="POST" action="{{ route('budget.create.step.four') }}" enctype="multipart/form-data">
             @csrf
             @if( Session::has('flash_message') )
               <div class="alert {{ Session::get('flash_type') }} alert-dismissible fade show" role="alert">
@@ -74,11 +74,12 @@
                     <input id="cia" type="text" name="cia" class="form-control">
                   </div>
                 </div>
+
                 <div class="row">
                   <div class="col">
                     <label for="boss_id">Encargado taller</label>
                     <input type="hidden" name="boss_id" class="form-control" value="{{ $params->boss_id }}">
-                    <input type="text" name="client" class="form-control" value="{{ \App\User::where('id',$params->boss_id)->first()->name }}" readonly="">
+                    <input type="text" name="client" class="form-control" value="{{ $params->boss_id ? \App\User::where('id',$params->boss_id)->first()->name : '' }}" readonly="">
                   </div>
                   <div class="col">
                     <label for="iva">Porcentaje de IVA</label>
@@ -96,6 +97,30 @@
                     <textarea id="private_comment" type="number" name="private_comment" class="form-control"></textarea>
                   </div>
                 </div>
+                {{--
+                <div class="row">
+                  <div class="col">
+                    <label for="files">Adjunto 1</label>
+                    <input id="files" type="file" name="file[]" class="form-control"/>
+                  </div>
+                  <div class="col">
+                    <label for="files">Adjunto 2</label>
+                    <input id="files" type="file" name="file[]" class="form-control"/>
+                  </div>
+                  <div class="col">
+                    <label for="files">Adjunto 3</label>
+                    <input id="files" type="file" name="file[]" class="form-control"/>
+                  </div>
+                  <div class="col">
+                    <label for="files">Adjunto 4</label>
+                    <input id="files" type="file" name="file[]" class="form-control"/>
+                  </div>
+                  <div class="col">
+                    <label for="files">Adjunto 5</label>
+                    <input id="files" type="file" name="file[]" class="form-control"/>
+                  </div>
+                </div>
+                --}}
 
                 <div class="row mt-3">
 
@@ -153,8 +178,7 @@
                     <div class="col hover-custom add-item-budget" part="Aleta del izq" abpart="ATI" style="float: left;width: 19%">
                       <img src="{{ asset('images/car_graph/bot 4.png') }}" alt="">
                     </div>
-                  </div>
-                  
+                  </div>  
                 </div>
 
                 <div class="row">
@@ -225,6 +249,7 @@
                     </div>
                   </div>
                 </div>
+
                 <div class="row">
                   <div class="col-md-12" id="items-budget">
                     <div class="form-row text-center">
