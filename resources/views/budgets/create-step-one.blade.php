@@ -1,9 +1,5 @@
 @extends('layouts.app', ['activePage' => 'budgets', 'titlePage' => __('Presupuesto')])
 
-@section('inlinecss')
-  <link rel="stylesheet" href="{{ asset('css/selectize.bootstrap2.css') }}">
-@endsection
-
 @section('content')
   <div class="content">
     <div class="container-fluid">
@@ -27,7 +23,7 @@
               <div class="card-body">
                 <div class="form-row" style="display: flex;flex-direction: column;align-items: center;">
                   <div class="col-md-2" style="text-align: center;">
-                    <label for="client">Matricula</label>
+                    <label for="plate">Matricula</label>
                     <input type="text" name="plate" class="form-control" style="text-transform: uppercase;text-align: center;">
                   </div>
                 </div>
@@ -41,37 +37,4 @@
       </div>
     </div>
   </div>
-@endsection
-
-@section('inlinejs')
-  <script src="{{ asset('js/selectize.js') }}"></script>
-  <script>
-    $('#select-client').selectize({
-      create: false,
-      sortField: {
-        field: 'text',
-        direction: 'asc'
-      },
-      dropdownParent: 'body',
-      persist: true
-    });
-    $('#select-perito').selectize({
-      create: false,
-      sortField: {
-        field: 'text',
-        direction: 'asc'
-      },
-      dropdownParent: 'body',
-      persist: true
-    });
-    $('#select-technical').selectize({
-      create: false,
-      sortField: {
-        field: 'text',
-        direction: 'asc'
-      },
-      dropdownParent: 'body',
-      persist: true
-    });
-  </script>
 @endsection

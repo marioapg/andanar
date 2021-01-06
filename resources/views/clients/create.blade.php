@@ -1,5 +1,9 @@
 @extends('layouts.app', ['activePage' => 'clients', 'titlePage' => __('Nuevo cliente')])
 
+@section('inlinecss')
+  <link rel="stylesheet" href="{{ asset('css/selectize.bootstrap2.css') }}">
+@endsection
+
 @section('content')
   <div class="content">
     <div class="container-fluid">
@@ -137,7 +141,12 @@
                     <i class="material-icons">outlined_flag</i>
                   </span>
                 </div>
-                <input type="text" name="country" id="country" class="form-control" value="{{ old('country') }}" placeholder="{{ __('Pais') }}" required>
+                <select name="country" id="select-countries" class="form-control" placeholder="{{ __('Pais') }}" required>
+                  <option value=""></option>
+                  @foreach($countries as $key => $country)
+                    <option value="{{$key}}" @if(old('country') == $country) selected="" @endif>{{$country}}</option>
+                  @endforeach
+                </select>
               </div>
               @if ($errors->has('country'))
                 <div id="country-error" class="error text-danger pl-3" for="country" style="display: block;">
@@ -171,4 +180,19 @@
       </div>
     </div>
   </div>
+@endsection
+
+@section('inlinejs')
+  <script src="{{ asset('js/selectize.js') }}"></script>
+  <script>
+    $('#select-countries').selectize({
+      create: false,
+      sortField: {
+        field: 'text',
+        direction: 'asc'
+      },
+      dropdownParent: 'body',
+      persist: true
+    });
+  </script>
 @endsection

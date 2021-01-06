@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d93f2166653456d2c3fdb07650b68eca",
+    "content-hash": "403f858cf32fbcd81c41055f33a0cea2",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3968,6 +3968,48 @@
             "time": "2019-10-24T08:53:34+00:00"
         },
         {
+            "name": "umpirsky/country-list",
+            "version": "2.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/umpirsky/country-list.git",
+                "reference": "6dddae6983c1bc4d314b513c5decb7c8c6c879dc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/umpirsky/country-list/zipball/6dddae6983c1bc4d314b513c5decb7c8c6c879dc",
+                "reference": "6dddae6983c1bc4d314b513c5decb7c8c6c879dc",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0 || ^8.0"
+            },
+            "require-dev": {
+                "slowprog/composer-copy-file": "^0.2",
+                "symfony/intl": "^4.3",
+                "umpirsky/list-generator": "^1.2"
+            },
+            "type": "library",
+            "extra": {
+                "copy-file": {
+                    "vendor/umpirsky/list-generator/Dockerfile": "./",
+                    "vendor/umpirsky/list-generator/docker-compose.yml": "./"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Saša Stamenković",
+                    "email": "umpirsky@gmail.com"
+                }
+            ],
+            "description": "List of all countries with names and ISO 3166-1 codes in all languages and data formats.",
+            "time": "2020-12-03T10:09:09+00:00"
+        },
+        {
             "name": "vlucas/phpdotenv",
             "version": "v4.1.4",
             "source": {
@@ -4450,6 +4492,7 @@
                 "faker",
                 "fixtures"
             ],
+            "abandoned": true,
             "time": "2019-12-12T13:22:17+00:00"
         },
         {
@@ -5263,6 +5306,7 @@
             "keywords": [
                 "tokenizer"
             ],
+            "abandoned": true,
             "time": "2019-09-17T06:23:10+00:00"
         },
         {

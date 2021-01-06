@@ -22,7 +22,8 @@ class ClientController extends Controller
 
     public function create(Request $request)
     {
-    	return view('clients.create');
+        $countries = require '../vendor/umpirsky/country-list/data/es_VE/country.php';
+    	return view('clients.create',['countries' => $countries]);
     }
 
     public function store(Request $request)
