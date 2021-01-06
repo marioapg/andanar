@@ -101,23 +101,23 @@
                 <div class="row">
                   <div class="col">
                     <label for="files">Adjunto 1</label>
-                    <input id="files" type="file" name="file[]" class="form-control"/>
+                    <input id="files1" type="file" name="file[]" class="form-control adjuntos"/>
                   </div>
                   <div class="col">
                     <label for="files">Adjunto 2</label>
-                    <input id="files" type="file" name="file[]" class="form-control"/>
+                    <input id="files2" type="file" name="file[]" class="form-control adjuntos"/>
                   </div>
                   <div class="col">
                     <label for="files">Adjunto 3</label>
-                    <input id="files" type="file" name="file[]" class="form-control"/>
+                    <input id="files3" type="file" name="file[]" class="form-control adjuntos"/>
                   </div>
                   <div class="col">
                     <label for="files">Adjunto 4</label>
-                    <input id="files" type="file" name="file[]" class="form-control"/>
+                    <input id="files4" type="file" name="file[]" class="form-control adjuntos"/>
                   </div>
                   <div class="col">
                     <label for="files">Adjunto 5</label>
-                    <input id="files" type="file" name="file[]" class="form-control"/>
+                    <input id="files5" type="file" name="file[]" class="form-control adjuntos"/>
                   </div>
                 </div>
 
@@ -342,7 +342,6 @@
   <script src="{{ asset('js/bootstrap-switch.js') }}"></script>
   <script>
     $(document).ready( function () {
-
       var rows = 0;
 
       // Funcion cuando cambia el toogle del material Aluminio/Hierro
@@ -357,6 +356,12 @@
 
       // Boton para agregar ya la fila
       $('.add-row').on('click', function(e){
+        
+        if ( $('#tarifa_pdr').val() === '' ) {
+          alert('Debe ingresar una tarifa antes de agregar elementos al presupuesto');
+          return false;
+        }
+
         var qtySmall = 0;
         var s = parseInt( $('#small_size').val() );
         var m = parseInt( $('#medium_size').val() );
@@ -475,7 +480,7 @@
                 </div>
 
                 <div class="col-md-1">
-                  <input class="form-control totalrow" type="text" name="totalrow[]" value="`+totalVDs+`" readonly>
+                  <input class="form-control totalrow" id="`+rows+`" type="text" name="totalrow[]" value="`+totalVDs+`" readonly>
                 </div>
 
                 <div class="col-md-1">
@@ -496,6 +501,19 @@
       
       $(document).on('click', '.hover-rows', function(e){
         $(this).remove();
+        calculateTotals();
+      });
+
+      $('#tarifa_pdr').on('input', function(e){
+        var tarifa = $(this).val();
+        if (tarifa === '') {
+          alert('Debe ingresar una tarifa');
+          return false;
+        }
+        if (parseFloat(tarifa) <= 0) {
+          alert('La tarifa debe ser mayor a 0');
+          return false; 
+        }
         calculateTotals();
       });
 

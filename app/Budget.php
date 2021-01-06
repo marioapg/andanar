@@ -28,6 +28,16 @@ class Budget extends Model
         'attached',
 	];
 
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'attached' => 'array',
+    ];
+
     public function client()
     {
     	return $this->hasOne('App\Client', 'id', 'client_id');

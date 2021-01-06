@@ -269,7 +269,7 @@ class BudgetController extends Controller
                     array_push($images, $fileName);
                 }
             }
-            $images = json_encode($images);
+            $images = $images;
             $budget->attached = $images;
             $budget->save();
         }
@@ -421,7 +421,7 @@ class BudgetController extends Controller
                     array_push($images, $fileName);
                 }
             }
-            $images = json_encode($images);
+            $images = $images;
             $budget->attached = $images;
             $budget->save();
         }

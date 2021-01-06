@@ -434,7 +434,7 @@
                      <!-- VISTA DE ADJUNTOS -->
                      <div class="row">
                         @if( !is_null($budget->attached) )
-                           @foreach( json_decode($budget->attached) as $key => $value )
+                           @foreach( $budget->attached as $key => $value )
                               <div class="col">
                                  <a href="/images/budgets/{{ $value }}" target="_blank">
                                     <button class="btn btn-info">
