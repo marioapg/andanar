@@ -416,7 +416,7 @@
                                     <td style="width: 7%;">{{ $total_b }}</td>
                                     <td style="width: 7%;">{{ $total_p }}</td>
                                     <td colspan="5">TOTAL PRESUPUESTO</td>
-                                    <td style="width: 10%;">{{ $budget->grand_total }}</td>
+                                    <td style="width: 10%;">{{ $budget->grand_total }} {{ \App\Utils\Currencies::getSymbol($budget->currency) }}</td>
                                  </tr>
                                  <tr>
                                     <td colspan="2">Comentarios para cliente</td>

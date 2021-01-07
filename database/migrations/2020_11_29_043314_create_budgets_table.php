@@ -24,6 +24,7 @@ class CreateBudgetsTable extends Migration
             $table->text('public_comment')->nullable();
             $table->text('private_comment')->nullable();
             $table->text('attached')->nullable()->dafault(null);
+            $table->string('currency')->default('EUR');
             $table->string('status')->default('presupuestado');
             $table->string('cia_sure')->nullable()->default(null);
             $table->double('iva_rate')->default(21);

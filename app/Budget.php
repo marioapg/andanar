@@ -22,6 +22,7 @@ class Budget extends Model
         'cia_sure',
         'iva_rate',
         'total',
+        'currency',
         'iva',
         'grand_total',
         'tarifa_pdr',

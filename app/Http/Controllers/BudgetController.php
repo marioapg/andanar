@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use App\Utils\Currencies;
 use App\BudgetItem;
 use App\Budget;
 use App\Client;
@@ -157,7 +158,6 @@ class BudgetController extends Controller
         if (empty($params)) {
             return redirect()->route('budget.create.step.three');
         }
-        
         return view('budgets.create-step-four', compact(['car','params']));
     }
 
@@ -171,6 +171,7 @@ class BudgetController extends Controller
             "brand" => ['required'],
             "model" => ['required'],
             "color" => ['required'],
+            "currency" => ['required', 'in:USD,EUR,ARS'],
             "year" => ['required'],
             "client_id" => ['required', 'exists:users,id'],
             "perito_id" => ['nullable', 'exists:users,id'],
@@ -216,6 +217,7 @@ class BudgetController extends Controller
                     'date' => now(),
                     'car_id' => $car->id,
                     'public_comment' => $request->public_comment,
+                    'currency' => $request->currency,
                     'private_comment' => $request->private_comment,
                     'cia_sure' => $request->cia,
                     'iva_rate' => $request->iva,
@@ -368,6 +370,7 @@ class BudgetController extends Controller
                     'car_id' => $car->id,
                     'public_comment' => $request->public_comment,
                     'private_comment' => $request->private_comment,
+                    'currency' => $request->currency,
                     'cia_sure' => $request->cia,
                     'iva_rate' => $request->iva,
                     'total' => ($request->grand_total - $request->iva_total),

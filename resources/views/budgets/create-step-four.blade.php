@@ -85,6 +85,14 @@
                     <label for="iva">Porcentaje de IVA</label>
                     <input id="iva_rate" type="text" name="iva" class="form-control" value="21">
                   </div>
+                  <div class="col">
+                    <label for="currency">Porcentaje de IVA</label>
+                    <select id="select-currency" type="text" name="currency" class="form-control">
+                      <option value="USD" nombre="Dolar">Dolar</option>
+                      <option value="EUR" nombre="Euros">Euros</option>
+                      <option value="ARS" nombre="Pesos">Pesos</option>
+                    </select>
+                  </div>
                 </div>
 
                 <div class="row">
@@ -209,8 +217,8 @@
                         </strong>
                       </div>
                       <div class="col-md-1 text-center btn-success">
-                        <strong>
-                          Total EUR
+                        <strong id="total-currency">
+                          Total
                         </strong>
                       </div>
                     </div>
@@ -679,6 +687,11 @@
             dropdownParent: 'body'
           });
         }
+      });
+
+      $('#select-currency').on('change', function(e){
+        var obj = $("#select-currency option:selected");
+        $('#total-currency').html( 'Total ' + obj.text() );
       });
     });
   </script>

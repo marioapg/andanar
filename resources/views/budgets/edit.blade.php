@@ -108,6 +108,21 @@
                     <label for="iva">Porcentaje de IVA</label>
                     <input id="iva_rate" type="text" name="iva" class="form-control" value="{{ $budget->iva_rate }}">
                   </div>
+
+                  <div class="col">
+                    <label for="currency">Porcentaje de IVA</label>
+                    <select id="select-currency" type="text" name="currency" class="form-control" autocomplete="off">
+                      <option value="USD" nombre="Dolar" @if($budget->currency == 'USD') selected="" @endif>
+                        Dolar
+                      </option>
+                      <option value="EUR" nombre="Euros" @if($budget->currency == 'EUR') selected="" @endif>
+                        Euros
+                      </option>
+                      <option value="ARS" nombre="Pesos" @if($budget->currency == 'ARS') selected="" @endif>
+                        Pesos
+                      </option>
+                    </select>
+                  </div>
                 </div>
 
                 <div class="row">
@@ -233,8 +248,8 @@
                         </strong>
                       </div>
                       <div class="col-md-1 text-center btn-success">
-                        <strong>
-                          Total EUR
+                        <strong id="total-currency">
+                          Total
                         </strong>
                       </div>
                     </div>
@@ -316,8 +331,9 @@
                       <div class="col-md-1"></div>
                       <div class="col-md-1"></div>
                       <div class="col-md-1 btn-success total_iva">
+                        {{ $budget->iva }}
                       </div>
-                      <input id="iva_total" name="iva_total" type="hidden" value="0">
+                      <input id="iva_total" name="iva_total" type="hidden" value="{{ $budget->iva }}">
                     </div>
                   </div>
                 </div>
@@ -325,18 +341,19 @@
                   <div class="col-md-12" id="items-budget">
                     <div class="form-row text-center">
                       <div class="col-md-2">Totales:</div>
-                      <div class="col-md-1 btn-info totalDS"></div>
-                      <div class="col-md-1 btn-info totalDM"></div>
-                      <div class="col-md-1 btn-info totalDB"></div>
-                      <div class="col-md-1 btn-info totalDP"></div>
-                      <div class="col-md-1 btn-success totalVDS"></div>
-                      <div class="col-md-1 btn-success totalVDM"></div>
-                      <div class="col-md-1 btn-success totalVDB"></div>
-                      <div class="col-md-1 btn-success totalVDP"></div>
-                      <div class="col-md-1 btn-danger totalVD"></div>
+                      <div class="col-md-1 btn-info totalDS">{{ $budget->items->sum('small') }}</div>
+                      <div class="col-md-1 btn-info totalDM">{{ $budget->items->sum('medium') }}</div>
+                      <div class="col-md-1 btn-info totalDB">{{ $budget->items->sum('big') }}</div>
+                      <div class="col-md-1 btn-info totalDP">{{ $budget->items->sum('paint') }}</div>
+                      <div class="col-md-1 btn-success totalVDS">{{ $budget->items->sum('small_vds') }}</div>
+                      <div class="col-md-1 btn-success totalVDM">{{ $budget->items->sum('medium_vds') }}</div>
+                      <div class="col-md-1 btn-success totalVDB">{{ $budget->items->sum('big_vds') }}</div>
+                      <div class="col-md-1 btn-success totalVDP">{{ $budget->items->sum('paint_vds') }}</div>
+                      <div class="col-md-1 btn-danger totalVD">{{ $budget->items->sum('total_vds') }}</div>
                       <div class="col-md-1 btn-success totalEUR">
+                        {{ $budget->grand_total }}
                       </div>
-                      <input id="grand_total" name="grand_total" type="hidden" value="0">
+                      <input id="grand_total" name="grand_total" type="hidden" value="{{ $budget->grand_total }}">
                     </div>
                   </div>
                 </div>
@@ -734,6 +751,11 @@
       //     });
       //   }
       // });
+
+      $('#select-currency').on('change', function(e){
+        var obj = $("#select-currency option:selected");
+        $('#total-currency').html( 'Total ' + obj.text() );
+      });
     });
   </script>
 @endsection

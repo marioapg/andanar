@@ -76,7 +76,7 @@
 
           <table class="body-budget mt-3" style="margin-top: 5px; width: 100%; border-collapse: collapse;text-align: center;">
              <tr style="background-color: #C5C5C5; font-weight: bold;">
-                <td style="width: 20%;">DETALLE COMPONENTE</td>
+                <td style="width: 20%;">DETALLE     </td>
                 <td style="width: 7%;">MATERIAL</td>
                 <td colspan="4">DIMENSION ABOLLADURAS</td>
                 <td colspan="3">Nro VD's</td>
@@ -97,7 +97,6 @@
                  <tr>
                     <td style="width: 20%;font-size: 12px;">{{ $item->pieceName($item->part) }}</td>
                     <td style="width: 7%;">{{ $item->material == 'Aluminio' ? 'X' : '' }}</td>
-                    <td style="width: 7%;">{{ $item ? $item->material : '' }}</td>
                     <td style="width: 7%;">{{ $item ? $item->small : '' }}</td>
                     <td style="width: 7%;">{{ $item ? $item->medium : '' }}</td>
                     <td style="width: 7%;">{{ $item ? $item->big : '' }}</td>
@@ -386,5 +385,13 @@
              </tr>
           </table>
        </div>
+    </div>
+
+    <div style="margin-top: 100px;">
+        @if( !is_null($budget->attached) )
+           @foreach( $budget->attached as $key => $value )
+                <img src="{{ asset('/images/budgets/') }}/{{ $value }}" width="500">
+           @endforeach
+        @endif
     </div>
 </div>
