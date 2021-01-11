@@ -488,11 +488,11 @@
                 </div>
 
                 <div class="col-md-1">
-                  <input class="form-control totalrow" id="`+rows+`" type="text" name="totalrow[]" value="`+totalVDs+`" readonly>
+                  <input class="form-control totalrow" num="`+rows+`" type="text" name="totalrow[]" value="`+totalVDs+`" readonly>
                 </div>
 
                 <div class="col-md-1">
-                  <input class="form-control totalMoneyRow" type="text" name="totalMoneyRow[]" value="`+totalEur+`" readonly>
+                  <input id="totalMoneyRow`+rows+`" class="form-control totalMoneyRow" type="text" name="totalMoneyRow[]" value="`+totalEur+`" readonly>
                 </div>
               </div>`;
 
@@ -522,8 +522,33 @@
           alert('La tarifa debe ser mayor a 0');
           return false; 
         }
-        calculateTotals();
+        tarifa = parseInt( $(this).val() );
+        reCalculateTotals(tarifa);
       });
+
+      function reCalculateTotals(tarifa){
+        let total = parseFloat(0);
+        $('.totalrow').each(function(){
+          var num = $(this).attr('num');
+          var val = $(this).val();
+
+          $('#totalMoneyRow'+num).val( (val * tarifa) );
+          total += parseFloat($('#totalMoneyRow'+num).val());
+        });
+
+        $('.totalEUR').html('');
+        var iva = parseFloat($('#iva_rate').val()) / 100;
+
+        var iva_total = total * iva;
+        var total_con_iva = total + iva_total;
+
+        var result_iva = parseFloat(iva_total).toFixed(2);
+        var result_total = parseFloat(total_con_iva).toFixed(2);
+        $('#iva_total').val( result_iva );
+        $('.total_iva').html( result_iva );
+        $('#grand_total').val( result_total );
+        $('.totalEUR').html( result_total );
+      }
 
       function calculateTotals(){
         var X = 0;
