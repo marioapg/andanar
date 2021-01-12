@@ -134,16 +134,16 @@
                   <div class="col-md-12">
                     <div class="col" style="float: left;width: 15%">
                     </div>
-                    <div class="col hover-custom add-item-budget" part="Aleta del der" abpart="ADD" style="float: left;width: 19%">
+                    <div class="col hover-custom add-item-budget" numrow="8" part="Aleta del der" abpart="ADD" style="float: left;width: 19%">
                       <img src="{{ asset('images/car_graph/top 1.png') }}" alt="">
                     </div>
-                    <div class="col hover-custom add-item-budget" part="Puerta del der" abpart="PDD" style="float: left;width: 17%">
+                    <div class="col hover-custom add-item-budget" numrow="9" part="Puerta del der" abpart="PDD" style="float: left;width: 17%">
                       <img src="{{ asset('images/car_graph/top 2.png') }}" alt="">
                     </div>
-                    <div class="col hover-custom add-item-budget" part="Puerta tra der" abpart="PTD" style="float: left;width: 14%">
+                    <div class="col hover-custom add-item-budget" numrow="10" part="Puerta tra der" abpart="PTD" style="float: left;width: 14%">
                       <img src="{{ asset('images/car_graph/top 3.png') }}" alt="">
                     </div>
-                    <div class="col hover-custom add-item-budget" part="Aleta tra der" abpart="ATD" style="float: left;width: 19%">
+                    <div class="col hover-custom add-item-budget" numrow="12" part="Aleta tra der" abpart="ATD" style="float: left;width: 19%">
                       <img src="{{ asset('images/car_graph/top 4.png') }}" alt="">
                     </div>
                   </div>
@@ -154,15 +154,15 @@
                     <!-- <div class="col hover-custom" style="float: left;width: 8%">
                       <img src="{{ asset('images/car_graph/adelante.png') }}" alt="">
                     </div> -->
-                    <div class="col hover-custom add-item-budget" part="Capot" abpart="CAPOT" style="float: left;width: 19%">
+                    <div class="col hover-custom add-item-budget" part="Capot" numrow="0" abpart="CAPOT" style="float: left;width: 19%">
                       <img src="{{ asset('images/car_graph/mid 1.png') }}" alt="">
                     </div>
                     <div class="col" style="float: left;width: 20%">
-                      <img class="hover-custom add-item-budget" part="Montante derecho" abpart="MD" src="{{ asset('images/car_graph/mid 4.png') }}" alt="">
-                      <img class="hover-custom add-item-budget" part="Techo" abpart="TECHO" src="{{ asset('images/car_graph/mid 2.png') }}" alt="">
-                      <img class="hover-custom add-item-budget" part="Montante izquierdo" abpart="MI" src="{{ asset('images/car_graph/mid 5.png') }}" alt="">
+                      <img class="hover-custom add-item-budget" part="Montante derecho" numrow="11" abpart="MD" src="{{ asset('images/car_graph/mid 4.png') }}" alt="">
+                      <img class="hover-custom add-item-budget" part="Techo" numrow="1" abpart="TECHO" src="{{ asset('images/car_graph/mid 2.png') }}" alt="">
+                      <img class="hover-custom add-item-budget" part="Montante izquierdo" numrow="6" abpart="MI" src="{{ asset('images/car_graph/mid 5.png') }}" alt="">
                     </div>
-                    <div class="col hover-custom add-item-budget" part="Maletero" abpart="MALETERO" style="float: left;width: 16%">
+                    <div class="col hover-custom add-item-budget" part="Maletero" numrow="2" abpart="MALETERO" style="float: left;width: 16%">
                       <img src="{{ asset('images/car_graph/mid 3.png') }}" alt="">
                     </div>
                     <!-- <div class="col hover-custom" style="float: left;width: 9%">
@@ -173,16 +173,16 @@
                   <div class="col-md-12">
                     <div class="col" style="float: left;width: 15%">
                     </div>
-                    <div class="col hover-custom add-item-budget" part="Aleta del izq" abpart="ADI" style="float: left;width: 19%">
+                    <div class="col hover-custom add-item-budget" numrow="3" part="Aleta del izq" abpart="ADI" style="float: left;width: 19%">
                       <img src="{{ asset('images/car_graph/bot 1.png') }}" alt="">
                     </div>
-                    <div class="col hover-custom add-item-budget" part="Puerta del izq" abpart="PDI" style="float: left;width: 17%">
+                    <div class="col hover-custom add-item-budget" numrow="4" part="Puerta del izq" abpart="PDI" style="float: left;width: 17%">
                       <img src="{{ asset('images/car_graph/bot 2.png') }}" alt="">
                     </div>
-                    <div class="col hover-custom add-item-budget" part="Puerta tra izq" abpart="PTI" style="float: left;width: 14%">
+                    <div class="col hover-custom add-item-budget" numrow="5" part="Puerta tra izq" abpart="PTI" style="float: left;width: 14%">
                       <img src="{{ asset('images/car_graph/bot 3.png') }}" alt="">
                     </div>
-                    <div class="col hover-custom add-item-budget" part="Aleta del izq" abpart="ATI" style="float: left;width: 19%">
+                    <div class="col hover-custom add-item-budget" numrow="7" part="Aleta del izq" abpart="ATI" style="float: left;width: 19%">
                       <img src="{{ asset('images/car_graph/bot 4.png') }}" alt="">
                     </div>
                   </div>  
@@ -191,12 +191,12 @@
                 <div class="row">
                   <div class="col-md-12" id="items-budget">
                     <div class="form-row mt-3">
-                      <div class="col-md-1 text-center btn-primary">
+                      <div class="text-center btn-primary" style="width: 13.63%;">
                         <strong>
-                          Parte
+                          Plano
                         </strong>
                       </div>
-                      <div class="col-md-1 text-center btn-warning">
+                      <div class="text-center btn-warning" style="width: 3%;">
                         <strong>
                           AL
                         </strong>
@@ -234,11 +234,873 @@
                       <div class="col-md-1 btn-success">P/P</div>
                       <div class="col-md-2"></div>
                     </div>
+
+                    <div class="form-row mt-1 hover-rows" numrow="0">
+                      <div style="width: 13.63%;">
+                        <span class="bmd-form-group is-filled center-flex">
+                          <span class="minor-height">CAPÓ</span>
+                          <span class="subtitle-size minor-height">hood/capot</span>
+                          <input class="form-control" type="hidden" name="part[]" value="CAPOT" readonly="">
+                        </span>
+                      </div>
+                      <div style="width: 3%;">
+                        <span class="bmd-form-group">
+                          <input class="form-control hidden-text text-center" type="text" autocomplete="off" name="material[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumDS" type="number" value="0" autocomplete="off" name="small_damage[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumDM" type="number" value="0" autocomplete="off" name="medium_damage[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumDB" type="number" value="0" autocomplete="off" name="big_damage[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumDP" type="number" value="0" autocomplete="off" name="topaint_damage[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumVDS" type="number" value="0" autocomplete="off" name="small_vd[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumVDM" type="number" value="0" autocomplete="off" name="medium_vd[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumVDB" type="number" value="0" autocomplete="off" name="big_vd[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumVDP" type="number" value="0" autocomplete="off" name="topaint_vd[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text totalrow" num="0" type="number" value="0" autocomplete="off" name="totalrow[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input id="totalMoneyRow0" class="form-control hidden-text totalMoneyRow" type="number" value="0" autocomplete="off" name="totalMoneyRow[]" readonly="">
+                        </span>
+                      </div>
+                    </div>
+
+                    <div class="form-row mt-1 hover-rows" numrow="1">
+                      <div style="width: 13.63%;">
+                        <span class="bmd-form-group is-filled center-flex">
+                          <span class="minor-height">TECHO</span>
+                          <span class="subtitle-size minor-height">roof/toit</span>
+                          <input class="form-control" type="hidden" name="part[]" value="TECHO" readonly="">
+                        </span>
+                      </div>
+                      <div style="width: 3%;">
+                        <span class="bmd-form-group">
+                          <input class="form-control text-center" type="text" autocomplete="off" name="material[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumDS" type="number" value="0" autocomplete="off" name="small_damage[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumDM" type="number" value="0" autocomplete="off" name="medium_damage[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumDB" type="number" value="0" autocomplete="off" name="big_damage[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumDP" type="number" value="0" autocomplete="off" name="topaint_damage[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumVDS" type="number" value="0" autocomplete="off" name="small_vd[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumVDM" type="number" value="0" autocomplete="off" name="medium_vd[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumVDB" type="number" value="0" autocomplete="off" name="big_vd[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumVDP" type="number" value="0" autocomplete="off" name="topaint_vd[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text totalrow" num="0" type="number" value="0" autocomplete="off" name="totalrow[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input id="totalMoneyRow0" class="form-control hidden-text totalMoneyRow" type="number" value="0" autocomplete="off" name="totalMoneyRow[]" readonly="">
+                        </span>
+                      </div>
+                    </div>
+
+                    <div class="form-row mt-1 hover-rows" numrow="2">
+                      <div style="width: 13.63%;">
+                        <span class="bmd-form-group is-filled center-flex">
+                          <span class="minor-height">MALETERO</span>
+                          <span class="subtitle-size minor-height">trunk/coffre</span>
+                          <input class="form-control" type="hidden" name="part[]" value="MALETERO" readonly="">
+                        </span>
+                      </div>
+                      <div style="width: 3%;">
+                        <span class="bmd-form-group">
+                          <input class="form-control hidden-text text-center" type="text" autocomplete="off" name="material[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumDS" type="number" value="0" autocomplete="off" name="small_damage[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumDM" type="number" value="0" autocomplete="off" name="medium_damage[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumDB" type="number" value="0" autocomplete="off" name="big_damage[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumDP" type="number" value="0" autocomplete="off" name="topaint_damage[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumVDS" type="number" value="0" autocomplete="off" name="small_vd[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumVDM" type="number" value="0" autocomplete="off" name="medium_vd[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumVDB" type="number" value="0" autocomplete="off" name="big_vd[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumVDP" type="number" value="0" autocomplete="off" name="topaint_vd[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text totalrow" num="0" type="number" value="0" autocomplete="off" name="totalrow[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input id="totalMoneyRow0" class="form-control hidden-text totalMoneyRow" type="number" value="0" autocomplete="off" name="totalMoneyRow[]" readonly="">
+                        </span>
+                      </div>
+                    </div>
+
+                    <div class="form-row mt-1">
+                      <div class="col">
+                        <span class="bmd-form-group is-filled center-flex">
+                          Lateral izquierdo / left side / coté gouché
+                        </span>
+                      </div>
+                    </div>
+
+                    <div class="form-row mt-1 hover-rows" numrow="3">
+                      <div style="width: 13.63%;">
+                        <span class="bmd-form-group is-filled center-flex">
+                          <span class="minor-height">ALETA Del. Izq.</span>
+                          <span class="subtitle-size minor-height">left front wing/aile AVG</span>
+                          <input class="form-control" type="hidden" name="part[]" value="ADI" readonly="">
+                        </span>
+                      </div>
+                      <div style="width: 3%;">
+                        <span class="bmd-form-group">
+                          <input class="form-control hidden-text text-center" type="text" autocomplete="off" name="material[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumDS" type="number" value="0" autocomplete="off" name="small_damage[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumDM" type="number" value="0" autocomplete="off" name="medium_damage[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumDB" type="number" value="0" autocomplete="off" name="big_damage[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumDP" type="number" value="0" autocomplete="off" name="topaint_damage[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumVDS" type="number" value="0" autocomplete="off" name="small_vd[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumVDM" type="number" value="0" autocomplete="off" name="medium_vd[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumVDB" type="number" value="0" autocomplete="off" name="big_vd[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumVDP" type="number" value="0" autocomplete="off" name="topaint_vd[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text totalrow" num="0" type="number" value="0" autocomplete="off" name="totalrow[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input id="totalMoneyRow0" class="form-control hidden-text totalMoneyRow" type="number" value="0" autocomplete="off" name="totalMoneyRow[]" readonly="">
+                        </span>
+                      </div>
+                    </div>
+
+                    <div class="form-row mt-1 hover-rows" numrow="4">
+                      <div style="width: 13.63%;">
+                        <span class="bmd-form-group is-filled center-flex">
+                          <span class="minor-height">PUERTA Del. Izq.</span>
+                          <span class="subtitle-size minor-height">left front door/porte AVG</span>
+                          <input class="form-control" type="hidden" name="part[]" value="PDI" readonly="">
+                        </span>
+                      </div>
+                      <div style="width: 3%;">
+                        <span class="bmd-form-group">
+                          <input class="form-control hidden-text text-center" type="text" autocomplete="off" name="material[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumDS" type="number" value="0" autocomplete="off" name="small_damage[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumDM" type="number" value="0" autocomplete="off" name="medium_damage[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumDB" type="number" value="0" autocomplete="off" name="big_damage[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumDP" type="number" value="0" autocomplete="off" name="topaint_damage[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumVDS" type="number" value="0" autocomplete="off" name="small_vd[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumVDM" type="number" value="0" autocomplete="off" name="medium_vd[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumVDB" type="number" value="0" autocomplete="off" name="big_vd[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumVDP" type="number" value="0" autocomplete="off" name="topaint_vd[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text totalrow" num="0" type="number" value="0" autocomplete="off" name="totalrow[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input id="totalMoneyRow0" class="form-control hidden-text totalMoneyRow" type="number" value="0" autocomplete="off" name="totalMoneyRow[]" readonly="">
+                        </span>
+                      </div>
+                    </div>
+
+                    <div class="form-row mt-1 hover-rows" numrow="5">
+                      <div style="width: 13.63%;">
+                        <span class="bmd-form-group is-filled center-flex">
+                          <span class="minor-height">PUERTA Tras. Izq.</span>
+                          <span class="subtitle-size minor-height">left rear door/porte ARG</span>
+                          <input class="form-control" type="hidden" name="part[]" value="PDI" readonly="">
+                        </span>
+                      </div>
+                      <div style="width: 3%;">
+                        <span class="bmd-form-group">
+                          <input class="form-control hidden-text text-center" type="text" autocomplete="off" name="material[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumDS" type="number" value="0" autocomplete="off" name="small_damage[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumDM" type="number" value="0" autocomplete="off" name="medium_damage[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumDB" type="number" value="0" autocomplete="off" name="big_damage[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumDP" type="number" value="0" autocomplete="off" name="topaint_damage[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumVDS" type="number" value="0" autocomplete="off" name="small_vd[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumVDM" type="number" value="0" autocomplete="off" name="medium_vd[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumVDB" type="number" value="0" autocomplete="off" name="big_vd[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumVDP" type="number" value="0" autocomplete="off" name="topaint_vd[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text totalrow" num="0" type="number" value="0" autocomplete="off" name="totalrow[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input id="totalMoneyRow0" class="form-control hidden-text totalMoneyRow" type="number" value="0" autocomplete="off" name="totalMoneyRow[]" readonly="">
+                        </span>
+                      </div>
+                    </div>
+
+                    <div class="form-row mt-1 hover-rows" numrow="6">
+                      <div style="width: 13.63%;">
+                        <span class="bmd-form-group is-filled center-flex">
+                          <span class="minor-height">MONTANTE Izq.</span>
+                          <span class="subtitle-size minor-height">left rail/brancard G</span>
+                          <input class="form-control" type="hidden" name="part[]" value="MI" readonly="">
+                        </span>
+                      </div>
+                      <div style="width: 3%;">
+                        <span class="bmd-form-group">
+                          <input class="form-control hidden-text text-center" type="text" autocomplete="off" name="material[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumDS" type="number" value="0" autocomplete="off" name="small_damage[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumDM" type="number" value="0" autocomplete="off" name="medium_damage[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumDB" type="number" value="0" autocomplete="off" name="big_damage[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumDP" type="number" value="0" autocomplete="off" name="topaint_damage[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumVDS" type="number" value="0" autocomplete="off" name="small_vd[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumVDM" type="number" value="0" autocomplete="off" name="medium_vd[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumVDB" type="number" value="0" autocomplete="off" name="big_vd[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumVDP" type="number" value="0" autocomplete="off" name="topaint_vd[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text totalrow" num="0" type="number" value="0" autocomplete="off" name="totalrow[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input id="totalMoneyRow0" class="form-control hidden-text totalMoneyRow" type="number" value="0" autocomplete="off" name="totalMoneyRow[]" readonly="">
+                        </span>
+                      </div>
+                    </div>
+
+                    <div class="form-row mt-1 hover-rows" numrow="7">
+                      <div style="width: 13.63%;">
+                        <span class="bmd-form-group is-filled center-flex">
+                          <span class="minor-height">ALETA Tras. Izq.</span>
+                          <span class="subtitle-size minor-height">left rear wing/aile ARG</span>
+                          <input class="form-control" type="hidden" name="part[]" value="ATI" readonly="">
+                        </span>
+                      </div>
+                      <div style="width: 3%;">
+                        <span class="bmd-form-group">
+                          <input class="form-control hidden-text text-center" type="text" autocomplete="off" name="material[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumDS" type="number" value="0" autocomplete="off" name="small_damage[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumDM" type="number" value="0" autocomplete="off" name="medium_damage[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumDB" type="number" value="0" autocomplete="off" name="big_damage[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumDP" type="number" value="0" autocomplete="off" name="topaint_damage[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumVDS" type="number" value="0" autocomplete="off" name="small_vd[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumVDM" type="number" value="0" autocomplete="off" name="medium_vd[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumVDB" type="number" value="0" autocomplete="off" name="big_vd[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumVDP" type="number" value="0" autocomplete="off" name="topaint_vd[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text totalrow" num="0" type="number" value="0" autocomplete="off" name="totalrow[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input id="totalMoneyRow0" class="form-control hidden-text totalMoneyRow" type="number" value="0" autocomplete="off" name="totalMoneyRow[]" readonly="">
+                        </span>
+                      </div>
+                    </div>
+
+                    <div class="form-row mt-1">
+                      <div class="col">
+                        <span class="bmd-form-group is-filled center-flex">
+                          Lateral derecho / right side / coté droit
+                        </span>
+                      </div>
+                    </div>
+
+                    <div class="form-row mt-1 hover-rows" numrow="8">
+                      <div style="width: 13.63%;">
+                        <span class="bmd-form-group is-filled center-flex">
+                          <span class="minor-height">ALETA Del. Der.</span>
+                          <span class="subtitle-size minor-height">right front wing/aile AVD</span>
+                          <input class="form-control" type="hidden" name="part[]" value="ADD" readonly="">
+                        </span>
+                      </div>
+                      <div style="width: 3%;">
+                        <span class="bmd-form-group">
+                          <input class="form-control hidden-text text-center" type="text" autocomplete="off" name="material[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumDS" type="number" value="0" autocomplete="off" name="small_damage[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumDM" type="number" value="0" autocomplete="off" name="medium_damage[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumDB" type="number" value="0" autocomplete="off" name="big_damage[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumDP" type="number" value="0" autocomplete="off" name="topaint_damage[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumVDS" type="number" value="0" autocomplete="off" name="small_vd[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumVDM" type="number" value="0" autocomplete="off" name="medium_vd[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumVDB" type="number" value="0" autocomplete="off" name="big_vd[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumVDP" type="number" value="0" autocomplete="off" name="topaint_vd[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text totalrow" num="0" type="number" value="0" autocomplete="off" name="totalrow[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input id="totalMoneyRow0" class="form-control hidden-text totalMoneyRow" type="number" value="0" autocomplete="off" name="totalMoneyRow[]" readonly="">
+                        </span>
+                      </div>
+                    </div>
+
+                    <div class="form-row mt-1 hover-rows" numrow="9">
+                      <div style="width: 13.63%;">
+                        <span class="bmd-form-group is-filled center-flex">
+                          <span class="minor-height">PUERETA Del. Der.</span>
+                          <span class="subtitle-size minor-height">right front door/porte AVD</span>
+                          <input class="form-control" type="hidden" name="part[]" value="PDD" readonly="">
+                        </span>
+                      </div>
+                      <div style="width: 3%;">
+                        <span class="bmd-form-group">
+                          <input class="form-control hidden-text text-center" type="text" autocomplete="off" name="material[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumDS" type="number" value="0" autocomplete="off" name="small_damage[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumDM" type="number" value="0" autocomplete="off" name="medium_damage[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumDB" type="number" value="0" autocomplete="off" name="big_damage[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumDP" type="number" value="0" autocomplete="off" name="topaint_damage[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumVDS" type="number" value="0" autocomplete="off" name="small_vd[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumVDM" type="number" value="0" autocomplete="off" name="medium_vd[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumVDB" type="number" value="0" autocomplete="off" name="big_vd[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumVDP" type="number" value="0" autocomplete="off" name="topaint_vd[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text totalrow" num="0" type="number" value="0" autocomplete="off" name="totalrow[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input id="totalMoneyRow0" class="form-control hidden-text totalMoneyRow" type="number" value="0" autocomplete="off" name="totalMoneyRow[]" readonly="">
+                        </span>
+                      </div>
+                    </div>
+
+                    <div class="form-row mt-1 hover-rows" numrow="10">
+                      <div style="width: 13.63%;">
+                        <span class="bmd-form-group is-filled center-flex">
+                          <span class="minor-height">PUERTA Tras. Der.</span>
+                          <span class="subtitle-size minor-height">right rear door/porte ARD</span>
+                          <input class="form-control" type="hidden" name="part[]" value="PTD" readonly="">
+                        </span>
+                      </div>
+                      <div style="width: 3%;">
+                        <span class="bmd-form-group">
+                          <input class="form-control hidden-text text-center" type="text" autocomplete="off" name="material[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumDS" type="number" value="0" autocomplete="off" name="small_damage[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumDM" type="number" value="0" autocomplete="off" name="medium_damage[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumDB" type="number" value="0" autocomplete="off" name="big_damage[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumDP" type="number" value="0" autocomplete="off" name="topaint_damage[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumVDS" type="number" value="0" autocomplete="off" name="small_vd[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumVDM" type="number" value="0" autocomplete="off" name="medium_vd[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumVDB" type="number" value="0" autocomplete="off" name="big_vd[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumVDP" type="number" value="0" autocomplete="off" name="topaint_vd[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text totalrow" num="0" type="number" value="0" autocomplete="off" name="totalrow[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input id="totalMoneyRow0" class="form-control hidden-text totalMoneyRow" type="number" value="0" autocomplete="off" name="totalMoneyRow[]" readonly="">
+                        </span>
+                      </div>
+                    </div>
+
+                    <div class="form-row mt-1 hover-rows" numrow="11">
+                      <div style="width: 13.63%;">
+                        <span class="bmd-form-group is-filled center-flex">
+                          <span class="minor-height">MONTANTE Der.</span>
+                          <span class="subtitle-size minor-height">right rail/brancard D</span>
+                          <input class="form-control" type="hidden" name="part[]" value="MD" readonly="">
+                        </span>
+                      </div>
+                      <div style="width: 3%;">
+                        <span class="bmd-form-group">
+                          <input class="form-control hidden-text text-center" type="text" autocomplete="off" name="material[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumDS" type="number" value="0" autocomplete="off" name="small_damage[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumDM" type="number" value="0" autocomplete="off" name="medium_damage[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumDB" type="number" value="0" autocomplete="off" name="big_damage[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumDP" type="number" value="0" autocomplete="off" name="topaint_damage[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumVDS" type="number" value="0" autocomplete="off" name="small_vd[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumVDM" type="number" value="0" autocomplete="off" name="medium_vd[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumVDB" type="number" value="0" autocomplete="off" name="big_vd[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumVDP" type="number" value="0" autocomplete="off" name="topaint_vd[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text totalrow" num="0" type="number" value="0" autocomplete="off" name="totalrow[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input id="totalMoneyRow0" class="form-control hidden-text totalMoneyRow" type="number" value="0" autocomplete="off" name="totalMoneyRow[]" readonly="">
+                        </span>
+                      </div>
+                    </div>
+
+                    <div class="form-row mt-1 hover-rows" numrow="12">
+                      <div style="width: 13.63%;">
+                        <span class="bmd-form-group is-filled center-flex">
+                          <span class="minor-height">ALETA Tras. Der.</span>
+                          <span class="subtitle-size minor-height">right rear wing/aile ARD</span>
+                          <input class="form-control" type="hidden" name="part[]" value="ATD" readonly="">
+                        </span>
+                      </div>
+                      <div style="width: 3%;">
+                        <span class="bmd-form-group">
+                          <input class="form-control hidden-text text-center" type="text" autocomplete="off" name="material[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumDS" type="number" value="0" autocomplete="off" name="small_damage[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumDM" type="number" value="0" autocomplete="off" name="medium_damage[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumDB" type="number" value="0" autocomplete="off" name="big_damage[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumDP" type="number" value="0" autocomplete="off" name="topaint_damage[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumVDS" type="number" value="0" autocomplete="off" name="small_vd[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumVDM" type="number" value="0" autocomplete="off" name="medium_vd[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumVDB" type="number" value="0" autocomplete="off" name="big_vd[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text sumVDP" type="number" value="0" autocomplete="off" name="topaint_vd[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input class="form-control hidden-text totalrow" num="0" type="number" value="0" autocomplete="off" name="totalrow[]" readonly="">
+                        </span>
+                      </div>
+                      <div class="col-md-1">
+                        <span class="bmd-form-group is-filled">
+                          <input id="totalMoneyRow0" class="form-control hidden-text totalMoneyRow" type="number" value="0" autocomplete="off" name="totalMoneyRow[]" readonly="">
+                        </span>
+                      </div>
+                    </div>
+
                   </div>
                 </div>
 
                 <div class="row">
-                  <div class="col-md-12" id="items-budget">
+                  <div class="col-md-12">
                     <div class="form-row text-center mt-3">
                       <div class="col-md-2">IVA:</div>
                       <div class="col-md-1"></div>
@@ -258,7 +1120,7 @@
                 </div>
 
                 <div class="row">
-                  <div class="col-md-12" id="items-budget">
+                  <div class="col-md-12">
                     <div class="form-row text-center">
                       <div class="col-md-2">Totales:</div>
                       <div class="col-md-1 btn-info totalDS"></div>
@@ -336,6 +1198,7 @@
           </div>
         </div>
         <input type="hidden" id="add-part">
+        <input type="hidden" id="numrow-toadd">
         <div class="modal-footer">
           <button type="button" class="btn btn-primary add-row">Agregar</button>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
@@ -375,6 +1238,16 @@
         var m = parseInt( $('#medium_size').val() );
         var b = parseInt( $('#big_size').val() );
         var p = parseInt( $('#to_paint').val() );
+
+        var numrow = $('#numrow-toadd').val();
+        $($('[numrow='+numrow+'] input')[2]).val(s);
+        $($('[numrow='+numrow+'] input')[2]).removeClass('hidden-text');
+        $($('[numrow='+numrow+'] input')[3]).val(m);
+        $($('[numrow='+numrow+'] input')[3]).removeClass('hidden-text');
+        $($('[numrow='+numrow+'] input')[4]).val(b);
+        $($('[numrow='+numrow+'] input')[4]).removeClass('hidden-text');
+        $($('[numrow='+numrow+'] input')[5]).val(p);
+        $($('[numrow='+numrow+'] input')[5]).removeClass('hidden-text');
 
         if ((s <= 0) && (m <= 0) && (b <= 0) && (p <= 0)) { return 0;}
 
@@ -442,62 +1315,25 @@
           bVD = parseInt(bVD + (bVD * 0.2));
           pVD = parseInt(pVD + (pVD * 0.2));
         }
+        
+        $($('[numrow='+numrow+'] input')[1]).val(mat);
+        $($('[numrow='+numrow+'] input')[1]).removeClass('hidden-text');
+
+        $($('[numrow='+numrow+'] input')[6]).val(sVD);
+        $($('[numrow='+numrow+'] input')[6]).removeClass('hidden-text');
+        $($('[numrow='+numrow+'] input')[7]).val(mVD);
+        $($('[numrow='+numrow+'] input')[7]).removeClass('hidden-text');
+        $($('[numrow='+numrow+'] input')[8]).val(bVD);
+        $($('[numrow='+numrow+'] input')[8]).removeClass('hidden-text');
+        $($('[numrow='+numrow+'] input')[9]).val(pVD);
+        $($('[numrow='+numrow+'] input')[9]).removeClass('hidden-text');
 
         let totalVDs = sVD+mVD+bVD+pVD;
         let totalEur = totalVDs * parseInt($('#tarifa_pdr').val());
-
-        var row;
-        row = `
-              <div class="form-row mt-1 hover-rows" numrow="`+rows+`">
-                <div class="col-md-1">
-                  <input class="form-control" type="text" name="part[]" value="`+$('#add-part').val()+`" readonly></input>
-                </div>
-                <div class="col-md-1">
-                  <input class="form-control text-center" type="text" name="material[]" value="`+mat+`" readonly>
-                </div>
-                <div class="col-md-1">
-                  <input class="form-control sumDS" type="text" name="small_damage[]" value="`+$('#small_size').val()+`" readonly>
-                </div>
-
-                <div class="col-md-1">
-                  <input class="form-control sumDM" type="text" name="medium_damage[]" value="`+$('#medium_size').val()+`" readonly>
-                </div>
-
-                <div class="col-md-1">
-                  <input class="form-control sumDB" type="text" name="big_damage[]" value="`+$('#big_size').val()+`" readonly>
-                </div>
-
-                <div class="col-md-1">
-                  <input class="form-control sumDP" type="text" name="topaint_damage[]" value="`+$('#to_paint').val()+`" readonly>
-                </div>
-
-                <div class="col-md-1">
-                  <input class="form-control sumVDS" type="text" name="small_vd[]" value="`+sVD+`" readonly>
-                </div>
-
-                <div class="col-md-1">
-                  <input class="form-control sumVDM" type="text" name="medium_vd[]" value="`+mVD+`" readonly>
-                </div>
-
-                <div class="col-md-1">
-                  <input class="form-control sumVDB" type="text" name="big_vd[]" value="`+bVD+`" readonly>
-                </div>
-
-                <div class="col-md-1">
-                  <input class="form-control sumVDP" type="text" name="topaint_vd[]" value="`+pVD+`" readonly>
-                </div>
-
-                <div class="col-md-1">
-                  <input class="form-control totalrow" num="`+rows+`" type="text" name="totalrow[]" value="`+totalVDs+`" readonly>
-                </div>
-
-                <div class="col-md-1">
-                  <input id="totalMoneyRow`+rows+`" class="form-control totalMoneyRow" type="text" name="totalMoneyRow[]" value="`+totalEur+`" readonly>
-                </div>
-              </div>`;
-
-        rows++;
-        $('#items-budget').append(row);
+        $($('[numrow='+numrow+'] input')[10]).val(totalVDs);
+        $($('[numrow='+numrow+'] input')[10]).removeClass('hidden-text');
+        $($('[numrow='+numrow+'] input')[11]).val(totalEur);
+        $($('[numrow='+numrow+'] input')[11]).removeClass('hidden-text');
 
         $('#small_size').val(0);
         $('#medium_size').val(0);
@@ -508,7 +1344,10 @@
       });
       
       $(document).on('click', '.hover-rows', function(e){
-        $(this).remove();
+        $(this).find(':input').each(function(){
+          $(this).val(0);
+          $(this).addClass('hidden-text');
+        });
         calculateTotals();
       });
 
@@ -626,6 +1465,10 @@
 
         var result_iva = parseFloat(iva_total).toFixed(2);
         var result_total = parseFloat(total_con_iva).toFixed(2);
+
+        result_iva = isNaN(result_iva) ? 0 : result_iva;
+        result_total = isNaN(result_total) ? 0 : result_total;
+
         $('#iva_total').val( result_iva );
         $('.total_iva').html( result_iva );
         $('#grand_total').val( result_total );
@@ -647,6 +1490,7 @@
       // Cuando se selecciona una parte del carro
       $('.add-item-budget').on('click', function(e) {
         $('.modal-title').html( $(this).attr('part') );
+        $('#numrow-toadd').val( $(this).attr('numrow') );
         $('#add-part').val( $(this).attr('abpart') );
         $('#myModal').modal('show');
       });
