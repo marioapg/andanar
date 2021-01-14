@@ -11,6 +11,7 @@
         <div class="col-md-12">
           <form id="budget-form" class="form" method="POST" action="{{ route('budget.create.step.four') }}" enctype="multipart/form-data">
             @csrf
+
             @if( Session::has('flash_message') )
               <div class="alert {{ Session::get('flash_type') }} alert-dismissible fade show" role="alert">
                 {{ Session::get('flash_message') }}
@@ -1166,8 +1167,7 @@
                       <div class="col-md-1 btn-success totalVDB"></div>
                       <div class="col-md-1 btn-success totalVDP"></div>
                       <div class="col-md-1 btn-danger totalVD"></div>
-                      <div class="col-md-1 btn-success totalEUR">
-                      </div>
+                      <div class="col-md-1 btn-success totalEUR"></div>
                       <input id="grand_total" name="grand_total" type="hidden" value="0">
                     </div>
                   </div>
