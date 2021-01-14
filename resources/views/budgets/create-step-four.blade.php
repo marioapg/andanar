@@ -9,7 +9,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
-          <form class="form" method="POST" action="{{ route('budget.create.step.four') }}" enctype="multipart/form-data">
+          <form id="budget-form" class="form" method="POST" action="{{ route('budget.create.step.four') }}" enctype="multipart/form-data">
             @csrf
             @if( Session::has('flash_message') )
               <div class="alert {{ Session::get('flash_type') }} alert-dismissible fade show" role="alert">
@@ -134,16 +134,16 @@
                   <div class="col-md-12">
                     <div class="col" style="float: left;width: 15%">
                     </div>
-                    <div class="col hover-custom add-item-budget" numrow="8" part="Aleta del der" abpart="ADD" style="float: left;width: 19%">
+                    <div class="col hover-custom add-item-budget" numrowpart="8" part="Aleta del der" abpart="ADD" style="float: left;width: 19%">
                       <img src="{{ asset('images/car_graph/top 1.png') }}" alt="">
                     </div>
-                    <div class="col hover-custom add-item-budget" numrow="9" part="Puerta del der" abpart="PDD" style="float: left;width: 17%">
+                    <div class="col hover-custom add-item-budget" numrowpart="9" part="Puerta del der" abpart="PDD" style="float: left;width: 17%">
                       <img src="{{ asset('images/car_graph/top 2.png') }}" alt="">
                     </div>
-                    <div class="col hover-custom add-item-budget" numrow="10" part="Puerta tra der" abpart="PTD" style="float: left;width: 14%">
+                    <div class="col hover-custom add-item-budget" numrowpart="10" part="Puerta tra der" abpart="PTD" style="float: left;width: 14%">
                       <img src="{{ asset('images/car_graph/top 3.png') }}" alt="">
                     </div>
-                    <div class="col hover-custom add-item-budget" numrow="12" part="Aleta tra der" abpart="ATD" style="float: left;width: 19%">
+                    <div class="col hover-custom add-item-budget" numrowpart="12" part="Aleta tra der" abpart="ATD" style="float: left;width: 19%">
                       <img src="{{ asset('images/car_graph/top 4.png') }}" alt="">
                     </div>
                   </div>
@@ -154,15 +154,15 @@
                     <!-- <div class="col hover-custom" style="float: left;width: 8%">
                       <img src="{{ asset('images/car_graph/adelante.png') }}" alt="">
                     </div> -->
-                    <div class="col hover-custom add-item-budget" part="Capot" numrow="0" abpart="CAPOT" style="float: left;width: 19%">
+                    <div class="col hover-custom add-item-budget" part="Capot" numrowpart="0" abpart="CAPOT" style="float: left;width: 19%">
                       <img src="{{ asset('images/car_graph/mid 1.png') }}" alt="">
                     </div>
                     <div class="col" style="float: left;width: 20%">
-                      <img class="hover-custom add-item-budget" part="Montante derecho" numrow="11" abpart="MD" src="{{ asset('images/car_graph/mid 4.png') }}" alt="">
-                      <img class="hover-custom add-item-budget" part="Techo" numrow="1" abpart="TECHO" src="{{ asset('images/car_graph/mid 2.png') }}" alt="">
-                      <img class="hover-custom add-item-budget" part="Montante izquierdo" numrow="6" abpart="MI" src="{{ asset('images/car_graph/mid 5.png') }}" alt="">
+                      <img class="hover-custom add-item-budget" part="Montante derecho" numrowpart="11" abpart="MD" src="{{ asset('images/car_graph/mid 4.png') }}" alt="">
+                      <img class="hover-custom add-item-budget" part="Techo" numrowpart="1" abpart="TECHO" src="{{ asset('images/car_graph/mid 2.png') }}" alt="">
+                      <img class="hover-custom add-item-budget" part="Montante izquierdo" numrowpart="6" abpart="MI" src="{{ asset('images/car_graph/mid 5.png') }}" alt="">
                     </div>
-                    <div class="col hover-custom add-item-budget" part="Maletero" numrow="2" abpart="MALETERO" style="float: left;width: 16%">
+                    <div class="col hover-custom add-item-budget" part="Maletero" numrowpart="2" abpart="MALETERO" style="float: left;width: 16%">
                       <img src="{{ asset('images/car_graph/mid 3.png') }}" alt="">
                     </div>
                     <!-- <div class="col hover-custom" style="float: left;width: 9%">
@@ -173,16 +173,16 @@
                   <div class="col-md-12">
                     <div class="col" style="float: left;width: 15%">
                     </div>
-                    <div class="col hover-custom add-item-budget" numrow="3" part="Aleta del izq" abpart="ADI" style="float: left;width: 19%">
+                    <div class="col hover-custom add-item-budget" numrowpart="3" part="Aleta del izq" abpart="ADI" style="float: left;width: 19%">
                       <img src="{{ asset('images/car_graph/bot 1.png') }}" alt="">
                     </div>
-                    <div class="col hover-custom add-item-budget" numrow="4" part="Puerta del izq" abpart="PDI" style="float: left;width: 17%">
+                    <div class="col hover-custom add-item-budget" numrowpart="4" part="Puerta del izq" abpart="PDI" style="float: left;width: 17%">
                       <img src="{{ asset('images/car_graph/bot 2.png') }}" alt="">
                     </div>
-                    <div class="col hover-custom add-item-budget" numrow="5" part="Puerta tra izq" abpart="PTI" style="float: left;width: 14%">
+                    <div class="col hover-custom add-item-budget" numrowpart="5" part="Puerta tra izq" abpart="PTI" style="float: left;width: 14%">
                       <img src="{{ asset('images/car_graph/bot 3.png') }}" alt="">
                     </div>
-                    <div class="col hover-custom add-item-budget" numrow="7" part="Aleta del izq" abpart="ATI" style="float: left;width: 19%">
+                    <div class="col hover-custom add-item-budget" numrowpart="7" part="Aleta del izq" abpart="ATI" style="float: left;width: 19%">
                       <img src="{{ asset('images/car_graph/bot 4.png') }}" alt="">
                     </div>
                   </div>  
@@ -235,18 +235,17 @@
                       <div class="col-md-2"></div>
                     </div>
 
-                    <div class="form-row mt-1 hover-rows" numrow="0">
+                    <div class="form-row mt-1 hover-rows no-to-send" numrow="0">
                       <div style="width: 13.63%;">
                         <span class="bmd-form-group is-filled center-flex">
                           <span class="minor-height">CAPÓ</span>
                           <span class="subtitle-size minor-height">hood/capot</span>
-                          <input class="form-control" type="hidden" name="part[]" value="CAPOT" readonly="">
+                          <input class="form-control" type="hidden" name="part[]" value="CAPOT">
                         </span>
                       </div>
                       <div style="width: 3%;">
-                        <span class="bmd-form-group">
-                          <input class="form-control hidden-text text-center" type="text" autocomplete="off" name="material[]" readonly="">
-                        </span>
+                        <input class="form-control" type="hidden" autocomplete="off" name="material[]">
+                        <p class="text-center text-material0"></p>
                       </div>
                       <div class="col-md-1">
                         <span class="bmd-form-group is-filled">
@@ -300,18 +299,17 @@
                       </div>
                     </div>
 
-                    <div class="form-row mt-1 hover-rows" numrow="1">
+                    <div class="form-row mt-1 hover-rows no-to-send" numrow="1">
                       <div style="width: 13.63%;">
                         <span class="bmd-form-group is-filled center-flex">
                           <span class="minor-height">TECHO</span>
                           <span class="subtitle-size minor-height">roof/toit</span>
-                          <input class="form-control" type="hidden" name="part[]" value="TECHO" readonly="">
+                          <input class="form-control" type="hidden" name="part[]" value="TECHO">
                         </span>
                       </div>
                       <div style="width: 3%;">
-                        <span class="bmd-form-group">
-                          <input class="form-control text-center" type="text" autocomplete="off" name="material[]" readonly="">
-                        </span>
+                        <input class="form-control text-center" type="hidden" autocomplete="off" name="material[]">
+                        <p class="text-center text-material1"></p>
                       </div>
                       <div class="col-md-1">
                         <span class="bmd-form-group is-filled">
@@ -365,17 +363,18 @@
                       </div>
                     </div>
 
-                    <div class="form-row mt-1 hover-rows" numrow="2">
+                    <div class="form-row mt-1 hover-rows no-to-send" numrow="2">
                       <div style="width: 13.63%;">
                         <span class="bmd-form-group is-filled center-flex">
                           <span class="minor-height">MALETERO</span>
                           <span class="subtitle-size minor-height">trunk/coffre</span>
-                          <input class="form-control" type="hidden" name="part[]" value="MALETERO" readonly="">
+                          <input class="form-control" type="hidden" name="part[]" value="MALETERO">
                         </span>
                       </div>
                       <div style="width: 3%;">
                         <span class="bmd-form-group">
-                          <input class="form-control hidden-text text-center" type="text" autocomplete="off" name="material[]" readonly="">
+                          <input class="form-control hidden-text text-center" type="hidden" autocomplete="off" name="material[]">
+                          <p class="text-center text-material2"></p>
                         </span>
                       </div>
                       <div class="col-md-1">
@@ -438,17 +437,18 @@
                       </div>
                     </div>
 
-                    <div class="form-row mt-1 hover-rows" numrow="3">
+                    <div class="form-row mt-1 hover-rows no-to-send" numrow="3">
                       <div style="width: 13.63%;">
                         <span class="bmd-form-group is-filled center-flex">
                           <span class="minor-height">ALETA Del. Izq.</span>
                           <span class="subtitle-size minor-height">left front wing/aile AVG</span>
-                          <input class="form-control" type="hidden" name="part[]" value="ADI" readonly="">
+                          <input class="form-control" type="hidden" name="part[]" value="ADI">
                         </span>
                       </div>
                       <div style="width: 3%;">
                         <span class="bmd-form-group">
-                          <input class="form-control hidden-text text-center" type="text" autocomplete="off" name="material[]" readonly="">
+                          <input class="form-control hidden-text text-center" type="hidden" autocomplete="off" name="material[]">
+                          <p class="text-center text-material3"></p>
                         </span>
                       </div>
                       <div class="col-md-1">
@@ -503,17 +503,18 @@
                       </div>
                     </div>
 
-                    <div class="form-row mt-1 hover-rows" numrow="4">
+                    <div class="form-row mt-1 hover-rows no-to-send" numrow="4">
                       <div style="width: 13.63%;">
                         <span class="bmd-form-group is-filled center-flex">
                           <span class="minor-height">PUERTA Del. Izq.</span>
                           <span class="subtitle-size minor-height">left front door/porte AVG</span>
-                          <input class="form-control" type="hidden" name="part[]" value="PDI" readonly="">
+                          <input class="form-control" type="hidden" name="part[]" value="PDI">
                         </span>
                       </div>
                       <div style="width: 3%;">
                         <span class="bmd-form-group">
-                          <input class="form-control hidden-text text-center" type="text" autocomplete="off" name="material[]" readonly="">
+                          <input class="form-control hidden-text text-center" type="hidden" autocomplete="off" name="material[]">
+                          <p class="text-center text-material4"></p>
                         </span>
                       </div>
                       <div class="col-md-1">
@@ -568,17 +569,18 @@
                       </div>
                     </div>
 
-                    <div class="form-row mt-1 hover-rows" numrow="5">
+                    <div class="form-row mt-1 hover-rows no-to-send" numrow="5">
                       <div style="width: 13.63%;">
                         <span class="bmd-form-group is-filled center-flex">
                           <span class="minor-height">PUERTA Tras. Izq.</span>
                           <span class="subtitle-size minor-height">left rear door/porte ARG</span>
-                          <input class="form-control" type="hidden" name="part[]" value="PDI" readonly="">
+                          <input class="form-control" type="hidden" name="part[]" value="PTI">
                         </span>
                       </div>
                       <div style="width: 3%;">
                         <span class="bmd-form-group">
-                          <input class="form-control hidden-text text-center" type="text" autocomplete="off" name="material[]" readonly="">
+                          <input class="form-control hidden-text text-center" type="hidden" autocomplete="off" name="material[]">
+                          <p class="text-center text-material5"></p>
                         </span>
                       </div>
                       <div class="col-md-1">
@@ -633,17 +635,18 @@
                       </div>
                     </div>
 
-                    <div class="form-row mt-1 hover-rows" numrow="6">
+                    <div class="form-row mt-1 hover-rows no-to-send" numrow="6">
                       <div style="width: 13.63%;">
                         <span class="bmd-form-group is-filled center-flex">
                           <span class="minor-height">MONTANTE Izq.</span>
                           <span class="subtitle-size minor-height">left rail/brancard G</span>
-                          <input class="form-control" type="hidden" name="part[]" value="MI" readonly="">
+                          <input class="form-control" type="hidden" name="part[]" value="MI">
                         </span>
                       </div>
                       <div style="width: 3%;">
                         <span class="bmd-form-group">
-                          <input class="form-control hidden-text text-center" type="text" autocomplete="off" name="material[]" readonly="">
+                          <input class="form-control hidden-text text-center" type="hidden" autocomplete="off" name="material[]">
+                          <p class="text-center text-material6"></p>
                         </span>
                       </div>
                       <div class="col-md-1">
@@ -698,17 +701,18 @@
                       </div>
                     </div>
 
-                    <div class="form-row mt-1 hover-rows" numrow="7">
+                    <div class="form-row mt-1 hover-rows no-to-send" numrow="7">
                       <div style="width: 13.63%;">
                         <span class="bmd-form-group is-filled center-flex">
                           <span class="minor-height">ALETA Tras. Izq.</span>
                           <span class="subtitle-size minor-height">left rear wing/aile ARG</span>
-                          <input class="form-control" type="hidden" name="part[]" value="ATI" readonly="">
+                          <input class="form-control" type="hidden" name="part[]" value="ATI">
                         </span>
                       </div>
                       <div style="width: 3%;">
                         <span class="bmd-form-group">
-                          <input class="form-control hidden-text text-center" type="text" autocomplete="off" name="material[]" readonly="">
+                          <input class="form-control hidden-text text-center" type="hidden" autocomplete="off" name="material[]">
+                          <p class="text-center text-material7"></p>
                         </span>
                       </div>
                       <div class="col-md-1">
@@ -771,17 +775,18 @@
                       </div>
                     </div>
 
-                    <div class="form-row mt-1 hover-rows" numrow="8">
+                    <div class="form-row mt-1 hover-rows no-to-send" numrow="8">
                       <div style="width: 13.63%;">
                         <span class="bmd-form-group is-filled center-flex">
                           <span class="minor-height">ALETA Del. Der.</span>
                           <span class="subtitle-size minor-height">right front wing/aile AVD</span>
-                          <input class="form-control" type="hidden" name="part[]" value="ADD" readonly="">
+                          <input class="form-control" type="hidden" name="part[]" value="ADD">
                         </span>
                       </div>
                       <div style="width: 3%;">
                         <span class="bmd-form-group">
-                          <input class="form-control hidden-text text-center" type="text" autocomplete="off" name="material[]" readonly="">
+                          <input class="form-control hidden-text text-center" type="hidden" autocomplete="off" name="material[]">
+                          <p class="text-center text-material8"></p>
                         </span>
                       </div>
                       <div class="col-md-1">
@@ -836,17 +841,18 @@
                       </div>
                     </div>
 
-                    <div class="form-row mt-1 hover-rows" numrow="9">
+                    <div class="form-row mt-1 hover-rows no-to-send" numrow="9">
                       <div style="width: 13.63%;">
                         <span class="bmd-form-group is-filled center-flex">
                           <span class="minor-height">PUERETA Del. Der.</span>
                           <span class="subtitle-size minor-height">right front door/porte AVD</span>
-                          <input class="form-control" type="hidden" name="part[]" value="PDD" readonly="">
+                          <input class="form-control" type="hidden" name="part[]" value="PDD">
                         </span>
                       </div>
                       <div style="width: 3%;">
                         <span class="bmd-form-group">
-                          <input class="form-control hidden-text text-center" type="text" autocomplete="off" name="material[]" readonly="">
+                          <input class="form-control hidden-text text-center" type="hidden" autocomplete="off" name="material[]">
+                          <p class="text-center text-material9"></p>
                         </span>
                       </div>
                       <div class="col-md-1">
@@ -901,17 +907,18 @@
                       </div>
                     </div>
 
-                    <div class="form-row mt-1 hover-rows" numrow="10">
+                    <div class="form-row mt-1 hover-rows no-to-send" numrow="10">
                       <div style="width: 13.63%;">
                         <span class="bmd-form-group is-filled center-flex">
                           <span class="minor-height">PUERTA Tras. Der.</span>
                           <span class="subtitle-size minor-height">right rear door/porte ARD</span>
-                          <input class="form-control" type="hidden" name="part[]" value="PTD" readonly="">
+                          <input class="form-control" type="hidden" name="part[]" value="PTD">
                         </span>
                       </div>
                       <div style="width: 3%;">
                         <span class="bmd-form-group">
-                          <input class="form-control hidden-text text-center" type="text" autocomplete="off" name="material[]" readonly="">
+                          <input class="form-control hidden-text text-center" type="hidden" autocomplete="off" name="material[]">
+                          <p class="text-center text-material10"></p>
                         </span>
                       </div>
                       <div class="col-md-1">
@@ -966,17 +973,18 @@
                       </div>
                     </div>
 
-                    <div class="form-row mt-1 hover-rows" numrow="11">
+                    <div class="form-row mt-1 hover-rows no-to-send" numrow="11">
                       <div style="width: 13.63%;">
                         <span class="bmd-form-group is-filled center-flex">
                           <span class="minor-height">MONTANTE Der.</span>
                           <span class="subtitle-size minor-height">right rail/brancard D</span>
-                          <input class="form-control" type="hidden" name="part[]" value="MD" readonly="">
+                          <input class="form-control" type="hidden" name="part[]" value="MD">
                         </span>
                       </div>
                       <div style="width: 3%;">
                         <span class="bmd-form-group">
-                          <input class="form-control hidden-text text-center" type="text" autocomplete="off" name="material[]" readonly="">
+                          <input class="form-control hidden-text text-center" type="hidden" autocomplete="off" name="material[]">
+                          <p class="text-center text-material11"></p>
                         </span>
                       </div>
                       <div class="col-md-1">
@@ -1031,17 +1039,18 @@
                       </div>
                     </div>
 
-                    <div class="form-row mt-1 hover-rows" numrow="12">
+                    <div class="form-row mt-1 hover-rows no-to-send" numrow="12">
                       <div style="width: 13.63%;">
                         <span class="bmd-form-group is-filled center-flex">
                           <span class="minor-height">ALETA Tras. Der.</span>
                           <span class="subtitle-size minor-height">right rear wing/aile ARD</span>
-                          <input class="form-control" type="hidden" name="part[]" value="ATD" readonly="">
+                          <input class="form-control" type="hidden" name="part[]" value="ATD">
                         </span>
                       </div>
                       <div style="width: 3%;">
                         <span class="bmd-form-group">
-                          <input class="form-control hidden-text text-center" type="text" autocomplete="off" name="material[]" readonly="">
+                          <input class="form-control hidden-text text-center" type="hidden" autocomplete="off" name="material[]">
+                          <p class="text-center text-material12"></p>
                         </span>
                       </div>
                       <div class="col-md-1">
@@ -1102,6 +1111,32 @@
                 <div class="row">
                   <div class="col-md-12">
                     <div class="form-row text-center mt-3">
+                      
+                      <div class="col-md-3"></div>
+
+                      <div class="col-md-2">Ajuste manual:</div>
+                      <div class="col-md-1">
+                        <input id="manual-check" type="checkbox">
+                      </div>
+                      <div class="col-md-2">
+                        <input id="manual-total" type="number" min="0" value="0" style="width: 100%;" disabled="">
+                      </div>
+
+                      
+                      <div class="col-md-2">
+                        Des/Montaje
+                      </div>
+                      <div class="col-md-2">
+                        <input id="desmontaje" name="desmontaje" type="number" min="0" value="0" style="width: 100%;">
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-row text-center mt-3">
                       <div class="col-md-2">IVA:</div>
                       <div class="col-md-1"></div>
                       <div class="col-md-1"></div>
@@ -1112,8 +1147,7 @@
                       <div class="col-md-1"></div>
                       <div class="col-md-1"></div>
                       <div class="col-md-1"></div>
-                      <div class="col-md-1 btn-success total_iva">
-                      </div>
+                      <div class="col-md-1 btn-success total_iva"></div>
                       <input id="iva_total" name="iva_total" type="hidden" value="0">
                     </div>
                   </div>
@@ -1225,6 +1259,90 @@
         }
       });
 
+      // Funcion cuando cambia el toogle del material Aluminio/Hierro
+      $('#manual-check').change(function() {
+        if ( this.checked ) {
+          $('#manual-total').attr('disabled', false);
+          
+          var total = parseFloat($('#manual-total').val());
+          $('.totalEUR').html('');
+          var iva = parseFloat($('#iva_rate').val()) / 100;
+
+          var desmontaje = isNaN( $('#desmontaje').val() ) ? 0 : parseFloat($('#desmontaje').val());
+          total += desmontaje;
+
+          var iva_total = total * iva;
+          var total_con_iva = total + iva_total;
+
+          var result_iva = parseFloat(iva_total).toFixed(2);
+          var result_total = parseFloat(total_con_iva).toFixed(2);
+
+          result_iva = isNaN(result_iva) ? 0 : result_iva;
+          result_total = isNaN(result_total) ? 0 : result_total;
+
+          $('#iva_total').val( result_iva );
+          $('.total_iva').html( result_iva );
+          $('#grand_total').val( result_total );
+          $('.totalEUR').html( result_total );
+
+        }
+        if ( !this.checked ) {
+          $('#manual-total').attr('disabled', true);
+          $('#manual-total').val(0);
+          calculateTotals();
+        }
+      });
+
+      $('#manual-total').on('input', function(e){
+        var total = parseFloat($(this).val());
+        $('.totalEUR').html('');
+        var iva = parseFloat($('#iva_rate').val()) / 100;
+
+        var desmontaje = isNaN( $('#desmontaje').val() ) ? 0 : parseFloat($('#desmontaje').val());
+        total += desmontaje;
+
+        var iva_total = total * iva;
+        var total_con_iva = total + iva_total;
+
+        var result_iva = parseFloat(iva_total).toFixed(2);
+        var result_total = parseFloat(total_con_iva).toFixed(2);
+
+        result_iva = isNaN(result_iva) ? 0 : result_iva;
+        result_total = isNaN(result_total) ? 0 : result_total;
+
+        $('#iva_total').val( result_iva );
+        $('.total_iva').html( result_iva );
+        $('#grand_total').val( result_total );
+        $('.totalEUR').html( result_total );
+      });
+
+      $('#desmontaje').on('input', function(e){
+        var val = $(this).val();
+        if ( ! isNaN(val) ) {
+          if ( !$('#manual-check').prop('checked') ) {
+            calculateTotals();
+            return false;
+          }
+          var total = parseFloat($('#manual-total').val());
+          var iva = parseFloat($('#iva_rate').val()) / 100;
+          total += parseFloat(val);
+          console.log(total);
+          var iva_total = total * iva;
+          var total_con_iva = total + iva_total;
+
+          var result_iva = parseFloat(iva_total).toFixed(2);
+          var result_total = parseFloat(total_con_iva).toFixed(2);
+
+          result_iva = isNaN(result_iva) ? 0 : result_iva;
+          result_total = isNaN(result_total) ? 0 : result_total;
+
+          $('#iva_total').val( result_iva );
+          $('.total_iva').html( result_iva );
+          $('#grand_total').val( result_total );
+          $('.totalEUR').html( result_total );
+        }
+      });
+
       // Boton para agregar ya la fila
       $('.add-row').on('click', function(e){
         
@@ -1307,9 +1425,11 @@
         else if ( (p >= 81) && (p <= 100) ) { pVD = 88;}
         else if ( p > 100 )                 { pVD = 105;}
 
-        mat = '';
+        mat = 'Hierro';
+        $('.text-material'+numrow).html('');
         if ( $('#materialcheck').attr('material') == 'Aluminio') {
-          mat = 'X';
+          mat = 'Aluminio';
+          $('.text-material'+numrow).html('x');
           sVD = parseInt(sVD + (sVD * 0.2));
           mVD = parseInt(mVD + (mVD * 0.2));
           bVD = parseInt(bVD + (bVD * 0.2));
@@ -1335,6 +1455,9 @@
         $($('[numrow='+numrow+'] input')[11]).val(totalEur);
         $($('[numrow='+numrow+'] input')[11]).removeClass('hidden-text');
 
+        $($('[numrow='+numrow+']')).addClass('item-row-active');
+        $($('[numrow='+numrow+']')).removeClass('no-to-send');
+
         $('#small_size').val(0);
         $('#medium_size').val(0);
         $('#big_size').val(0);
@@ -1344,25 +1467,32 @@
       });
       
       $(document).on('click', '.hover-rows', function(e){
+        $(this).removeClass('item-row-active');
+        $(this).addClass('no-to-send');
         $(this).find(':input').each(function(){
           $(this).val(0);
           $(this).addClass('hidden-text');
+        });
+        $(this).find('p').each(function(){
+          $(this).html('');
         });
         calculateTotals();
       });
 
       $('#tarifa_pdr').on('input', function(e){
-        var tarifa = $(this).val();
-        if (tarifa === '') {
-          alert('Debe ingresar una tarifa');
-          return false;
+        if ( !$('#manual-check').prop('checked') ) {
+          var tarifa = $(this).val();
+          if (tarifa === '') {
+            alert('Debe ingresar una tarifa');
+            return false;
+          }
+          if (parseFloat(tarifa) <= 0) {
+            alert('La tarifa debe ser mayor a 0');
+            return false; 
+          }
+          tarifa = parseInt( $(this).val() );
+          calculateTotals();
         }
-        if (parseFloat(tarifa) <= 0) {
-          alert('La tarifa debe ser mayor a 0');
-          return false; 
-        }
-        tarifa = parseInt( $(this).val() );
-        reCalculateTotals(tarifa);
       });
 
       function reCalculateTotals(tarifa){
@@ -1374,6 +1504,9 @@
           $('#totalMoneyRow'+num).val( (val * tarifa) );
           total += parseFloat($('#totalMoneyRow'+num).val());
         });
+
+        var desmontaje = isNaN( $('#desmontaje').val() ) ? 0 : parseFloat($('#desmontaje').val());
+        total += desmontaje;
 
         $('.totalEUR').html('');
         var iva = parseFloat($('#iva_rate').val()) / 100;
@@ -1459,6 +1592,9 @@
         });
         $('.totalEUR').html('');
         var iva = parseFloat($('#iva_rate').val()) / 100;
+        var desmontaje = isNaN( $('#desmontaje').val() ) ? 0 : parseFloat($('#desmontaje').val());
+
+        X += desmontaje;
 
         var iva_total = X * iva;
         var total_con_iva = X + iva_total;
@@ -1490,7 +1626,7 @@
       // Cuando se selecciona una parte del carro
       $('.add-item-budget').on('click', function(e) {
         $('.modal-title').html( $(this).attr('part') );
-        $('#numrow-toadd').val( $(this).attr('numrow') );
+        $('#numrow-toadd').val( $(this).attr('numrowpart') );
         $('#add-part').val( $(this).attr('abpart') );
         $('#myModal').modal('show');
       });
@@ -1561,6 +1697,10 @@
       $('#select-currency').on('change', function(e){
         var obj = $("#select-currency option:selected");
         $('#total-currency').html( 'Total ' + obj.text() );
+      });
+
+      $('#budget-form').on('submit', function(e){
+        $('.no-to-send').remove();
       });
     });
   </script>

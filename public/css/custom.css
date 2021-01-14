@@ -308,3 +308,7 @@ table.body-budget td {
 .hidden-text {
     color: transparent;
 }
+
+.item-row-active {
+    border: 1px solid green !important;
+}

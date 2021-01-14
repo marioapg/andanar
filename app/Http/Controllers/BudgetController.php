@@ -163,6 +163,7 @@ class BudgetController extends Controller
 
     public function storeStepFour(Request $request)
     {
+        // dd($request->all());
         $validator = Validator::make($request->all(), [
             'client_id' => ['required'],
             'proficient_id' => ['nullable', 'exists:users,id'],
