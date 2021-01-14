@@ -31,6 +31,8 @@ class CreateBudgetsTable extends Migration
             $table->double('total');
             $table->double('iva');
             $table->double('grand_total');
+            $table->double('desmontaje');
+            $table->boolean('manual');
             $table->double('tarifa_pdr');
             $table->foreign('client_id')->references('id')->on('clients');
             $table->foreign('technical_id')->references('id')->on('users');

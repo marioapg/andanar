@@ -294,7 +294,7 @@
                       </div>
                       <div class="col-md-1">
                         <span class="bmd-form-group is-filled">
-                          <input id="totalMoneyRow0" class="form-control hidden-text totalMoneyRow" type="number" value="0" autocomplete="off" name="totalMoneyRow[]" readonly="">
+                          <input id="totalMoneyRow0" class="form-control hidden-text totalMoneyRow" type="number" autocomplete="off" name="totalMoneyRow[]" readonly="">
                         </span>
                       </div>
                     </div>
@@ -353,12 +353,12 @@
                       </div>
                       <div class="col-md-1">
                         <span class="bmd-form-group is-filled">
-                          <input class="form-control hidden-text totalrow" num="0" type="number" value="0" autocomplete="off" name="totalrow[]" readonly="">
+                          <input class="form-control hidden-text totalrow" num="1" type="number" value="0" autocomplete="off" name="totalrow[]" readonly="">
                         </span>
                       </div>
                       <div class="col-md-1">
                         <span class="bmd-form-group is-filled">
-                          <input id="totalMoneyRow0" class="form-control hidden-text totalMoneyRow" type="number" value="0" autocomplete="off" name="totalMoneyRow[]" readonly="">
+                          <input id="totalMoneyRow1" class="form-control hidden-text totalMoneyRow" type="number" autocomplete="off" name="totalMoneyRow[]" readonly="">
                         </span>
                       </div>
                     </div>
@@ -419,12 +419,12 @@
                       </div>
                       <div class="col-md-1">
                         <span class="bmd-form-group is-filled">
-                          <input class="form-control hidden-text totalrow" num="0" type="number" value="0" autocomplete="off" name="totalrow[]" readonly="">
+                          <input class="form-control hidden-text totalrow" num="2" type="number" value="0" autocomplete="off" name="totalrow[]" readonly="">
                         </span>
                       </div>
                       <div class="col-md-1">
                         <span class="bmd-form-group is-filled">
-                          <input id="totalMoneyRow0" class="form-control hidden-text totalMoneyRow" type="number" value="0" autocomplete="off" name="totalMoneyRow[]" readonly="">
+                          <input id="totalMoneyRow2" class="form-control hidden-text totalMoneyRow" type="number" autocomplete="off" name="totalMoneyRow[]" readonly="">
                         </span>
                       </div>
                     </div>
@@ -493,12 +493,12 @@
                       </div>
                       <div class="col-md-1">
                         <span class="bmd-form-group is-filled">
-                          <input class="form-control hidden-text totalrow" num="0" type="number" value="0" autocomplete="off" name="totalrow[]" readonly="">
+                          <input class="form-control hidden-text totalrow" num="3" type="number" value="0" autocomplete="off" name="totalrow[]" readonly="">
                         </span>
                       </div>
                       <div class="col-md-1">
                         <span class="bmd-form-group is-filled">
-                          <input id="totalMoneyRow0" class="form-control hidden-text totalMoneyRow" type="number" value="0" autocomplete="off" name="totalMoneyRow[]" readonly="">
+                          <input id="totalMoneyRow3" class="form-control hidden-text totalMoneyRow" type="number" autocomplete="off" name="totalMoneyRow[]" readonly="">
                         </span>
                       </div>
                     </div>
@@ -559,12 +559,12 @@
                       </div>
                       <div class="col-md-1">
                         <span class="bmd-form-group is-filled">
-                          <input class="form-control hidden-text totalrow" num="0" type="number" value="0" autocomplete="off" name="totalrow[]" readonly="">
+                          <input class="form-control hidden-text totalrow" num="4" type="number" value="0" autocomplete="off" name="totalrow[]" readonly="">
                         </span>
                       </div>
                       <div class="col-md-1">
                         <span class="bmd-form-group is-filled">
-                          <input id="totalMoneyRow0" class="form-control hidden-text totalMoneyRow" type="number" value="0" autocomplete="off" name="totalMoneyRow[]" readonly="">
+                          <input id="totalMoneyRow4" class="form-control hidden-text totalMoneyRow" type="number" autocomplete="off" name="totalMoneyRow[]" readonly="">
                         </span>
                       </div>
                     </div>
@@ -625,12 +625,12 @@
                       </div>
                       <div class="col-md-1">
                         <span class="bmd-form-group is-filled">
-                          <input class="form-control hidden-text totalrow" num="0" type="number" value="0" autocomplete="off" name="totalrow[]" readonly="">
+                          <input class="form-control hidden-text totalrow" num="5" type="number" value="0" autocomplete="off" name="totalrow[]" readonly="">
                         </span>
                       </div>
                       <div class="col-md-1">
                         <span class="bmd-form-group is-filled">
-                          <input id="totalMoneyRow0" class="form-control hidden-text totalMoneyRow" type="number" value="0" autocomplete="off" name="totalMoneyRow[]" readonly="">
+                          <input id="totalMoneyRow5" class="form-control hidden-text totalMoneyRow" type="number" autocomplete="off" name="totalMoneyRow[]" readonly="">
                         </span>
                       </div>
                     </div>
@@ -691,12 +691,12 @@
                       </div>
                       <div class="col-md-1">
                         <span class="bmd-form-group is-filled">
-                          <input class="form-control hidden-text totalrow" num="0" type="number" value="0" autocomplete="off" name="totalrow[]" readonly="">
+                          <input class="form-control hidden-text totalrow" num="6" type="number" value="0" autocomplete="off" name="totalrow[]" readonly="">
                         </span>
                       </div>
                       <div class="col-md-1">
                         <span class="bmd-form-group is-filled">
-                          <input id="totalMoneyRow0" class="form-control hidden-text totalMoneyRow" type="number" value="0" autocomplete="off" name="totalMoneyRow[]" readonly="">
+                          <input id="totalMoneyRow6" class="form-control hidden-text totalMoneyRow" type="number" autocomplete="off" name="totalMoneyRow[]" readonly="">
                         </span>
                       </div>
                     </div>
@@ -757,12 +757,12 @@
                       </div>
                       <div class="col-md-1">
                         <span class="bmd-form-group is-filled">
-                          <input class="form-control hidden-text totalrow" num="0" type="number" value="0" autocomplete="off" name="totalrow[]" readonly="">
+                          <input class="form-control hidden-text totalrow" num="7" type="number" value="0" autocomplete="off" name="totalrow[]" readonly="">
                         </span>
                       </div>
                       <div class="col-md-1">
                         <span class="bmd-form-group is-filled">
-                          <input id="totalMoneyRow0" class="form-control hidden-text totalMoneyRow" type="number" value="0" autocomplete="off" name="totalMoneyRow[]" readonly="">
+                          <input id="totalMoneyRow7" class="form-control hidden-text totalMoneyRow" type="number" autocomplete="off" name="totalMoneyRow[]" readonly="">
                         </span>
                       </div>
                     </div>
@@ -831,12 +831,12 @@
                       </div>
                       <div class="col-md-1">
                         <span class="bmd-form-group is-filled">
-                          <input class="form-control hidden-text totalrow" num="0" type="number" value="0" autocomplete="off" name="totalrow[]" readonly="">
+                          <input class="form-control hidden-text totalrow" num="8" type="number" value="0" autocomplete="off" name="totalrow[]" readonly="">
                         </span>
                       </div>
                       <div class="col-md-1">
                         <span class="bmd-form-group is-filled">
-                          <input id="totalMoneyRow0" class="form-control hidden-text totalMoneyRow" type="number" value="0" autocomplete="off" name="totalMoneyRow[]" readonly="">
+                          <input id="totalMoneyRow8" class="form-control hidden-text totalMoneyRow" type="number" autocomplete="off" name="totalMoneyRow[]" readonly="">
                         </span>
                       </div>
                     </div>
@@ -897,12 +897,12 @@
                       </div>
                       <div class="col-md-1">
                         <span class="bmd-form-group is-filled">
-                          <input class="form-control hidden-text totalrow" num="0" type="number" value="0" autocomplete="off" name="totalrow[]" readonly="">
+                          <input class="form-control hidden-text totalrow" num="9" type="number" value="0" autocomplete="off" name="totalrow[]" readonly="">
                         </span>
                       </div>
                       <div class="col-md-1">
                         <span class="bmd-form-group is-filled">
-                          <input id="totalMoneyRow0" class="form-control hidden-text totalMoneyRow" type="number" value="0" autocomplete="off" name="totalMoneyRow[]" readonly="">
+                          <input id="totalMoneyRow9" class="form-control hidden-text totalMoneyRow" type="number" autocomplete="off" name="totalMoneyRow[]" readonly="">
                         </span>
                       </div>
                     </div>
@@ -963,12 +963,12 @@
                       </div>
                       <div class="col-md-1">
                         <span class="bmd-form-group is-filled">
-                          <input class="form-control hidden-text totalrow" num="0" type="number" value="0" autocomplete="off" name="totalrow[]" readonly="">
+                          <input class="form-control hidden-text totalrow" num="10" type="number" value="0" autocomplete="off" name="totalrow[]" readonly="">
                         </span>
                       </div>
                       <div class="col-md-1">
                         <span class="bmd-form-group is-filled">
-                          <input id="totalMoneyRow0" class="form-control hidden-text totalMoneyRow" type="number" value="0" autocomplete="off" name="totalMoneyRow[]" readonly="">
+                          <input id="totalMoneyRow10" class="form-control hidden-text totalMoneyRow" type="number" autocomplete="off" name="totalMoneyRow[]" readonly="">
                         </span>
                       </div>
                     </div>
@@ -1029,12 +1029,12 @@
                       </div>
                       <div class="col-md-1">
                         <span class="bmd-form-group is-filled">
-                          <input class="form-control hidden-text totalrow" num="0" type="number" value="0" autocomplete="off" name="totalrow[]" readonly="">
+                          <input class="form-control hidden-text totalrow" num="11" type="number" value="0" autocomplete="off" name="totalrow[]" readonly="">
                         </span>
                       </div>
                       <div class="col-md-1">
                         <span class="bmd-form-group is-filled">
-                          <input id="totalMoneyRow0" class="form-control hidden-text totalMoneyRow" type="number" value="0" autocomplete="off" name="totalMoneyRow[]" readonly="">
+                          <input id="totalMoneyRow11" class="form-control hidden-text totalMoneyRow" type="number" autocomplete="off" name="totalMoneyRow[]" readonly="">
                         </span>
                       </div>
                     </div>
@@ -1095,12 +1095,12 @@
                       </div>
                       <div class="col-md-1">
                         <span class="bmd-form-group is-filled">
-                          <input class="form-control hidden-text totalrow" num="0" type="number" value="0" autocomplete="off" name="totalrow[]" readonly="">
+                          <input class="form-control hidden-text totalrow" num="12" type="number" value="0" autocomplete="off" name="totalrow[]" readonly="">
                         </span>
                       </div>
                       <div class="col-md-1">
                         <span class="bmd-form-group is-filled">
-                          <input id="totalMoneyRow0" class="form-control hidden-text totalMoneyRow" type="number" value="0" autocomplete="off" name="totalMoneyRow[]" readonly="">
+                          <input id="totalMoneyRow12" class="form-control hidden-text totalMoneyRow" type="number" autocomplete="off" name="totalMoneyRow[]" readonly="">
                         </span>
                       </div>
                     </div>
@@ -1116,7 +1116,7 @@
 
                       <div class="col-md-2">Ajuste manual:</div>
                       <div class="col-md-1">
-                        <input id="manual-check" type="checkbox">
+                        <input id="manual-check" type="checkbox" name="manual_check">
                       </div>
                       <div class="col-md-2">
                         <input id="manual-total" type="number" min="0" value="0" style="width: 100%;" disabled="">
@@ -1317,30 +1317,30 @@
       });
 
       $('#desmontaje').on('input', function(e){
-        var val = $(this).val();
-        if ( ! isNaN(val) ) {
-          if ( !$('#manual-check').prop('checked') ) {
-            calculateTotals();
-            return false;
-          }
-          var total = parseFloat($('#manual-total').val());
-          var iva = parseFloat($('#iva_rate').val()) / 100;
-          total += parseFloat(val);
-          console.log(total);
-          var iva_total = total * iva;
-          var total_con_iva = total + iva_total;
-
-          var result_iva = parseFloat(iva_total).toFixed(2);
-          var result_total = parseFloat(total_con_iva).toFixed(2);
-
-          result_iva = isNaN(result_iva) ? 0 : result_iva;
-          result_total = isNaN(result_total) ? 0 : result_total;
-
-          $('#iva_total').val( result_iva );
-          $('.total_iva').html( result_iva );
-          $('#grand_total').val( result_total );
-          $('.totalEUR').html( result_total );
+        var val = $(this).val() === "" ? 0 : $(this).val();
+        if ( !$('#manual-check').prop('checked') ) {
+          calculateTotals();
+          return true;
         }
+
+        var total = parseFloat($('#manual-total').val());
+        var iva = parseFloat($('#iva_rate').val()) / 100;
+        
+        total += parseFloat(val);
+        
+        var iva_total = total * iva;
+        var total_con_iva = total + iva_total;
+
+        var result_iva = parseFloat(iva_total).toFixed(2);
+        var result_total = parseFloat(total_con_iva).toFixed(2);
+
+        result_iva = isNaN(result_iva) ? 0 : result_iva;
+        result_total = isNaN(result_total) ? 0 : result_total;
+
+        $('#iva_total').val( result_iva );
+        $('.total_iva').html( result_iva );
+        $('#grand_total').val( result_total );
+        $('.totalEUR').html( result_total );
       });
 
       // Boton para agregar ya la fila
@@ -1482,7 +1482,7 @@
       $('#tarifa_pdr').on('input', function(e){
         if ( !$('#manual-check').prop('checked') ) {
           var tarifa = $(this).val();
-          if (tarifa === '') {
+          if (tarifa === "") {
             alert('Debe ingresar una tarifa');
             return false;
           }
@@ -1490,32 +1490,56 @@
             alert('La tarifa debe ser mayor a 0');
             return false; 
           }
-          tarifa = parseInt( $(this).val() );
           calculateTotals();
         }
       });
 
-      function reCalculateTotals(tarifa){
-        let total = parseFloat(0);
-        $('.totalrow').each(function(){
-          var num = $(this).attr('num');
-          var val = $(this).val();
+      function calculateRate() {
+        // let total = parseFloat(0);
+        if ( !$('#manual-check').prop('checked') ) {
+          var tarifa = parseInt( $('#tarifa_pdr').val() );
+          $('.totalrow').each(function(){
+            var num = $(this).attr('num');
+            var val = $(this).val();
+            $('#totalMoneyRow'+num).val( (val * tarifa) );
+            // total += parseFloat($('#totalMoneyRow'+num).val());
+          });
+        }
+        // var desmontaje = isNaN( $('#desmontaje').val() ) ? 0 : parseFloat($('#desmontaje').val());
+        // total += desmontaje;
 
-          $('#totalMoneyRow'+num).val( (val * tarifa) );
-          total += parseFloat($('#totalMoneyRow'+num).val());
-        });
+        // $('.totalEUR').html('');
+        // var iva = parseFloat($('#iva_rate').val()) / 100;
 
-        var desmontaje = isNaN( $('#desmontaje').val() ) ? 0 : parseFloat($('#desmontaje').val());
-        total += desmontaje;
+        // var iva_total = total * iva;
+        // var total_con_iva = total + iva_total;
 
+        // var result_iva = parseFloat(iva_total).toFixed(2);
+        // var result_total = parseFloat(total_con_iva).toFixed(2);
+        // $('#iva_total').val( result_iva );
+        // $('.total_iva').html( result_iva );
+        // $('#grand_total').val( result_total );
+        // $('.totalEUR').html( result_total );
+      }
+
+      function calculateManual() {
+        var total = parseFloat( $('#manual-total').val() );
         $('.totalEUR').html('');
-        var iva = parseFloat($('#iva_rate').val()) / 100;
+
+        var iva = parseFloat( $('#iva_rate').val() ) / 100;
+
+        var desmontaje = ( $('#desmontaje').val() === "" ) ? 0 : parseFloat( $('#desmontaje').val() );
+        total += desmontaje;
 
         var iva_total = total * iva;
         var total_con_iva = total + iva_total;
 
         var result_iva = parseFloat(iva_total).toFixed(2);
         var result_total = parseFloat(total_con_iva).toFixed(2);
+
+        result_iva = isNaN(result_iva) ? 0 : result_iva;
+        result_total = isNaN(result_total) ? 0 : result_total;
+
         $('#iva_total').val( result_iva );
         $('.total_iva').html( result_iva );
         $('#grand_total').val( result_total );
@@ -1586,13 +1610,16 @@
         $('.totalVD').html('');
         $('.totalVD').html(parseInt(X));
 
+        calculateRate();
+
         X = 0;
         $('.totalMoneyRow').each(function(){
           X += parseInt($(this).val());
         });
+
         $('.totalEUR').html('');
         var iva = parseFloat($('#iva_rate').val()) / 100;
-        var desmontaje = isNaN( $('#desmontaje').val() ) ? 0 : parseFloat($('#desmontaje').val());
+        var desmontaje = $('#desmontaje').val() == "" ? parseFloat(0) : parseFloat($('#desmontaje').val());
 
         X += desmontaje;
 

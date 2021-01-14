@@ -27,6 +27,8 @@ class Budget extends Model
         'grand_total',
         'tarifa_pdr',
         'attached',
+        'desmontaje',
+        'manual',
 	];
 
 

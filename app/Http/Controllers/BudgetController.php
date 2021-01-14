@@ -210,6 +210,8 @@ class BudgetController extends Controller
             ]);
         }
 
+        $manual = isset($request->manual_check) ? 1 : 0;
+
         $budget = Budget::create([
                     'client_id' => $request->client_id,
                     'technical_id' => $request->technical_id,
@@ -226,6 +228,8 @@ class BudgetController extends Controller
                     'iva' => $request->iva_total,
                     'grand_total' => $request->grand_total,
                     'tarifa_pdr' => $request->tarifa,
+                    'desmontaje' => $request->desmontaje,
+                    'manual' => $manual,
                 ]);
         foreach ($request->part as $key => $value) {
             $mat = $request->material[$key] ? 'Aluminio' : 'Hierro';
