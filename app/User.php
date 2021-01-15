@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Notifications\Notifiable;
+use App\Budget;
 use App\Role;
 
 class User extends Authenticatable
@@ -68,5 +69,10 @@ class User extends Authenticatable
         if ($this->roles()->where('name', $role)->first()) {
             return true;
         }    return false;
+    }
+
+    public function budgets()
+    {
+        return $this->belongsToMany(Budget::class, 'budget_user');
     }
 }

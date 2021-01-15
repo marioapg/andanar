@@ -14,7 +14,6 @@
                   </div>
                @endif
                <div class="card">
-                  
                   <div class="card-header card-header-info">
                      <h4 class="card-title ">{{ __('Presupuesto') }}</h4>
                      <p class="card-category">{{ $budget->id }}</p>
@@ -28,6 +27,14 @@
                                  <button class="btn btn-primay">
                                     <i class="material-icons">edit</i>
                                     Editar
+                                 </button>
+                              </a>
+                           </div>
+                           <div class="col">
+                              <a href="{{ route('budget.allowed', $budget->id) }}">
+                                 <button class="btn btn-warning">
+                                    <i class="material-icons">edit</i>
+                                    Editar Accesos
                                  </button>
                               </a>
                            </div>

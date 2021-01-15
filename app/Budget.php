@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
+use App\User;
 
 class Budget extends Model
 {
@@ -121,5 +122,15 @@ class Budget extends Model
         }
 
         return false;
+    }
+
+    public function usersAccess()
+    {
+        return $this->belongsToMany(User::class, 'budget_user');
+    }
+
+    public function hasAccess($user_id)
+    {
+        return $this->usersAccess()->where('user_id', $user_id)->count() ? 1 : 0;
     }
 }

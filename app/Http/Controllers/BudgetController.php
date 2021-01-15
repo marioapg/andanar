@@ -442,4 +442,14 @@ class BudgetController extends Controller
         Session::flash('flash_type', 'alert-success');
         return redirect()->route('budget.show', ['id' => $budget->id]);
     }
+
+    public function alloweds(Request $request)
+    {
+        return view('budgets.autorizes', ['budget' => Budget::find($request->id)]);
+    }
+
+    public function autorize(Request $request)
+    {
+        dd($request->all());
+    }
 }
