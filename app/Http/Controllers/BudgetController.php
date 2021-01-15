@@ -467,4 +467,10 @@ class BudgetController extends Controller
         Session::flash('flash_type', 'alert-success');
         return back();
     }
+
+    public function embedview(Request $request)
+    {
+        $budget = Budget::where('id',$request->budgetid)->first();
+        return view('mails.budget_mail_pdf', ['budget'=>$budget]);
+    }
 }

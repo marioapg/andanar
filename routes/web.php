@@ -12,11 +12,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-use App\Budget;
-Route::get('/view', function () {
-	$budget = Budget::where('id',1)->first();
-    return view('mails.budget_mail_pdf', ['budget'=>$budget]);
-});
 Route::get('/', function () {
     return redirect()->route('login');
 });
@@ -25,7 +20,7 @@ Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('/home', 'HomeController@index')->name('home');
-
+	
 	// USER
 	Route::resource('user', 'UserController', ['except' => ['show']]);
 	Route::get('user/{id}', ['as' => 'user.show', 'uses' => 'UserController@show']);
@@ -67,6 +62,7 @@ Route::group(['middleware' => 'auth'], function () {
 	
 	Route::post('budget/{budgetid}/mail/send', 'BudgetMailsController@send')->name('budget.send.mail');
 	Route::get('budget/{budgetid}/view/pdf', 'ViewPDFController@view')->name('budget.view.pdf');
+	Route::get('budget/{budgetid}/view/embed', 'BudgetController@embedview')->name('budget.view.embed');
 
 	// PROFILE (self owner))
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
