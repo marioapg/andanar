@@ -4,10 +4,8 @@
 
       Tip 2: you can also add an image using data-image tag
   -->
-  <div class="logo">
-    <a href="#" class="simple-text logo-normal">
-      {{ __('Andanar') }}
-    </a>
+  <div class="logo" style="text-align: center;">
+    <img src="{{ asset('/images/logo.jpg') }}" width="150">
   </div>
   <div class="sidebar-wrapper">
     <ul class="nav">

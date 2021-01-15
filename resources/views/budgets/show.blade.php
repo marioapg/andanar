@@ -40,6 +40,15 @@
                            </div>
 
                            <div class="col">
+                              <a href="{{ route('budget.view.pdf', $budget->id) }}" target="_blank">
+                                 <button class="btn btn-info">
+                                    <i class="material-icons">chrome_reader_mode</i>
+                                    Ver PDF
+                                 </button>
+                              </a>
+                           </div>
+
+                           <div class="col">
                               <form action="{{ route('budget.status', $budget->id) }}" id="invoice-status" method="post" style="padding: 8px;">
                                  @csrf
                                  @method('put')
@@ -55,8 +64,10 @@
                               </form>
                            </div>
                         </div>
-
-                        <!-- <div class="invoice overflow-auto"> -->
+                        
+                        <embed src="{{ url('/') }}/view" type="application/pdf" width="100%" height="1200px" />
+                        
+                        {{--
                         <div class="overflow-auto mt-3">
                            <div style="min-width: 600px">
                               <table class="head-budget" style="width:100%;">
@@ -429,6 +440,7 @@
                               </table>
                            </div>
                         </div>
+                        --}}
                      </div>
 
                      <!-- VISTA DE ADJUNTOS -->
