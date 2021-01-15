@@ -26,6 +26,9 @@ class BudgetController extends Controller
     
     public function index(Request $request)
     {
+        if ( auth()->user()->type == 'technical' ) {
+            return redirect()->route('budgets.technical.index');
+        }
         $budgets = Budget::all();
     	return view('budgets.index', ['budgets' => $budgets]);
     }

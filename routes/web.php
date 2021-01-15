@@ -20,6 +20,11 @@ Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('/home', 'HomeController@index')->name('home');
+	Route::get('technical/session/mybudgets', 'BudgetTechnicalController@index')->name('budgets.technical.index');
+	Route::get('technical/session/mybudgets/budget/{id}', 'BudgetTechnicalController@show')->name('budget.technical.show');
+	Route::put('technical/session/mybudgets/budget/{id}/status', 'BudgetTechnicalController@status')->name('budget.technical.status');
+	Route::get('technical/session/mybudgets/budget/{budgetid}/view/pdf', 'ViewPDFController@viewTechnical')->name('budget.technical.view.pdf');
+	Route::get('technical/session/mybudgets/budget/{budgetid}/view/embed', 'BudgetTechnicalController@embedview')->name('budget.technical.view.embed');
 	
 	// USER
 	Route::resource('user', 'UserController', ['except' => ['show']]);
@@ -63,6 +68,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('budget/{budgetid}/mail/send', 'BudgetMailsController@send')->name('budget.send.mail');
 	Route::get('budget/{budgetid}/view/pdf', 'ViewPDFController@view')->name('budget.view.pdf');
 	Route::get('budget/{budgetid}/view/embed', 'BudgetController@embedview')->name('budget.view.embed');
+
 
 	// PROFILE (self owner))
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);

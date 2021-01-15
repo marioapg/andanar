@@ -34,7 +34,6 @@
           <p>{{ __('Autos') }}</p>
         </a>
       </li>
-      @endif
       <li class="nav-item {{ ($activePage == 'budgets') ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('budgets.index') }}">
           <i class="material-icons">content_paste</i>
@@ -42,6 +41,15 @@
           </p>
         </a>
       </li>
+      @else
+        <li class="nav-item {{ ($activePage == 'budgets') ? ' active' : '' }}">
+          <a class="nav-link" href="{{ route('budgets.technical.index') }}">
+            <i class="material-icons">content_paste</i>
+            <p>{{ __('Presupuestos') }}
+            </p>
+          </a>
+        </li>
+      @endif
     </ul>
   </div>
 </div>

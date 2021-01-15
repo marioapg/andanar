@@ -57,7 +57,7 @@
                       <select name="technical_id" id="select-technical">
                         <option value=""></option>
                         @foreach( \App\User::where('type','technical')->where('status',1)->get() as $technical)
-                          <option value="{{ $technical->id }}">{{ $technical->name }}</option>
+                          <option value="{{ $technical->id }}" @if(auth()->user()->type == 'technical' && auth()->user()->id == $technical->id) 'selected' @endif>{{ $technical->name }}</option>
                         @endforeach
                       </select>
                   </div>

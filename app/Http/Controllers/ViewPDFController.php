@@ -18,4 +18,15 @@ class ViewPDFController extends Controller
 
         return back();
     }
+
+    public function viewTechnical(Request $request)
+    {
+        $budget = Budget::where('id', $request->budgetid)->first();
+        if ($budget) {
+	        $pdf = PDF::loadView('mails.budget_mail_pdf', ['budget'=>$budget]);
+	        return $pdf->stream();
+        }
+
+        return back();
+    }
 }
