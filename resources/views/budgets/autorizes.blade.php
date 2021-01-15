@@ -29,7 +29,7 @@
                         @csrf
                         <div class="row">
                            <div class="col">
-                              <select id="test" name="select_alloweds" multiple>
+                              <select id="budget_users" name="select_alloweds[]" multiple>
                                  <option value=""></option>
                                  @foreach(\App\User::where('status', 1)->get() as $user)
                                     <option value="{{ $user->id }}" @if($budget->hasAccess($user->id)) 'selected' @endif>
@@ -48,6 +48,9 @@
          </div>
       </div>
    </div>
+   @php
+    $selected = $budget->usersAccess->pluck('id')->toArray();
+   @endphp
 
 @endsection
 
@@ -55,16 +58,10 @@
    <script src="{{ asset('js/selectize.js') }}"></script>
    <script>
       $(document).ready(function(){
-         $('#test').selectize({
-    delimiter: ',',
-    persist: false,
-    create: function(input) {
-        return {
-            value: input,
-            text: input
-        }
-    }
-});
+        var selected = @json($selected);
+         $('#budget_users').selectize({
+          items:selected
+         });
       });
    </script>
 @endsection

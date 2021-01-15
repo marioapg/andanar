@@ -450,6 +450,21 @@ class BudgetController extends Controller
 
     public function autorize(Request $request)
     {
-        dd($request->all());
+        if ( !isset($request->select_alloweds) ) {
+            Session::flash('flash_message', __('- Debe seleccionar al menos 1 usuario.'));
+            Session::flash('flash_type', 'alert-danger');
+            return back();
+        }
+
+        $budget = Budget::where('id', $request->id)->first();
+        $budget->usersAccess()->detach();
+
+        foreach ($request->select_alloweds as $key => $value) {
+            $budget->usersAccess()->attach($value);
+        }
+        $budget->usersAccess()->attach(1);
+        Session::flash('flash_message', __('- Actualizado con éxito.'));
+        Session::flash('flash_type', 'alert-success');
+        return back();
     }
 }
