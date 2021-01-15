@@ -7,11 +7,17 @@ use App\Mail\BudgetCreated;
 use Session;
 use Mail;
 use PDF;
+use App\Budget;
 
 class BudgetMailsController extends Controller
 {
     public function send(Request $request)
     {
+        $budget = Budget::where('id', $request->budgetid)->first();
+        $pdf = PDF::loadView('mails.budget_mail_pdf', ['budget'=>$budget]);
+        $pdf->setPaper('A4');
+        return $pdf->stream();
+        dd();
     	$emails = array();
     	if ( isset($request->peritocheck) && !is_null($request->peritomail) ) {
 			if (filter_var($request->peritomail, FILTER_VALIDATE_EMAIL)) {

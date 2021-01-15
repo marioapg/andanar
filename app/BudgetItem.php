@@ -90,4 +90,68 @@ class BudgetItem extends Model
                 break;
         }
     }
+
+    public function pieceTranslation($piece = '')
+    {
+        if ($piece == '') {
+            return '';
+        }
+        switch ($piece) {
+            case 'CAPOT':
+                return 'hood/capot';
+                break;
+
+            case 'TECHO':
+                return 'roof/toit';
+                break;
+            
+            case 'MALETERO':
+                return 'trunk/coffre';
+                break;
+            
+            case 'ADI':
+                return 'Left Front Wing/Aile AVG';
+                break;
+            
+            case 'PDI':
+                return 'Left Front Door/Porte AVG';
+                break;
+            
+            case 'PTI':
+                return 'Left Rear Door/Porte ARG';
+                break;
+            
+            case 'MI':
+                return 'Left Rail/Brancard G';
+                break;
+            
+            case 'ATI':
+                return 'Left Rear Wing/Aile ARG';
+                break;
+            
+            case 'ADD':
+                return 'Right Front Wing/Aile AVD';
+                break;
+            
+            case 'PDD':
+                return 'Right Front Door/Porte AVD';
+                break;
+            
+            case 'PTD':
+                return 'Right Rear Door/Porte ARD';
+                break;
+            
+            case 'MD':
+                return 'Right Rail/Brancard D';
+                break;
+            
+            case 'ATD':
+                return 'Right Rear Wing/Aile ARD';
+                break;
+            
+            default:
+                # code...
+                break;
+        }
+    }
 }

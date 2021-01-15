@@ -63,7 +63,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('budget/{id}/edit', 'BudgetController@edit')->name('budget.edit');
 	Route::put('budget/{budget_id}', 'BudgetController@update')->name('budget.update');
 	
-	Route::post('budget/{budgetid}/mail/send', 'BudgetMailsController@send')->name('budget.send.mail');
+	Route::get('budget/{budgetid}/mail/send', 'BudgetMailsController@send')->name('budget.send.mail');
 
 	// PROFILE (self owner))
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);

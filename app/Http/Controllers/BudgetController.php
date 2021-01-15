@@ -367,6 +367,8 @@ class BudgetController extends Controller
             ]);
         }
 
+        $manual = isset($request->manual_check) ? 1 : 0;
+
         $flag = $budget->update([
                     'client_id' => $request->client_id,
                     'technical_id' => $request->technical_id,
@@ -382,6 +384,8 @@ class BudgetController extends Controller
                     'iva' => $request->iva_total,
                     'grand_total' => $request->grand_total,
                     'tarifa_pdr' => $request->tarifa,
+                    'manual' => $manual,
+                    'desmontaje' => $request->desmontaje,
                 ]);
         
         $budget->items()->delete();
