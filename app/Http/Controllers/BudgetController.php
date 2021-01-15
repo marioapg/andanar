@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Utils\Currencies;
 use App\BudgetItem;
+use App\BudgetUser;
 use App\Budget;
 use App\Client;
 use App\Car;
@@ -163,11 +164,9 @@ class BudgetController extends Controller
 
     public function storeStepFour(Request $request)
     {
-        // dd($request->all());
         $validator = Validator::make($request->all(), [
             'client_id' => ['required'],
             'proficient_id' => ['nullable', 'exists:users,id'],
-            'technical_id' => ['nullable','exists:users,id'],
             "plate" => ['required'],
             "brand" => ['required'],
             "model" => ['required'],
@@ -231,6 +230,12 @@ class BudgetController extends Controller
                     'desmontaje' => $request->desmontaje,
                     'manual' => $manual,
                 ]);
+
+        if ($request->technical_id) {
+            BudgetUser::create(['budget_id' => $budget->id, 'user_id' => $request->technical_id]);
+            BudgetUser::create(['budget_id' => $budget->id, 'user_id' => 1]);
+        }
+
         foreach ($request->part as $key => $value) {
             $mat = $request->material[$key] ? 'Aluminio' : 'Hierro';
             BudgetItem::create([
@@ -462,7 +467,6 @@ class BudgetController extends Controller
         foreach ($request->select_alloweds as $key => $value) {
             $budget->usersAccess()->attach($value);
         }
-        $budget->usersAccess()->attach(1);
         Session::flash('flash_message', __('- Actualizado con éxito.'));
         Session::flash('flash_type', 'alert-success');
         return back();
