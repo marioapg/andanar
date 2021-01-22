@@ -46,43 +46,43 @@ class BudgetItem extends Model
                 break;
             
             case 'ADI':
-                return 'ALETA DELANTERA IZQUIERDA';
+                return 'ALETA Delantera Izquierda';
                 break;
             
             case 'PDI':
-                return 'PUERTA DELANTERA IZQUIERDA';
+                return 'PUERTA Delantera Izquierda';
                 break;
             
             case 'PTI':
-                return 'PUERTA TRASERA IZQUIERDA';
+                return 'PUERTA Trasera Izquierda';
                 break;
             
             case 'MI':
-                return 'MONTANTE IZQUIERDA';
+                return 'MONTANTE Izquierda';
                 break;
             
             case 'ATI':
-                return 'ALETA TRASERA IZQUIERDA';
+                return 'ALETA Trasera Izquierda';
                 break;
             
             case 'ADD':
-                return 'ALETA DELANTERA DERECHA';
+                return 'ALETA Delantera Derecha';
                 break;
             
             case 'PDD':
-                return 'PUERTA DELANTERA DERECHA';
+                return 'PUERTA Delantera Derecha';
                 break;
             
             case 'PTD':
-                return 'PUERTA TRASERA DERECHA';
+                return 'PUERTA Trasera Derecha';
                 break;
             
             case 'MD':
-                return 'MONTANTE DERECHA';
+                return 'MONTANTE Derecha';
                 break;
             
             case 'ATD':
-                return 'ALETA TRASERA DERECHA';
+                return 'ALETA Trasera Derecha';
                 break;
             
             default:
@@ -98,55 +98,55 @@ class BudgetItem extends Model
         }
         switch ($piece) {
             case 'CAPOT':
-                return 'hood/capot';
+                return 'hood / capot';
                 break;
 
             case 'TECHO':
-                return 'roof/toit';
+                return 'roof / toit';
                 break;
             
             case 'MALETERO':
-                return 'trunk/coffre';
+                return 'trunk / coffre';
                 break;
             
             case 'ADI':
-                return 'Left Front Wing/Aile AVG';
+                return 'Left Front Wing / Aile AVG';
                 break;
             
             case 'PDI':
-                return 'Left Front Door/Porte AVG';
+                return 'Left Front Door / Porte AVG';
                 break;
             
             case 'PTI':
-                return 'Left Rear Door/Porte ARG';
+                return 'Left Rear Door / Porte ARG';
                 break;
             
             case 'MI':
-                return 'Left Rail/Brancard G';
+                return 'Left Rail / Brancard G';
                 break;
             
             case 'ATI':
-                return 'Left Rear Wing/Aile ARG';
+                return 'Left Rear Wing / Aile ARG';
                 break;
             
             case 'ADD':
-                return 'Right Front Wing/Aile AVD';
+                return 'Right Front Wing / Aile AVD';
                 break;
             
             case 'PDD':
-                return 'Right Front Door/Porte AVD';
+                return 'Right Front Door / Porte AVD';
                 break;
             
             case 'PTD':
-                return 'Right Rear Door/Porte ARD';
+                return 'Right Rear Door / Porte ARD';
                 break;
             
             case 'MD':
-                return 'Right Rail/Brancard D';
+                return 'Right Rail / Brancard D';
                 break;
             
             case 'ATD':
-                return 'Right Rear Wing/Aile ARD';
+                return 'Right Rear Wing / Aile ARD';
                 break;
             
             default:

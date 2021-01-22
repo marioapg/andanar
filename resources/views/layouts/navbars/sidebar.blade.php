@@ -31,7 +31,7 @@
       <li class="nav-item {{ ($activePage == 'cars') ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('cars.index') }}">
           <i class="material-icons">directions_car</i>
-          <p>{{ __('Autos') }}</p>
+          <p>{{ __('Coches') }}</p>
         </a>
       </li>
       <li class="nav-item {{ ($activePage == 'budgets') ? ' active' : '' }}">

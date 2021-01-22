@@ -4,6 +4,15 @@
         p {
             margin:0px;
         }
+        small {
+            font-style: italic;
+        }
+        .cursiva-azul {
+            font-style: italic;
+            color: blue;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
     </style>
 </head>
 
@@ -26,132 +35,200 @@
                 <td colspan="2" style="width:50%;">
                     <p style="text-align: center;">
                         <strong>
-                            PRESUPUESTO /Budget/Devis <br>
-                            Valoración de daños /Damage/Dommage
+                            PRESUPUESTO / Budget / Devis <br>
+                            Valoración de Daños / Damage / Dommage
                         </strong>
                     </p>
                 </td>
                 <td>
                     <p style="text-align: center;">
                         <strong>N°</strong><br>
-                        {{ $budget->id }}
+                        <strong class="cursiva-azul">
+                            {{ $budget->id }}
+                        </strong>
                     </p>
                 </td>
                 <td>
                     <p style="text-align: center;">
-                        <strong>Fecha</strong><br>
-                        {{ \Carbon\Carbon::create($budget->date)->format('d/m/Y') ?? '' }}
+                        <strong>Fecha / Date</strong><br>
+                        <strong class="cursiva-azul">
+                            {{ \Carbon\Carbon::create($budget->date)->format('d/m/Y') ?? '' }}
+                        </strong>
                     </p>
                 </td>
             </tr>
             <tr>
                 <td colspan="2">
                     <p>
-                        <strong>CLIENTE:</strong> {{ $budget->client->name ?? '' }} <br>
-                        <small>customer/client</small>
+                        <strong>CLIENTE:</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <strong class="cursiva-azul">
+                            {{ $budget->client->name ?? '' }}
+                        </strong>
+                        <br>
+                        <small>customer / client</small>
                     </p>
                 </td>
                 <td colspan="2">
                     <p>
-                        <strong>MATRÍCULA:</strong> {{ $budget->car->plate ?? '' }} <br>
-                        <small>license/immatric</small>
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <p>
-                        <strong>DIRECCIÓN:</strong> {{ $budget->client->address ?? '' }} <br>
-                        <small>address/adresse</small>
-                    </p>
-                </td>
-                <td colspan="2">
-                    <p>
-                        <strong>MARCA:</strong> {{ $budget->car->brand ?? '' }}<br>
-                        <small>brand card/marque</small>
+                        <strong>MATRÍCULA:</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <strong class="cursiva-azul">
+                            {{ $budget->car->plate ?? '' }}
+                        </strong>
+                        <br>
+                        <small>license / immatric</small>
                     </p>
                 </td>
             </tr>
             <tr>
                 <td colspan="2">
                     <p>
-                        <strong>CIUDAD:</strong> {{ $budget->client->city ?? '' }}<br>
-                        <small>city/ville</small>
+                        <strong>DIRECCIÓN:</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <strong class="cursiva-azul">
+                            {{ $budget->client->address ?? '' }}
+                        </strong>
+                        <br>
+                        <small>address / adresse</small>
                     </p>
                 </td>
                 <td colspan="2">
                     <p>
-                        <strong>MODELO:</strong> {{ $budget->car->model ?? '' }}<br>
-                        <small>model/modele</small>
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <p>
-                        <strong>CP:</strong> {{ $budget->client->postal_code ?? '' }}<br>
-                        <small>PC/CP</small>
-                    </p>
-                </td>
-                <td colspan="2">
-                    <p>
-                        <strong>COLOR:</strong> {{ $budget->car->color ?? '' }}<br>
-                        <small>color/couleur</small>
+                        <strong>MARCA:</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <strong class="cursiva-azul">
+                            {{ $budget->car->brand ?? '' }}
+                        </strong>
+                        <br>
+                        <small>brand card / marque</small>
                     </p>
                 </td>
             </tr>
             <tr>
                 <td colspan="2">
                     <p>
-                        <strong>PAÍS:</strong> {{ $budget->client->country ?? '' }}<br>
-                        <small>country/pays</small>
+                        <strong>CIUDAD:</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <strong class="cursiva-azul">
+                            {{ $budget->client->city ?? '' }}
+                        </strong>
+                        <br>
+                        <small>city / ville</small>
                     </p>
                 </td>
                 <td colspan="2">
                     <p>
-                        <strong>Cia SEGUROS:</strong> {{ $budget->cia_sure ?? '' }}<br>
-                        <small>insurance/assurance</small>
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <p>
-                        <strong>TEL:</strong> {{ $budget->client->phone ?? '' }}<br>
-                        <small>phone/teléphone</small>
-                    </p>
-                </td>
-                <td colspan="2">
-                    <p>
-                        <strong>PERITO:</strong> {{ $budget->perito->name ?? '' }}<br>
-                        <small>expert/évaluateur</small>
+                        <strong>MODELO:</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <strong class="cursiva-azul">
+                            {{ $budget->car->model ?? '' }}
+                        </strong>
+                        <br>
+                        <small>model / modele</small>
                     </p>
                 </td>
             </tr>
             <tr>
                 <td colspan="2">
                     <p>
-                        <strong>CIF:</strong> {{ $budget->client->document ?? '' }}<br>
-                        <small>tax ID/ident. Fiscale</small>
+                        <strong>CP:</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <strong class="cursiva-azul">
+                            {{ $budget->client->postal_code ?? '' }}
+                        </strong>
+                        <br>
+                        <small>PC / CP</small>
                     </p>
                 </td>
                 <td colspan="2">
                     <p>
-                        <strong>Tel. PERITO:</strong> {{ $budget->perito->phone ?? '' }}<br>
-                        <small>ph. expert/tél expert</small>
+                        <strong>COLOR:</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <strong class="cursiva-azul">
+                            {{ $budget->car->color ?? '' }}
+                        </strong>
+                        <br>
+                        <small>color / couleur</small>
                     </p>
                 </td>
             </tr>
             <tr>
                 <td colspan="2">
                     <p>
-                        <strong>RESPONSABLE:</strong> {{ $budget->responsable->name ?? '' }}<br>
-                        <small>responsible/responsable</small>
+                        <strong>PAÍS:</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <strong class="cursiva-azul">
+                            {{ $budget->client->country ?? '' }}
+                        </strong>
+                        <br>
+                        <small>country / pays</small>
                     </p>
                 </td>
                 <td colspan="2">
                     <p>
-                        <strong>MAIL PERITO:</strong> {{ $budget->perito->mail ?? '' }}<br>
+                        <strong>Cia SEGUROS:</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <strong class="cursiva-azul">
+                            {{ $budget->cia_sure ?? '' }}
+                        </strong>
+                        <br>
+                        <small>insurance / assurance</small>
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <p>
+                        <strong>TEL:</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <strong class="cursiva-azul">
+                            {{ $budget->client->phone ?? '' }}
+                        </strong>
+                        <br>
+                        <small>phone / teléphone</small>
+                    </p>
+                </td>
+                <td colspan="2">
+                    <p>
+                        <strong>PERITO:</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <strong class="cursiva-azul">
+                            {{ $budget->perito->name ?? '' }}
+                        </strong>
+                        <br>
+                        <small>expert / évaluateur</small>
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <p>
+                        <strong>CIF:</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <strong class="cursiva-azul">
+                            {{ $budget->client->document ?? '' }}
+                        </strong>
+                        <br>
+                        <small>tax ID / ident. Fiscale</small>
+                    </p>
+                </td>
+                <td colspan="2">
+                    <p>
+                        <strong>Tel. PERITO:</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <strong class="cursiva-azul">
+                            {{ $budget->perito->phone ?? '' }}
+                        </strong>
+                        <br>
+                        <small>ph. expert / tél expert</small>
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <p>
+                        <strong>RESPONSABLE:</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <strong class="cursiva-azul">
+                            {{ $budget->responsable->name ?? '' }}
+                        </strong>
+                        <br>
+                        <small>responsible / responsable</small>
+                    </p>
+                </td>
+                <td colspan="2">
+                    <p>
+                        <strong>MAIL PERITO:</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <strong class="cursiva-azul">
+                            {{ $budget->perito->mail ?? '' }}
+                        </strong>
+                        <br>
                         <small>expert email</small>
                     </p>
                 </td>
@@ -160,7 +237,7 @@
                 <td colspan="2">
                     <p>
                         <strong>MAIL RESP.</strong> {{ $budget->responsable->mail ?? '' }}<br>
-                        <small>res. email/email res.</small>
+                        <small>res. email / email res.</small>
                     </p>
                 </td>
                 <td colspan="2">
@@ -174,8 +251,14 @@
 
         <table class="body-budget mt-3" style="margin-top: 5px; width: 100%; border-collapse: collapse;text-align: center;">
          <tr style="background-color: #C5C5C5; font-weight: bold;">
-            <td style="width: 20%;">{{ $budget->tarifa_pdr }}</td>
-            <td style="width: 7%;">AL</td>
+            @if($budget->manual)
+                <td style="width: 30%;text-align: left;font-weight: normal;font-size: 8px;">
+            @else
+                <td style="width: 30%;text-align: left;font-weight: normal;">
+            @endif
+                {{ $budget->tarifa_pdr }}
+            </td>
+            <td style="width: 2%">AL</td>
             <td colspan="4">Abolladuras por tamaño <br> Dents/Dommages</td>
             <td colspan="5">Parciales VDs <br> Partial/Partiel VDs </td>
             <td colspan="2">Total VD's Fila</td>
@@ -194,20 +277,23 @@
          </tr>
          @foreach($budget->items as $item)
              <tr>
-                <td style="width: 20%;">
-                    {{ $item->pieceName($item->part) }} <br>
+                <td style="text-align: left;">
+                    <strong>
+                        {{ $item->pieceName($item->part) }}
+                    </strong>
+                    <br>
                     <small>{{ $item->pieceTranslation($item->part) }}</small>
                 </td>
-                <td style="width: 7%;">{{ $item->material == 'Aluminio' ? 'X' : '' }}</td>
-                <td style="width: 7%;">{{ $item ? $item->small : '' }}</td>
-                <td style="width: 7%;">{{ $item ? $item->medium : '' }}</td>
-                <td style="width: 7%;">{{ $item ? $item->big : '' }}</td>
-                <td style="width: 7%;">{{ $item ? $item->paint : '' }}</td>
-                <td style="width: 7%;">{{ $item ? $item->small_vds : '' }}</td>
-                <td style="width: 7%;">{{ $item ? $item->medium_vds : '' }}</td>
-                <td style="width: 7%;">{{ $item ? $item->big_vds : '' }}</td>
-                <td colspan="2">{{ $item ? $item->paint_vds : '' }}</td>
-                <td colspan="2" style="width: 10%;">{{ $item ? $item->total_vds : '' }}</td>
+                <td>{{ $item->material == 'Aluminio' ? 'X' : '' }}</td>
+                <td>{{ $item ? ($item->small ? $item->small : '') : '' }}</td>
+                <td>{{ $item ? ($item->medium ? $item->medium : '') : '' }}</td>
+                <td>{{ $item ? ($item->big ? $item->big : '') : '' }}</td>
+                <td>{{ $item ? ($item->paint ? $item->paint : '') : '' }}</td>
+                <td>{{ $item ? ($item->small_vds ? $item->small_vds : '') : '' }}</td>
+                <td>{{ $item ? ($item->medium_vds ? $item->medium_vds : '') : '' }}</td>
+                <td>{{ $item ? ($item->big_vds ? $item->big_vds : '') : '' }}</td>
+                <td colspan="2">{{ $item ? ($item->paint_vds ? $item->paint_vds : '') : '' }}</td>
+                <td colspan="2">{{ $item ? $item->total_vds : '' }}</td>
              </tr>
          @endforeach
 
@@ -227,81 +313,81 @@
                }
             @endphp
              <tr>
-                <td style="width: 27%;" colspan="2">
-                    <strong>Total Bollos</strong>
-                    <small>dents/bosses</small>
+                <td colspan="2" style="text-align: left;line-height: 25px;">
+                    <strong style="font-size: 13px;">Total Bollos.</strong>
+                    <small>dents / bosses</small>
                 </td>
-                <td style="width: 7%;">{{ $total_s }}</td>
-                <td style="width: 7%;">{{ $total_m }}</td>
-                <td style="width: 7%;">{{ $total_b }}</td>
-                <td style="width: 7%;">{{ $total_p }}</td>
+                <td style="width: 7%;">{{ ($total_s ? $total_s : '') }}</td>
+                <td style="width: 7%;">{{ ($total_m ? $total_m : '') }}</td>
+                <td style="width: 7%;">{{ ($total_b ? $total_b : '') }}</td>
+                <td style="width: 7%;">{{ ($total_p ? $total_p : '') }}</td>
                 <td colspan="5">
                     <strong>
-                        TOTAL VDs / {{ \App\Utils\Currencies::getSymbol($budget->currency) }}
+                        TOTAL VDs
                     </strong>
                 </td>
                 <td style="width: 10%;" colspan="2">{{ $total_vds }} VDs</td>
             </tr>
             <tr>
-                <td colspan="4" rowspan="3">
+                <td colspan="4" rowspan="3" style="text-align: left;">
                     <strong>
                         Observaciones.        
                     </strong>
                     <br>
                     <small>
-                        remarks/observations
+                        remarks / observations
                     </small>
                     <br>
                     {{ $budget->public_comment }}
                 </td>
-                <td colspan="3" style="border-right: none;">
-                    <small>dentwork/debosselage</small> <br>
-                    <strong>Reparación Varillas</strong>
+                <td colspan="3" style="border-right: none;text-align: left;">
+                    <strong>Reparación Varillas</strong> <br>
+                    <small>dentwork / debosselage</small>
                 </td>
                 <td colspan="2" style="border-right: none;border-left: none;">
                     {{ \App\Utils\Currencies::getSymbol($budget->currency) }}
                 </td>
-                <td colspan="4" style="border-left: none;">
+                <td colspan="4" style="border-left: none;text-align: left;">
                     {{ $budget->total }}
                 </td>
             </tr>
             <tr>
-                <td colspan="3" style="border-right: none;">
-                    <small>dis-assembly/dé-remontage</small> <br>
-                    <strong>Des/Montaje</strong>
+                <td colspan="3" style="border-right: none; text-align: left;">
+                    <strong>Des / Montaje</strong> <br>
+                    <small>dis-assembly / dé-remontage</small>
                 </td>
                 <td colspan="2" style="border-right: none;border-left: none;">
                     {{ \App\Utils\Currencies::getSymbol($budget->currency) }}
                 </td>
-                <td colspan="4" style="border-left: none;">
+                <td colspan="4" style="border-left: none;text-align: left;">
                     {{ $budget->desmontaje }}
                 </td>
             </tr>
             <tr>
-                <td colspan="3" style="border-right: none;">
+                <td colspan="3" style="border-right: none;text-align: left;">
                     <strong>TOTAL</strong>
                 </td>
                 <td colspan="2" style="border-right: none;border-left: none;">
                     {{ \App\Utils\Currencies::getSymbol($budget->currency) }}
                 </td>
-                <td colspan="4" style="border-left: none;">
+                <td colspan="4" style="border-left: none;text-align: left;">
                     <p>
-                        {{ $budget->grand_total }} + IVA
+                        {{ $budget->total + $budget->desmontaje }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ IVA
                     </p>
                 </td>
             </tr>
                 <tr>
                 <td colspan="4">
-                    <strong>TÉCNICO</strong> <small>Technical/Technicien</small>
+                    <strong>TÉCNICO</strong> <small>Technical / Technicien</small>
                 </td>
                 <td colspan="9">
-                    <strong>CONFORME CLIENTE</strong> Firma y Sello -- <small>customer ok/conformité</small>
+                    <strong>CONFORME CLIENTE</strong> Firma y Sello -- <small>customer ok / conformité</small>
                 </td>
             </tr>
-            <tr style="height: 100px;max-height: 100px;">
-                <td colspan="4" style="height: 100px;max-height: 100px;">
+            <tr style="height: 70px;max-height: 70px;">
+                <td colspan="4" style="height: 70px;max-height: 70px;">
                 </td>
-                <td colspan="9" style="height: 100px;max-height: 100px;">
+                <td colspan="9" style="height: 70px;max-height: 70px;">
                 </td>
             </tr>
         </table>
@@ -309,10 +395,10 @@
     <p style="text-align: center;">Andanar Europe S.L. Reg. Merc. N° 38617 F° 69 Hoja 328878 -- NIF: B-64216047</p>
 </div>
 
-<div style="margin-top: 100px;">
-    @if( !is_null($budget->attached) )
-       @foreach( $budget->attached as $key => $value )
+@if( !is_null($budget->attached) )
+    <div style="margin-top: 100px;">
+        @foreach( $budget->attached as $key => $value )
             <img src="{{ asset('/images/budgets/') }}/{{ $value }}" width="500">
-       @endforeach
-    @endif
-</div>
+        @endforeach
+    </div>
+@endif

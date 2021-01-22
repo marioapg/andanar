@@ -1198,7 +1198,7 @@
         <div class="modal-body">
           <div class="row">
             <div class="col text-center">
-              <input type="checkbox" name="material" id="materialcheck" material='Hierro' autocomplete="off">
+              <input type="checkbox" name="material" id="materialcheck" material="Hierro" autocomplete="off">
             </div>
           </div>
           <h6>Tamaños de las abolladuras</h6>
@@ -1462,6 +1462,18 @@
         $('#medium_size').val(0);
         $('#big_size').val(0);
         $('#to_paint').val(0);
+        $('#materialcheck').bootstrapSwitch('destroy');
+        // Iniciacion del toogle de los mataeriales
+        $('#materialcheck').bootstrapSwitch({
+            on: 'Aluminio', // default 'On'
+            off: 'Hierro', // default 'Off'
+            onLabel: 'Aluminio', //default ''
+            offLabel: 'Hierro', //default ''
+            same: false, // default false. same text for on/off and onLabel/offLabel
+            size: 'md', // xs/sm/md/lg, default 'md'
+            onClass: 'success', //success/primary/danger/warning/default, default 'primary'
+            offClass: 'success', //success/primary/danger/warning/default default 'default'
+        });
         calculateTotals();
         $('#myModal').modal('hide');
       });
@@ -1728,6 +1740,9 @@
 
       $('#budget-form').on('submit', function(e){
         $('.no-to-send').remove();
+        if ( $('#manual-check').prop('checked') ) {
+          $('#tarifa_pdr').val(0);
+        }
       });
     });
   </script>
