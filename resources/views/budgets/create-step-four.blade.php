@@ -2,6 +2,7 @@
 
 @section('inlinecss')
   <link rel="stylesheet" href="{{ asset('css/selectize.bootstrap2.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/bootstrap-switch.css') }}">
 @endsection
 
 @section('content')
@@ -1198,7 +1199,7 @@
         <div class="modal-body">
           <div class="row">
             <div class="col text-center">
-              <input type="checkbox" name="material" id="materialcheck" material="Hierro" autocomplete="off">
+              <input type="checkbox" name="material" id="materialcheck" material="Hierro" data-label-text="Cambiar" data-on-color="success" data-off-color="info" autocomplete="off">
             </div>
           </div>
           <h6>Tamaños de las abolladuras</h6>
@@ -1248,18 +1249,6 @@
   <script>
     $(document).ready( function () {
       var rows = 0;
-
-      // Funcion cuando cambia el toogle del material Aluminio/Hierro
-      $('#materialcheck').change(function() {
-        if ( this.checked ) {
-          $(this).attr('material','Aluminio');
-        }
-        if ( !this.checked ) {
-          $(this).attr('material','Hierro');
-        }
-      });
-
-      // Funcion cuando cambia el toogle del material Aluminio/Hierro
       $('#manual-check').change(function() {
         if ( this.checked ) {
           $('#manual-total').attr('disabled', false);
@@ -1462,18 +1451,10 @@
         $('#medium_size').val(0);
         $('#big_size').val(0);
         $('#to_paint').val(0);
-        $('#materialcheck').bootstrapSwitch('destroy');
+
         // Iniciacion del toogle de los mataeriales
-        $('#materialcheck').bootstrapSwitch({
-            on: 'Aluminio', // default 'On'
-            off: 'Hierro', // default 'Off'
-            onLabel: 'Aluminio', //default ''
-            offLabel: 'Hierro', //default ''
-            same: false, // default false. same text for on/off and onLabel/offLabel
-            size: 'md', // xs/sm/md/lg, default 'md'
-            onClass: 'success', //success/primary/danger/warning/default, default 'primary'
-            offClass: 'success', //success/primary/danger/warning/default default 'default'
-        });
+        $('#materialcheck').bootstrapSwitch('state', false);
+
         calculateTotals();
         $('#myModal').modal('hide');
       });
@@ -1507,31 +1488,14 @@
       });
 
       function calculateRate() {
-        // let total = parseFloat(0);
         if ( !$('#manual-check').prop('checked') ) {
           var tarifa = parseInt( $('#tarifa_pdr').val() );
           $('.totalrow').each(function(){
             var num = $(this).attr('num');
             var val = $(this).val();
             $('#totalMoneyRow'+num).val( (val * tarifa) );
-            // total += parseFloat($('#totalMoneyRow'+num).val());
           });
         }
-        // var desmontaje = isNaN( $('#desmontaje').val() ) ? 0 : parseFloat($('#desmontaje').val());
-        // total += desmontaje;
-
-        // $('.totalEUR').html('');
-        // var iva = parseFloat($('#iva_rate').val()) / 100;
-
-        // var iva_total = total * iva;
-        // var total_con_iva = total + iva_total;
-
-        // var result_iva = parseFloat(iva_total).toFixed(2);
-        // var result_total = parseFloat(total_con_iva).toFixed(2);
-        // $('#iva_total').val( result_iva );
-        // $('.total_iva').html( result_iva );
-        // $('#grand_total').val( result_total );
-        // $('.totalEUR').html( result_total );
       }
 
       function calculateManual() {
@@ -1651,15 +1615,17 @@
       }
 
       // Iniciacion del toogle de los mataeriales
-      $('#materialcheck').bootstrapSwitch({
-          on: 'Aluminio', // default 'On'
-          off: 'Hierro', // default 'Off'
-          onLabel: 'Aluminio', //default ''
-          offLabel: 'Hierro', //default ''
-          same: false, // default false. same text for on/off and onLabel/offLabel
-          size: 'md', // xs/sm/md/lg, default 'md'
-          onClass: 'success', //success/primary/danger/warning/default, default 'primary'
-          offClass: 'success', //success/primary/danger/warning/default default 'default'
+      $('#materialcheck').bootstrapSwitch();
+      $('#materialcheck').bootstrapSwitch('onText', 'Aluminio');
+      $('#materialcheck').bootstrapSwitch('offText', 'Hierro');
+      // Funcion cuando cambia el toogle del material Aluminio/Hierro
+      $('#materialcheck').bootstrapSwitch('onSwitchChange', function(event, state) {
+        if (state) {
+          $('#materialcheck').attr('material','Aluminio');
+        }
+        if (!state) {
+          $('#materialcheck').attr('material','Hierro');
+        }
       });
 
       // Cuando se selecciona una parte del carro
@@ -1669,7 +1635,6 @@
         $('#add-part').val( $(this).attr('abpart') );
         $('#myModal').modal('show');
       });
-
 
       $('#select-client').selectize({
         create: false,
