@@ -41,6 +41,9 @@
                         Fecha de creación
                       </th>
                       <th class="text-right">
+                        Eliminar
+                      </th>
+                      <th class="text-right">
                         Editar
                       </th>
                     </tr>
@@ -59,6 +62,15 @@
                         </td>
                         <td>
                           {{ $client->created_at->format('d-m-Y') }}
+                        </td>
+                        <td class="td-actions text-right">
+                          <form action="{{ route('client.delete', ['id' => $client->id]) }}" method="POST">
+                            @method('DELETE')
+                            @csrf
+                            <button type="submit" class="btn btn-success btn-link">
+                              <i class="material-icons" style="color: red;">delete_forever</i>
+                            </button>
+                          </form>
                         </td>
                         <td class="td-actions text-right">
                           <a rel="tooltip" class="btn btn-success btn-link" href="{{ route('client.show', ['id' => $client->id]) }}" data-original-title="" title="">

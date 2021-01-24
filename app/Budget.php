@@ -44,22 +44,22 @@ class Budget extends Model
 
     public function client()
     {
-    	return $this->hasOne('App\Client', 'id', 'client_id');
+    	return $this->hasOne('App\Client', 'id', 'client_id')->withTrashed();
     }
   
     public function responsable()
     {
-        return $this->hasOne('App\User', 'id', 'responsable_id');
+        return $this->hasOne('App\User', 'id', 'responsable_id')->withTrashed();
     }
   
     public function technical()
     {
-        return $this->hasOne('App\User', 'id', 'technical_id');
+        return $this->hasOne('App\User', 'id', 'technical_id')->withTrashed();
     }
 
     public function perito()
     {
-        return $this->hasOne('App\User', 'id', 'perito_id');
+        return $this->hasOne('App\User', 'id', 'perito_id')->withTrashed();
     }
 
     public function items()

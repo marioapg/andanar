@@ -126,8 +126,8 @@
                 <div class="col">
                   <div class="form-group">
                       <label for="description">Año:</label>
-                      <select name="year" id="select-year" required="">
-                        <option value=""></option>
+                      <select name="year" id="select-year">
+                        <option value="null">Desconocido</option>
                         @for ($year = date('Y'); $year > date('Y') - 100; $year--)
                           <option value="{{$year}}">{{$year}}</option>
                         @endfor

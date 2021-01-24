@@ -59,7 +59,7 @@ class UserController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['nullable', 'string', 'min:8', 'confirmed'],
             'type' => ['required'],
             'phone' => ['nullable']
         ]);
@@ -70,10 +70,16 @@ class UserController extends Controller
             return back()->withErrors($validator)->withInput();
         }
 
+        if ($request->type =! 'technical') {
+            $pass = 'secret1234';
+        } else {
+            $pass = $request->password;
+        }
+
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => Hash::make($request->password),
+            'password' => Hash::make($pass),
             'type' => $request->type,
             'phone' => $request->phone
         ]);
@@ -90,5 +96,13 @@ class UserController extends Controller
         Session::flash('flash_message', __('+ Usuario creado con éxito.'));
         Session::flash('flash_type', 'alert-success');
         return redirect()->route('user.index');
+    }
+
+    public function delete(Request $request)
+    {
+        $user = User::where('id', $request->id)->first()->delete();
+        Session::flash('flash_message', __('- Usuario eliminado.'));
+        Session::flash('flash_type', 'alert-success');
+        return redirect('/user');
     }
 }

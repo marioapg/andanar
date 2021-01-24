@@ -2,6 +2,7 @@
 
 @section('inlinecss')
   <link rel="stylesheet" href="{{ asset('css/selectize.bootstrap2.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/bootstrap-switch.css') }}">
 @endsection
 
 @section('content')
@@ -112,11 +113,11 @@
                   <div class="col">
                     <label for="currency">Porcentaje de IVA</label>
                     <select id="select-currency" type="text" name="currency" class="form-control" autocomplete="off">
-                      <option value="USD" nombre="Dolar" @if($budget->currency == 'USD') selected="" @endif>
-                        Dolar
-                      </option>
                       <option value="EUR" nombre="Euros" @if($budget->currency == 'EUR') selected="" @endif>
                         Euros
+                      </option>
+                      <option value="USD" nombre="Dolar" @if($budget->currency == 'USD') selected="" @endif>
+                        Dolar
                       </option>
                       <option value="ARS" nombre="Pesos" @if($budget->currency == 'ARS') selected="" @endif>
                         Pesos
@@ -1266,7 +1267,7 @@
         <div class="modal-body">
           <div class="row">
             <div class="col text-center">
-              <input type="checkbox" name="material" id="materialcheck" material='Hierro' autocomplete="off">
+              <input type="checkbox" name="material" id="materialcheck" material="Hierro" data-label-text="Cambiar" data-on-color="success" data-off-color="info" autocomplete="off">
             </div>
           </div>
           <h6>Tamaños de las abolladuras</h6>
@@ -1532,6 +1533,10 @@
         $('#medium_size').val(0);
         $('#big_size').val(0);
         $('#to_paint').val(0);
+
+        // Iniciacion del toogle de los mataeriales
+        $('#materialcheck').bootstrapSwitch('state', false);
+
         calculateTotals();
         $('#myModal').modal('hide');
       });
@@ -1572,24 +1577,8 @@
             var num = $(this).attr('num');
             var val = $(this).val();
             $('#totalMoneyRow'+num).val( (val * tarifa) );
-            // total += parseFloat($('#totalMoneyRow'+num).val());
           });
         }
-        // var desmontaje = isNaN( $('#desmontaje').val() ) ? 0 : parseFloat($('#desmontaje').val());
-        // total += desmontaje;
-
-        // $('.totalEUR').html('');
-        // var iva = parseFloat($('#iva_rate').val()) / 100;
-
-        // var iva_total = total * iva;
-        // var total_con_iva = total + iva_total;
-
-        // var result_iva = parseFloat(iva_total).toFixed(2);
-        // var result_total = parseFloat(total_con_iva).toFixed(2);
-        // $('#iva_total').val( result_iva );
-        // $('.total_iva').html( result_iva );
-        // $('#grand_total').val( result_total );
-        // $('.totalEUR').html( result_total );
       }
 
       function calculateManual() {
@@ -1709,15 +1698,17 @@
       }
 
       // Iniciacion del toogle de los mataeriales
-      $('#materialcheck').bootstrapSwitch({
-          on: 'Aluminio', // default 'On'
-          off: 'Hierro', // default 'Off'
-          onLabel: 'Aluminio', //default ''
-          offLabel: 'Hierro', //default ''
-          same: false, // default false. same text for on/off and onLabel/offLabel
-          size: 'md', // xs/sm/md/lg, default 'md'
-          onClass: 'success', //success/primary/danger/warning/default, default 'primary'
-          offClass: 'success', //success/primary/danger/warning/default default 'default'
+      $('#materialcheck').bootstrapSwitch();
+      $('#materialcheck').bootstrapSwitch('onText', 'Aluminio');
+      $('#materialcheck').bootstrapSwitch('offText', 'Hierro');
+      // Funcion cuando cambia el toogle del material Aluminio/Hierro
+      $('#materialcheck').bootstrapSwitch('onSwitchChange', function(event, state) {
+        if (state) {
+          $('#materialcheck').attr('material','Aluminio');
+        }
+        if (!state) {
+          $('#materialcheck').attr('material','Hierro');
+        }
       });
 
       // Cuando se selecciona una parte del carro

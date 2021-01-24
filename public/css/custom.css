@@ -312,3 +312,7 @@ table.body-budget td {
 .item-row-active {
     border: 1px solid green !important;
 }
+
+input[type="text"] {
+    text-transform: uppercase;
+}

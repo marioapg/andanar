@@ -1,164 +1,225 @@
-@extends('layouts.app', ['activePage' => 'user-management', 'titlePage' => __('Perfil usuario')])
+@extends('layouts.app', ['activePage' => 'cars-management', 'titlePage' => __('Coche')])
+
+@section('inlinecss')
+  <link rel="stylesheet" href="{{ asset('css/selectize.bootstrap2.css') }}">
+@endsection
 
 @section('content')
   <div class="content">
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
-          <form method="post" action="{{ route('user.update', ['id' => $user->id]) }}" autocomplete="off" class="form-horizontal">
+          <form method="post" action="{{ route('car.update', ['id' => $car->id]) }}" autocomplete="off" class="form-horizontal">
             @csrf
             @method('put')
 
-            <div class="card ">
-              <div class="card-header card-header-info">
-                <h4 class="card-title">{{ __('Editar') }}</h4>
-                <p class="card-category">{{ __('Información de usuario') }}</p>
+            @if( Session::has('flash_message') )
+              <div class="alert {{ Session::get('flash_type') }} alert-dismissible fade show" role="alert">
+                {{ Session::get('flash_message') }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
               </div>
-              <div class="card-body ">
-                @if (session('status'))
-                  <div class="row">
-                    <div class="col-sm-12">
-                      <div class="alert alert-success">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                          <i class="material-icons">close</i>
-                        </button>
-                        <span>{{ session('status') }}</span>
-                      </div>
-                    </div>
-                  </div>
-                @endif
+            @endif
+
+            <div class="card">
+              <div class="card-header card-header-info">
+                <h4 class="card-title ">{{ __('Matricula: ') }} {{ session()->get('car')->plate ?? '' }}</h4>
+                <p class="card-category">{{ __('Presupuesto/vehículo: ') }} </p>
+              </div>
+              <div class="card-body">
                 <div class="row">
-                  <label class="col-sm-2 col-form-label">{{ __('Nombre') }}</label>
-                  <div class="col-sm-7">
-                    <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
-                      <input class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" id="input-name" type="text" placeholder="{{ __('Nombre') }}" value="{{ old('name', $user->name) }}" required="true" aria-required="true"/>
-                      @if ($errors->has('name'))
-                        <span id="name-error" class="error text-danger" for="input-name">{{ $errors->first('name') }}</span>
-                      @endif
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <label class="col-sm-2 col-form-label">{{ __('Email') }}</label>
-                  <div class="col-sm-7">
-                    <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
-                      <input class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" id="input-email" type="email" placeholder="{{ __('Email') }}" value="{{ old('email', $user->email) }}" readonly="" required />
-                      @if ($errors->has('email'))
-                        <span id="email-error" class="error text-danger" for="input-email">{{ $errors->first('email') }}</span>
-                      @endif
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <label class="col-sm-2 col-form-label">{{ __('Teléfono') }}</label>
-                  <div class="col-sm-7">
-                    <div class="form-group{{ $errors->has('phone') ? ' has-danger' : '' }}">
-                      <input class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}" name="phone" id="input-phone" type="phone" placeholder="{{ __('phone') }}" value="{{ old('phone', $user->phone) }}" required />
-                      @if ($errors->has('phone'))
-                        <span id="phone-error" class="error text-danger" for="input-phone">{{ $errors->first('phone') }}</span>
-                      @endif
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <label class="col-sm-2 col-form-label">{{ __('Tipo usuario') }}</label>
-                  <div class="col-sm-7">
-                    <div class="form-group{{ $errors->has('type') ? ' has-danger' : '' }}">
-                      <select name="type" class="form-control mdb-select" placeholder="{{ __('Tipo...') }}" value="{{ old('type') }}" required>
-                        <option value="technical" @if($user->type == 'technical') selected @endif>Técnico</option>
-                        <option value="proficient" @if($user->type == 'proficient') selected @endif>Perito</option>
-                      </select>
-                      @if ($errors->has('type'))
-                        <span id="type-error" class="error text-danger" for="input-type">{{ $errors->first('type') }}</span>
-                      @endif
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <label class="col-sm-2 col-form-label">{{ __('Estatus') }}</label>
-                  <div class="col-sm-7">
-                    <div class="form-group{{ $errors->has('status') ? ' has-danger' : '' }}">
-                      <select name="status" class="form-control mdb-select" placeholder="{{ __('Tipo...') }}" value="{{ old('status') }}" required>
-                        <option value="1" @if($user->status == 1) selected @endif>Activo</option>
-                        <option value="0" @if($user->status == 'proficient') selected @endif>Inactivo</option>
-                      </select>
-                      @if ($errors->has('status'))
-                        <span id="status-error" class="error text-danger" for="input-status">{{ $errors->first('status') }}</span>
-                      @endif
-                    </div>
+                  
+                <div class="col">
+                  <div class="form-group">
+                    <label for="title">Marca:</label>
+                    <select name="brand" id="select-brand" required="">
+                      <option value="{{ $car->brand }}">{{ $car->brand }}</option>
+                      @foreach( \App\DBCar::select('brand')->get() as $brand)
+                        <option value="{{ $brand->brand }}" modelsurl="{{ route('car.models.by.brand', [$brand->brand]) }}">{{ $brand->brand }}</option>
+                      @endforeach
+                    </select>
                   </div>
                 </div>
 
-              </div>
-              <div class="card-footer ml-auto mr-auto">
-                <button type="submit" class="btn btn-info">{{ __('Actualizar') }}</button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <form method="post" action="{{ route('user.updatepass', ['id' => $user->id]) }}" class="form-horizontal">
-            @csrf
-            @method('put')
+                <div class="col">
+                  <div class="form-group">
+                    <label for="description">Modelo:</label>
+                    <select name="model" id="select-model" required="">
+                      <option value="{{ $car->model }}">{{ $car->model }}</option>
+                    </select>
+                  </div>
+                </div>
 
-            <div class="card ">
-              <div class="card-header card-header-info">
-                <h4 class="card-title">{{ __('Cambiar contraseña') }}</h4>
-                <p class="card-category">{{ __('Contraseña') }}</p>
-              </div>
-              <div class="card-body ">
-                @if (session('status_password'))
-                  <div class="row">
-                    <div class="col-sm-12">
-                      <div class="alert alert-success">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                          <i class="material-icons">close</i>
-                        </button>
-                        <span>{{ session('status_password') }}</span>
-                      </div>
-                    </div>
-                  </div>
-                @endif
-                <div class="row">
-                  <label class="col-sm-2 col-form-label" for="input-current-password">{{ __('Contraseña actual') }}</label>
-                  <div class="col-sm-7">
-                    <div class="form-group{{ $errors->has('old_password') ? ' has-danger' : '' }}">
-                      <input class="form-control{{ $errors->has('old_password') ? ' is-invalid' : '' }}" input type="password" name="old_password" id="input-current-password" placeholder="{{ __('Contraseña actual') }}" value="" required />
-                      @if ($errors->has('old_password'))
-                        <span id="name-error" class="error text-danger" for="input-name">{{ $errors->first('old_password') }}</span>
-                      @endif
-                    </div>
+                <div class="col">
+                  <div class="form-group">
+                      <label for="description">Color:</label>
+                      <select name="color" id="select-color" required="">
+                        <option value="{{ $car->color }}">{{ $car->color }}</option>
+                        <option value="amarillo">amarillo</option>
+                        <option value="ámbar">ámbar</option>
+                        <option value="añil">añil</option>
+                        <option value="azul">azul</option>
+                        <option value="azul claro">azul claro</option>
+                        <option value="azul eléctrico">azul eléctrico</option>
+                        <option value="azul marino">azul marino</option>
+                        <option value="beis">beis</option>
+                        <option value="bermellón">bermellón</option>
+                        <option value="blanco ">blanco </option>
+                        <option value="blanco marfil">blanco marfil</option>
+                        <option value="burdeos">burdeos</option>
+                        <option value="café">café</option>
+                        <option value="caoba o">caoba o</option>
+                        <option value="caqui  ">caqui  </option>
+                        <option value="carmesí ">carmesí </option>
+                        <option value="castaño">castaño</option>
+                        <option value="celeste ">celeste </option>
+                        <option value="cereza">cereza</option>
+                        <option value="champán">champán</option>
+                        <option value="chartreuse o">chartreuse o</option>
+                        <option value="cian">cian</option>
+                        <option value="cobre">cobre</option>
+                        <option value="color terracota">color terracota</option>
+                        <option value="coral  ">coral  </option>
+                        <option value="crema  ">crema  </option>
+                        <option value="fucsia">fucsia</option>
+                        <option value="granate ">granate </option>
+                        <option value="gris">gris</option>
+                        <option value="gris perla">gris perla</option>
+                        <option value="gris zinc">gris zinc</option>
+                        <option value="gualdo">gualdo</option>
+                        <option value="hueso">hueso</option>
+                        <option value="lavanda">lavanda</option>
+                        <option value="lila">lila</option>
+                        <option value="magenta">magenta</option>
+                        <option value="marrón">marrón</option>
+                        <option value="marrón chocolate">marrón chocolate</option>
+                        <option value="morado">morado</option>
+                        <option value="naranja">naranja</option>
+                        <option value="negro">negro</option>
+                        <option value="ocre">ocre</option>
+                        <option value="ocre claro">ocre claro</option>
+                        <option value="ocre oscuro">ocre oscuro</option>
+                        <option value="oro o">oro o</option>
+                        <option value="pardo">pardo</option>
+                        <option value="plata  ">plata  </option>
+                        <option value="púrpura">púrpura</option>
+                        <option value="rojo">rojo</option>
+                        <option value="rojo carmín">rojo carmín</option>
+                        <option value="rojo óxido">rojo óxido</option>
+                        <option value="rosa ">rosa </option>
+                        <option value="rosa palo">rosa palo</option>
+                        <option value="salmón  ">salmón  </option>
+                        <option value="turquesa">turquesa</option>
+                        <option value="verde">verde</option>
+                        <option value="verde botella">verde botella</option>
+                        <option value="verde esmeralda">verde esmeralda</option>
+                        <option value="verde lima">verde lima</option>
+                        <option value="verde manzana">verde manzana</option>
+                        <option value="verde musgo">verde musgo</option>
+                        <option value="verde oliva">verde oliva</option>
+                        <option value="verde pistacho">verde pistacho</option>
+                        <option value="aguamarina">aguamarina</option>
+                        <option value="violeta">violeta</option>
+                        <option value="vino">vino</option>
+                      </select>
                   </div>
                 </div>
-                <div class="row">
-                  <label class="col-sm-2 col-form-label" for="input-password">{{ __('Nueva contraseña') }}</label>
-                  <div class="col-sm-7">
-                    <div class="form-group{{ $errors->has('password') ? ' has-danger' : '' }}">
-                      <input class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" id="input-password" type="password" placeholder="{{ __('Ingrese la nueva contraseña') }}" value="" required />
-                      @if ($errors->has('password'))
-                        <span id="password-error" class="error text-danger" for="input-password">{{ $errors->first('password') }}</span>
-                      @endif
-                    </div>
+
+                <div class="col">
+                  <div class="" style="padding-top: 10px;">
+                      <label for="plate">Año:</label>
+                      <input type="text" class="form-control" name="plate" value="{{ $car->plate }}" style="text-transform: uppercase;">
                   </div>
                 </div>
-                <div class="row">
-                  <label class="col-sm-2 col-form-label" for="input-password-confirmation">{{ __('Confirmación') }}</label>
-                  <div class="col-sm-7">
-                    <div class="form-group">
-                      <input class="form-control" name="password_confirmation" id="input-password-confirmation" type="password" placeholder="{{ __('Confirme la nueva contraseña') }}" value="" required />
-                    </div>
-                  </div>
+
                 </div>
               </div>
               <div class="card-footer ml-auto mr-auto">
-                <button type="submit" class="btn btn-info">{{ __('Change password') }}</button>
+                <button type="submit" class="btn btn-info">{{ __('Siguiente') }}</button>
               </div>
             </div>
+            
           </form>
         </div>
       </div>
     </div>
   </div>
+@endsection
+
+
+@section('inlinejs')
+  <script src="{{ asset('js/selectize.js') }}"></script>
+  <script>
+    $('#select-brand').selectize({
+      create: true,
+      sortField: {
+        field: 'text',
+        direction: 'asc'
+      },
+      dropdownParent: 'body',
+      persist: true
+    });
+    $('#select-model').selectize({
+      create: true,
+      sortField: {
+        field: 'text',
+        direction: 'asc'
+      },
+      dropdownParent: 'body',
+      persist: true
+    });
+    $('#select-color').selectize({
+      create: true,
+      sortField: {
+        field: 'text',
+        direction: 'asc'
+      },
+      dropdownParent: 'body',
+      persist: true
+    });
+    $('#select-year').selectize({
+      create: false,
+      sortField: {
+        field: 'text',
+        direction: 'desc'
+      },
+      dropdownParent: 'body',
+      persist: true
+    });
+
+    $('#select-brand').on('change', function(e){
+      if ( $(this).val() ) {
+        const models_url = '/cars/' + $(this).val() + '/models';
+        $.ajax({
+          url: models_url,
+          success: function(response) {
+           $('#select-model').selectize()[0].selectize.destroy();
+            $('#select-model').empty();
+            $('#select-model').append(response);
+            $('#select-model').selectize({
+              create: true,
+              sortField: {
+                field: 'text',
+                direction: 'asc'
+              },
+              dropdownParent: 'body'
+            });
+          }
+        });
+      } else {
+        $('#select-model').selectize()[0].selectize.destroy();
+        $('#select-model').empty();
+        $('#select-model').append('<option value=""></option>');
+        $('#select-model').selectize({
+          create: true,
+          sortField: {
+            field: 'text',
+            direction: 'asc'
+          },
+          dropdownParent: 'body'
+        });
+      }
+    });
+  </script>
 @endsection

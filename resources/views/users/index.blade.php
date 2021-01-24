@@ -46,6 +46,9 @@
                       <th>
                         Estatus
                       </th>
+                      <th>
+                        Eliminar
+                      </th>
                       <th class="text-right">
                         Editar
                       </th>
@@ -76,6 +79,15 @@
                           @if($user->status == 1) Activo <i class="material-icons" style="color: green;">assignment_turned_in</i>
                           @elseif($user->status == 0) Inactivo <i class="material-icons" style="color: red;">assignment_late</i>
                           @endif
+                        </td>
+                        <td class="td-actions text-right">
+                          <form action="{{ route('user.delete', ['id' => $user->id]) }}" method="POST">
+                            @method('DELETE')
+                            @csrf
+                            <button type="submit" class="btn btn-success btn-link">
+                              <i class="material-icons" style="color: red;">delete_forever</i>
+                            </button>
+                          </form>
                         </td>
                         <td class="td-actions text-right">
                           <a rel="tooltip" class="btn btn-success btn-link" href="{{ route('user.show', ['id' => $user->id]) }}" data-original-title="" title="">

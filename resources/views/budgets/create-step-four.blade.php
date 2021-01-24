@@ -90,8 +90,8 @@
                   <div class="col">
                     <label for="currency">Porcentaje de IVA</label>
                     <select id="select-currency" type="text" name="currency" class="form-control">
-                      <option value="USD" nombre="Dolar">Dolar</option>
                       <option value="EUR" nombre="Euros">Euros</option>
+                      <option value="USD" nombre="Dolar">Dolar</option>
                       <option value="ARS" nombre="Pesos">Pesos</option>
                     </select>
                   </div>

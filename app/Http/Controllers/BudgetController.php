@@ -92,7 +92,6 @@ class BudgetController extends Controller
             'brand' => ['required'],
             'model' => ['required'],
             'color' => ['required'],
-            'year' => ['required'],
         ]);
 
         if ( $validator->fails() ) {
@@ -106,7 +105,7 @@ class BudgetController extends Controller
             $car->brand = $request->brand;
             $car->model = $request->model;
             $car->color = $request->color;
-            $car->year = $request->year;
+            $car->year = $request->year ? $request->year : null;
             $request->session()->put('car', $car);
             return redirect()->route('budget.create.step.three');
         }

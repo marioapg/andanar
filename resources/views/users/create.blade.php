@@ -5,7 +5,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
-          <form class="form" method="POST" action="{{ route('user.create') }}">
+          <form id="user-create" class="form" method="POST" action="{{ route('user.create') }}">
             @csrf
 
            @if( Session::has('flash_message') )
@@ -77,7 +77,7 @@
                     <i class="material-icons">add_task</i>
                   </span>
                 </div>
-                <select name="type" class="form-control mdb-select" placeholder="{{ __('Tipo...') }}" value="{{ old('type') }}" required>
+                <select name="type" class="form-control mdb-select" id="user-type" required>
                   <option value="technical">Técnico</option>
                   <option value="proficient">Perito</option>
                   <option value="boss">Encargado</option>
@@ -96,7 +96,7 @@
                     <i class="material-icons">lock_outline</i>
                   </span>
                 </div>
-                <input type="password" name="password" id="password" class="form-control" placeholder="{{ __('Password...') }}" required>
+                <input type="password" name="password" id="password" class="form-control" placeholder="{{ __('Password...') }}">
               </div>
               @if ($errors->has('password'))
                 <div id="password-error" class="error text-danger pl-3" for="password" style="display: block;">
@@ -111,7 +111,7 @@
                     <i class="material-icons">lock_outline</i>
                   </span>
                 </div>
-                <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" placeholder="{{ __('Confirmación password...') }}" required>
+                <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" placeholder="{{ __('Confirmación password...') }}">
               </div>
               @if ($errors->has('password_confirmation'))
                 <div id="password_confirmation-error" class="error text-danger pl-3" for="password_confirmation" style="display: block;">
@@ -141,4 +141,26 @@
       </div>
     </div>
   </div>
+@endsection
+
+@section('inlinejs')
+<script>
+  $(document).ready(function(){
+    $('#user-type').on('change', function(e){
+      if ( $(this).val() != 'technical' ) {
+        $('#password').attr('disabled', 'true');
+        $('#password').val('');
+        $('#password').css('background-color', '#80808040');
+        $('#password_confirmation').val('');
+        $('#password_confirmation').attr('disabled', 'true');
+        $('#password_confirmation').css('background-color', '#80808040');
+        return;
+      }
+      $('#password').attr('disabled', false);
+      $('#password').css('background-color', '#ffffff');
+      $('#password_confirmation').attr('disabled', false);
+      $('#password_confirmation').css('background-color', '#ffffff');
+    });
+  });
+</script>
 @endsection

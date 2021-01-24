@@ -29,6 +29,7 @@ Route::group(['middleware' => 'auth'], function () {
 	// USER
 	Route::resource('user', 'UserController', ['except' => ['show']]);
 	Route::get('user/{id}', ['as' => 'user.show', 'uses' => 'UserController@show']);
+	Route::delete('user/delete/{id}', ['as' => 'user.delete', 'uses' => 'UserController@delete']);
 	Route::put('user/profile/{id}', ['as' => 'user.update', 'uses' => 'UserController@update']);
 	Route::put('user/password/{id}', ['as' => 'user.updatepass', 'uses' => 'UserController@updatePass']);
 	Route::get('user/create', 'UserController@create')->name('user/create');
@@ -37,6 +38,7 @@ Route::group(['middleware' => 'auth'], function () {
 	// CLIENTS
 	Route::get('clients', 'ClientController@index')->name('clients.index');
 	Route::get('client/{id}/show', 'ClientController@show')->name('client.show');
+	Route::delete('client/delete/{id}', 'ClientController@delete')->name('client.delete');
 	Route::get('client/create', 'ClientController@create')->name('client.create');
 	Route::post('client', 'ClientController@store')->name('client.store');
 	Route::put('client', 'ClientController@update')->name('client.update');
@@ -79,6 +81,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('cars', ['as' => 'cars.index', 'uses' => 'CarController@index']);
 	Route::get('cars/{id}', ['as' => 'car.show', 'uses' => 'CarController@show']);
 	Route::put('cars/{id}', ['as' => 'car.update', 'uses' => 'CarController@update']);
+	Route::delete('cars/{id}', ['as' => 'car.delete', 'uses' => 'CarController@delete']);
 	Route::get('car/create', ['as' => 'car.create', 'uses' => 'CarController@create']);
 	Route::post('car/store', ['as' => 'car.store', 'uses' => 'CarController@store']);
 

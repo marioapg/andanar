@@ -10,7 +10,7 @@
               <div class="card-icon">
                 <i class="material-icons">content_copy</i>
               </div>
-              <p class="card-category">Presupustos</p>
+              <p class="card-category">Presupuestos</p>
               <h3 class="card-title">{{ \App\Budget::all()->count() }}
                 {{--<small>GB</small>--}}
               </h3>

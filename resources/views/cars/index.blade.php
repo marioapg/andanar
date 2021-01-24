@@ -15,8 +15,8 @@
           @endif
           <div class="card">
             <div class="card-header card-header-info">
-              <h4 class="card-title ">Autos</h4>
-              <p class="card-category">Listado de autos registrados</p>
+              <h4 class="card-title ">Coches</h4>
+              <p class="card-category">Coches registrados</p>
             </div>
             <div class="card-body">
               <div class="row">

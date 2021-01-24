@@ -105,4 +105,12 @@ class ClientController extends Controller
             echo $output;
         }
     }
+
+    public function delete(Request $request)
+    {
+        $client = Client::where('id', $request->id)->first()->delete();
+        Session::flash('flash_message', __('- Usuario eliminado.'));
+        Session::flash('flash_type', 'alert-success');
+        return redirect('/user');
+    }
 }
