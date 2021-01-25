@@ -66,6 +66,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('budget/{budget_id}', 'BudgetController@update')->name('budget.update');
 	Route::get('budget/{id}/users/allowed', 'BudgetController@alloweds')->name('budget.allowed');
 	Route::put('budget/{id}/users/allowed', 'BudgetController@autorize')->name('budgets.autorize');
+	Route::post('export/budgets', 'ExportReportController@export')->name('export.budgets');
 	
 	Route::post('budget/{budgetid}/mail/send', 'BudgetMailsController@send')->name('budget.send.mail');
 	Route::get('budget/{budgetid}/view/pdf', 'ViewPDFController@view')->name('budget.view.pdf');

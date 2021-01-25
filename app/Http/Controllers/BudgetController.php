@@ -231,6 +231,7 @@ class BudgetController extends Controller
                     'tarifa_pdr' => $request->tarifa,
                     'desmontaje' => $request->desmontaje,
                     'manual' => $manual,
+                    'created_by' => auth()->user()->id,
                 ]);
 
         if ($request->technical_id) {

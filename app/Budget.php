@@ -30,6 +30,7 @@ class Budget extends Model
         'attached',
         'desmontaje',
         'manual',
+        'created_by',
 	];
 
 
@@ -132,5 +133,10 @@ class Budget extends Model
     public function hasAccess($user_id)
     {
         return $this->usersAccess()->where('user_id', $user_id)->count() ? 1 : 0;
+    }
+
+    public function createdByUser()
+    {
+        return $this->hasOne('App\User', 'id', 'created_by')->withTrashed();
     }
 }

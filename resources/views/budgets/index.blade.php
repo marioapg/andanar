@@ -20,7 +20,22 @@
             </div>
             <div class="card-body">
               <div class="row">
-                <div class="col-12 text-right">
+                <div class="col-6 text-left">
+                  <form action="{{ route('export.budgets') }}" method="POST">
+                    @method('POST')
+                    @csrf
+
+                    Desde
+                    <input type="date" name="from">
+                    Hasta
+                    <input type="date" name="to">
+                    <button class="btn btn-sm btn-warning">Exportar</button>
+
+                  </form>
+                </div>
+                <div class="col-3 text-right">
+                </div>
+                <div class="col-3 text-right">
                   <a href="{{ route('budget.create.step.one') }}" class="btn btn-sm btn-info">Nuevo presupuesto</a>
                 </div>
               </div>

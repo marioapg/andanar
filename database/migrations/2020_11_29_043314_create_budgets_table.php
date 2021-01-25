@@ -20,6 +20,7 @@ class CreateBudgetsTable extends Migration
             $table->bigInteger('responsable_id')->nullable()->unsigned();
             $table->bigInteger('perito_id')->nullable()->unsigned();
             $table->bigInteger('car_id')->nullable()->unsigned();
+            $table->bigInteger('created_by')->nullable()->unsigned();
             $table->date('date');
             $table->text('public_comment')->nullable();
             $table->text('private_comment')->nullable();
@@ -38,6 +39,7 @@ class CreateBudgetsTable extends Migration
             $table->foreign('technical_id')->references('id')->on('users');
             $table->foreign('responsable_id')->references('id')->on('users');
             $table->foreign('perito_id')->references('id')->on('users');
+            $table->foreign('created_by')->references('id')->on('users');
             $table->foreign('car_id')->references('id')->on('cars');
             $table->softDeletes();
             $table->timestamps();
