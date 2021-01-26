@@ -35,7 +35,7 @@
       </li>
       <li class="nav-item {{ ($activePage == 'budgets') ? ' active' : '' }}">
         @if(auth()->user()->hasRole('admin'))
-          <a class="nav-link" href="{{ route('budgets.index') }}">
+          <a class="nav-link" href="{{ route('budgets.admin.index') }}">
         @else
           <a class="nav-link" href="{{ route('budgets.user.index') }}">
         @endif
