@@ -81,7 +81,8 @@ class UserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($pass),
             'type' => $request->type,
-            'phone' => $request->phone
+            'phone' => $request->phone,
+            'created_by' => auth()->user()->id
         ]);
 
 

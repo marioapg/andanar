@@ -9,7 +9,6 @@
   </div>
   <div class="sidebar-wrapper">
     <ul class="nav">
-      @if(auth()->user()->hasRole('admin'))
       <li class="nav-item{{ $activePage == 'dashboard' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('home') }}">
           <i class="material-icons">dashboard</i>
@@ -35,21 +34,16 @@
         </a>
       </li>
       <li class="nav-item {{ ($activePage == 'budgets') ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('budgets.index') }}">
+        @if(auth()->user()->hasRole('admin'))
+          <a class="nav-link" href="{{ route('budgets.index') }}">
+        @else
+          <a class="nav-link" href="{{ route('budgets.user.index') }}">
+        @endif
           <i class="material-icons">content_paste</i>
           <p>{{ __('Presupuestos') }}
           </p>
         </a>
       </li>
-      @else
-        <li class="nav-item {{ ($activePage == 'budgets') ? ' active' : '' }}">
-          <a class="nav-link" href="{{ route('budgets.technical.index') }}">
-            <i class="material-icons">content_paste</i>
-            <p>{{ __('Presupuestos') }}
-            </p>
-          </a>
-        </li>
-      @endif
     </ul>
   </div>
 </div>

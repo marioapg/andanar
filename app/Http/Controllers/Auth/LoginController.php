@@ -47,8 +47,8 @@ class LoginController extends Controller
             return redirect()->route('login');
         }
 
-        if ( Auth::user()->type == 'technical' ) {
-            return redirect()->route('budgets.technical.index');
-        }
+        // if ( Auth::user()->type == 'technical' ) {
+        //     return redirect()->route('budgets.technical.index');
+        // }
     }
 }

@@ -293,7 +293,7 @@ class BudgetController extends Controller
         $request->session()->forget('params');
         Session::flash('flash_message', __('- Presupuesto creado con éxito.'));
         Session::flash('flash_type', 'alert-success');
-        return redirect()->route('budgets.index');
+        return redirect()->route('budgets.'.auth()->user()->roles->first()->name.'.index');
     }
 
     public function status(Request $request)

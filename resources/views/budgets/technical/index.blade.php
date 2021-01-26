@@ -95,6 +95,7 @@
         pageLength: 20,
         lengthMenu: [[20, 50, 100, -1], [20, 50, 100, "Todas"]],
         aaSorting: [],
+        order: [0,'desc'],
         language: {
                 processing:     "Procesando...",
                 search:         "",

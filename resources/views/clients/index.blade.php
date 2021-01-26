@@ -29,6 +29,9 @@
                   <thead class=" text-info">
                     <tr>
                       <th>
+                        N°
+                      </th>
+                      <th>
                         Nombre
                       </th>
                       <th>
@@ -51,6 +54,9 @@
                   <tbody>
                     @foreach ($clients as $client)
                       <tr>
+                        <td>
+                          {{ $client->id }}
+                        </td>
                         <td>
                           {{ $client->name }}
                         </td>

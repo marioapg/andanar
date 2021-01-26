@@ -46,7 +46,9 @@ class ClientController extends Controller
             return back()->withErrors($validator)->withInput();
         }
 
-        Client::create($request->all());
+        $client = Client::create($request->all());
+        $client->created_by = auth()->user()->id;
+        $client->save();
 
         Session::flash('flash_message', __('+ Datos actualizados'));
         Session::flash('flash_type', 'alert-success');

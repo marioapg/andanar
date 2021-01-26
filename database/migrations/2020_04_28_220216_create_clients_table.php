@@ -24,6 +24,8 @@ class CreateClientsTable extends Migration
             $table->string('state');
             $table->string('country');
             $table->string('phone')->nullable();
+            $table->bigInteger('created_by')->nullable()->unsigned();
+            $table->foreign('created_by')->references('id')->on('users');
             $table->timestamps();
             $table->softDeletes();
         });

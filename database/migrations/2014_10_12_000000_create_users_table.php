@@ -22,6 +22,8 @@ class CreateUsersTable extends Migration
             $table->string('phone')->nullable()->default(null);
             $table->string('type')->default('technical');
             $table->boolean('status')->default(1);
+            $table->bigInteger('created_by')->nullable()->unsigned();
+            $table->foreign('created_by')->references('id')->on('users');
             $table->softDeletes();
             $table->rememberToken();
             $table->timestamps();

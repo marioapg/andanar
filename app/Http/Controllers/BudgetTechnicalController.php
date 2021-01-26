@@ -11,7 +11,8 @@ class BudgetTechnicalController extends Controller
     public function index(Request $request)
     {
         $budgets = Budget::where('technical_id', auth()->user()->id)
-        		->orWhereHas('usersAccess', function($q){
+        		->orWhere('created_by', auth()->user()->id)
+                ->orWhereHas('usersAccess', function($q){
 		        	return $q->where('user_id', auth()->user()->id);
 		        })->get();
     	return view('budgets.technical.index', ['budgets' => $budgets]);

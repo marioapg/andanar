@@ -20,7 +20,7 @@ Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('/home', 'HomeController@index')->name('home');
-	Route::get('technical/session/mybudgets', 'BudgetTechnicalController@index')->name('budgets.technical.index');
+	Route::get('technical/session/mybudgets', 'BudgetTechnicalController@index')->name('budgets.user.index');
 	Route::get('technical/session/mybudgets/budget/{id}', 'BudgetTechnicalController@show')->name('budget.technical.show');
 	Route::put('technical/session/mybudgets/budget/{id}/status', 'BudgetTechnicalController@status')->name('budget.technical.status');
 	Route::get('technical/session/mybudgets/budget/{budgetid}/view/pdf', 'ViewPDFController@viewTechnical')->name('budget.technical.view.pdf');
@@ -45,7 +45,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('client/search', 'ClientController@search')->name('client.search');
 
 	// BUDGETS
-	Route::get('budgets', 'BudgetController@index')->name('budgets.index');
+	Route::get('budgets', 'BudgetController@index')->name('budgets.admin.index');
 	Route::get('budget/create/step-1', 'BudgetController@createStepOne')->name('budget.create.step.one');
 	Route::post('budget/create/step-1', 'BudgetController@storeStepOne')->name('budget.create.step.one');
 	
