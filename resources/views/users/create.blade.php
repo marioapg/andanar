@@ -78,7 +78,9 @@
                   </span>
                 </div>
                 <select name="type" class="form-control mdb-select" id="user-type" required>
-                  <option value="technical">Técnico</option>
+                  @if(auth()->user()->hasRole('admin'))
+                    <option value="technical">Técnico</option>
+                  @endif
                   <option value="proficient">Perito</option>
                   <option value="boss">Encargado</option>
                 </select>
@@ -96,7 +98,7 @@
                     <i class="material-icons">lock_outline</i>
                   </span>
                 </div>
-                <input type="password" name="password" id="password" class="form-control" placeholder="{{ __('Password...') }}">
+                <input type="password" name="password" id="password" class="form-control" placeholder="{{ __('Password...') }}" @if(!auth()->user()->hasRole('admin')) disabled @endif>
               </div>
               @if ($errors->has('password'))
                 <div id="password-error" class="error text-danger pl-3" for="password" style="display: block;">
@@ -111,7 +113,7 @@
                     <i class="material-icons">lock_outline</i>
                   </span>
                 </div>
-                <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" placeholder="{{ __('Confirmación password...') }}">
+                <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" placeholder="{{ __('Confirmación password...') }}" @if(!auth()->user()->hasRole('admin')) disabled @endif>
               </div>
               @if ($errors->has('password_confirmation'))
                 <div id="password_confirmation-error" class="error text-danger pl-3" for="password_confirmation" style="display: block;">
