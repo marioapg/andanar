@@ -62,7 +62,7 @@
                     <i class="material-icons">phone</i>
                   </span>
                 </div>
-                <input type="text" name="phone" class="form-control" placeholder="{{ __('Teléfono...') }}" value="{{ old('phone') }}" required>
+                <input type="text" name="phone" class="form-control" placeholder="{{ __('Teléfono...') }}" value="{{ old('phone') }}" >
               </div>
               @if ($errors->has('phone'))
                 <div id="phone-error" class="error text-danger pl-3" for="phone" style="display: block;">
@@ -70,6 +70,22 @@
                 </div>
               @endif
             </div>
+            <div class="bmd-form-group{{ $errors->has('company') ? ' has-danger' : '' }} mt-3">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="material-icons">business</i>
+                  </span>
+                </div>
+                <input type="text" name="company" class="form-control" placeholder="{{ __('Compañía (opcional)') }}" value="{{ old('company') }}" >
+              </div>
+              @if ($errors->has('company'))
+                <div id="company-error" class="error text-danger pl-3" for="company" style="display: block;">
+                  <strong>{{ $errors->first('company') }}</strong>
+                </div>
+              @endif
+            </div>
+
             <div class="bmd-form-group{{ $errors->has('type') ? ' has-danger' : '' }} mt-3">
               <div class="input-group">
                 <div class="input-group-prepend">
@@ -82,7 +98,7 @@
                     <option value="technical">Técnico</option>
                   @endif
                   <option value="proficient">Perito</option>
-                  <option value="boss">Encargado</option>
+                  <option value="boss">Responsable</option>
                 </select>
               </div>
               @if ($errors->has('type'))
@@ -150,17 +166,13 @@
   $(document).ready(function(){
     $('#user-type').on('change', function(e){
       if ( $(this).val() != 'technical' ) {
-        $('#password').attr('disabled', 'true');
         $('#password').val('');
         $('#password').css('background-color', '#80808040');
         $('#password_confirmation').val('');
-        $('#password_confirmation').attr('disabled', 'true');
         $('#password_confirmation').css('background-color', '#80808040');
         return;
       }
-      $('#password').attr('disabled', false);
       $('#password').css('background-color', '#ffffff');
-      $('#password_confirmation').attr('disabled', false);
       $('#password_confirmation').css('background-color', '#ffffff');
     });
   });

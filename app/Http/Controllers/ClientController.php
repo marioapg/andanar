@@ -52,7 +52,10 @@ class ClientController extends Controller
 
         Session::flash('flash_message', __('+ Datos actualizados'));
         Session::flash('flash_type', 'alert-success');
-        return redirect()->route('clients.index');
+        if (auth()->user()->hasRole('admin')) {
+            return redirect()->route('clients.index');
+        }
+        return redirect()->route('clients.user.index');
     }
 
     public function update(Request $request)

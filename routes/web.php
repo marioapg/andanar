@@ -25,6 +25,8 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('technical/session/mybudgets/budget/{id}/status', 'BudgetTechnicalController@status')->name('budget.technical.status');
 	Route::get('technical/session/mybudgets/budget/{budgetid}/view/pdf', 'ViewPDFController@viewTechnical')->name('budget.technical.view.pdf');
 	Route::get('technical/session/mybudgets/budget/{budgetid}/view/embed', 'BudgetTechnicalController@embedview')->name('budget.technical.view.embed');
+	Route::get('technical/session/myclients', 'ClientTechnicalController@index')->name('clients.user.index');
+	Route::get('proficient/session/mybudgets', 'BudgetPeritoController@index')->name('budgets.perito.index');
 	
 	// USER
 	Route::resource('user', 'UserController', ['except' => ['show']]);

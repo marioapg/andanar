@@ -31,7 +31,11 @@
                   <i class="material-icons">face</i>
                 </div>
                 <p class="card-category">Clientes</p>
-                <h3 class="card-title">{{ \App\Client::all()->count() }}</h3>
+                @if(auth()->user()->hasRole('admin'))
+                  <h3 class="card-title">{{ \App\Client::all()->count() }}</h3>
+                @else
+                  <h3 class="card-title">{{ \App\Client::where('created_by', auth()->user()->id)->count() }}</h3>
+                @endif
               </div>
               <div class="card-footer">
                 <div class="stats">

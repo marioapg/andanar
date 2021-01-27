@@ -43,9 +43,11 @@
                       <th>
                         Fecha de creación
                       </th>
-                      <th class="text-right">
-                        Eliminar
-                      </th>
+                      @if(auth()->user()->hasRole('admin'))
+                        <th class="text-right">
+                          Eliminar
+                        </th>
+                      @endif
                       <th class="text-right">
                         Editar
                       </th>
@@ -69,15 +71,17 @@
                         <td>
                           {{ $client->created_at->format('d-m-Y') }}
                         </td>
-                        <td class="td-actions text-right">
-                          <form action="{{ route('client.delete', ['id' => $client->id]) }}" method="POST">
-                            @method('DELETE')
-                            @csrf
-                            <button type="submit" class="btn btn-success btn-link">
-                              <i class="material-icons" style="color: red;">delete_forever</i>
-                            </button>
-                          </form>
-                        </td>
+                        @if(auth()->user()->hasRole('admin'))
+                          <td class="td-actions text-right">
+                            <form action="{{ route('client.delete', ['id' => $client->id]) }}" method="POST">
+                              @method('DELETE')
+                              @csrf
+                              <button type="submit" class="btn btn-success btn-link">
+                                <i class="material-icons" style="color: red;">delete_forever</i>
+                              </button>
+                            </form>
+                          </td>
+                        @endif
                         <td class="td-actions text-right">
                           <a rel="tooltip" class="btn btn-success btn-link" href="{{ route('client.show', ['id' => $client->id]) }}" data-original-title="" title="">
                             <i class="material-icons">edit</i>

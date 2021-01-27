@@ -95,7 +95,7 @@
                 </div>
                 <div class="row">
                   <div class="col">
-                    <label for="boss_id">Encargado taller</label>
+                    <label for="boss_id">Responsable taller</label>
                     <select name="boss_id" id="select-boss" autocomplete="off">
                       <option value=""></option>
                       @foreach( \App\User::where('type','boss')->where('status',1)->get() as $boss)

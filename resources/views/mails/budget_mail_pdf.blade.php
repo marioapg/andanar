@@ -1,6 +1,10 @@
 <head>
 	<link rel="stylesheet" href="{{ asset('css/custom.css') }}">
     <style>
+        #invoice {
+            font-family: calibri, sans-serif;
+            font-size: 12px;
+        }
         p {
             margin:0px;
         }
@@ -16,7 +20,7 @@
     </style>
 </head>
 
-<div id="invoice" style="font-size: 12px;">
+<div id="invoice">
    <div style="min-width: 600px">
         <table class="head-budget" style="width:100%;border-collapse: collapse;">
             <tr>
@@ -236,14 +240,22 @@
             <tr>
                 <td colspan="2">
                     <p>
-                        <strong>MAIL RESP.</strong> {{ $budget->responsable->mail ?? '' }}<br>
+                        <strong>MAIL RESP.</strong>
+                        <strong class="cursiva-azul"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            {{ $budget->responsable->mail ?? '' }}
+                        </strong>
+                        <br>
                         <small>res. email / email res.</small>
                     </p>
                 </td>
                 <td colspan="2">
                     <p>
-                        <strong></strong><br>
-                        <small></small>
+                        <strong>REALIZÓ</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <strong class="cursiva-azul">
+                            {{ $budget->technical->name ?? '' }}
+                        </strong>
+                        <br>
+                        <small>made / fait</small>
                     </p>
                 </td>
             </tr>
@@ -329,14 +341,16 @@
                 <td style="width: 10%;" colspan="2">{{ $total_vds }} VDs</td>
             </tr>
             <tr>
-                <td colspan="4" rowspan="3" style="text-align: left;">
-                    <strong>
-                        Observaciones.        
-                    </strong>
+                <td colspan="4" rowspan="3" style="text-align: left;" padding>
+                    <p style="margin-top: -30px;">
+                        <strong>
+                            Observaciones.        
+                        </strong>
+                        <small>
+                            remarks / observations
+                        </small>
+                    </p>
                     <br>
-                    <small>
-                        remarks / observations
-                    </small>
                     <br>
                     {{ $budget->public_comment }}
                 </td>
@@ -378,7 +392,7 @@
             </tr>
                 <tr>
                 <td colspan="4">
-                    <strong>TÉCNICO</strong> <small>Technical / Technicien</small>
+                    <strong>TÉCNICO</strong> <small>Technic / Technicien</small>
                 </td>
                 <td colspan="9">
                     <strong>CONFORME CLIENTE</strong> Firma y Sello -- <small>customer ok / conformité</small>

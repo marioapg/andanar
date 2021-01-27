@@ -33,7 +33,7 @@ class UserController extends Controller
 
     public function update(Request $request)
     {
-        User::find($request->id)->update($request->only(['name', 'phone', 'type', 'status']));
+        User::find($request->id)->update($request->only(['name', 'phone', 'type', 'status', 'company']));
 
         Session::flash('flash_message', __('+ Actualización exitosa.'));
         Session::flash('flash_type', 'alert-success');
@@ -70,28 +70,27 @@ class UserController extends Controller
             return back()->withErrors($validator)->withInput();
         }
 
-        if ($request->type =! 'technical') {
+        $params = $request->all();
+        if ( ($params['type'] != 'technical') && (is_null($params['password'])) ) {
             $pass = 'secret1234';
         } else {
-            $pass = $request->password;
+            $pass = $params['password'];
         }
-
         $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
+            'name' => $params['name'],
+            'email' => $params['email'],
             'password' => Hash::make($pass),
-            'type' => $request->type,
-            'phone' => $request->phone,
+            'type' => $params['type'],
+            'phone' => $params['phone'],
+            'company' => $params['company'],
             'created_by' => auth()->user()->id
         ]);
-
-
+        
         if (is_null($user)) {
             Session::flash('flash_message', __('- Error en los datos, por favor verifique e intente de nuevo.'));
             Session::flash('flash_type', 'alert-danger');
             return back()->withErrors(['create' => 'No se pudo guardar, intenta más tarde']);
         }
-
         $user->roles()->attach(Role::where('name', 'user')->first());
 
         Session::flash('flash_message', __('+ Usuario creado con éxito.'));

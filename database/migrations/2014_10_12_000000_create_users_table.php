@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->boolean('status')->default(1);
             $table->bigInteger('created_by')->nullable()->unsigned();
             $table->foreign('created_by')->references('id')->on('users');
+            $table->string('company')->default('')->nullable();
             $table->softDeletes();
             $table->rememberToken();
             $table->timestamps();

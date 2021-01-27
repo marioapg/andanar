@@ -79,7 +79,7 @@
 
                 <div class="row">
                   <div class="col">
-                    <label for="boss_id">Encargado taller</label>
+                    <label for="boss_id">Responsable taller</label>
                     <input type="hidden" name="boss_id" class="form-control" value="{{ $params->boss_id }}">
                     <input type="text" name="client" class="form-control" value="{{ $params->boss_id ? \App\User::where('id',$params->boss_id)->first()->name : '' }}" readonly="">
                   </div>

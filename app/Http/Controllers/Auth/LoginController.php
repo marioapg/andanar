@@ -42,13 +42,13 @@ class LoginController extends Controller
 
     public function authenticated(Request $request, $user)
     {
-        if ( (!Auth::user()->status) || (Auth::user()->type == 'proficient') ) {
+        if ( (!Auth::user()->status) ) {
             Auth::logout();
             return redirect()->route('login');
         }
 
-        // if ( Auth::user()->type == 'technical' ) {
-        //     return redirect()->route('budgets.technical.index');
-        // }
+        if ( Auth::user()->type == 'proficient' ) {
+            return redirect()->route('budgets.perito.index');
+        }
     }
 }

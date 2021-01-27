@@ -49,9 +49,11 @@
                       <th>
                         Estatus
                       </th>
-                      <th>
-                        Eliminar
-                      </th>
+                      @if( auth()->user()->hasRole('admin') )
+                        <th>
+                          Eliminar
+                        </th>
+                      @endif
                       <th class="text-right">
                         Editar
                       </th>
@@ -78,7 +80,7 @@
                         <td>
                           @if($user->type == 'technical') Tecnico
                           @elseif($user->type == 'proficient') Perito
-                          @elseif($user->type == 'boss') Encargado
+                          @elseif($user->type == 'boss') Responsable
                           @endif
                         </td>
                         <td>
@@ -86,15 +88,17 @@
                           @elseif($user->status == 0) Inactivo <i class="material-icons" style="color: red;">assignment_late</i>
                           @endif
                         </td>
-                        <td class="td-actions text-right">
-                          <form action="{{ route('user.delete', ['id' => $user->id]) }}" method="POST">
-                            @method('DELETE')
-                            @csrf
-                            <button type="submit" class="btn btn-success btn-link">
-                              <i class="material-icons" style="color: red;">delete_forever</i>
-                            </button>
-                          </form>
-                        </td>
+                        @if( auth()->user()->hasRole('admin') )
+                          <td class="td-actions text-right">
+                            <form action="{{ route('user.delete', ['id' => $user->id]) }}" method="POST">
+                              @method('DELETE')
+                              @csrf
+                              <button type="submit" class="btn btn-success btn-link">
+                                <i class="material-icons" style="color: red;">delete_forever</i>
+                              </button>
+                            </form>
+                          </td>
+                        @endif
                         <td class="td-actions text-right">
                           <a rel="tooltip" class="btn btn-success btn-link" href="{{ route('user.show', ['id' => $user->id]) }}" data-original-title="" title="">
                             <i class="material-icons">edit</i>

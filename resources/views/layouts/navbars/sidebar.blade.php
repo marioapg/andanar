@@ -7,43 +7,51 @@
   <div class="logo" style="text-align: center;">
     <img src="{{ asset('/images/logo.jpg') }}" width="150">
   </div>
-  <div class="sidebar-wrapper">
-    <ul class="nav">
-      <li class="nav-item{{ $activePage == 'dashboard' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('home') }}">
-          <i class="material-icons">dashboard</i>
-            <p>{{ __('Dashboard') }}</p>
-        </a>
-      </li>
-      <li class="nav-item {{ ($activePage == 'user-management') ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('user.index') }}">
-          <i class="material-icons">account_circle</i>
-          <p>{{ __('Usuarios') }}</p>
-        </a>
-      </li>
-      <li class="nav-item {{ ($activePage == 'clients') ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('clients.index') }}">
-          <i class="material-icons">assignment_ind</i>
-          <p>{{ __('Clientes') }}</p>
-        </a>
-      </li>
-      <li class="nav-item {{ ($activePage == 'cars') ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('cars.index') }}">
-          <i class="material-icons">directions_car</i>
-          <p>{{ __('Coches') }}</p>
-        </a>
-      </li>
-      <li class="nav-item {{ ($activePage == 'budgets') ? ' active' : '' }}">
+  @if ( auth()->user()->type != 'proficient') )
+    <div class="sidebar-wrapper">
+      <ul class="nav">
+        <li class="nav-item{{ $activePage == 'dashboard' ? ' active' : '' }}">
+          <a class="nav-link" href="{{ route('home') }}">
+            <i class="material-icons">dashboard</i>
+              <p>{{ __('Menu principal') }}</p>
+          </a>
+        </li>
         @if(auth()->user()->hasRole('admin'))
-          <a class="nav-link" href="{{ route('budgets.admin.index') }}">
-        @else
-          <a class="nav-link" href="{{ route('budgets.user.index') }}">
+          <li class="nav-item {{ ($activePage == 'user-management') ? ' active' : '' }}">
+              <a class="nav-link" href="{{ route('user.index') }}">
+              <i class="material-icons">account_circle</i>
+              <p>{{ __('Usuarios') }}</p>
+            </a>
+          </li>
         @endif
-          <i class="material-icons">content_paste</i>
-          <p>{{ __('Presupuestos') }}
-          </p>
-        </a>
-      </li>
-    </ul>
-  </div>
+        <li class="nav-item {{ ($activePage == 'clients') ? ' active' : '' }}">
+        @if(auth()->user()->hasRole('admin'))
+          <a class="nav-link" href="{{ route('clients.index') }}">
+        @else
+          <a class="nav-link" href="{{ route('clients.user.index') }}">
+        @endif
+            <i class="material-icons">assignment_ind</i>
+            <p>{{ __('Clientes') }}</p>
+          </a>
+        </li>
+        <li class="nav-item {{ ($activePage == 'cars') ? ' active' : '' }}">
+          <a class="nav-link" href="{{ route('cars.index') }}">
+            <i class="material-icons">directions_car</i>
+            <p>{{ __('Coches') }}</p>
+          </a>
+        </li>
+        <li class="nav-item {{ ($activePage == 'budgets') ? ' active' : '' }}">
+          @if(auth()->user()->hasRole('admin'))
+            <a class="nav-link" href="{{ route('budgets.admin.index') }}">
+          @else
+            <a class="nav-link" href="{{ route('budgets.user.index') }}">
+          @endif
+            <i class="material-icons">content_paste</i>
+            <p>{{ __('Presupuestos') }}
+            </p>
+          </a>
+        </li>
+      </ul>
+    </div>
+  @endif
 </div>

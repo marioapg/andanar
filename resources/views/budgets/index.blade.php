@@ -19,6 +19,7 @@
               <p class="card-category">{{ __('Listado presupuestos') }}</p>
             </div>
             <div class="card-body">
+              @if ( auth()->user()->type != 'proficient' ) 
               <div class="row">
                 <div class="col-6 text-left">
                   <form action="{{ route('export.budgets') }}" method="POST">
@@ -39,6 +40,7 @@
                   <a href="{{ route('budget.create.step.one') }}" class="btn btn-sm btn-info">Nuevo presupuesto</a>
                 </div>
               </div>
+              @endif
               <div class="table-responsive">
                 <table class="table text-center" id="budget-table">
                   <thead class="text-info">
@@ -50,7 +52,9 @@
                       <th>Total</th>
                       <th>Estatus</th>
                       <th class="text-right">Ver</th>
-                      <th class="text-right">Eliminar</th>
+                      @if ( auth()->user()->hasRole('admin') )
+                        <th class="text-right">Eliminar</th>
+                      @endif
                     </tr>
                   </thead>
                   <tbody>
@@ -81,15 +85,17 @@
                             <i class="material-icons">remove_red_eye</i>
                           </a>
                         </td>
-                        <td class="td-actions text-right">
-                          <form action="{{ route('budget.delete', ['id' => $budget->id]) }}" method="POST">
-                            @method('DELETE')
-                            @csrf
-                            <button type="submit" class="btn btn-success btn-link">
-                              <i class="material-icons" style="color: red;">delete_forever</i>
-                            </button>
-                          </form>
-                        </td>
+                        @if ( auth()->user()->hasRole('admin') )
+                          <td class="td-actions text-right">
+                            <form action="{{ route('budget.delete', ['id' => $budget->id]) }}" method="POST">
+                              @method('DELETE')
+                              @csrf
+                              <button type="submit" class="btn btn-success btn-link">
+                                <i class="material-icons" style="color: red;">delete_forever</i>
+                              </button>
+                            </form>
+                          </td>
+                        @endif
                       </tr>
                     @endforeach
                   </tbody>

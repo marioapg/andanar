@@ -240,11 +240,10 @@ class BudgetController extends Controller
         }
 
         foreach ($request->part as $key => $value) {
-            $mat = $request->material[$key] ? 'Aluminio' : 'Hierro';
             BudgetItem::create([
                                 'budget_id' => $budget->id,
                                 'part' => $request->part[$key],
-                                'material' =>  $mat,
+                                'material' =>  $request->material[$key],
                                 'small' => $request->small_damage[$key],
                                 'medium' => $request->medium_damage[$key],
                                 'big' => $request->big_damage[$key],
