@@ -40,6 +40,7 @@
                                  </button>
                               </a>
                            </div>
+                           @endif
 
                            <div class="col">
                               <button class="btn btn-success send-mail-popup">
@@ -47,7 +48,6 @@
                                  Enviar email
                               </button>
                            </div>
-                           @endif
                         @endif
 
                            <div class="col">

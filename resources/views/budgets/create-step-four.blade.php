@@ -1370,7 +1370,12 @@
         else if ( (s >= 101) && (s <= 130) )  { sVD = 60;}
         else if ( (s >= 131) && (s <= 180) )  { sVD = 70;}
         else if ( (s >= 181) && (s <= 250) )  { sVD = 80;}
-        else if ( s > 250 )                   { sVD = 100;}
+        else if ( (s >= 251) && (s <= 280) )  { sVD = 100;}
+        else if ( (s >= 281) && (s <= 340) )  { sVD = 105;}
+        else if ( (s >= 341) && (s <= 390) )  { sVD = 110;}
+        else if ( (s >= 391) && (s <= 460) )  { sVD = 120;}
+        else if ( (s >= 461) && (s <= 520) )  { sVD = 130;}
+        else if ( (s >= 521) && (s <= 600) )  { sVD = 145;}
 
         if ( m <= 0 )                       { mVD = 0;}
         else if ( (m >= 1) && (m <= 2) )    { mVD = 8;}
@@ -1383,8 +1388,19 @@
         else if ( (m >= 41) && (m <= 50) )  { mVD = 52;}
         else if ( (m >= 51) && (m <= 60) )  { mVD = 62;}
         else if ( (m >= 61) && (m <= 80) )  { mVD = 72;}
-        else if ( (m >= 80) && (m <= 100) ) { mVD = 84;}
-        else if ( m > 100 )                 { mVD = 100;}
+        else if ( (m >= 81) && (m <= 100) ) { mVD = 84;}
+        else if ( (m >= 101) && (m <= 120) ) { mVD = 100;}
+        else if ( (m >= 121) && (m <= 140) ) { mVD = 122;}
+        else if ( (m >= 141) && (m <= 160) ) { mVD = 135;}
+        else if ( (m >= 161) && (m <= 200) ) { mVD = 148;}
+        else if ( (m >= 201) && (m <= 230) ) { mVD = 164;}
+        else if ( (m >= 231) && (m <= 250) ) { mVD = 182;}
+        else if ( (m >= 251) && (m <= 280) ) { mVD = 191;}
+        else if ( (m >= 281) && (m <= 340) ) { mVD = 202;}
+        else if ( (m >= 341) && (m <= 390) ) { mVD = 216;}
+        else if ( (m >= 391) && (m <= 460) ) { mVD = 230;}
+        else if ( (m >= 461) && (m <= 520) ) { mVD = 248;}
+        else if ( (m >= 521) && (m <= 600) ) { mVD = 270;}
 
         if ( b <= 0 )                       { bVD = 0;}
         else if ( (b >= 1) && (b <= 2) )    { bVD = 12;}
@@ -1398,7 +1414,18 @@
         else if ( (b >= 51) && (b <= 60) )  { bVD = 93;}
         else if ( (b >= 61) && (b <= 80) )  { bVD = 108;}
         else if ( (b >= 80) && (b <= 100) ) { bVD = 126;}
-        else if ( b > 100 )                 { bVD = 150;}
+        else if ( (b >= 101) && (b <= 120) ) { bVD = 150;}
+        else if ( (b >= 121) && (b <= 140) ) { bVD = 183;}
+        else if ( (b >= 141) && (b <= 160) ) { bVD = 202;}
+        else if ( (b >= 161) && (b <= 200) ) { bVD = 221;}
+        else if ( (b >= 201) && (b <= 230) ) { bVD = 245;}
+        else if ( (b >= 231) && (b <= 250) ) { bVD = 272;}
+        else if ( (b >= 251) && (b <= 280) ) { bVD = 285;}
+        else if ( (b >= 281) && (b <= 340) ) { bVD = 301;}
+        else if ( (b >= 341) && (b <= 390) ) { bVD = 321;}
+        else if ( (b >= 391) && (b <= 460) ) { bVD = 342;}
+        else if ( (b >= 461) && (b <= 520) ) { bVD = 368;}
+        else if ( (b >= 521) && (b <= 600) ) { bVD = 400;}
 
         if ( p <= 0 )                       { pVD = 0;}
         else if ( (p >= 1) && (p <= 2) )    { pVD = 8;}
@@ -1412,7 +1439,18 @@
         else if ( (p >= 51) && (p <= 60) )  { pVD = 65;}
         else if ( (p >= 61) && (p <= 80) )  { pVD = 76;}
         else if ( (p >= 81) && (p <= 100) ) { pVD = 88;}
-        else if ( p > 100 )                 { pVD = 105;}
+        else if ( (p >= 101) && (p <= 120) ) { pVD = 105;}
+        else if ( (p >= 121) && (p <= 140) ) { pVD = 128;}
+        else if ( (p >= 141) && (p <= 160) ) { pVD = 141;}
+        else if ( (p >= 161) && (p <= 200) ) { pVD = 155;}
+        else if ( (p >= 201) && (p <= 230) ) { pVD = 172;}
+        else if ( (p >= 231) && (p <= 250) ) { pVD = 190;}
+        else if ( (p >= 251) && (p <= 280) ) { pVD = 200;}
+        else if ( (p >= 281) && (p <= 340) ) { pVD = 211;}
+        else if ( (p >= 341) && (p <= 390) ) { pVD = 225;}
+        else if ( (p >= 391) && (p <= 460) ) { pVD = 329;}
+        else if ( (p >= 461) && (p <= 520) ) { pVD = 258;}
+        else if ( (p >= 521) && (p <= 600) ) { pVD = 280;}
 
         mat = 'Hierro';
         $('.text-material'+numrow).html('');
