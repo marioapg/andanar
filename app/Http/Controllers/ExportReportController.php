@@ -30,6 +30,6 @@ class ExportReportController extends Controller
     	if (!$request->from && !$request->to) {
     		$budgets = Budget::all();
     	}
-		return Excel::download(new BudgetsExport($budgets), 'test.xlsx');
+		return Excel::download(new BudgetsExport($budgets), 'Reporte.xlsx');
     }
 }

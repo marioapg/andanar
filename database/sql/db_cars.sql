@@ -35,6 +35,21 @@ CREATE TABLE `db_cars` (
   `year_to` year(4) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+-- Indexes for table `db_cars`
+--
+ALTER TABLE `db_cars`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `db_cars`
+--
+ALTER TABLE `db_cars`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+COMMIT;
 --
 -- Dumping data for table `db_cars`
 --

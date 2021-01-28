@@ -21,7 +21,7 @@
             <div class="card-body">
               <div class="row">
                 <div class="col-12 text-right">
-                  <!-- <a href="{{ route('car.create') }}" class="btn btn-sm btn-info">Nuevo auto</a> -->
+                  <a href="{{ route('car.create') }}" class="btn btn-sm btn-info">Nuevo auto</a>
                 </div>
               </div>
               <div class="table-responsive">
@@ -33,15 +33,6 @@
                       </th>
                       <th>
                         Modelo
-                      </th>
-                      <th>
-                        Color
-                      </th>
-                      <th>
-                        Placa
-                      </th>
-                      <th>
-                        Fecha
                       </th>
                       <th class="text-right">
                         Editar
@@ -56,15 +47,6 @@
                         </td>
                         <td>
                           {{ $car->model }}
-                        </td>
-                        <td>
-                          {{ $car->color }}
-                        </td>
-                        <td>
-                          {{ $car->plate }}
-                        </td>
-                        <td>
-                          {{ $car->created_at->format('d-m-Y') }}
                         </td>
                         <td class="td-actions text-right">
                           <a rel="tooltip" class="btn btn-success btn-link" href="{{ route('car.show', ['id' => $car->id]) }}" data-original-title="" title="">
