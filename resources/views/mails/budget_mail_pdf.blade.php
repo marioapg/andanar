@@ -354,39 +354,39 @@
                     <br>
                     {{ $budget->public_comment }}
                 </td>
-                <td colspan="3" style="border-right: none;text-align: left;">
+                <td colspan="4" style="border-right: none;text-align: left;">
                     <strong>Reparación Varillas</strong> <br>
                     <small>dentwork / debosselage</small>
                 </td>
-                <td colspan="2" style="border-right: none;border-left: none;">
+                <td colspan="1" style="border-right: none;border-left: none;">
                     {{ \App\Utils\Currencies::getSymbol($budget->currency) }}
                 </td>
                 <td colspan="4" style="border-left: none;text-align: left;">
-                    {{ $budget->total }}
+                    {{ $budget->total - $budget->desmontaje }}
                 </td>
             </tr>
             <tr>
-                <td colspan="3" style="border-right: none; text-align: left;">
+                <td colspan="4" style="border-right: none; text-align: left;">
                     <strong>Des / Montaje</strong> <br>
                     <small>dis-assembly / dé-remontage</small>
                 </td>
-                <td colspan="2" style="border-right: none;border-left: none;">
+                <td colspan="1" style="border-right: none;border-left: none;">
                     {{ \App\Utils\Currencies::getSymbol($budget->currency) }}
                 </td>
                 <td colspan="4" style="border-left: none;text-align: left;">
                     {{ $budget->desmontaje }}
                 </td>
             </tr>
-            <tr>
-                <td colspan="3" style="border-right: none;text-align: left;">
-                    <strong>TOTAL</strong>
+            <tr style="height: 35px;">
+                <td colspan="4" style="border-right: none;text-align: left;">
+                    <strong>TOTAL</strong><br>
                 </td>
-                <td colspan="2" style="border-right: none;border-left: none;">
+                <td colspan="1" style="border-right: none;border-left: none;">
                     {{ \App\Utils\Currencies::getSymbol($budget->currency) }}
                 </td>
                 <td colspan="4" style="border-left: none;text-align: left;">
                     <p>
-                        {{ $budget->total + $budget->desmontaje }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ IVA
+                        <strong>{{ $budget->total }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ IVA</strong>
                     </p>
                 </td>
             </tr>
