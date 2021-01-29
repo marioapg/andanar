@@ -22,7 +22,10 @@ class UserController extends Controller
      */
     public function index(User $model)
     {
-        return view('users.index', ['users' => $model->where('type', '!=', 'admin')->paginate(15)]);
+        if ( auth()->user()->hasRole('admin') ) {
+            return view('users.index', ['users' => $model->where('type', '!=', 'admin')->paginate(15)]);
+        }
+        return view('users.index', ['users' => $model->where('type', '!=', 'admin')->where('created_by', auth()->user()->id)->paginate(15)]);
     }
 
     public function show(Request $request)

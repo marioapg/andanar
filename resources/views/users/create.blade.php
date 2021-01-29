@@ -107,47 +107,40 @@
                 </div>
               @endif
             </div>
-            <div class="bmd-form-group{{ $errors->has('password') ? ' has-danger' : '' }} mt-3">
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">
-                    <i class="material-icons">lock_outline</i>
-                  </span>
+            @if(auth()->user()->hasRole('admin'))
+              <div class="bmd-form-group{{ $errors->has('password') ? ' has-danger' : '' }} mt-3">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="material-icons">lock_outline</i>
+                    </span>
+                  </div>
+                  <input type="password" name="password" id="password" class="form-control" placeholder="{{ __('Password...') }}" @if(!auth()->user()->hasRole('admin')) disabled @endif>
                 </div>
-                <input type="password" name="password" id="password" class="form-control" placeholder="{{ __('Password...') }}" @if(!auth()->user()->hasRole('admin')) disabled @endif>
+                @if ($errors->has('password'))
+                  <div id="password-error" class="error text-danger pl-3" for="password" style="display: block;">
+                    <strong>{{ $errors->first('password') }}</strong>
+                  </div>
+                @endif
               </div>
-              @if ($errors->has('password'))
-                <div id="password-error" class="error text-danger pl-3" for="password" style="display: block;">
-                  <strong>{{ $errors->first('password') }}</strong>
+              <div class="bmd-form-group{{ $errors->has('password_confirmation') ? ' has-danger' : '' }} mt-3">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="material-icons">lock_outline</i>
+                    </span>
+                  </div>
+                  <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" placeholder="{{ __('Confirmación password...') }}" @if(!auth()->user()->hasRole('admin')) disabled @endif>
                 </div>
-              @endif
-            </div>
-            <div class="bmd-form-group{{ $errors->has('password_confirmation') ? ' has-danger' : '' }} mt-3">
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">
-                    <i class="material-icons">lock_outline</i>
-                  </span>
-                </div>
-                <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" placeholder="{{ __('Confirmación password...') }}" @if(!auth()->user()->hasRole('admin')) disabled @endif>
+                @if ($errors->has('password_confirmation'))
+                  <div id="password_confirmation-error" class="error text-danger pl-3" for="password_confirmation" style="display: block;">
+                    <strong>{{ $errors->first('password_confirmation') }}</strong>
+                  </div>
+                @endif
               </div>
-              @if ($errors->has('password_confirmation'))
-                <div id="password_confirmation-error" class="error text-danger pl-3" for="password_confirmation" style="display: block;">
-                  <strong>{{ $errors->first('password_confirmation') }}</strong>
-                </div>
-              @endif
-            </div>
-            {{--
-            <div class="form-check mr-auto ml-3 mt-3">
-              <label class="form-check-label">
-                <input class="form-check-input" type="checkbox" id="policy" name="policy" {{ old('policy', 1) ? 'checked' : '' }} >
-                <span class="form-check-sign">
-                  <span class="check"></span>
-                </span>
-                {{ __('I agree with the ') }} <a href="#">{{ __('Privacy Policy') }}</a>
-              </label>
-            </div>
-            --}}
+            @else
+              <input type="hidden" name="password" id="password" class="form-control">
+            @endif
           </div>
 
               <div class="card-footer ml-auto mr-auto">
