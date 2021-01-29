@@ -230,7 +230,7 @@
                     <p>
                         <strong>MAIL PERITO:</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <strong class="cursiva-azul">
-                            {{ $budget->perito->mail ?? '' }}
+                            {{ $budget->perito->email ?? '' }}
                         </strong>
                         <br>
                         <small>expert email</small>
@@ -242,7 +242,7 @@
                     <p>
                         <strong>MAIL RESP.</strong>
                         <strong class="cursiva-azul"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            {{ $budget->responsable->mail ?? '' }}
+                            {{ $budget->responsable->email ?? '' }}
                         </strong>
                         <br>
                         <small>res. email / email res.</small>
