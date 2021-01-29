@@ -342,7 +342,7 @@
             </tr>
             <tr>
                 <td colspan="4" rowspan="3" style="text-align: left;" padding>
-                    <p style="margin-top: -15px;">
+                    <p style="margin-top: -20px;">
                         <strong>
                             Observaciones.        
                         </strong>
