@@ -27,9 +27,9 @@
                     @csrf
 
                     Desde
-                    <input type="date" name="from">
+                    <input id="from" type="date" name="from">
                     Hasta
-                    <input type="date" name="to">
+                    <input id="to" type="date" name="to">
                     <button class="btn btn-sm btn-warning">Exportar</button>
 
                   </form>

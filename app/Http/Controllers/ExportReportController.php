@@ -14,17 +14,17 @@ class ExportReportController extends Controller
     {
     	if ($request->from && $request->to) {
     		$from = Carbon::create($request->from);
-    		$to = Carbon::create($request->to);
+    		$to = Carbon::create($request->to)->endOfDay();
     		$budgets = Budget::whereBetween('created_at', [$from, $to])->get();
     	}
     	if ($request->from && !$request->to) {
     		$from = Carbon::create($request->from);
-    		$to = Carbon::now();
+    		$to = Carbon::now()->endOfDay();
     		$budgets = Budget::whereBetween('created_at', [$from, $to])->get();
     	}
     	if (!$request->from && $request->to) {
     		$from = Carbon::create('01-01-1990');
-    		$to = Carbon::create($request->to);
+    		$to = Carbon::create($request->to)->endOfDay();
     		$budgets = Budget::whereBetween('created_at', [$from, $to])->get();
     	}
     	if (!$request->from && !$request->to) {
