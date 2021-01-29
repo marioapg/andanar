@@ -154,6 +154,17 @@
                   </div>
                   <div class="form-row">
                      <div class="col text-left">
+                        <span>Responsable</span>
+                     </div>
+                     <div class="col text-left">
+                        <input name="responsablemail" type="text" value="{{ $budget->responsable ? $budget->responsable->email : '' }}" readonly="">
+                     </div>
+                     <div class="col text-left">
+                        <input name="responsablecheck" type="checkbox" {{ $budget->responsable ? '' : 'disabled' }}>
+                     </div>
+                  </div>
+                  <div class="form-row">
+                     <div class="col text-left">
                         <span>Otros</span>
                      </div>
                      <div class="col text-left">

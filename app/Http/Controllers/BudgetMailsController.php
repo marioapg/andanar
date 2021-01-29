@@ -28,6 +28,11 @@ class BudgetMailsController extends Controller
     			array_push($emails, $request->clientemail);
 			}
     	}
+        if ( isset($request->responsablecheck) && !is_null($request->responsablemail) ) {
+            if (filter_var($request->responsablemail, FILTER_VALIDATE_EMAIL)) {
+                array_push($emails, $request->responsablemail);
+            }
+        }
     	if ( isset($request->otroscheck) && !is_null($request->otrosmails) ) {
     		$varios = explode(',', $request->otrosmails);
     		foreach ($varios as $key => $value) {
