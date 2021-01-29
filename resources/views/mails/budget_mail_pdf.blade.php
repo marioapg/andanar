@@ -365,7 +365,7 @@
                     {{ $budget->total - $budget->desmontaje }}
                 </td>
             </tr>
-            <tr>
+            <tr style="height: 40px;">
                 <td colspan="4" style="border-right: none; text-align: left;">
                     <strong>Des / Montaje</strong> <br>
                     <small>dis-assembly / dé-remontage</small>
@@ -377,7 +377,7 @@
                     {{ $budget->desmontaje }}
                 </td>
             </tr>
-            <tr style="height: 35px;">
+            <tr style="height: 40px;">
                 <td colspan="4" style="border-right: none;text-align: left;">
                     <strong>TOTAL</strong><br>
                 </td>
