@@ -48,12 +48,12 @@
                 <td>{{ $budget->technical->email ?? '' }}</td>
                 <td>{{ $budget->status ?? '' }}</td>
                 <td>{{ $budget->private_comment ?? '' }}</td>
-                <td>{{ $budget->grand_total ?? '' }}</td>
+                <td>{{ ($budget->total + $budget->iva) - $budget->desmontaje }}</td>
                 <td>{{ $budget->desmontaje ?? '' }}</td>
                 <td></td>
-                <td>{{ $budget->total + $budget->iva }}</td>
-                <td>{{ $budget->iva ?? '' }}</td>
                 <td>{{ $budget->total ?? '' }}</td>
+                <td>{{ $budget->iva ?? '' }}</td>
+                <td>{{ $budget->grand_total ?? '' }}</td>
             </tr>
         @endforeach
     </tbody>
