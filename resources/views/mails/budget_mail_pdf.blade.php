@@ -1,9 +1,12 @@
 <head>
 	<link rel="stylesheet" href="{{ asset('css/custom.css') }}">
     <style>
+        @page {
+          margin-top: 0px;
+        }
         #invoice {
             font-family: calibri, sans-serif;
-            font-size: 12px;
+            font-size: 11px;
         }
         p {
             margin:0px;
