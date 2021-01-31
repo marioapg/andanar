@@ -22,6 +22,14 @@
                   <div class="card-body">
                      <div id="invoice">
                         <div class="toolbar hidden-print row">
+                           <div class="col">
+                              <a href="{{ route('budget.edit', $budget->id) }}">
+                                 <button class="btn btn-primay">
+                                    <i class="material-icons">edit</i>
+                                    Editar
+                                 </button>
+                              </a>
+                           </div>
 
                            <div class="col">
                               <a href="{{ route('budget.technical.view.pdf', $budget->id) }}" target="_blank">
