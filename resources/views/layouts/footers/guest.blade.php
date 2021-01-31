@@ -27,10 +27,7 @@
         </ul>
         </nav>
         <div class="copyright float-right">
-        &copy;
-        <script>
-            document.write(new Date().getFullYear())
-        </script>, Sistema de gestion <a href="#">Andanar.</a> Elaborado por <a href="mailto:mperez.392@gmail.com">Mario Pérez Dev</a>.
+            © {{ date('Y') }} | Andanar Europe S.L. -  Todos los derechos reservados - All rights reserved
         </div>
     </div>
 </footer>
