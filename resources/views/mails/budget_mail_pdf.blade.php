@@ -345,7 +345,7 @@
             </tr>
             <tr>
                 <td colspan="4" rowspan="3" style="text-align: left;" padding>
-                    <p style="margin-top: -20px;">
+                    <p @if (is_null($budget->public_comment)) style="margin-top: -20px;" @endif>
                         <strong>
                             Observaciones.        
                         </strong>
@@ -353,9 +353,9 @@
                             remarks / observations
                         </small>
                     </p>
-                    <br>
-                    <br>
+                    <p class="cursiva-azul">
                     {{ $budget->public_comment }}
+                    </p>
                 </td>
                 <td colspan="4" style="border-right: none;text-align: left;">
                     <strong>Reparación Varillas</strong> <br>
