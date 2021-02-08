@@ -309,7 +309,7 @@ class BudgetController extends Controller
         if ( $budget->items()->delete() && $budget->delete() ) {
             Session::flash('flash_message', __('- Presupuesto #'.$num.' eliminado.'));
             Session::flash('flash_type', 'alert-success');
-            return redirect()->route('budgets.index');
+            return redirect()->route('budgets.'.auth()->user()->roles->first()->name.'.index');
         }
 
         return back()->withErrors(['error' => __('Por favor intente más tarde')]);
