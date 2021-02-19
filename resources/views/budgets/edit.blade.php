@@ -1785,6 +1785,15 @@
         dropdownParent: 'body',
         persist: true
       });
+      $('#select-boss').selectize({
+        create: false,
+        sortField: {
+          field: 'text',
+          direction: 'asc'
+        },
+        dropdownParent: 'body',
+        persist: true
+      });
 
       $('#select-brand').on('change', function(e){
         if ( $(this).val() ) {

@@ -167,17 +167,17 @@ class BudgetController extends Controller
     public function storeStepFour(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'client_id' => ['required'],
-            'proficient_id' => ['nullable', 'exists:users,id'],
             "plate" => ['required'],
             "brand" => ['required'],
             "model" => ['required'],
             "color" => ['required'],
             "currency" => ['required', 'in:USD,EUR,ARS'],
             "year" => ['required'],
+            'proficient_id' => ['nullable', 'exists:users,id'],
             "client_id" => ['required', 'exists:users,id'],
             "perito_id" => ['nullable', 'exists:users,id'],
             "technical_id" => ['nullable', 'exists:users,id'],
+            "boss_id" => ['nullable', 'exists:users,id'],
             "tarifa" => ['numeric']
         ]);
 
@@ -323,17 +323,16 @@ class BudgetController extends Controller
     public function update(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'client_id' => ['required'],
-            'proficient_id' => ['nullable', 'exists:users,id'],
-            'technical_id' => ['nullable','exists:users,id'],
             "plate" => ['required'],
             "brand" => ['required'],
             "model" => ['required'],
             "color" => ['required'],
             "year" => ['required'],
+            'proficient_id' => ['nullable', 'exists:users,id'],
             "client_id" => ['required', 'exists:users,id'],
             "perito_id" => ['nullable', 'exists:users,id'],
             "technical_id" => ['nullable', 'exists:users,id'],
+            "boss_id" => ['nullable', 'exists:users,id'],
             "tarifa" => ['numeric']
         ]);
 
@@ -380,6 +379,7 @@ class BudgetController extends Controller
                     'client_id' => $request->client_id,
                     'technical_id' => $request->technical_id,
                     'perito_id' => $request->perito_id,
+                    'responsable_id' => $request->boss_id,
                     'date' => now(),
                     'car_id' => $car->id,
                     'public_comment' => $request->public_comment,
