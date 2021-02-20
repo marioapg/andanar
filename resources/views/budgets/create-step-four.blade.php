@@ -3,10 +3,20 @@
 @section('inlinecss')
   <link rel="stylesheet" href="{{ asset('css/selectize.bootstrap2.css') }}">
   <link rel="stylesheet" href="{{ asset('css/bootstrap-switch.css') }}">
+  <!-- <style type="text/css">
+    @media only screen and (orientation:portrait){
+#wrapper {width:1024px}
+}
+
+@media only screen and (orientation:landscape){
+#wrapper {width:1024px}
+}
+
+  </style> -->
 @endsection
 
 @section('content')
-  <div class="content">
+  <div class="content" id="wrapper">
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
