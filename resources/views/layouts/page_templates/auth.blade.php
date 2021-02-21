@@ -1,4 +1,4 @@
-<div class="wrapper ">
+<div class="wrapper" id="wrapper">
   @include('layouts.navbars.sidebar')
   <div class="main-panel">
     @include('layouts.navbars.navs.auth')

@@ -316,3 +316,36 @@ table.body-budget td {
 input[type="text"] {
     text-transform: uppercase;
 }
+@media only screen and (max-width: 641px) {
+    .piece-responsive {
+        width: 120px !important;
+    }
+    .piece-montante-responsive {
+        width: 21px !important;
+    }
+    .piece-techo-responsive {
+        width: 72px !important;
+    }
+}
+
+@media screen and (max-width: 575px) and (orientation: portrait) {
+  html {
+    transform: rotate(-90deg);
+    transform-origin: left top;
+    width: 100vh;
+    overflow-x: hidden;
+    position: absolute;
+    top: 100%;
+    left: 0;
+  }
+}
+
+/*
+@media only screen and (orientation:portrait){
+#wrapper {width:1024px}
+}
+
+@media only screen and (orientation:landscape){
+#wrapper {width:1024px}
+}
+*/
