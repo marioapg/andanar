@@ -328,17 +328,17 @@ input[type="text"] {
     }
 }
 
-/*@media screen and (max-width: 575px) and (orientation: portrait) {
+@media screen and (max-width: 575px) and (orientation: portrait) {
   html {
     transform: rotate(-90deg);
     transform-origin: left top;
     width: 100vh;
-    overflow-x: hidden;
+    overflow-x: scroll;
     position: absolute;
     top: 100%;
     left: 0;
   }
-}*/
+}
 
 /*
 @media only screen and (orientation:portrait){
