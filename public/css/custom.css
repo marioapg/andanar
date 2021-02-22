@@ -353,13 +353,14 @@ input[type="text"] {
     }
 }
 
-/*@media screen and (min-width: 320px) and (max-width: 575px) and (orientation: portrait) {
-  html {
-    transform: rotate(-90deg);
-    overflow-x: scroll;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    transform-origin: left top;
-  }
-}*/
+@media only screen and (max-width: 376px) {
+    .piece-responsive {
+        width: 70px !important;
+    }
+    .piece-montante-responsive {
+        width: 11px !important;
+    }
+    .piece-techo-responsive {
+        width: 40px !important;
+    }
+}
