@@ -21,8 +21,8 @@
             <div class="card-body">
               @if ( auth()->user()->type != 'proficient' ) 
               <div class="row">
-                <div class="col-6 text-left">
-                  <form action="{{ route('export.budgets') }}" method="POST">
+                <div class="col-sm-6 text-left">
+                  <form action="{{ route('export.budgets') }}" method="POST" class="center-responsive-one">
                     @method('POST')
                     @csrf
 
@@ -34,9 +34,9 @@
 
                   </form>
                 </div>
-                <div class="col-3 text-right">
+                <div class="col-sm-3 text-right">
                 </div>
-                <div class="col-3 text-right">
+                <div class="col-sm-3 text-right" style="display: flex;flex-direction: column;align-items: center;">
                   <a href="{{ route('budget.create.step.one') }}" class="btn btn-sm btn-info">Nuevo presupuesto</a>
                 </div>
               </div>

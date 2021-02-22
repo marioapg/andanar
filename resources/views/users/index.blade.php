@@ -20,7 +20,7 @@
             </div>
             <div class="card-body">
               <div class="row">
-                <div class="col-12 text-right">
+                <div class="col-sm-12 text-right">
                   <a href="{{ route('user/create') }}" class="btn btn-sm btn-info">Crear usuario</a>
                 </div>
               </div>

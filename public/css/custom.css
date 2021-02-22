@@ -327,6 +327,18 @@ input[type="text"] {
     .piece-techo-responsive {
         width: 72px !important;
     }
+
+    .center-responsive-one {
+        display: flex;
+    }
+}
+
+@media only screen and (max-width: 545px) {
+    .center-responsive-one {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 @media only screen and (max-width: 468px) {
