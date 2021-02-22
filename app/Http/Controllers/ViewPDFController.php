@@ -13,6 +13,11 @@ class ViewPDFController extends Controller
         $budget = Budget::where('id', $request->budgetid)->first();
         if ($budget) {
 	        $pdf = PDF::loadView('mails.budget_mail_pdf', ['budget'=>$budget]);
+
+            if ($request->download) {
+                return $pdf->download($budget->car->plate);
+            }
+
 	        return $pdf->stream();
         }
 

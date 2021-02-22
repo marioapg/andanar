@@ -1,5 +1,10 @@
 <head>
+    <title>
+        {{ $budget->car->plate ?? '' }}
+    </title>
+
 	<link rel="stylesheet" href="{{ asset('css/custom.css') }}">
+    
     <style>
         @page {
           margin-top: 0px;

@@ -53,7 +53,7 @@
                         </div>
                         <div class="toolbar hidden-print row">
 
-                           <div class="col-sm-6 center-responsive-one">
+                           <div class="col-sm-4 center-responsive-one">
                               <a href="{{ route('budget.view.pdf', $budget->id) }}" target="_blank">
                                  <button class="btn btn-info">
                                     <i class="material-icons">chrome_reader_mode</i>
@@ -62,8 +62,17 @@
                               </a>
                            </div>
 
+                           <div class="col-sm-4 center-responsive-one">
+                              <a href="{{ route('budget.view.pdf', $budget->id) }}?download=yes" target="_blank">
+                                 <button class="btn btn-info">
+                                    <i class="material-icons">chrome_reader_mode</i>
+                                    Descargar PDF
+                                 </button>
+                              </a>
+                           </div>
+
                            @if ( auth()->user()->type != 'proficient' ) 
-                              <div class="col-sm-6 center-responsive-one">
+                              <div class="col-sm-4 center-responsive-one">
                                  <form action="{{ route('budget.status', $budget->id) }}" id="invoice-status" method="post" style="padding: 8px;">
                                     @csrf
                                     @method('put')
