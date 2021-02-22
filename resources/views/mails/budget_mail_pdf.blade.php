@@ -32,9 +32,9 @@
                 </td>
                 <td colspan="2">
                     <p style="text-align: center;">
-                        c/ Nil Fabra, 34 Entlo. 2° B (08012) BCN España <br>
-                        Tel. +34 93 237 42 41 - <strong>Móv. +34 645 500 227</strong> <br>
-                        info@andanar.com - www.andanar.com
+                        {{ config('env_params.business_address') }}<br>
+                        Tel. {{ config('env_params.business_phone') }} - <strong>Móv. {{ config('env_params.business_mobile_phone') }} </strong> <br>
+                        {{ config('env_params.business_email_cc') }} - {{ config('env_params.business_webinfo') }}
                     </p>
                 </td>
             </tr>
@@ -409,7 +409,7 @@
             </tr>
         </table>
    </div>
-    <p style="text-align: center;">Andanar Europe S.L. Reg. Merc. N° 38617 F° 69 Hoja 328878 -- NIF: B-64216047</p>
+    <p style="text-align: center;">{{ config('env_params.business_legal') }}</p>
 </div>
 
 @if( !is_null($budget->attached) )

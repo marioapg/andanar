@@ -43,9 +43,9 @@ class BudgetMailsController extends Controller
     	}
     	if(count($emails)) {            
     		foreach ($emails as $recipient) {
-    			Mail::to($recipient)->cc(['info@andanar.com'])->send(new BudgetCreated($request->budgetid));
+    			Mail::to($recipient)->cc([config('env_params.business_email_cc')])->send(new BudgetCreated($request->budgetid));
 			}
-            Mail::to('info@andanar.biz')->send(new BudgetCreated($request->budgetid));
+            Mail::to(config('env_params.business_email'))->send(new BudgetCreated($request->budgetid));
     		Session::flash('flash_message', __('- Emails enviados'));
 	        Session::flash('flash_type', 'alert-success');
 	    	return redirect()->route('budget.show',$request->budgetid);

@@ -27,7 +27,7 @@
         </ul>
         </nav>
         <div class="copyright float-right">
-            © {{ date('Y') }} | Andanar Europe S.L. -  Todos los derechos reservados - All rights reserved
+            © {{ date('Y') }} | {{ config('env_params.business_all_rights_reserved') }}
         </div>
     </div>
 </footer>

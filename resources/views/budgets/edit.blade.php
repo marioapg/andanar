@@ -132,7 +132,7 @@
                     <textarea id="public_comment" type="number" name="public_comment" class="form-control">{{ $budget->public_comment }}</textarea>
                   </div>
                   <div class="col">
-                    <label for="private_comment">Comentario para Andanar</label>
+                    <label for="private_comment">Comentario para {{ config('env_params.business_name') }}</label>
                     <textarea id="private_comment" type="number" name="private_comment" class="form-control">{{ $budget->private_comment }}</textarea>
                   </div>
                 </div>

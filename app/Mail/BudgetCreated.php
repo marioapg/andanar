@@ -34,7 +34,7 @@ class BudgetCreated extends Mailable
         $budget = Budget::where('id', $this->budget_id)->first();
         $pdf = PDF::loadView('mails.budget_mail_pdf', ['budget'=>$budget]);
         return $this->view('mails.mailbody')
-                    ->subject(''.$budget->car->plate.' – Presupuesto Andanar Europe S.L.')
+                    ->subject(''.$budget->car->plate.' – Presupuesto '.config('env_params.business_name'))
                     ->attachData($pdf->output(), 'Presupuesto '.$budget->car->plate.'.pdf', ['mime' => 'application/pdf']);
 ;
     }
