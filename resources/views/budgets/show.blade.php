@@ -22,35 +22,38 @@
                   <div class="card-body">
                      <div id="invoice">
                         <div class="toolbar hidden-print row">
-                        @if ( auth()->user()->type != 'proficient' ) 
-                           <div class="col">
-                              <a href="{{ route('budget.edit', $budget->id) }}">
-                                 <button class="btn btn-primay">
-                                    <i class="material-icons">edit</i>
-                                    Editar
+                           @if ( auth()->user()->type != 'proficient' ) 
+                              <div class="col-sm-6 col-md-4 center-responsive-one">
+                                 <a href="{{ route('budget.edit', $budget->id) }}">
+                                    <button class="btn btn-primay">
+                                       <i class="material-icons">edit</i>
+                                       Editar
+                                    </button>
+                                 </a>
+                              </div>
+                              @if ( auth()->user()->hasRole('admin') )
+                              <div class="col-sm-6 col-md-4 center-responsive-one">
+                                 <a href="{{ route('budget.allowed', $budget->id) }}">
+                                    <button class="btn btn-warning">
+                                       <i class="material-icons">edit</i>
+                                       Editar Accesos
+                                    </button>
+                                 </a>
+                              </div>
+                              @endif
+
+                              <div class="col-sm-6 col-md-4 center-responsive-one">
+                                 <button class="btn btn-success send-mail-popup">
+                                    <i class="material-icons">email</i>
+                                    Enviar email
                                  </button>
-                              </a>
-                           </div>
-                           @if ( auth()->user()->hasRole('admin') )
-                           <div class="col">
-                              <a href="{{ route('budget.allowed', $budget->id) }}">
-                                 <button class="btn btn-warning">
-                                    <i class="material-icons">edit</i>
-                                    Editar Accesos
-                                 </button>
-                              </a>
-                           </div>
+                              </div>
                            @endif
 
-                           <div class="col">
-                              <button class="btn btn-success send-mail-popup">
-                                 <i class="material-icons">email</i>
-                                 Enviar email
-                              </button>
-                           </div>
-                        @endif
+                        </div>
+                        <div class="toolbar hidden-print row">
 
-                           <div class="col">
+                           <div class="col-sm-6 center-responsive-one">
                               <a href="{{ route('budget.view.pdf', $budget->id) }}" target="_blank">
                                  <button class="btn btn-info">
                                     <i class="material-icons">chrome_reader_mode</i>
@@ -59,23 +62,23 @@
                               </a>
                            </div>
 
-                        @if ( auth()->user()->type != 'proficient' ) 
-                           <div class="col">
-                              <form action="{{ route('budget.status', $budget->id) }}" id="invoice-status" method="post" style="padding: 8px;">
-                                 @csrf
-                                 @method('put')
-                                 <select class="form-control mdb-select change-invoice-select {{$budget->status}}-class" name="status" id="status" required style="border-radius: 3px; color: white;">
-                                    <option value="presupuestado" {{ ($budget->status == 'presupuestado') ? ' selected' : '' }}>Presupuestado</option>
-                                    <option value="rechazado" {{ ($budget->status == 'rechazado') ? ' selected' : '' }}>Rechazado</option>
-                                    <option value="aceptado" {{ ($budget->status == 'aceptado') ? ' selected' : '' }}>Aceptado</option>
-                                    <option value="proceso" {{ ($budget->status == 'proceso') ? ' selected' : '' }}>Proceso</option>
-                                    <option value="terminado" {{ ($budget->status == 'terminado') ? ' selected' : '' }}>Terminado</option>
-                                    <option value="facturado" {{ ($budget->status == 'facturado') ? ' selected' : '' }}>Facturado</option>
-                                    <option value="cobrado" {{ ($budget->status == 'cobrado') ? ' selected' : '' }}>Cobrado</option>
-                                 </select>
-                              </form>
-                           </div>
-                        @endif
+                           @if ( auth()->user()->type != 'proficient' ) 
+                              <div class="col-sm-6 center-responsive-one">
+                                 <form action="{{ route('budget.status', $budget->id) }}" id="invoice-status" method="post" style="padding: 8px;">
+                                    @csrf
+                                    @method('put')
+                                    <select class="form-control mdb-select change-invoice-select {{$budget->status}}-class" name="status" id="status" required style="border-radius: 3px; color: white;">
+                                       <option value="presupuestado" {{ ($budget->status == 'presupuestado') ? ' selected' : '' }}>Presupuestado</option>
+                                       <option value="rechazado" {{ ($budget->status == 'rechazado') ? ' selected' : '' }}>Rechazado</option>
+                                       <option value="aceptado" {{ ($budget->status == 'aceptado') ? ' selected' : '' }}>Aceptado</option>
+                                       <option value="proceso" {{ ($budget->status == 'proceso') ? ' selected' : '' }}>Proceso</option>
+                                       <option value="terminado" {{ ($budget->status == 'terminado') ? ' selected' : '' }}>Terminado</option>
+                                       <option value="facturado" {{ ($budget->status == 'facturado') ? ' selected' : '' }}>Facturado</option>
+                                       <option value="cobrado" {{ ($budget->status == 'cobrado') ? ' selected' : '' }}>Cobrado</option>
+                                    </select>
+                                 </form>
+                              </div>
+                           @endif
                         </div>
 
                         <embed src="{{ route('budget.view.embed', $budget->id) }}" type="application/pdf" width="100%" height="1200px" />
