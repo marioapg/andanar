@@ -162,61 +162,33 @@
 
                 <div class="row mt-3">
 
-                  <div class="col-md-12">
-                    <div class="col" style="float: left;width: 15%">
-                    </div>
-                    <div class="col hover-custom add-item-budget" numrowpart="8" part="Aleta del der" abpart="ADD" style="float: left;width: 19%">
-                      <img src="{{ asset('images/car_graph/top 1.png') }}" alt="">
-                    </div>
-                    <div class="col hover-custom add-item-budget" numrowpart="9" part="Puerta del der" abpart="PDD" style="float: left;width: 17%">
-                      <img src="{{ asset('images/car_graph/top 2.png') }}" alt="">
-                    </div>
-                    <div class="col hover-custom add-item-budget" numrowpart="10" part="Puerta tra der" abpart="PTD" style="float: left;width: 14%">
-                      <img src="{{ asset('images/car_graph/top 3.png') }}" alt="">
-                    </div>
-                    <div class="col hover-custom add-item-budget" numrowpart="12" part="Aleta tra der" abpart="ATD" style="float: left;width: 19%">
-                      <img src="{{ asset('images/car_graph/top 4.png') }}" alt="">
-                    </div>
+                  <div class="col-sm-12">
+                      <img class="hover-custom add-item-budget piece-responsive" numrowpart="3" part="Aleta del izq" abpart="ADI" src="{{ asset('images/car_graph/bot 1.png') }}">
+                      <img class="hover-custom add-item-budget piece-responsive" numrowpart="0" part="Capot" abpart="CAPOT" src="{{ asset('images/car_graph/mid 1.png') }}">
+                      <img class="hover-custom add-item-budget piece-responsive" numrowpart="8" part="Aleta del der" abpart="ADD" src="{{ asset('images/car_graph/top 1.png') }}">
                   </div>
 
-                  <div class="col-md-12">
-                    <div class="col" style="float: left;width: 21%">
-                    </div>
-                    <!-- <div class="col hover-custom" style="float: left;width: 8%">
-                      <img src="{{ asset('images/car_graph/adelante.png') }}" alt="">
-                    </div> -->
-                    <div class="col hover-custom add-item-budget" part="Capot" numrowpart="0" abpart="CAPOT" style="float: left;width: 19%">
-                      <img src="{{ asset('images/car_graph/mid 1.png') }}" alt="">
-                    </div>
-                    <div class="col" style="float: left;width: 20%">
-                      <img class="hover-custom add-item-budget" part="Montante derecho" numrowpart="11" abpart="MD" src="{{ asset('images/car_graph/mid 4.png') }}" alt="">
-                      <img class="hover-custom add-item-budget" part="Techo" numrowpart="1" abpart="TECHO" src="{{ asset('images/car_graph/mid 2.png') }}" alt="">
-                      <img class="hover-custom add-item-budget" part="Montante izquierdo" numrowpart="6" abpart="MI" src="{{ asset('images/car_graph/mid 5.png') }}" alt="">
-                    </div>
-                    <div class="col hover-custom add-item-budget" part="Maletero" numrowpart="2" abpart="MALETERO" style="float: left;width: 16%">
-                      <img src="{{ asset('images/car_graph/mid 3.png') }}" alt="">
-                    </div>
-                    <!-- <div class="col hover-custom" style="float: left;width: 9%">
-                      <img src="{{ asset('images/car_graph/atras.png') }}" alt="">
-                    </div> -->
+                  <div class="col-sm-12">
+                    <img class="hover-custom add-item-budget piece-responsive" numrowpart="4" part="Puerta del izq" abpart="PDI" src="{{ asset('images/car_graph/bot 2.png') }}">
+                    <img class="hover-custom add-item-budget piece-montante-responsive" numrowpart="6" part="Montante izquierdo" abpart="MI" src="{{ asset('images/car_graph/mid 5.png') }}">
+                    <img class="hover-custom add-item-budget piece-techo-responsive" numrowpart="1" part="Techo" abpart="TECHO" src="{{ asset('images/car_graph/mid 2.png') }}" alt="">
+                    <img class="hover-custom add-item-budget piece-montante-responsive" numrowpart="11" part="Montante derecho" abpart="MD" src="{{ asset('images/car_graph/mid 4.png') }}">
+                    <img class="hover-custom add-item-budget piece-responsive" numrowpart="9" part="Puerta del der" abpart="PDD"  src="{{ asset('images/car_graph/top 2.png') }}">
                   </div>
 
-                  <div class="col-md-12">
-                    <div class="col" style="float: left;width: 15%">
-                    </div>
-                    <div class="col hover-custom add-item-budget" numrowpart="3" part="Aleta del izq" abpart="ADI" style="float: left;width: 19%">
-                      <img src="{{ asset('images/car_graph/bot 1.png') }}" alt="">
-                    </div>
-                    <div class="col hover-custom add-item-budget" numrowpart="4" part="Puerta del izq" abpart="PDI" style="float: left;width: 17%">
-                      <img src="{{ asset('images/car_graph/bot 2.png') }}" alt="">
-                    </div>
-                    <div class="col hover-custom add-item-budget" numrowpart="5" part="Puerta tra izq" abpart="PTI" style="float: left;width: 14%">
-                      <img src="{{ asset('images/car_graph/bot 3.png') }}" alt="">
-                    </div>
-                    <div class="col hover-custom add-item-budget" numrowpart="7" part="Aleta del izq" abpart="ATI" style="float: left;width: 19%">
-                      <img src="{{ asset('images/car_graph/bot 4.png') }}" alt="">
-                    </div>
-                  </div>  
+                  <div class="col-sm-12">
+                    <img class="hover-custom add-item-budget piece-responsive" numrowpart="5" part="Puerta tra izq" abpart="PTI" src="{{ asset('images/car_graph/bot 3.png') }}">
+                    <img class="hover-custom add-item-budget piece-montante-responsive" numrowpart="6" part="Montante izquierdo" abpart="MI" src="{{ asset('images/car_graph/mid 5.png') }}">
+                    <img class="hover-custom add-item-budget piece-techo-responsive" numrowpart="1" part="Techo" abpart="TECHO" src="{{ asset('images/car_graph/mid 2.png') }}">
+                    <img class="hover-custom add-item-budget piece-montante-responsive" numrowpart="11" part="Montante derecho" abpart="MD" src="{{ asset('images/car_graph/mid 4.png') }}">
+                    <img class="hover-custom add-item-budget piece-responsive" numrowpart="10" part="Puerta tra der" abpart="PTD" src="{{ asset('images/car_graph/top 3.png') }}">
+                  </div>
+
+                  <div class="col-sm-12">
+                    <img class="hover-custom add-item-budget piece-responsive" numrowpart="7" part="Aleta del izq" abpart="ATI" src="{{ asset('images/car_graph/bot 4.png') }}">
+                    <img class="hover-custom add-item-budget piece-responsive" numrowpart="2" part="Maletero" abpart="MALETERO" src="{{ asset('images/car_graph/mid 3.png') }}">
+                    <img class="hover-custom add-item-budget piece-responsive" numrowpart="12" part="Aleta tra der" abpart="ATD" src="{{ asset('images/car_graph/top 4.png') }}">
+                  </div>
                 </div>
 
                 <div class="row">

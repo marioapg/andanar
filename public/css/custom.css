@@ -316,6 +316,7 @@ table.body-budget td {
 input[type="text"] {
     text-transform: uppercase;
 }
+
 @media only screen and (max-width: 767px) {
     .piece-responsive {
         width: 120px !important;
@@ -328,14 +329,25 @@ input[type="text"] {
     }
 }
 
-@media screen and (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
+@media only screen and (max-width: 468px) {
+    .piece-responsive {
+        width: 90px !important;
+    }
+    .piece-montante-responsive {
+        width: 15px !important;
+    }
+    .piece-techo-responsive {
+        width: 53px !important;
+    }
+}
+
+/*@media screen and (min-width: 320px) and (max-width: 575px) and (orientation: portrait) {
   html {
     transform: rotate(-90deg);
-    transform-origin: left top;
-    width: 100vh;
     overflow-x: scroll;
     position: absolute;
     top: 100%;
     left: 0;
+    transform-origin: left top;
   }
-}
+}*/
