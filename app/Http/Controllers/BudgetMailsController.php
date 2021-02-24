@@ -41,6 +41,8 @@ class BudgetMailsController extends Controller
 				}
     		}
     	}
+        dump(config('env_params.business_email_cc'));
+        dd(config('env_params.business_email'));
     	if(count($emails)) {            
     		foreach ($emails as $recipient) {
     			Mail::to($recipient)->cc([config('env_params.business_email_cc')])->send(new BudgetCreated($request->budgetid));
