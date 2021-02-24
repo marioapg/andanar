@@ -162,7 +162,7 @@
                       <td rowspan="2">
                         <img class="hover-custom add-item-budget piece-montante-responsive" numrowpart="6" part="Montante izquierdo" abpart="MI" src="{{ asset('images/car_graph/midcenter1.png') }}">
                       </td>
-                      <td rowspan="2">
+                      <td rowspan="2" style="padding: 0px;">
                         <img class="hover-custom add-item-budget piece-techo-responsive" numrowpart="1" part="Techo" abpart="TECHO" src="{{ asset('images/car_graph/midcenter2.png') }}" alt="">
                       </td>
                       <td rowspan="2">
