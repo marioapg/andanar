@@ -45,7 +45,6 @@ class BudgetMailsController extends Controller
     		foreach ($emails as $recipient) {
     			Mail::to($recipient)->cc([config('env_params.business_email_cc')])->send(new BudgetCreated($request->budgetid));
 			}
-            Mail::to(config('env_params.business_email'))->send(new BudgetCreated($request->budgetid));
     		Session::flash('flash_message', __('- Emails enviados'));
 	        Session::flash('flash_type', 'alert-success');
 	    	return redirect()->route('budget.show',$request->budgetid);
