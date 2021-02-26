@@ -12,9 +12,6 @@ class BudgetMailsController extends Controller
 {
     public function send(Request $request)
     {
-        dump(config('mail.mailers.smtp.username'));
-        dump(config('mail.mailers.smtp.password'));
-        dd();
     	$emails = array();
     	if ( isset($request->peritocheck) && !is_null($request->peritomail) ) {
 			if (filter_var($request->peritomail, FILTER_VALIDATE_EMAIL)) {
