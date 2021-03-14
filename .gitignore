@@ -2,7 +2,7 @@
 /public/hot
 /public/storage
 /public/images/budgets
-/public/images/logo.jpg
+#/public/images/logo.jpg
 /public/images/logo2.jpg
 /storage/*.key
 /vendor
