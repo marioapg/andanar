@@ -34,23 +34,30 @@
                       <th>
                         Nombre
                       </th>
-                      <th>
-                        Email
-                      </th>
-                      <th>
-                        Teléfono
-                      </th>
-                      <th>
-                        Fecha de creación
-                      </th>
                       @if(auth()->user()->hasRole('admin'))
+                        <th>
+                          Email
+                        </th>
+                        <th>
+                          Teléfono
+                        </th>
+                        <th>
+                          Fecha de creación
+                        </th>
                         <th class="text-right">
                           Eliminar
                         </th>
+                        <th class="text-right">
+                          Editar
+                        </th>
+                      @else
+                        <th>
+                          Dirección
+                        </th>
+                        <th>
+                          País
+                        </th>
                       @endif
-                      <th class="text-right">
-                        Editar
-                      </th>
                     </tr>
                   </thead>
                   <tbody>
@@ -62,32 +69,39 @@
                         <td>
                           {{ $client->name }}
                         </td>
-                        <td>
-                          {{ $client->email }}
-                        </td>
-                        <td>
-                          {{ $client->phone }}
-                        </td>
-                        <td>
-                          {{ $client->created_at->format('d-m-Y') }}
-                        </td>
                         @if(auth()->user()->hasRole('admin'))
+                          <td>
+                            {{ $client->email }}
+                          </td>
+                          <td>
+                            {{ $client->phone }}
+                          </td>
+                          <td>
+                            {{ $client->created_at->format('d-m-Y') }}
+                          </td>
+                            <td class="td-actions text-right">
+                              <form action="{{ route('client.delete', ['id' => $client->id]) }}" method="POST">
+                                @method('DELETE')
+                                @csrf
+                                <button type="submit" class="btn btn-success btn-link">
+                                  <i class="material-icons" style="color: red;">delete_forever</i>
+                                </button>
+                              </form>
+                            </td>
                           <td class="td-actions text-right">
-                            <form action="{{ route('client.delete', ['id' => $client->id]) }}" method="POST">
-                              @method('DELETE')
-                              @csrf
-                              <button type="submit" class="btn btn-success btn-link">
-                                <i class="material-icons" style="color: red;">delete_forever</i>
-                              </button>
-                            </form>
+                            <a rel="tooltip" class="btn btn-success btn-link" href="{{ route('client.show', ['id' => $client->id]) }}" data-original-title="" title="">
+                              <i class="material-icons">edit</i>
+                              <div class="ripple-container"></div>
+                            </a>
+                          </td>
+                        @else
+                          <td>
+                            {{ $client->address }}
+                          </td>
+                          <td>
+                            {{ $client->country }}
                           </td>
                         @endif
-                        <td class="td-actions text-right">
-                          <a rel="tooltip" class="btn btn-success btn-link" href="{{ route('client.show', ['id' => $client->id]) }}" data-original-title="" title="">
-                            <i class="material-icons">edit</i>
-                            <div class="ripple-container"></div>
-                          </a>
-                        </td>
                       </tr>
                     @endforeach
                   </tbody>
