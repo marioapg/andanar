@@ -121,27 +121,30 @@
                 <div class="row">
                   <div class="col">
                     <label for="files">Adjunto 1</label>
-                    <input id="files1" type="file" name="file[]" class="form-control adjuntos"/>
+                    <input id="files" type="file" name="file[]" class="form-control"/>
                   </div>
                   <div class="col">
                     <label for="files">Adjunto 2</label>
-                    <input id="files2" type="file" name="file[]" class="form-control adjuntos"/>
+                    <input id="files" type="file" name="file[]" class="form-control"/>
                   </div>
                   <div class="col">
                     <label for="files">Adjunto 3</label>
-                    <input id="files3" type="file" name="file[]" class="form-control adjuntos"/>
+                    <input id="files" type="file" name="file[]" class="form-control"/>
                   </div>
+                </div>
+                
+                <div class="row">
                   <div class="col">
                     <label for="files">Adjunto 4</label>
-                    <input id="files4" type="file" name="file[]" class="form-control adjuntos"/>
+                    <input id="files" type="file" name="file[]" class="form-control"/>
                   </div>
                   <div class="col">
                     <label for="files">Adjunto 5</label>
-                    <input id="files5" type="file" name="file[]" class="form-control adjuntos"/>
+                    <input id="files" type="file" name="file[]" class="form-control"/>
                   </div>
                 </div>
 
-                <div class="row mt-3">
+                <div class="row mt-3" style="display: flex;flex-direction: column;align-items: center;">
                   <table>
                     <tr>
                       <td>
@@ -1184,6 +1187,12 @@
 
               </div>
 
+              <div class="form-row" style="flex-direction: column;align-items: center;">
+                <button class="btn showsiniva" disabled="" style="padding: 5px;">{{ __('Total SIN IVA: ') }}</button>
+                <button class="btn showiva" disabled="" style="padding: 5px;">{{ __('IVA: ') }}</button>
+                <button class="btn showtotal" disabled="" style="padding: 5px;">{{ __('Total + IVA: ') }}</button>
+              </div>
+
               <div class="card-footer ml-auto mr-auto">
                 <button type="submit" class="btn btn-info">{{ __('Guardar') }}</button>
               </div>
@@ -1566,6 +1575,10 @@
         $('.total_iva').html( result_iva );
         $('#grand_total').val( result_total );
         $('.totalEUR').html( result_total );
+
+        $('.showiva').html( 'IVA: ' + result_iva );
+        $('.showtotal').html( 'TOTAL + IVA: ' + result_total );
+        $('.showsiniva').html( 'TOTAL SIN IVA: ' + (result_total - result_iva) );
       }
 
       function calculateTotals(){
@@ -1658,6 +1671,10 @@
         $('.total_iva').html( result_iva );
         $('#grand_total').val( result_total );
         $('.totalEUR').html( result_total );
+
+        $('.showiva').html( 'IVA: ' + result_iva );
+        $('.showtotal').html( 'TOTAL + IVA: ' + result_total );
+        $('.showsiniva').html( 'TOTAL SIN IVA: ' + (result_total - result_iva) );
       }
 
       // Iniciacion del toogle de los mataeriales

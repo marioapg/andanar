@@ -7,6 +7,13 @@
 
 @section('content')
   <div class="content">
+
+    <div class="form-row" style="max-width: max-content;position: fixed;z-index: 10;">
+      <a href="#final">
+        <i class="material-icons">arrow_circle_down</i>
+      </a>
+    </div>
+
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-12">
@@ -28,6 +35,7 @@
                 <p class="card-category">{{ __('Presupuesto/vehículo: ') }} </p>
               </div>
               <div class="card-body">
+                
 
                 <div class="row">
                   <div class="col">
@@ -150,6 +158,9 @@
                     <label for="files">Adjunto 3</label>
                     <input id="files" type="file" name="file[]" class="form-control"/>
                   </div>
+                </div>
+                
+                <div class="row">
                   <div class="col">
                     <label for="files">Adjunto 4</label>
                     <input id="files" type="file" name="file[]" class="form-control"/>
@@ -160,7 +171,7 @@
                   </div>
                 </div>
 
-                <div class="row mt-3">
+                <div class="row mt-3" style="display: flex;flex-direction: column;align-items: center;">
                   <table>
                     <tr>
                       <td>
@@ -1221,7 +1232,7 @@
                   </div>
                 </div>
 
-                <div class="row">
+                <div class="row" id="final">
                   <div class="col-sm-12">
                     <div class="form-row text-center">
                       <div class="col-sm-2">Totales:</div>
@@ -1240,6 +1251,12 @@
                   </div>
                 </div>
 
+              </div>
+
+              <div class="form-row" style="flex-direction: column;align-items: center;">
+                <button class="btn showsiniva" disabled="" style="padding: 5px;">{{ __('Total SIN IVA: ') }}{{ $budget->total }}</button>
+                <button class="btn showiva" disabled="" style="padding: 5px;">{{ __('IVA: ') }}{{ $budget->iva }}</button>
+                <button class="btn showtotal" disabled="" style="padding: 5px;">{{ __('Total + IVA: ') }}{{ $budget->grand_total }}</button>
               </div>
 
               <div class="card-footer ml-auto mr-auto">
@@ -1383,6 +1400,9 @@
         $('.total_iva').html( result_iva );
         $('#grand_total').val( result_total );
         $('.totalEUR').html( result_total );
+        $('.showiva').html( 'IVA: ' + result_iva );
+        $('.showtotal').html( 'TOTAL + IVA: ' + result_total );
+        $('.showsiniva').html( 'TOTAL SIN IVA: ' + (result_total - result_iva) );
       });
 
       $('#desmontaje').on('input', function(e){
@@ -1410,6 +1430,10 @@
         $('.total_iva').html( result_iva );
         $('#grand_total').val( result_total );
         $('.totalEUR').html( result_total );
+
+        $('.showiva').html( 'IVA: ' + result_iva );
+        $('.showtotal').html( 'TOTAL + IVA: ' + result_total );
+        $('.showsiniva').html( 'TOTAL SIN IVA: ' + (result_total - result_iva) );
       });
 
       // Boton para agregar ya la fila
@@ -1639,6 +1663,10 @@
         $('.total_iva').html( result_iva );
         $('#grand_total').val( result_total );
         $('.totalEUR').html( result_total );
+
+        $('.showiva').html( 'IVA: ' + result_iva );
+        $('.showtotal').html( 'TOTAL + IVA: ' + result_total );
+        $('.showsiniva').html( 'TOTAL SIN IVA: ' + (result_total - result_iva) );
       }
 
       function calculateTotals(){
@@ -1731,6 +1759,10 @@
         $('.total_iva').html( result_iva );
         $('#grand_total').val( result_total );
         $('.totalEUR').html( result_total );
+
+        $('.showiva').html( 'IVA: ' + result_iva );
+        $('.showtotal').html( 'TOTAL + IVA: ' + result_total );
+        $('.showsiniva').html( 'TOTAL SIN IVA: ' + (result_total - result_iva) );
       }
 
       // Iniciacion del toogle de los mataeriales

@@ -29,7 +29,7 @@
           <a class="nav-link" href="{{ route('clients.user.index') }}">
         @endif
             <i class="material-icons">assignment_ind</i>
-            <p>{{ __('Clientes') }}</p>
+            <p>{{ __('Mis Clientes') }}</p>
           </a>
         </li>
         <li class="nav-item {{ ($activePage == 'cars') ? ' active' : '' }}">

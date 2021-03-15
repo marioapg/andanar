@@ -30,7 +30,7 @@
                 <div class="card-icon">
                   <i class="material-icons">face</i>
                 </div>
-                <p class="card-category">Clientes</p>
+                <p class="card-category">Listado de clientes</p>
                 @if(auth()->user()->hasRole('admin'))
                   <h3 class="card-title">{{ \App\Client::all()->count() }}</h3>
                 @else

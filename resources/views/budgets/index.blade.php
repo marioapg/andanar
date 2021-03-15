@@ -87,7 +87,7 @@
                         </td>
                         @if ( auth()->user()->hasRole('admin') )
                           <td class="td-actions text-right">
-                            <form action="{{ route('budget.delete', ['id' => $budget->id]) }}" method="POST">
+                            <form action="{{ route('budget.delete', ['id' => $budget->id]) }}" method="POST" onsubmit="return confirm('Realmente desea eliminar el presupuesto {{ $budget->id }}?');">
                               @method('DELETE')
                               @csrf
                               <button type="submit" class="btn btn-success btn-link">

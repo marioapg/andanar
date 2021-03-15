@@ -132,58 +132,48 @@
                </div>
                <div class="modal-body">
                   <div class="form-row">
-                     <div class="col text-left">
+                     <div class="col text-left" style="text-align: center !important;">
+                        <input name="peritocheck" type="checkbox" {{ $budget->perito ? '' : 'disabled' }}>
                         <span>Perito</span>
                      </div>
                      <div class="col text-left">
                         <input name="peritomail" type="text" value="{{ $budget->perito ? $budget->perito->email : '' }}" readonly="">
                      </div>
-                     <div class="col text-left">
-                        <input name="peritocheck" type="checkbox" {{ $budget->perito ? '' : 'disabled' }}>
-                     </div>
                   </div>
                   <div class="form-row">
-                     <div class="col text-left">
+                     <div class="col text-left" style="text-align: center !important;">
+                        <input name="tecnicocheck" type="checkbox" {{ $budget->technical ? '' : 'disabled' }}>
                         <span>Técnico</span>
                      </div>
                      <div class="col text-left">
                         <input name="tecnicomail" type="text" value="{{ $budget->technical ? $budget->technical->email : '' }}" readonly="">
                      </div>
-                     <div class="col text-left">
-                        <input name="tecnicocheck" type="checkbox" {{ $budget->technical ? '' : 'disabled' }}>
-                     </div>
                   </div>
                   <div class="form-row">
-                     <div class="col text-left">
+                     <div class="col text-left" style="text-align: center !important;">
+                        <input name="clientecheck" type="checkbox" {{ $budget->client ? '' : 'disabled' }}>
                         <span>Cliente</span>
                      </div>
                      <div class="col text-left">
                         <input name="clientemail" type="text" value="{{ $budget->client ? $budget->client->email : '' }}" readonly="">
                      </div>
-                     <div class="col text-left">
-                        <input name="clientecheck" type="checkbox" {{ $budget->client ? '' : 'disabled' }}>
-                     </div>
                   </div>
                   <div class="form-row">
-                     <div class="col text-left">
+                     <div class="col text-left" style="text-align: center !important;">
+                        <input name="responsablecheck" type="checkbox" {{ $budget->responsable ? '' : 'disabled' }}>
                         <span>Responsable</span>
                      </div>
                      <div class="col text-left">
                         <input name="responsablemail" type="text" value="{{ $budget->responsable ? $budget->responsable->email : '' }}" readonly="">
                      </div>
-                     <div class="col text-left">
-                        <input name="responsablecheck" type="checkbox" {{ $budget->responsable ? '' : 'disabled' }}>
-                     </div>
                   </div>
                   <div class="form-row">
-                     <div class="col text-left">
+                     <div class="col text-left" style="text-align: center !important;">
+                        <input name="otroscheck" type="checkbox">
                         <span>Otros</span>
                      </div>
                      <div class="col text-left">
                         <input name="otrosmails" type="text" value="" placeholder="separe los emails con ,">
-                     </div>
-                     <div class="col text-left">
-                        <input name="otroscheck" type="checkbox">
                      </div>
                   </div>
                </div>
