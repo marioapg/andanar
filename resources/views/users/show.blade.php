@@ -5,28 +5,38 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
-          <form method="post" action="{{ route('user.update', ['id' => $user->id]) }}" autocomplete="off" class="form-horizontal">
-            @csrf
-            @method('put')
-
-            <div class="card ">
-              <div class="card-header card-header-info">
-                <h4 class="card-title">{{ __('Editar') }}</h4>
-                <p class="card-category">{{ __('Información de usuario') }}</p>
-              </div>
-              <div class="card-body ">
-                @if (session('status'))
-                  <div class="row">
-                    <div class="col-sm-12">
-                      <div class="alert alert-success">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                          <i class="material-icons">close</i>
-                        </button>
-                        <span>{{ session('status') }}</span>
-                      </div>
+          <div class="card ">
+            <div class="card-header card-header-info">
+              <h4 class="card-title">{{ __('Editar') }}</h4>
+              <p class="card-category">{{ __('Información de usuario') }}</p>
+            </div>
+            <div class="card-body ">
+              @if (session('status'))
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="alert alert-success">
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <i class="material-icons">close</i>
+                      </button>
+                      <span>{{ session('status') }}</span>
                     </div>
                   </div>
-                @endif
+                </div>
+              @endif
+
+              <div class="row" style="flex-direction: column;align-items: center;">
+                <form action="{{ route('user.delete', ['id' => $user->id]) }}" method="POST" onsubmit="return confirm('Realmente desea eliminar a cliente {{ $user->name }}?');">
+                  @method('DELETE')
+                  @csrf
+                  <button type="submit" class="btn btn-success btn-link" style="float: inline-end;">
+                    <i class="material-icons" style="color: red;">delete_forever</i>
+                  </button>
+                </form>
+              </div>
+
+              <form method="post" action="{{ route('user.update', ['id' => $user->id]) }}" autocomplete="off" class="form-horizontal">
+                @csrf
+                @method('put')
                 <div class="row">
                   <label class="col-sm-2 col-form-label">{{ __('Nombre') }}</label>
                   <div class="col-sm-7">
@@ -104,13 +114,12 @@
                     </div>
                   </div>
                 @endif
-
-              </div>
-              <div class="card-footer ml-auto mr-auto">
-                <button type="submit" class="btn btn-info">{{ __('Actualizar') }}</button>
-              </div>
-            </div>
-          </form>
+                </div>
+                <div class="card-footer ml-auto mr-auto">
+                  <button type="submit" class="btn btn-info">{{ __('Actualizar') }}</button>
+                </div>
+                </div>
+              </form>
         </div>
       </div>
       @if( auth()->user()->hasRole('admin') )
