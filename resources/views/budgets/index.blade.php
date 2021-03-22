@@ -51,17 +51,15 @@
                       <th>IVA</th>
                       <th>Total</th>
                       <th>Estatus</th>
-                      <th class="text-right">Ver</th>
-                      @if ( auth()->user()->hasRole('admin') )
-                        <th class="text-right">Eliminar</th>
-                      @endif
                     </tr>
                   </thead>
                   <tbody>
                     @foreach ($budgets as $budget)
                       <tr>
                         <td>
-                          {{ $budget->id }}
+                          <a href="{{ route('budget.show',$budget->id) }}">
+                            {{ $budget->id }}
+                          </a>
                         </td>
                         <td>
                           {{ $budget->client->name }}
@@ -80,22 +78,6 @@
                           {{ ucwords($budget->status) }}
                           </div>
                         </td>
-                        <td class="td-actions text-right">
-                          <a rel="tooltip" class="btn btn-success btn-link" href="{{ route('budget.show',$budget->id) }}">
-                            <i class="material-icons">remove_red_eye</i>
-                          </a>
-                        </td>
-                        @if ( auth()->user()->hasRole('admin') )
-                          <td class="td-actions text-right">
-                            <form action="{{ route('budget.delete', ['id' => $budget->id]) }}" method="POST" onsubmit="return confirm('Realmente desea eliminar el presupuesto {{ $budget->id }}?');">
-                              @method('DELETE')
-                              @csrf
-                              <button type="submit" class="btn btn-success btn-link">
-                                <i class="material-icons" style="color: red;">delete_forever</i>
-                              </button>
-                            </form>
-                          </td>
-                        @endif
                       </tr>
                     @endforeach
                   </tbody>

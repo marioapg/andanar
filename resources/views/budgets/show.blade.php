@@ -21,6 +21,17 @@
 
                   <div class="card-body">
                      <div id="invoice">
+                        @if ( auth()->user()->hasRole('admin') )
+                           <div class="row" style="margin: 0px;padding: 0px;flex-direction: column;align-items: center;">
+                              <form action="{{ route('budget.delete', ['id' => $budget->id]) }}" method="POST" onsubmit="return confirm('Realmente desea eliminar el presupuesto {{ $budget->id }}?');">
+                                 @method('DELETE')
+                                 @csrf
+                                 <button type="submit" class="btn btn-success btn-link" style="margin: 0px;padding: 0px;">
+                                   <i class="material-icons" style="color: red;">delete_forever</i>
+                                 </button>
+                              </form>
+                           </div>
+                        @endif
                         <div class="toolbar hidden-print row">
                            @if ( auth()->user()->type != 'proficient' ) 
                               <div class="col-sm-6 col-md-4 center-responsive-one">
@@ -49,10 +60,9 @@
                                  </button>
                               </div>
                            @endif
-
                         </div>
-                        <div class="toolbar hidden-print row">
 
+                        <div class="toolbar hidden-print row">
                            <div class="col-sm-4 center-responsive-one">
                               <a href="{{ route('budget.view.pdf', $budget->id) }}" target="_blank">
                                  <button class="btn btn-info">
