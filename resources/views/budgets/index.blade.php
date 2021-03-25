@@ -46,6 +46,7 @@
                   <thead class="text-info">
                     <tr>
                       <th>Número</th>
+                      <th>Placa</th>
                       <th>Cliente</th>
                       <th>Fecha</th>
                       <th>IVA</th>
@@ -57,8 +58,11 @@
                     @foreach ($budgets as $budget)
                       <tr>
                         <td>
-                          <a href="{{ route('budget.show',$budget->id) }}">
                             {{ $budget->id }}
+                        </td>
+                        <td>
+                          <a href="{{ route('budget.show',$budget->id) }}">
+                            {{ $budget->car->plate ?? '' }}
                           </a>
                         </td>
                         <td>

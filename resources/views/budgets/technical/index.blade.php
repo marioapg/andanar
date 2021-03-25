@@ -29,26 +29,27 @@
                   <thead class="text-info">
                     <tr>
                       <th>Número</th>
-                      <th>Cliente</th>
                       <th>Placa</th>
+                      <th>Cliente</th>
                       <th>Fecha</th>
                       <th>IVA</th>
                       <th>Total</th>
                       <th>Estatus</th>
-                      <th class="text-right">Ver</th>
                     </tr>
                   </thead>
                   <tbody>
                     @foreach ($budgets as $budget)
                       <tr>
                         <td>
-                          {{ $budget->id }}
+                            {{ $budget->id }}
+                        </td>
+                        <td>
+                          <a href="{{ route('budget.show',$budget->id) }}">
+                            {{ $budget->car->plate ?? '' }}
+                          </a>
                         </td>
                         <td>
                           {{ $budget->client->name }}
-                        </td>
-                        <td>
-                          {{ $budget->car->plate }}
                         </td>
                         <td>
                           {{ \Carbon\Carbon::create($budget->date)->format('d-m-Y') }}
@@ -63,11 +64,6 @@
                           <div class="text-center border-{{$budget->status}}" style="width: 100%;">
                           {{ ucwords($budget->status) }}
                           </div>
-                        </td>
-                        <td class="td-actions text-right">
-                          <a rel="tooltip" class="btn btn-success btn-link" href="{{ route('budget.technical.show',$budget->id) }}">
-                            <i class="material-icons">remove_red_eye</i>
-                          </a>
                         </td>
                       </tr>
                     @endforeach
