@@ -21,6 +21,12 @@
     @show
     </head>
     <body class="{{ $class ?? '' }}">
+        <div class="preloader" style=" position: fixed;width: 100%;height: 100%;top: 0;left: 0;z-index: 100000;backface-visibility: hidden;background: #ffffff;opacity: 0.8;">
+            <div class="preloader_img" style="width: 200px;height: 200px;position: absolute;left: 48%;top: 48%;background-position: center;z-index: 999999">
+                <img src="{{ asset('images/ajax-loader.gif') }}" style=" width: 40px;" alt="loading...">
+            </div>
+        </div>
+
         @auth()
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
@@ -78,6 +84,12 @@
         <script src="{{ asset('material') }}/demo/demo.js"></script>
         <script src="{{ asset('material') }}/js/settings.js"></script>
         <script src="{{ asset('js/custom.js') }}"></script>
+        <script>
+            $(window).on("load",function() {
+                $('.preloader img').fadeOut();
+                $('.preloader').fadeOut(1000);
+            });
+        </script>
         @stack('js')
         
         @section('inlinejs')

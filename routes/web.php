@@ -63,6 +63,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('budget/{id}', 'BudgetController@show')->name('budget.show');
 	Route::put('budget/{id}/status', 'BudgetController@status')->name('budget.status');
 	Route::post('budget', 'BudgetController@store')->name('budget.store');
+	Route::delete('budget/{budget_id}/attached/delete', 'BudgetController@deleteAtacched')->name('budget.attached.delete');
 	Route::delete('budget', 'BudgetController@delete')->name('budget.delete');
 	Route::get('budget/{id}/edit', 'BudgetController@edit')->name('budget.edit');
 	Route::put('budget/{budget_id}', 'BudgetController@update')->name('budget.update');

@@ -148,26 +148,81 @@
                 <div class="row">
                   <div class="col">
                     <label for="files">Adjunto 1</label>
-                    <input id="files" type="file" name="file[]" class="form-control"/>
+                    @if( isset($budget->attached[0]) )
+                    <div>
+                      <a class="button-style-success" href="/images/budgets/{{ $budget->attached[0] }}" target="_blank">
+                        Ver
+                      </a>
+                      <span class="button-style-danger delete-attached button-style-white-pointer" url="{{ route('budget.attached.delete', [$budget->id]) }}" index="0">
+                        X
+                      </span>
+                    </div>
+                    @else
+                      <input id="files" type="file" name="file[]" class="form-control"/>
+                    @endif
                   </div>
                   <div class="col">
                     <label for="files">Adjunto 2</label>
-                    <input id="files" type="file" name="file[]" class="form-control"/>
+                    @if( isset($budget->attached[1]) )
+                    <div>
+                      <a class="button-style-success" href="/images/budgets/{{ $budget->attached[1] }}" target="_blank">
+                        Ver
+                      </a>
+                      <span class="button-style-danger delete-attached button-style-white-pointer" url="{{ route('budget.attached.delete', [$budget->id]) }}" index="1">
+                        X
+                      </span>
+                    </div>
+                    @else
+                      <input id="files" type="file" name="file[]" class="form-control"/>
+                    @endif
                   </div>
                   <div class="col">
                     <label for="files">Adjunto 3</label>
-                    <input id="files" type="file" name="file[]" class="form-control"/>
+                    @if( isset($budget->attached[2]) )
+                    <div>
+                      <a class="button-style-success" href="/images/budgets/{{ $budget->attached[2] }}" target="_blank">
+                        Ver
+                      </a>
+                      <span class="button-style-danger delete-attached button-style-white-pointer" url="{{ route('budget.attached.delete', [$budget->id]) }}" index="2">
+                        X
+                      </span>
+                    </div>
+                    @else
+                      <input id="files" type="file" name="file[]" class="form-control"/>
+                    @endif
                   </div>
                 </div>
                 
                 <div class="row">
                   <div class="col">
                     <label for="files">Adjunto 4</label>
-                    <input id="files" type="file" name="file[]" class="form-control"/>
+                    @if( isset($budget->attached[3]) )
+                    <div>
+                      <a class="button-style-success" href="/images/budgets/{{ $budget->attached[3] }}" target="_blank">
+                        Ver
+                      </a>
+                      <span class="button-style-danger delete-attached button-style-white-pointer" url="{{ route('budget.attached.delete', [$budget->id]) }}" index="3">
+                        X
+                      </span>
+                    </div>
+                    @else
+                      <input id="files" type="file" name="file[]" class="form-control"/>
+                    @endif
                   </div>
                   <div class="col">
                     <label for="files">Adjunto 5</label>
-                    <input id="files" type="file" name="file[]" class="form-control"/>
+                    @if( isset($budget->attached[4]) )
+                    <div>
+                      <a class="button-style-success" href="/images/budgets/{{ $budget->attached[4] }}" target="_blank">
+                        Ver
+                      </a>
+                      <span class="button-style-danger delete-attached button-style-white-pointer" url="{{ route('budget.attached.delete', [$budget->id]) }}" index="4">
+                        X
+                      </span>
+                    </div>
+                    @else
+                      <input id="files" type="file" name="file[]" class="form-control"/>
+                    @endif
                   </div>
                 </div>
 
@@ -1270,6 +1325,8 @@
     </div>
   </div>
 
+  <input type="hidden" id="csrf_token" value="{{ csrf_token() }}">
+
   <div id="myModal" class="modal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -1333,8 +1390,32 @@
   <script src="{{ asset('js/bootstrap-switch.js') }}"></script>
   <script>
     $(document).ready( function () {
-      var rows = 0;
+      $('.delete-attached').on('click', function(e){
+        $.ajax({
+          url: $(this).attr('url'),
+          method: 'DELETE',
+          headers: { 'X-CSRF-TOKEN': $('#csrf_token').val() },
+          data: { 'index': $(this).attr('index') },
+          success: function(response) {
+            // console.log(response);
+            window.location.reload();
+          },
+          error: function(response) {
+            alert(response.response);
+          },
+          beforeSend: function(){
+              $('.preloader').show();
+              $('.preloader').css('opacity','0.5');
+              $('.preloader > div > img').show();
+          },
+          complete: function() {
+              $('.preloader').hide();
+              $('.preloader > div > img').hide();
+          }
+        });
+      });
 
+      var rows = 0;
       // Funcion cuando cambia el toogle del material Aluminio/Hierro
       $('#materialcheck').change(function() {
         if ( this.checked ) {

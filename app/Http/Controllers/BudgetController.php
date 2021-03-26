@@ -11,6 +11,7 @@ use App\Budget;
 use App\Client;
 use App\Car;
 use Session;
+use File;
 
 class BudgetController extends Controller
 {
@@ -415,7 +416,8 @@ class BudgetController extends Controller
         }
 
         if($request->hasFile('file')) {
-            $images = array();
+            // $images = array();
+            $images = is_array($budget->attached) ? $budget->attached : array();
             // Upload path
             $destinationPath = public_path().'/images/budgets/';
 
@@ -478,5 +480,23 @@ class BudgetController extends Controller
     {
         $budget = Budget::where('id',$request->budgetid)->first();
         return view('mails.budget_mail_pdf', ['budget'=>$budget]);
+    }
+
+    public function deleteAtacched(Request $request) {
+        $budget = Budget::where('id', $request->budget_id)->first();
+        if ( $budget && isset($budget->attached[$request->index]) ) {
+            $image_path = public_path().'/images/budgets/'.$budget->attached[$request->index];
+            if (File::exists($image_path)) {
+                $images = $budget->attached;
+                unset( $images[$request->index] );
+                unlink($image_path);
+                $budget->attached = array_values($images);
+                $budget->save();
+            }
+
+            return 1;
+        }
+
+        return response(['response' => 'No existe el presupuesto/imagen'], 404);
     }
 }
