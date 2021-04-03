@@ -105,6 +105,10 @@
                 </div>
                 <div class="row">
                   <div class="col">
+                    <label for="date">Fecha</label>
+                    <input type="date" name="date" class="form-control" value="{{ Carbon\Carbon::create($budget->date)->format('Y-m-d') }}" required="">
+                  </div>
+                  <div class="col">
                     <label for="boss_id">Responsable taller</label>
                     <select name="boss_id" id="select-boss" autocomplete="off">
                       <option value=""></option>
