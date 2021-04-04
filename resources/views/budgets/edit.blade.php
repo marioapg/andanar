@@ -3,6 +3,7 @@
 @section('inlinecss')
   <link rel="stylesheet" href="{{ asset('css/selectize.bootstrap2.css') }}">
   <link rel="stylesheet" href="{{ asset('css/bootstrap-switch.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/zebra_datepicker.min.css') }}"> 
 @endsection
 
 @section('content')
@@ -106,7 +107,7 @@
                 <div class="row">
                   <div class="col">
                     <label for="date">Fecha</label>
-                    <input type="date" name="date" class="form-control" value="{{ Carbon\Carbon::create($budget->date)->format('Y-m-d') }}" required="">
+                    <input type="text" name="date" class="form-control datepicker" value="{{ Carbon\Carbon::create($budget->date)->format('d-m-Y') }}" required="">
                   </div>
                   <div class="col">
                     <label for="boss_id">Responsable taller</label>
@@ -1394,8 +1395,21 @@
 @section('inlinejs')
   <script src="{{ asset('js/selectize.js') }}"></script>
   <script src="{{ asset('js/bootstrap-switch.js') }}"></script>
+  <script src="{{ asset('js/zebra_datepicker.min.js') }}"></script>
+
   <script>
     $(document).ready( function () {
+
+      $('.datepicker').Zebra_DatePicker({
+        format: 'd-m-Y',
+        show_select_today: false,
+        show_clear_date: false,
+        show_other_months: true,
+        select_other_months: true,
+        days: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+        months: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
+      });
+
       $('.delete-attached').on('click', function(e){
         $.ajax({
           url: $(this).attr('url'),

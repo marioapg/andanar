@@ -171,7 +171,7 @@
                   <div class="form-row">
                      <div class="col text-left" style="text-align: center !important;">
                         <input name="responsablecheck" type="checkbox" {{ $budget->responsable ? '' : 'disabled' }}>
-                        <span>Responsable</span>
+                        <span>Resp.</span>
                      </div>
                      <div class="col text-left">
                         <input name="responsablemail" type="text" value="{{ $budget->responsable ? $budget->responsable->email : '' }}" readonly="">

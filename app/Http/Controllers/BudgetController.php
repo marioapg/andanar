@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Utils\Currencies;
 use App\BudgetItem;
 use App\BudgetUser;
+use Carbon\Carbon;
 use App\Budget;
 use App\Client;
 use App\Car;
@@ -220,7 +221,7 @@ class BudgetController extends Controller
                     'technical_id' => $request->technical_id,
                     'responsable_id' => $request->boss_id,
                     'perito_id' => $request->perito_id,
-                    'date' => $request->date,
+                    'date' => Carbon::createFromFormat('d-m-Y', $request->date),
                     'car_id' => $car->id,
                     'public_comment' => $request->public_comment,
                     'currency' => $request->currency,
@@ -383,7 +384,7 @@ class BudgetController extends Controller
                     'technical_id' => $request->technical_id,
                     'perito_id' => $request->perito_id,
                     'responsable_id' => $request->boss_id,
-                    'date' => $request->date,
+                    'date' => Carbon::createFromFormat('d-m-Y', $request->date),
                     'car_id' => $car->id,
                     'public_comment' => $request->public_comment,
                     'private_comment' => $request->private_comment,
