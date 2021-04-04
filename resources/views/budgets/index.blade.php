@@ -1,5 +1,9 @@
 @extends('layouts.app', ['activePage' => 'budgets', 'titlePage' => __('Presupuestos')])
 
+@section('inlinecss')
+  <link rel="stylesheet" href="{{ asset('css/zebra_datepicker.min.css') }}"> 
+@endsection
+
 @section('content')
   <div class="content">
     <div class="container-fluid">
@@ -27,9 +31,10 @@
                     @csrf
 
                     Desde
-                    <input id="from" type="date" name="from">
+                    <input id="from" type="text" class="datepicker-from" name="from" autocomplete="off">
+                    <br>
                     Hasta
-                    <input id="to" type="date" name="to">
+                    <input id="to" type="text" class="datepicker-to" name="to" autocomplete="off">
                     <button class="btn btn-sm btn-warning">Exportar</button>
 
                   </form>
@@ -97,9 +102,31 @@
 @section('inlinejs')
   <!--  DataTables.net Plugin, full documentation here: https://datatables.net/  -->
   <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
+  <script src="{{ asset('js/zebra_datepicker.min.js') }}"></script>
 
   <script>
     $(document).ready(function() {
+
+      $('.datepicker-from').Zebra_DatePicker({
+        format: 'd-m-Y',
+        show_select_today: false,
+        show_clear_date: false,
+        show_other_months: true,
+        select_other_months: true,
+        days: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+        months: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
+      });
+
+      $('.datepicker-to').Zebra_DatePicker({
+        format: 'd-m-Y',
+        show_select_today: false,
+        show_clear_date: false,
+        show_other_months: true,
+        select_other_months: true,
+        days: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+        months: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
+      });
+
       $('#budget-table').DataTable({
         // dom:"Blfrtip",
         dom:"lfrtip",
