@@ -142,6 +142,36 @@
                     </div>
                   @endif
                 </div>
+                <div class="bmd-form-group{{ $errors->has('responsable') ? ' has-danger' : '' }} mt-3">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="material-icons">supervised_user_circle</i>
+                  </span>
+                </div>
+                <input type="text" name="responsable" id="responsable" class="form-control" value="{{ $client->responsable ?? '' }}" placeholder="{{ __('Responsable...') }}" required>
+              </div>
+              @if ($errors->has('responsable'))
+                <div id="responsable-error" class="error text-danger pl-3" for="responsable" style="display: block;">
+                  <strong>{{ $errors->first('responsable') }}</strong>
+                </div>
+              @endif
+            </div>
+            <div class="bmd-form-group{{ $errors->has('contact_responsable') ? ' has-danger' : '' }} mt-3">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="material-icons">email</i>
+                  </span>
+                </div>
+                <input type="text" name="contact_responsable" id="contact_responsable" class="form-control" value="{{ $client->contact_responsable ?? '' }}" placeholder="{{ __('Contacto Responsable...') }}" required>
+              </div>
+              @if ($errors->has('contact_responsable'))
+                <div id="contact_responsable-error" class="error text-danger pl-3" for="contact_responsable" style="display: block;">
+                  <strong>{{ $errors->first('contact_responsable') }}</strong>
+                </div>
+              @endif
+            </div>
                 <div class="bmd-form-group{{ $errors->has('country') ? ' has-danger' : '' }} mt-3">
                   <div class="input-group">
                     <div class="input-group-prepend">

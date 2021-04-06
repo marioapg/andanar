@@ -84,9 +84,8 @@
                     <input type="text" name="date" class="form-control datepicker" value="{{ Carbon\Carbon::now()->format('d-m-Y') }}" required="">
                   </div>
                   <div class="col">
-                    <label for="boss_id">Responsable taller</label>
-                    <input type="hidden" name="boss_id" class="form-control" value="{{ $params->boss_id }}">
-                    <input type="text" name="client" class="form-control" value="{{ $params->boss_id ? \App\User::where('id',$params->boss_id)->first()->name : '' }}" readonly="">
+                    <label for="boss">Responsable taller</label>
+                    <input type="text" name="boss" class="form-control" value="{{ \App\Client::where('id',$params->client_id)->first()->responsable }}">
                   </div>
                   <div class="col">
                     <label for="iva">Porcentaje de IVA</label>

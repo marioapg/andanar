@@ -98,7 +98,6 @@
                     <option value="technical">Técnico</option>
                   @endif
                   <option value="proficient">Perito</option>
-                  <option value="boss">Responsable</option>
                 </select>
               </div>
               @if ($errors->has('type'))

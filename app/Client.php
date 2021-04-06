@@ -12,13 +12,16 @@ class Client extends Model
     protected $fillable = [
     	'name',
         'email',
-		"document",
-		"address",
-		"city",
-		"postal_code",
-		"state",
-		"country",
-		"phone"
+		'document',
+		'address',
+		'city',
+		'postal_code',
+		'state',
+		'country',
+		'phone',
+        'responsable',
+        'contact_responsable'
+
     ];
 
     public function budgets()

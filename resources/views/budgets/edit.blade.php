@@ -110,15 +110,8 @@
                     <input type="text" name="date" class="form-control datepicker" value="{{ Carbon\Carbon::create($budget->date)->format('d-m-Y') }}" required="">
                   </div>
                   <div class="col">
-                    <label for="boss_id">Responsable taller</label>
-                    <select name="boss_id" id="select-boss" autocomplete="off">
-                      <option value=""></option>
-                      @foreach( \App\User::where('type','boss')->where('status',1)->get() as $boss)
-                        <option value="{{ $boss->id }}" @if($budget->isBoss($boss->id)) selected @endif>
-                          {{ $boss->name }}
-                        </option>
-                      @endforeach
-                    </select>
+                    <label for="boss">Responsable taller</label>
+                    <input type="text" name="boss" class="form-control" value="{{ $budget->client->responsable ?? '' }}">
                   </div>
                   <div class="col">
                     <label for="iva">Porcentaje de IVA</label>

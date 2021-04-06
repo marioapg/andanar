@@ -228,7 +228,7 @@
                     <p>
                         <strong>RESPONSABLE:</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <strong class="cursiva-azul">
-                            {{ $budget->responsable->name ?? '' }}
+                            {{ $budget->client->responsable ?? '' }}
                         </strong>
                         <br>
                         <small>responsible / responsable</small>
@@ -250,7 +250,7 @@
                     <p>
                         <strong>MAIL RESP.</strong>
                         <strong class="cursiva-azul"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            {{ $budget->responsable->email ?? '' }}
+                            {{ $budget->client->email ?? '' }}
                         </strong>
                         <br>
                         <small>res. email / email res.</small>

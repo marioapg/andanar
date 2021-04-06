@@ -180,7 +180,6 @@ class BudgetController extends Controller
             "client_id" => ['required', 'exists:users,id'],
             "perito_id" => ['nullable', 'exists:users,id'],
             "technical_id" => ['nullable', 'exists:users,id'],
-            "boss_id" => ['nullable', 'exists:users,id'],
             "tarifa" => ['numeric']
         ]);
 
@@ -219,7 +218,6 @@ class BudgetController extends Controller
         $budget = Budget::create([
                     'client_id' => $request->client_id,
                     'technical_id' => $request->technical_id,
-                    'responsable_id' => $request->boss_id,
                     'perito_id' => $request->perito_id,
                     'date' => Carbon::createFromFormat('d-m-Y', $request->date),
                     'car_id' => $car->id,
@@ -236,6 +234,8 @@ class BudgetController extends Controller
                     'manual' => $manual,
                     'created_by' => auth()->user()->id,
                 ]);
+
+        Client::where('id', $request->client_id)->update(['responsable' => $request->boss]);
 
         if ($request->technical_id) {
             BudgetUser::create(['budget_id' => $budget->id, 'user_id' => $request->technical_id]);
@@ -336,7 +336,6 @@ class BudgetController extends Controller
             "client_id" => ['required', 'exists:users,id'],
             "perito_id" => ['nullable', 'exists:users,id'],
             "technical_id" => ['nullable', 'exists:users,id'],
-            "boss_id" => ['nullable', 'exists:users,id'],
             "tarifa" => ['numeric']
         ]);
 
@@ -398,6 +397,8 @@ class BudgetController extends Controller
                     'manual' => $manual,
                     'desmontaje' => $request->desmontaje,
                 ]);
+
+        Client::where('id', $request->client_id)->update(['responsable' => $request->boss]);
         
         $budget->items()->delete();
         foreach ($request->part as $key => $value) {
