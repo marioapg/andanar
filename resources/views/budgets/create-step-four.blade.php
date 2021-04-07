@@ -8,6 +8,16 @@
 
 @section('content')
   <div class="content" id="wrapper">
+    
+    <div class="form-row" style="flex-direction:column;max-width: max-content;position: fixed;z-index: 10;">
+      <a href="#inicio">
+        <i class="material-icons">arrow_circle_up</i>
+      </a>
+      <a href="#final">
+        <i class="material-icons">arrow_circle_down</i>
+      </a>
+    </div>
+
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-12">
@@ -22,7 +32,7 @@
                 </button>
               </div>
             @endif
-            <div class="card">
+            <div class="card" id="inicio">
               <div class="card-header card-header-info">
                 <h4 class="card-title ">{{ __('Matricula: ') }} {{ session()->get('car')->plate ?? '' }}</h4>
                 <p class="card-category">{{ __('Presupuesto/vehículo: ') }} </p>
@@ -1160,7 +1170,7 @@
                   </div>
                 </div>
 
-                <div class="row">
+                <div class="row" id="final">
                   <div class="col-sm-12">
                     <div class="form-row text-center">
                       <div class="col-sm-2">Totales:</div>
