@@ -149,7 +149,7 @@
                     <i class="material-icons">supervised_user_circle</i>
                   </span>
                 </div>
-                <input type="text" name="responsable" id="responsable" class="form-control" value="{{ $client->responsable ?? '' }}" placeholder="{{ __('Responsable...') }}" required>
+                <input type="text" name="responsable" id="responsable" class="form-control" value="{{ $client->responsable ?? '' }}" placeholder="{{ __('Responsable...') }}" required @if(!auth()->user()->hasRole('admin')) readonly @endif>
               </div>
               @if ($errors->has('responsable'))
                 <div id="responsable-error" class="error text-danger pl-3" for="responsable" style="display: block;">
@@ -164,7 +164,7 @@
                     <i class="material-icons">email</i>
                   </span>
                 </div>
-                <input type="text" name="contact_responsable" id="contact_responsable" class="form-control" value="{{ $client->contact_responsable ?? '' }}" placeholder="{{ __('Contacto Responsable...') }}" required>
+                <input type="text" name="contact_responsable" id="contact_responsable" class="form-control" value="{{ $client->contact_responsable ?? '' }}" placeholder="{{ __('Contacto Responsable...') }}" required @if(!auth()->user()->hasRole('admin')) readonly @endif>
               </div>
               @if ($errors->has('contact_responsable'))
                 <div id="contact_responsable-error" class="error text-danger pl-3" for="contact_responsable" style="display: block;">

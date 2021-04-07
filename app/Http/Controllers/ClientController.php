@@ -16,8 +16,20 @@ class ClientController extends Controller
 
     public function show(Request $request)
     {
-    	return view('clients.edit', ['client' => Client::find($request->id)]);
-    
+        $client = Client::where('id', $request->id)->first();
+
+        if (!$client) {
+            return redirect()->route('clients.index');
+        }
+
+        if ( $client &&
+                !auth()->user()->hasRole('admin') &&
+                    $client->created_by !== auth()->user()->id
+        ) {
+            return redirect()->route('clients.index');
+        }
+
+    	return view('clients.edit', ['client' => $client]);
     }
 
     public function create(Request $request)
