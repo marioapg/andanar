@@ -18,7 +18,8 @@ class ViewPDFController extends Controller
                 return $pdf->download($budget->car->plate);
             }
 
-	        return $pdf->stream();
+            return view('budgets.budget_pdf_view', ['budget'=>$budget]);
+	        // return $pdf->stream();
         }
 
         return back();
@@ -28,8 +29,10 @@ class ViewPDFController extends Controller
     {
         $budget = Budget::where('id', $request->budgetid)->first();
         if ($budget) {
-	        $pdf = PDF::loadView('mails.budget_mail_pdf', ['budget'=>$budget]);
-	        return $pdf->stream();
+
+            return view('budgets.budget_pdf_view', ['budget'=>$budget]);
+	        // $pdf = PDF::loadView('mails.budget_mail_pdf', ['budget'=>$budget]);
+	        // return $pdf->stream();
         }
 
         return back();
