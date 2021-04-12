@@ -176,8 +176,7 @@ class BudgetController extends Controller
             "date" => ['required'],
             "currency" => ['required', 'in:USD,EUR,ARS'],
             "year" => ['required'],
-            'proficient_id' => ['nullable', 'exists:users,id'],
-            "client_id" => ['required', 'exists:users,id'],
+            "client_id" => ['required', 'exists:clients,id'],
             "perito_id" => ['nullable', 'exists:users,id'],
             "technical_id" => ['nullable', 'exists:users,id'],
             "tarifa" => ['numeric']
@@ -188,7 +187,6 @@ class BudgetController extends Controller
             Session::flash('flash_type', 'alert-danger');
             return back()->withErrors($validator)->withInput();
         }
-
         $validator = Validator::make($request->all(), [
             'part' => ['required', 'array', 'min:1'],
             'part.*' => ['required'],
@@ -333,7 +331,7 @@ class BudgetController extends Controller
             "date" => ['required'],
             "year" => ['required'],
             'proficient_id' => ['nullable', 'exists:users,id'],
-            "client_id" => ['required', 'exists:users,id'],
+            "client_id" => ['required', 'exists:clients,id'],
             "perito_id" => ['nullable', 'exists:users,id'],
             "technical_id" => ['nullable', 'exists:users,id'],
             "tarifa" => ['numeric']

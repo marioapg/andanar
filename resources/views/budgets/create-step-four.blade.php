@@ -95,6 +95,7 @@
                   </div>
                   <div class="col">
                     <label for="boss">Responsable taller</label>
+                    <input type="hidden" name="boss_id" class="form-control" value="{{ $params->boss_id }}">
                     <input type="text" name="boss" class="form-control" value="{{ \App\Client::where('id',$params->client_id)->first()->responsable }}">
                   </div>
                   <div class="col">
