@@ -1189,7 +1189,7 @@
               </div>
 
               <div class="form-row" style="flex-direction: column;align-items: center;">
-                <button class="btn showsiniva btn-warning" disabled="" style="padding: 5px;font-weight: bold;opacity: 1;">{{ __('Total S(IN )IVA: ') }}</button>
+                <button class="btn showsiniva btn-warning" disabled="" style="padding: 5px;font-weight: bold;opacity: 1;">{{ __('Total S/IVA: ') }}</button>
                 <button class="btn showiva btn-warning" disabled="" style="padding: 5px;font-weight: bold;opacity: 1;">{{ __('IVA: ') }}</button>
                 <button class="btn showtotal btn-warning" disabled="" style="padding: 5px;font-weight: bold;opacity: 1;">{{ __('Total + IVA: ') }}</button>
               </div>
