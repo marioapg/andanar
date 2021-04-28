@@ -414,6 +414,7 @@
             </tr>
             <tr style="height: 70px;max-height: 70px;">
                 <td colspan="4" style="height: 70px;max-height: 70px;">
+                    {{ $budget->technical->name ?? ''  }}
                 </td>
                 <td colspan="9" style="height: 70px;max-height: 70px;">
                 </td>
