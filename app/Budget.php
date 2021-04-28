@@ -58,6 +58,11 @@ class Budget extends Model
         return $this->hasOne('App\User', 'id', 'technical_id')->withTrashed();
     }
 
+    public function creator()
+    {
+        return $this->hasOne('App\User', 'id', 'created_by')->withTrashed();
+    }
+
     public function perito()
     {
         return $this->hasOne('App\User', 'id', 'perito_id')->withTrashed();

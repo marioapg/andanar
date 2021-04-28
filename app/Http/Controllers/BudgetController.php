@@ -379,7 +379,7 @@ class BudgetController extends Controller
         $flag = $budget->update([
                     'client_id' => $request->client_id,
                     'technical_id' => $request->technical_id,
-                    'perito_id' => $request->perito_id,
+                    'perito_id' => $request->proficient_id,
                     'responsable_id' => $request->boss_id,
                     'date' => Carbon::createFromFormat('d-m-Y', $request->date),
                     'car_id' => $car->id,

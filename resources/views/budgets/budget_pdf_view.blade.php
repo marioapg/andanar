@@ -264,9 +264,9 @@
                 </td>
                 <td colspan="2">
                     <p>
-                        <strong>REALIZÓ</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <strong>PRESUPUESTADO POR</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <strong class="cursiva-azul">
-                            {{ $budget->technical->name ?? '' }}
+                            {{ $budget->creator->name ?? '' }}
                         </strong>
                         <br>
                         <small>made / fait</small>
@@ -356,7 +356,7 @@
             </tr>
             <tr>
                 <td colspan="4" rowspan="3" style="text-align: left;" padding>
-                    <p @if (is_null($budget->public_comment)) style="margin-top: -20px;" @endif>
+                    <p @if (is_null($budget->public_comment)) style="margin-top: -50px;" @endif>
                         <strong>
                             Observaciones.        
                         </strong>
@@ -406,7 +406,7 @@
             </tr>
                 <tr>
                 <td colspan="4">
-                    <strong>TÉCNICO</strong> <small>Technic / Technicien</small>
+                    <strong>TÉCNICO PDR</strong> <small>Technic / Technicien</small>
                 </td>
                 <td colspan="9">
                     <strong>CONFORME CLIENTE</strong> Firma y Sello -- <small>customer ok / conformité</small>
@@ -424,7 +424,7 @@
 </div>
 
 @if( !is_null($budget->attached) )
-    <div style="margin-top: 100px;">
+    <div style="margin-top: 100px;text-align: center;">
         @foreach( $budget->attached as $key => $value )
             <img src="{{ asset('/images/budgets/') }}/{{ $value }}" width="500">
         @endforeach

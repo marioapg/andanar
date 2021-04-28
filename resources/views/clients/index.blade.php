@@ -15,8 +15,8 @@
           @endif
           <div class="card">
             <div class="card-header card-header-info">
-              <h4 class="card-title ">{{ __('Clientes') }}</h4>
-              <p class="card-category">{{ __('Listado clientes') }}</p>
+              <h4 class="card-title ">{{ __('Usuario básico') }}</h4>
+              <p class="card-category">{{ __('Listado de clientes') }}</p>
             </div>
             <div class="card-body">
               <div class="row">
@@ -62,7 +62,7 @@
                         </td>
                         <td>
                           @if( auth()->user()->hasRole('admin') )
-                            <a href="{{ route('client.show', ['id' => $client->id]) }}">
+                            <a href="{{ route('client.show', ['id' => $client->id]) }}" style="font-weight: bold;color: blue;">
                               {{ $client->name }}
                             </a>
                           @endif

@@ -41,7 +41,7 @@
 	{{ config('env_params.business_address_line_2') }}<br>
 	{{ config('env_params.business_address_line_3') }}<br>
 	Mov.: {{ config('env_params.business_mobile_phone') }}<br>
-	Tel.:   {{ config('env_params.business_mobile_phone') }}<br>
+	Tel.:   {{ config('env_params.business_phone') }}<br>
 	Email: <a href="mailto:{{ config('env_params.business_email_cc') }}">{{ config('env_params.business_email_cc') }}</a> <br>
 	<a href="https://{{ config('env_params.business_webinfo') }}">{{ config('env_params.business_webinfo') }}</a>
 </body>

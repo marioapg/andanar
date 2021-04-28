@@ -51,7 +51,7 @@
                   <thead class="text-info">
                     <tr>
                       <th>Número</th>
-                      <th>Placa</th>
+                      <th>Matricula</th>
                       <th>Cliente</th>
                       <th>Fecha</th>
                       <th>IVA</th>

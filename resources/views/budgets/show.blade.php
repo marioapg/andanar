@@ -26,8 +26,8 @@
                               <form action="{{ route('budget.delete', ['id' => $budget->id]) }}" method="POST" onsubmit="return confirm('Realmente desea eliminar el presupuesto {{ $budget->id }}?');">
                                  @method('DELETE')
                                  @csrf
-                                 <button type="submit" class="btn btn-success btn-link" style="margin: 0px;padding: 0px;">
-                                   <i class="material-icons" style="color: red;">delete_forever</i>
+                                 <button type="submit" class="btn btn-success btn-link" style="margin: 10px;padding: 0px;">
+                                   <i class="material-icons" style="color: red;font-size: 35px;">delete_forever</i>
                                  </button>
                               </form>
                            </div>

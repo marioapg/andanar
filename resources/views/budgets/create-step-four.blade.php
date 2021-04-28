@@ -9,12 +9,12 @@
 @section('content')
   <div class="content" id="wrapper">
     
-    <div class="form-row" style="flex-direction:column;max-width: max-content;position: fixed;z-index: 10;">
+    <div class="form-row" style="flex-direction:column;max-width: max-content;position: fixed;z-index: 10;right: 10px;">
       <a href="#inicio">
-        <i class="material-icons">arrow_circle_up</i>
+        <i class="material-icons" style="color:black;font-size: 40px;">arrow_circle_up</i>
       </a>
       <a href="#final">
-        <i class="material-icons">arrow_circle_down</i>
+        <i class="material-icons" style="color:black;font-size: 40px;">arrow_circle_down</i>
       </a>
     </div>
 
@@ -118,7 +118,7 @@
                     <textarea id="public_comment" type="number" name="public_comment" class="form-control"></textarea>
                   </div>
                   <div class="col">
-                    <label for="private_comment">Comentario para {{ config('env_params.business_name') }}</label>
+                    <label for="private_comment">Comentario para {{ config('env_params.business_name_short') }}</label>
                     <textarea id="private_comment" type="number" name="private_comment" class="form-control"></textarea>
                   </div>
                 </div>
@@ -132,19 +132,15 @@
                     <label for="files">Adjunto 2</label>
                     <input id="files" type="file" name="file[]" class="form-control"/>
                   </div>
-                  <div class="col">
-                    <label for="files">Adjunto 3</label>
-                    <input id="files" type="file" name="file[]" class="form-control"/>
-                  </div>
                 </div>
                 
                 <div class="row">
                   <div class="col">
-                    <label for="files">Adjunto 4</label>
+                    <label for="files">Adjunto 3</label>
                     <input id="files" type="file" name="file[]" class="form-control"/>
                   </div>
                   <div class="col">
-                    <label for="files">Adjunto 5</label>
+                    <label for="files">Adjunto 4</label>
                     <input id="files" type="file" name="file[]" class="form-control"/>
                   </div>
                 </div>
@@ -450,7 +446,7 @@
                     <div class="form-row mt-1">
                       <div class="col">
                         <span class="bmd-form-group is-filled center-flex">
-                          Lateral izquierdo / left side / coté gouché
+                          Lateral izquierdo / left side / coté gauche
                         </span>
                       </div>
                     </div>
@@ -862,7 +858,7 @@
                     <div class="form-row mt-1 hover-rows no-to-send" numrow="9">
                       <div style="width: 13.63%;">
                         <span class="bmd-form-group is-filled center-flex">
-                          <span class="minor-height">PUERETA Del. Der.</span>
+                          <span class="minor-height">PUERTA Del. Der.</span>
                           <span class="subtitle-size minor-height">right front door/porte AVD</span>
                           <input class="form-control" type="hidden" name="part[]" value="PDD">
                         </span>
@@ -1193,9 +1189,9 @@
               </div>
 
               <div class="form-row" style="flex-direction: column;align-items: center;">
-                <button class="btn showsiniva" disabled="" style="padding: 5px;">{{ __('Total SIN IVA: ') }}</button>
-                <button class="btn showiva" disabled="" style="padding: 5px;">{{ __('IVA: ') }}</button>
-                <button class="btn showtotal" disabled="" style="padding: 5px;">{{ __('Total + IVA: ') }}</button>
+                <button class="btn showsiniva btn-warning" disabled="" style="padding: 5px;font-weight: bold;opacity: 1;">{{ __('Total S(IN )IVA: ') }}</button>
+                <button class="btn showiva btn-warning" disabled="" style="padding: 5px;font-weight: bold;opacity: 1;">{{ __('IVA: ') }}</button>
+                <button class="btn showtotal btn-warning" disabled="" style="padding: 5px;font-weight: bold;opacity: 1;">{{ __('Total + IVA: ') }}</button>
               </div>
 
               <div class="card-footer ml-auto mr-auto">

@@ -9,12 +9,12 @@
 @section('content')
   <div class="content">
 
-    <div class="form-row" style="flex-direction:column;max-width: max-content;position: fixed;z-index: 10;">
+    <div class="form-row" style="flex-direction:column;max-width: max-content;position: fixed;z-index: 10;right: 10px;">
       <a href="#inicio">
-        <i class="material-icons">arrow_circle_up</i>
+        <i class="material-icons" style="color:black;font-size: 40px;">arrow_circle_up</i>
       </a>
       <a href="#final">
-        <i class="material-icons">arrow_circle_down</i>
+        <i class="material-icons" style="color:black;font-size: 40px;">arrow_circle_down</i>
       </a>
     </div>
 
@@ -140,7 +140,7 @@
                     <textarea id="public_comment" type="number" name="public_comment" class="form-control">{{ $budget->public_comment }}</textarea>
                   </div>
                   <div class="col">
-                    <label for="private_comment">Comentario para {{ config('env_params.business_name') }}</label>
+                    <label for="private_comment">Comentario para {{ config('env_params.business_name_short') }}</label>
                     <textarea id="private_comment" type="number" name="private_comment" class="form-control">{{ $budget->private_comment }}</textarea>
                   </div>
                 </div>
@@ -176,6 +176,9 @@
                       <input id="files" type="file" name="file[]" class="form-control"/>
                     @endif
                   </div>
+                </div>
+                
+                <div class="row">
                   <div class="col">
                     <label for="files">Adjunto 3</label>
                     @if( isset($budget->attached[2]) )
@@ -191,9 +194,6 @@
                       <input id="files" type="file" name="file[]" class="form-control"/>
                     @endif
                   </div>
-                </div>
-                
-                <div class="row">
                   <div class="col">
                     <label for="files">Adjunto 4</label>
                     @if( isset($budget->attached[3]) )
@@ -202,21 +202,6 @@
                         Ver
                       </a>
                       <span class="button-style-danger delete-attached button-style-white-pointer" url="{{ route('budget.attached.delete', [$budget->id]) }}" index="3">
-                        X
-                      </span>
-                    </div>
-                    @else
-                      <input id="files" type="file" name="file[]" class="form-control"/>
-                    @endif
-                  </div>
-                  <div class="col">
-                    <label for="files">Adjunto 5</label>
-                    @if( isset($budget->attached[4]) )
-                    <div>
-                      <a class="button-style-success" href="/images/budgets/{{ $budget->attached[4] }}" target="_blank">
-                        Ver
-                      </a>
-                      <span class="button-style-danger delete-attached button-style-white-pointer" url="{{ route('budget.attached.delete', [$budget->id]) }}" index="4">
                         X
                       </span>
                     </div>
@@ -537,7 +522,7 @@
                     <div class="form-row mt-1">
                       <div class="col">
                         <span class="bmd-form-group is-filled center-flex">
-                          Lateral izquierdo / left side / coté gouché
+                          Lateral izquierdo / left side / coté gauche
                         </span>
                       </div>
                     </div>
@@ -970,7 +955,7 @@
                     <div class="form-row mt-1 hover-rows {{ $PDDER ? 'item-row-active' : 'no-to-send' }}" numrow="9">
                       <div style="width: 13.63%;">
                         <span class="bmd-form-group is-filled center-flex">
-                          <span class="minor-height">PUERETA Del. Der.</span>
+                          <span class="minor-height">PUERTA Del. Der.</span>
                           <span class="subtitle-size minor-height">right front door/porte AVD</span>
                           <input class="form-control" type="hidden" name="part[]" value="PDD">
                         </span>
@@ -1309,9 +1294,9 @@
               </div>
 
               <div class="form-row" style="flex-direction: column;align-items: center;">
-                <button class="btn showsiniva" disabled="" style="padding: 5px;">{{ __('Total SIN IVA: ') }}{{ $budget->total }}</button>
-                <button class="btn showiva" disabled="" style="padding: 5px;">{{ __('IVA: ') }}{{ $budget->iva }}</button>
-                <button class="btn showtotal" disabled="" style="padding: 5px;">{{ __('Total + IVA: ') }}{{ $budget->grand_total }}</button>
+                <button class="btn showsiniva btn-warning" disabled="" style="padding: 5px;font-weight: bold;opacity: 1;">{{ __('Total S/IVA: ') }}{{ $budget->total }}</button>
+                <button class="btn showiva btn-warning" disabled="" style="padding: 5px;font-weight: bold;opacity: 1;">{{ __('IVA: ') }}{{ $budget->iva }}</button>
+                <button class="btn showtotal btn-warning" disabled="" style="padding: 5px;font-weight: bold;opacity: 1;">{{ __('Total + IVA: ') }}{{ $budget->grand_total }}</button>
               </div>
 
               <div class="card-footer ml-auto mr-auto">
