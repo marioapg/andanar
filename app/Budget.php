@@ -144,4 +144,13 @@ class Budget extends Model
     {
         return $this->hasOne('App\User', 'id', 'created_by')->withTrashed();
     }
+
+    public function __get($key)
+    {
+        if (is_string($this->getAttribute($key))) {
+            return strtoupper( $this->getAttribute($key) );
+        } else {
+            return $this->getAttribute($key);
+        }
+    }
 }

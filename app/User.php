@@ -76,4 +76,13 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Budget::class, 'budget_user');
     }
+
+    public function __get($key)
+    {
+        if (is_string($this->getAttribute($key))) {
+            return strtoupper( $this->getAttribute($key) );
+        } else {
+            return $this->getAttribute($key);
+        }
+    }
 }

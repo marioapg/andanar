@@ -14,4 +14,13 @@ class DBCar extends Model
     	'brand',
     	'model'
     ];
+
+    public function __get($key)
+	{
+	    if (is_string($this->getAttribute($key))) {
+	        return strtoupper( $this->getAttribute($key) );
+	    } else {
+	        return $this->getAttribute($key);
+	    }
+	}
 }

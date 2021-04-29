@@ -28,4 +28,13 @@ class Client extends Model
     {
     	return $this->hasMany('App\Budget', 'client_id', 'id');
     }
+
+    public function __get($key)
+    {
+        if (is_string($this->getAttribute($key))) {
+            return strtoupper( $this->getAttribute($key) );
+        } else {
+            return $this->getAttribute($key);
+        }
+    }
 }
