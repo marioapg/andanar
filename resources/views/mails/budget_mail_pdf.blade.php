@@ -400,14 +400,15 @@
             </tr>
                 <tr>
                 <td colspan="4">
-                    <strong>TÉCNICO</strong> <small>Technic / Technicien</small>
+                    <strong>TÉCNICO PDR</strong> <small>Technic / Technicien</small>
                 </td>
                 <td colspan="9">
                     <strong>CONFORME CLIENTE</strong> Firma y Sello -- <small>customer ok / conformité</small>
                 </td>
             </tr>
             <tr style="height: 70px;max-height: 70px;">
-                <td colspan="4" style="height: 70px;max-height: 70px;">
+                <td class="cursiva-azul" colspan="4" style="height: 70px;max-height: 70px;border-color: black !important;">
+                    {{ $budget->technical->name ?? ''  }}
                 </td>
                 <td colspan="9" style="height: 70px;max-height: 70px;">
                 </td>
