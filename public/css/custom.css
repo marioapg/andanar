@@ -173,65 +173,65 @@
     background-color: rgb(174, 171, 171);
 }
 
-.aceptado-class {
+.ACEPTADO-class {
     background-color: #01924ed1;
 }
 
-.presupuestado-class {
+.PRESUPUESTADO-class {
     background-color: burlywood;
 }
 
-.rechazado-class {
+.RECHAZADO-class {
     background-color: #C4321D;
 }
 
-.proceso-class {
+.PROCESO-class {
     background-color: #4292E2;
 }
 
-.terminado-class {
+.TERMINADO-class {
     background-color: #49A42C;
 }
 
-.facturado-class {
+.FACTURADO-class {
     background-color: #B1BB33;
 }
 
-.cobrado-class {
+.COBRADO-class {
     background-color: #DF1285;
 }
 
-.border-aceptado {
+.border-ACEPTADO {
     border-radius: 3px;
     border: 1px solid #01924ed1 !important;
 }
 
-.border-presupuestado {
+.border-PRESUPUESTADO {
     border-radius: 3px;
     border: 1px solid burlywood !important;
 }
 
-.border-rechazado {
+.border-RECHAZADO {
     border-radius: 3px;
     border: 1px solid #C4321D !important;
 }
 
-.border-proceso {
+.border-PROCESO {
     border-radius: 3px;
     border: 1px solid #4292E2 !important;
 }
 
-.border-terminado {
+.border-TERMINADO {
     border-radius: 3px;
     border: 1px solid #49A42C !important;
 }
 
-.border-facturado {
+.border-FACTURADO {
     border-radius: 3px;
     border: 1px solid #B1BB33 !important;
 }
 
-.border-cobrado {
+.border-COBRADO {
 	border-radius: 3px;
     border: 1px solid #DF1285 !important;
 }
