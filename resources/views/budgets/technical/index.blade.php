@@ -44,7 +44,7 @@
                             {{ $budget->id }}
                         </td>
                         <td>
-                          <a href="{{ route('budget.show',$budget->id) }}">
+                          <a href="{{ route('budget.show',$budget->id) }}" style="color:blue;font-weight: bold;text-decoration: underline;">
                             {{ $budget->car->plate ?? '' }}
                           </a>
                         </td>

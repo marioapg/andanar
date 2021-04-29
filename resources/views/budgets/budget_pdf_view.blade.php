@@ -413,7 +413,7 @@
                 </td>
             </tr>
             <tr style="height: 70px;max-height: 70px;">
-                <td class="cursiva-azul" colspan="4" style="height: 70px;max-height: 70px;">
+                <td class="cursiva-azul" colspan="4" style="height: 70px;max-height: 70px;border-color: black !important;">
                     {{ $budget->technical->name ?? ''  }}
                 </td>
                 <td colspan="9" style="height: 70px;max-height: 70px;">

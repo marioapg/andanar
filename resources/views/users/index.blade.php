@@ -58,7 +58,7 @@
                           {{ $user->id }}
                         </td>
                         <td>
-                          <a href="{{ route('user.show', ['id' => $user->id]) }}">
+                          <a href="{{ route('user.show', ['id' => $user->id]) }}" style="color:blue;font-weight: bold;text-decoration: underline;">
                             {{ $user->name }}
                           </a>
                         </td>
