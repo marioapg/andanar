@@ -29,7 +29,7 @@
                   @method('DELETE')
                   @csrf
                   <button type="submit" class="btn btn-success btn-link" style="float: inline-end;">
-                    <i class="material-icons" style="color: red;">delete_forever</i>
+                    <i class="material-icons" style="color: red;font-size: 35px;">delete_forever</i>
                   </button>
                 </form>
               </div>

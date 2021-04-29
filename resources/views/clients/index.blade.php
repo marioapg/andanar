@@ -68,7 +68,7 @@
                           @endif
                           @if( !auth()->user()->hasRole('admin') &&
                                 ($client->created_by === auth()->user()->id) )
-                            <a href="{{ route('client.show', ['id' => $client->id]) }}">
+                            <a href="{{ route('client.show', ['id' => $client->id]) }}" style="color:blue;font-weight: bold;text-decoration: underline;">
                               {{ $client->name }}
                             </a>
                           @endif
