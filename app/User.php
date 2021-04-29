@@ -79,7 +79,7 @@ class User extends Authenticatable
 
     public function __get($key)
     {
-        if (is_string($this->getAttribute($key))) {
+        if (is_string($this->getAttribute($key)) && $key !== 'password' ) {
             return strtoupper( $this->getAttribute($key) );
         } else {
             return $this->getAttribute($key);
