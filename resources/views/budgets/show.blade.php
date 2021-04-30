@@ -87,13 +87,13 @@
                                     @csrf
                                     @method('put')
                                     <select class="form-control mdb-select change-invoice-select {{$budget->status}}-class" name="status" id="status" required style="border-radius: 3px; color: white;">
-                                       <option value="presupuestado" {{ ($budget->status == 'presupuestado') ? ' selected' : '' }}>Presupuestado</option>
-                                       <option value="rechazado" {{ ($budget->status == 'rechazado') ? ' selected' : '' }}>Rechazado</option>
-                                       <option value="aceptado" {{ ($budget->status == 'aceptado') ? ' selected' : '' }}>Aceptado</option>
-                                       <option value="proceso" {{ ($budget->status == 'proceso') ? ' selected' : '' }}>Proceso</option>
-                                       <option value="terminado" {{ ($budget->status == 'terminado') ? ' selected' : '' }}>Terminado</option>
-                                       <option value="facturado" {{ ($budget->status == 'facturado') ? ' selected' : '' }}>Facturado</option>
-                                       <option value="cobrado" {{ ($budget->status == 'cobrado') ? ' selected' : '' }}>Cobrado</option>
+                                       <option value="presupuestado" {{ ($budget->status == 'PRESUPUESTADO') ? ' selected' : '' }}>Presupuestado</option>
+                                       <option value="rechazado" {{ ($budget->status == 'RECHAZADO') ? ' selected' : '' }}>Rechazado</option>
+                                       <option value="aceptado" {{ ($budget->status == 'ACEPTADO') ? ' selected' : '' }}>Aceptado</option>
+                                       <option value="proceso" {{ ($budget->status == 'PROCESO') ? ' selected' : '' }}>Proceso</option>
+                                       <option value="terminado" {{ ($budget->status == 'TERMINADO') ? ' selected' : '' }}>Terminado</option>
+                                       <option value="facturado" {{ ($budget->status == 'FACTURADO') ? ' selected' : '' }}>Facturado</option>
+                                       <option value="cobrado" {{ ($budget->status == 'COBRADO') ? ' selected' : '' }}>Cobrado</option>
                                     </select>
                                  </form>
                               </div>
