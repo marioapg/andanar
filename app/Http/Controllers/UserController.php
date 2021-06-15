@@ -22,7 +22,7 @@ class UserController extends Controller
      */
     public function index(User $model) 
     {
-        dd( $model->where('type', '!=', 'admin') );
+        dd( $model->where('type', '!=', 'admin')->get() );
         if ( auth()->user()->hasRole('admin') ) {
             return view('users.index', ['users' => $model->where('type', '!=', 'admin')->paginate(15)]);
         }
