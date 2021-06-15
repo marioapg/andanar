@@ -20,8 +20,9 @@ class UserController extends Controller
      * @param  \App\User  $model
      * @return \Illuminate\View\View
      */
-    public function index(User $model)
+    public function index(User $model) 
     {
+        dd(auth()->user()->hasRole('admin'));
         if ( auth()->user()->hasRole('admin') ) {
             return view('users.index', ['users' => $model->where('type', '!=', 'admin')->paginate(15)]);
         }
